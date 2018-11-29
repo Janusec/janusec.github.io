@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>Installation</title>
+    <meta name="keywords" content="[Installation, Janusec Application Gateway]">
+    <meta name="description" content="Installation of Janusec Application Gateway">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">        
+        <a href="/" class="navbar-brand">JANUSEC</a>
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/product/">
+                  Product
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/dl/">
+                  Download
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="https://github.com/Janusec/janusec">
+                  Github
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/documentation/quick-start/">
+                  Documentation
+            </a>
+          </li>            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">English</a>
+              <a class="dropdown-item" href="/cn/">中文</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+</header>
+  <div class="container-fluid">
+  <div class="row">    
+      <div class="col-sm-3">        
+        <ul class="list-group">
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/quick-start/">Quick Start</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/introduction/">Introduction</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/installation/">Installation</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/admin/">Administration</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/certificate-management/">Certificate Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/application-management/">Application Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/node-management/">Node Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/waf-management/">WAF Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/operation-management/">Operation Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/migrate-to-janusec/">Migrate to Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/update-janusec/">Update Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/pricing/">Pricing</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/faq/">FAQ</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/user-agreement/">User Agreement</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/diagnose/">Diagnose</a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="col-sm-9">
+            <article>
+            
+
+<h1 id="installation">Installation</h1>
+
+<hr />
+
+<h3 id="requirements">Requirements</h3>
+
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Operating System</th>
+<th>Database</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Master Node</td>
+<td>CentOS/RHEL 7, or Debian 9, x86_64, with systemd</td>
+<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10</td>
+</tr>
+
+<tr>
+<td>Slave Node</td>
+<td>CentOS/RHEL 7, or Debian 9, x86_64, with systemd</td>
+<td>Not required</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="step-1-download">Step 1: Download</h3>
+
+<blockquote>
+<p>$cd ~<br />
+$wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br />
+$tar zxf ./janusec-latest.tar.gz</p>
+</blockquote>
+
+<h3 id="step-2-install">Step 2: Install</h3>
+
+<p>Switch to root and run install.sh , janusec application gateway will be installed to <code>/usr/local/janusec/</code></p>
+
+<blockquote>
+<p>$su<br />
+#cd janusec-0.9.3<br />
+#./install.sh</p>
+</blockquote>
+
+<p>Select <code>1. Master Node</code>, then it will:</p>
+
+<ul>
+<li>copy files to <code>/usr/local/janusec/</code><br /></li>
+<li>copy service file to system service directory<br /></li>
+<li>Enable Janusec Application Gateway as a system service, but not start it for the first time.<br /></li>
+</ul>
+
+<h3 id="step-3-config">Step 3: Config</h3>
+
+<p>PostgreSQL is not included in release package, you should prepare database name and account.<br />
+Now we assume you have <code>PostgreSQL</code> installed already, and database name and account is ready, then edit <code>/usr/local/janusec/config.json</code> :</p>
+
+<h5 id="master-node-the-first-node">Master Node (The First Node)</h5>
+
+<blockquote>
+<p>{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;master&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;master_node&rdquo;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_http_listen&rdquo;: &ldquo;:9080&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_https_listen&rdquo;: &ldquo;:9443&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;127.0.0.1&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;5432&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;user&rdquo;: &ldquo;<code>your_postgresql_user</code>&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;password&rdquo;: &ldquo;<code>your_postgresql_password</code>&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;dbname&rdquo;: &ldquo;<code>janusec</code>&rdquo;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;slave_node&rdquo;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_key&rdquo;: &ldquo;&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;sync_addr&rdquo;: &ldquo;&rdquo;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</p>
+</blockquote>
+
+<ul>
+<li>&ldquo;node_role&rdquo;: &ldquo;master&rdquo;  ( fixed <code>master</code> )</li>
+<li>&ldquo;admin_http_listen&rdquo;: &ldquo;:9080&rdquo; ( Listen on all IP address by default, custom address with internal <code>IP:Port</code> is preferred, such as <code>10.10.10.10:9080</code> )<br /></li>
+<li>&ldquo;admin_https_listen&rdquo;: &ldquo;:9443&rdquo; ( Listen on all IP address by default, custom address with internal <code>IP:Port</code> is preferred, such as <code>10.10.10.10:9443</code> )<br /></li>
+</ul>
+
+<blockquote>
+<p>For security reasons, use internal <code>IP:Port</code> is preferred.</p>
+</blockquote>
+
+<h5 id="slave-node-optional">Slave Node (Optional)</h5>
+
+<p>Usually only one <strong>Master Node</strong> is required for small scale web applications.<br />
+<strong>Slave Nodes</strong> is for large scale web applications, and need GSLB (Global Server Load Balance) of yourselves.<br />
+You must copy the <code>node_key</code> in web administration portal if you need slave nodes, and paste into the <code>config.json</code> of slave nodes.</p>
+
+<blockquote>
+<p>{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;<code>slave</code>&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;master_node&rdquo;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_http_listen&rdquo;: &ldquo;&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_https_listen&rdquo;: &ldquo;&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;user&rdquo;: &ldquo;&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;password&rdquo;: &ldquo;&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;dbname&rdquo;: &ldquo;&rdquo;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;slave_node&rdquo;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_key&rdquo;: &ldquo;<code>produced_by_web_admin_in_master_node</code>&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;sync_addr&rdquo;: &ldquo;<code>http://master_ip:9080/janusec-api/</code>&rdquo;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</p>
+</blockquote>
+
+<ul>
+<li>&ldquo;node_role&rdquo;: &ldquo;<code>slave</code>&rdquo;  (fixed <code>slave</code>)<br /></li>
+<li>&ldquo;node_key&rdquo;: &ldquo;<code>produced_by_web_admin_in_master_node</code>&rdquo;  (produced by web admin)<br /></li>
+<li>&ldquo;sync_addr&rdquo;: &ldquo;<code>http://master_ip:9080/janusec-api/</code>&rdquo;  (replace with the master IP address)</li>
+</ul>
+
+<h3 id="step-4-start">Step 4: Start</h3>
+
+<blockquote>
+<p>#systemctl start janusec.service</p>
+</blockquote>
+
+<h3 id="step-5-test-installation">Step 5: Test Installation</h3>
+
+<p>Open web browser such as <code>Chrome</code>, navigate with address:</p>
+
+<blockquote>
+<p>http://<code>your_master_ip_address</code>:9080/</p>
+</blockquote>
+
+<p>This is the first administration address for Janusec Application Gateway.<br />
+Login with default username <code>admin</code> and password <code>J@nusec123</code> .<br />
+You should change the password for security reasons.</p>
+
+            </article>
+      </div>
+  </div>
+</div>
+  <div class="container-fluid rowblock">
+    
+        &copy;Janusec All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
+        QQ Group: 776900157
+    
+</div>
+
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

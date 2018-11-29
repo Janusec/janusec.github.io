@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Janusec应用网关 - 应用安全解决方案 on Janusec</title>
+    <link>https://www.janusec.com/cn/</link>
+    <description>Recent content in Janusec应用网关 - 应用安全解决方案 on Janusec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 May 2018 21:03:34 +0800</lastBuildDate>
+    
+	<atom:link href="https://www.janusec.com/cn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>快速入门</title>
+      <link>https://www.janusec.com/cn/quick-start/</link>
+      <pubDate>Thu, 17 May 2018 22:28:32 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/quick-start/</guid>
+      <description>快速入门 Switch to English Edition of Quick Start
+本入门指导将安装一个单节点（主节点）的Janusec应用网关（网关WAF）.
+安装需求    节点 操作系统 数据库     主节点 CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   从节点 CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd 不需要    本入门只安装一个主节点，不安装从节点，如需扩展，可参考安装一节。
+安装 步骤 1: 下载  $cd ~
+$wget https://www.janusec.com/download/janusec-latest.tar.gz
+$tar zxf ./janusec-latest.tar.gz
+ 步骤 2: 安装 请切换到root用户并运行 install.</description>
+    </item>
+    
+    <item>
+      <title>产品介绍</title>
+      <link>https://www.janusec.com/cn/introduction/</link>
+      <pubDate>Sat, 12 May 2018 08:10:40 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/introduction/</guid>
+      <description> 产品介绍 Janusec应用网关，一种适用于各种场景（公有云、私有云、传统IDC等）的应用安全解决方案，提供Web路由、负载均衡、WAF（Web应用防火墙）等功能，可用于构建安全的、可扩展的应用。
+Janusec Application Gateway Introduction PDF
+产品特点:  WAF (Web Application Firewall, Web应用防火墙，天然支持HTTPS且不需要Agent )
+ 统一的Web化管理
+ 证书加密保护
+ 负载均衡（可扩展的部署架构）
+  让防御更简单  SQL注入
+ 跨站脚本
+ 敏感数据泄露 CC攻击 阻断（Block）、验证码（Captcha）等多种策略 支持多个检查点的组合策略
+  让管理更简单  统一的Web化管理中心
+  架构可扩展  多网关节点支持
+ 自动化策略同步
+  证书保护  私钥加密存储
+ 只在内存使用
+  </description>
+    </item>
+    
+    <item>
+      <title>安装</title>
+      <link>https://www.janusec.com/cn/installation/</link>
+      <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/installation/</guid>
+      <description>安装 需求    节点 操作系统 数据库     主节点 CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   从节点 CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd 不需要    Step 1: 下载  $cd ~
+$wget https://www.janusec.com/download/janusec-latest.tar.gz
+$tar zxf ./janusec-latest.tar.gz
+ Step 2: 安装 请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： /usr/local/janusec/
+ $su
+#cd janusec-0.</description>
+    </item>
+    
+    <item>
+      <title>管理</title>
+      <link>https://www.janusec.com/cn/admin/</link>
+      <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/admin/</guid>
+      <description>Web化管理 管理入口 第一个管理入口：
+http://主节点IP地址:9080/
+安全原因，推荐使用内部IP地址IP:Port，可在配置文件（/usr/local/janusec/config.json）中修改。
+ &amp;ldquo;admin_http_listen&amp;rdquo;: &amp;ldquo;10.10.10.10:9080&amp;rdquo;,
+&amp;ldquo;admin_https_listen&amp;rdquo;: &amp;ldquo;10.10.10.10:9443&amp;rdquo;,
+ 数字证书管理 参考 证书管理
+应用管理 参考 应用管理
+节点管理 参考 节点管理
+WAF管理 参考 WAF管理</description>
+    </item>
+    
+    <item>
+      <title>证书管理</title>
+      <link>https://www.janusec.com/cn/certificate-management/</link>
+      <pubDate>Sun, 20 May 2018 21:05:08 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/certificate-management/</guid>
+      <description> 证书管理 证书列表 在Web管理界面，导航到 Certificate Management （证书管理） .
+添加或编辑证书 这里可使用单域名证书（subdomain.yourdomain.com）或通配符证书（*.yourdomain.com），推荐使用通配符证书。
+生产环境，请使用权威第三方CA颁发的证书。
+测试环境，可使用Janusec自签发证书(在Common Name or Subject Alternative Name字段输入通配域名之后，可点击Self-Sign Certificate按钮)，不过自签证书不受信任，需要手工从浏览器导出，并导入到可信根CA颁发机构中。
+证书保护  证书私钥，加密存储在数据库中.
+不同的部署实例，加密密钥是不同的.
+ </description>
+    </item>
+    
+    <item>
+      <title>应用管理</title>
+      <link>https://www.janusec.com/cn/application-management/</link>
+      <pubDate>Sun, 20 May 2018 21:58:35 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/application-management/</guid>
+      <description> 应用管理 需求 如果您需要 https 支持，至少需要一个数字证书。
+证书管理
+添加或编辑应用 打开Web管理门户并导航至Application Management。
+注意:
+ 后端（从网关到真实服务器）通常在内网，默认使用 http ，不需要证书；
+ Destination（后端目的地）,使用 IP:Port 格式，其中端口不可省略（即使是80端口）； 多个Destination用于后端负载均衡；
+ 网关获取用户IP，默认使用REMOTE_ADDR（从IP报文获取）； 当网关的前面还存在可信任的CDN时，REMOTE_ADDR获取的是CDN的地址，可参考CDN厂商的说明文档，通常CDN厂商会将用户IP附加在X-Forwarded-For后面，这时网关可配置成 X_Forwarded_For （网关将使用该字段的最后一个IP地址）；
+ Janusec应用网关将会把REMOTE_ADDR获取的IP附加在X-Forwarded-For后面, 因此业务中如需使用用户IP地址，可提取X-Forwarded-For中的最后一个IP地址（网关直接向用户提供服务时），或倒数第二个IP地址（网关前面还存在可信任的CDN时）.
+  </description>
+    </item>
+    
+    <item>
+      <title>节点管理</title>
+      <link>https://www.janusec.com/cn/node-management/</link>
+      <pubDate>Sun, 20 May 2018 22:38:35 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/node-management/</guid>
+      <description>节点管理 节点类型  主节点, 有且只有一个，并需要使用PostgreSQL.
+ 从节点，可选，0个或多个，不需要数据库。
+  单节点架构  一个主节点，没有从节点.
+ 不需要GSLB或DNS负载均衡.
+ 适用于一个或多个小型Web应用.
+  多节点架构  一个主节点，多个从节点.
+ 主节点需要使用PostgreSQL. 需要GSLB或DNS负载均衡（不同地区的用户查询同一个域名，获取到不同的IP地址）.
+ 适用于一个或多个大型Web业务.
+  从节点  在统一的Web管理界面,可管理所有的从节点.
+ 从节点配置文件/usr/local/janusec/config.json中的node_key，需要据此配置.</description>
+    </item>
+    
+    <item>
+      <title>WAF管理</title>
+      <link>https://www.janusec.com/cn/waf-management/</link>
+      <pubDate>Mon, 21 May 2018 21:27:20 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/waf-management/</guid>
+      <description>WAF管理 添加或编辑WAF策略 典型的检查点  举例: http://www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2
+ URLPath: /blog/show.php
+URLQuery: id=1&amp;amp;category=2
+GetPostKey: [id, category]
+GetPostValue: [1, 2]
+ GetPostKey, GetPostValue ： 同时作用于GET和POST方法
+如果仅检查GET方法，请使用 URLQuery .
+ 正则表达式 Janusec应用网关采用 Google RE2 正则表达式 .
+为简化正则表达式配置，Janusec应用网关对待检测的字符串值进行了预处理：
+ 删除 &#39; 及 &amp;quot;
+ 替换 /**/ 为空格
+  正则举例:
+ (?i)\s+(and|or)\s+[\w\p{L}]+=[\w\p{L}]+$
+ 可覆盖如下值:
+ 1&#39; aNd &#39;1&#39;=&#39;1
+abc&#39; oR &amp;quot;abc&amp;quot;=&amp;quot;abc
+1&#39;/**/And/**/&#39;a&#39;=&#39;a
+ 备注:
+ p{L} 用于UNICODE字符.
+ 动作 Block（阻断） CAPTCHA（验证码） 用于CC攻击或高频访问</description>
+    </item>
+    
+    <item>
+      <title>运维管理</title>
+      <link>https://www.janusec.com/cn/operation-management/</link>
+      <pubDate>Fri, 25 May 2018 21:04:25 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/operation-management/</guid>
+      <description>运维管理 部署架构    架构 主节点 从节点 描述     单节点 一个 无 小规模Web应用，统一Web管理   可扩展 一个 任意 大规模Web应用，统一Web管理   多个自治系统 任意 任意 部署多套，每个自治系统内部统一Web管理.    管理账号 统一的Web管理地址包括如下：
+ http://your_master_node_ip_address:9080/ (首次使用)
+https://your_master_node_domain_name:9443/ (证书配置后可用)
+https://your_janusec_admin_domain_name/ (将Web管理应用当作普通应用在应用网关注册，不启用WAF)
+    默认用户 默认口令     admin J@nusec123     需要修改口令后才能继续管理功能!
+ 端口    端口 描述     80 固定的网关HTTP入口，主节点和从节点均开启   443 固定的网关HTTPS入口，主节点和从节点均开启   9080 可修改, HTTP Web 管理入口, 仅主节点开启   9443 可修改, HTTPS Web 管理入口, 仅主节点开启     默认的 9080 及 9443 端口可在配置文件 /usr/local/janusec/config.</description>
+    </item>
+    
+    <item>
+      <title>迁移到Janusec应用网关</title>
+      <link>https://www.janusec.com/cn/migrate-to-janusec/</link>
+      <pubDate>Wed, 06 Jun 2018 21:56:05 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/migrate-to-janusec/</guid>
+      <description>迁移到Janusec应用网关 步骤 1: 安装并配置Janusec应用网关 参考 安装, 安装Janusec应用网关并配置好证书、Web应用.
+步骤 2: 修改Hosts文件测试 修改本地电脑的 C:\Windows\System32\drivers\etc\hosts (不是网关) ，将域名临时指向网关IP，用于测试.
+ the_gateway_ip your_domain_name
+ 然后可打开浏览器测试访问 https://your_domain_name .
+步骤 3: 修改DNS 如果测试通过，可修改DNS指向，将正式生产环境的域名指向Janusec应用网关，并删除您本地添加的hosts记录。
+步骤 4: 提升安全 ( 可选 ) 后端真实服务器在接入Janusec应用网关之后，没有必要再监听外网地址了，可修改为只监听内网地址（如10.10.10.10:80），不再直接暴露在互联网，降低安全风险。</description>
+    </item>
+    
+    <item>
+      <title>升级Janusec</title>
+      <link>https://www.janusec.com/cn/update-janusec/</link>
+      <pubDate>Sun, 10 Jun 2018 20:11:45 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/update-janusec/</guid>
+      <description>升级到新版本Janusec应用网关 Version 0.9.3 upgrade to 0.9.4 可正常安装，建议升级前执行如下操作：
+ drop table nodes;
+ 删除配置文件config.json中含有 node_id 的这一行.
+ systemctl restart janusec.service
+ Version 0.9.2 upgrade to 0.9.3 PostgreSQL 表 applications 需要升级.
+安装程序不会自动升级，需要手工执行SQL指令：
+ alter table applications add column hsts_enabled boolean default true;
+ 然后参考 安装 安装Janusec应用网关, 并重启 janusec.service:
+ systemctl restart janusec.service
+ Version &amp;lt;=0.9.1 upgrade to 0.9.2 PostgreSQL 表 applications 需要升级.
+安装程序不会自动升级，需要手工执行SQL指令：
+ alter table applications add column ip_method bigint default 1;</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>https://www.janusec.com/cn/faq/</link>
+      <pubDate>Sat, 12 May 2018 07:45:49 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/faq/</guid>
+      <description> FAQ Q: Janusec应用网关与其它WAF的主要区别 ?  A: Janusec应用网关 也可称之为网关式WAF，它为克服传统WAF的缺点（如需部署Agent、HTTPS支持不好、数字证书私钥泄露等）而设计，将 WAF (Web Application Firewall)集成到到Web应用网关中，提升了用户访问、安全防御、维护管理等方面的体验。
+ Q: Janusec应用网关是否需要在业务服务器上部署Agent ?  A: 不需要.
+ Q: Janusec应用网关是否支持 HTTPS ?  A: 支持,Janusec应用网关天然支持 HTTPS .
+ Q: 证书私钥是否安全 ?  A: 证书私钥加密存储在数据库中，仅在内存解密使用. Janusec应用网关不需要使用以文件形式存放的证书，服务器上的明文证书文件可在妥善备份后删除。
+ Q: 接入Janusec应用网关后，应用中如何获取用户的IP地址 ?  A: Janusec应用网关将会把通过IP包提取的IP地址（REMOTE_ADDR）附加在X-Forwarded-For后面, 因此业务中如需使用用户IP地址，可提取X-Forwarded-For中的最后一个IP地址（网关直接向用户提供服务时），或倒数第二个IP地址（网关前面还存在可信任的CDN时）.
+ Q: 安装遇到问题，该如何排查？  A: 可参考 问题诊断。
+ </description>
+    </item>
+    
+    <item>
+      <title>问题诊断</title>
+      <link>https://www.janusec.com/cn/diagnose/</link>
+      <pubDate>Sun, 05 Aug 2018 10:16:34 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/cn/diagnose/</guid>
+      <description>问题诊断 部署 当安装Jausec时遇到问题，可先对照此检查表进行检查。
+操作系统 操作系统需要为x86_64架构的如下操作系统之一：
+ CentOS 7
+ RHEL 7
+ Debian 9
+  服务管理工具 服务管理工具为systemd，检查方法，在命令行运行：
+ command -v systemctl
+ （预期结果为：/usr/bin/systemctl）
+PostgreSQL 使用psql命令来检查配置是否正常：
+ psql -h 127.0.0.1 -U janusec -W janusec
+ 参数h后面跟IP地址，参数U后面跟数据库用户名，参数W表示接下来需要输入口令，最后是数据库名。
+如果登录验证不成功，可参考 运维管理 中的PostgreSQL安装部分。
+在PSQL Shell中执行版本检查：
+ select version();
+ 版本要求为9.3以上。
+端口  netstat -anp | grep LISTEN | grep &#39;:\(80\|443\|9080\|9443\)\s&#39;
+ Janusec网关需要使用80/443/9080/9443这几个端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。
+DNS 如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不需要任何修改。
+如果是单独部署的Janusec网关，需要将现有的Web服务接入迁移到Janusec，请先使用hosts方式调试通过，然后再修改DNS指向。
+主从节点同步 为了保证主从节点正确同步，需要满足：
+ 各节点时间正确（误差不超过一分钟）
+ 从节点node_key跟Web管理控制台中节点管理中显示的node_key一致。
+  开发 操作系统 开发者操作系统不限，但建议采用Linux系统。</description>
+    </item>
+    
+  </channel>
+</rss>

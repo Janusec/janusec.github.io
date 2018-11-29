@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>应用管理</title>
+    <meta name="keywords" content="[Janusec应用网关, WAF, Web Application Firewall]">
+    <meta name="description" content="Janusec应用网关的应用管理">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">        
+        <a href="/" class="navbar-brand">JANUSEC</a>
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/product/">
+                  Product
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/dl/">
+                  Download
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="https://github.com/Janusec/janusec">
+                  Github
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/documentation/quick-start/">
+                  Documentation
+            </a>
+          </li>            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">English</a>
+              <a class="dropdown-item" href="/cn/">中文</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+</header>
+  <div class="container-fluid">
+  <div class="row">    
+      <div class="col-sm-3">        
+        <ul class="list-group">
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/quick-start/">快速入门</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/introduction/">产品介绍</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/installation/">安装</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/admin/">管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/certificate-management/">证书管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/application-management/">应用管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/node-management/">节点管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/waf-management/">WAF管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/operation-management/">运维管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/update-janusec/">升级Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/faq/">FAQ</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/diagnose/">问题诊断</a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="col-sm-9">
+            <article>
+            
+
+<h1 id="应用管理">应用管理</h1>
+
+<hr />
+
+<h4 id="需求">需求</h4>
+
+<p>如果您需要 <code>https</code> 支持，至少需要一个数字证书。<br />
+<a href="/cn/certificate-management">证书管理</a></p>
+
+<h4 id="添加或编辑应用">添加或编辑应用</h4>
+
+<p>打开Web管理门户并导航至<code>Application Management</code>。<br />
+<img src="/images/application1.png" alt="添加或编辑应用" title="Janusec应用网关的应用管理" /></p>
+
+<p><strong>注意</strong>:</p>
+
+<ul>
+<li>后端（从网关到真实服务器）通常在内网，默认使用 <code>http</code> ，不需要证书；<br /></li>
+<li><code>Destination</code>（后端目的地）,使用 <code>IP:Port</code> 格式，其中端口不可省略（即使是80端口）；</li>
+<li>多个<code>Destination</code>用于后端负载均衡；<br /></li>
+<li>网关获取用户IP，默认使用<code>REMOTE_ADDR</code>（从IP报文获取）；</li>
+<li>当网关的前面还存在可信任的CDN时，<code>REMOTE_ADDR</code>获取的是CDN的地址，可参考CDN厂商的说明文档，通常CDN厂商会将用户IP附加在<code>X-Forwarded-For</code>后面，这时网关可配置成  <code>X_Forwarded_For</code> （网关将使用该字段的最后一个IP地址）；<br /></li>
+<li>Janusec应用网关将会把<code>REMOTE_ADDR</code>获取的IP附加在<code>X-Forwarded-For</code>后面, 因此业务中如需使用用户IP地址，可提取<code>X-Forwarded-For</code>中的最后一个IP地址（网关直接向用户提供服务时），或倒数第二个IP地址（网关前面还存在可信任的CDN时）.<br /></li>
+</ul>
+
+            </article>
+      </div>
+  </div>
+</div>
+  <div class="container-fluid rowblock">
+    
+        &copy;Janusec All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
+        QQ Group: 776900157
+    
+</div>
+
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

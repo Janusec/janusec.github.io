@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>运维管理</title>
+    <meta name="keywords" content="[Janusec, Application Gateway, WAF, Web Application Firewall, Web应用防火墙]">
+    <meta name="description" content="Janusec应用网关运维管理">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">        
+        <a href="/" class="navbar-brand">JANUSEC</a>
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/product/">
+                  Product
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/dl/">
+                  Download
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="https://github.com/Janusec/janusec">
+                  Github
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/documentation/quick-start/">
+                  Documentation
+            </a>
+          </li>            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">English</a>
+              <a class="dropdown-item" href="/cn/">中文</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+</header>
+  <div class="container-fluid">
+  <div class="row">    
+      <div class="col-sm-3">        
+        <ul class="list-group">
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/quick-start/">快速入门</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/introduction/">产品介绍</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/installation/">安装</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/admin/">管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/certificate-management/">证书管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/application-management/">应用管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/node-management/">节点管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/waf-management/">WAF管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/operation-management/">运维管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/update-janusec/">升级Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/faq/">FAQ</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/diagnose/">问题诊断</a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="col-sm-9">
+            <article>
+            
+
+<h1 id="运维管理">运维管理</h1>
+
+<hr />
+
+<h4 id="部署架构">部署架构</h4>
+
+<table>
+<thead>
+<tr>
+<th>架构</th>
+<th align="center">主节点</th>
+<th align="center">从节点</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>单节点</td>
+<td align="center">一个</td>
+<td align="center">无</td>
+<td>小规模Web应用，统一Web管理</td>
+</tr>
+
+<tr>
+<td>可扩展</td>
+<td align="center">一个</td>
+<td align="center">任意</td>
+<td>大规模Web应用，统一Web管理</td>
+</tr>
+
+<tr>
+<td>多个自治系统</td>
+<td align="center">任意</td>
+<td align="center">任意</td>
+<td>部署多套，每个自治系统内部统一Web管理.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="管理账号">管理账号</h4>
+
+<p>统一的Web管理地址包括如下：</p>
+
+<blockquote>
+<p>http://<code>your_master_node_ip_address</code>:9080/    (首次使用)<br />
+https://<code>your_master_node_domain_name</code>:9443/  (证书配置后可用)<br />
+https://<code>your_janusec_admin_domain_name</code>/     (将Web管理应用当作普通应用在应用网关注册，不启用WAF)</p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+<th align="center">默认用户</th>
+<th>默认口令</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>admin</code></td>
+<td><code>J@nusec123</code></td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>需要修改口令后才能继续管理功能!</p>
+</blockquote>
+
+<h4 id="端口">端口</h4>
+
+<table>
+<thead>
+<tr>
+<th align="center">端口</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">80</td>
+<td>固定的网关HTTP入口，主节点和从节点均开启</td>
+</tr>
+
+<tr>
+<td align="center">443</td>
+<td>固定的网关HTTPS入口，主节点和从节点均开启</td>
+</tr>
+
+<tr>
+<td align="center"><code>9080</code></td>
+<td>可修改, HTTP Web 管理入口, 仅主节点开启</td>
+</tr>
+
+<tr>
+<td align="center"><code>9443</code></td>
+<td>可修改, HTTPS  Web 管理入口,  仅主节点开启</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>默认的 <code>9080</code> 及 <code>9443</code> 端口可在配置文件 <code>/usr/local/janusec/config.json</code> 中修改。</p>
+</blockquote>
+
+<h4 id="进程">进程</h4>
+
+<blockquote>
+<p><code>/usr/local/janusec/janusec</code></p>
+</blockquote>
+
+<h4 id="配置文件">配置文件</h4>
+
+<blockquote>
+<p><code>/usr/local/janusec/config.json</code></p>
+</blockquote>
+
+<p><code>config.json</code> 中的 PostgreSQL 口令，将自动修改为加密存储，以32字节为界。</p>
+
+<ul>
+<li>当口令长度 &lt;= 32, 视为明文口令，将自动加密替换.<br /></li>
+<li>当口令长度 &gt; 32, 视为已加密，仅在内存解密.<br /></li>
+</ul>
+
+<h4 id="服务">服务</h4>
+
+<p>使用 <code>systemd</code> 管理Janusec服务，位置:</p>
+
+<blockquote>
+<p>CentOS/RHEL 7: <code>/usr/lib/systemd/system/janusec.service</code><br />
+Debian 9: <code>/lib/systemd/system/janusec.service</code></p>
+</blockquote>
+
+<p>查看更多信息，可执行：</p>
+
+<blockquote>
+<p>#<code>systemctl cat janusec.service</code></p>
+</blockquote>
+
+<p>或者</p>
+
+<blockquote>
+<p>#<code>systemctl status janusec.service</code></p>
+</blockquote>
+
+<h4 id="postgresql">PostgreSQL</h4>
+
+<p>PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令.<br />
+下面以 CentOS7 和 PostgreSQL 为例，简述 PostgreSQL 的安装步骤。</p>
+
+<h5 id="在-centos-7-中部署-postgresql-10">在 CentOS 7 中部署 PostgreSQL 10</h5>
+
+<p>主要参考 <a href="https://wiki.postgresql.org/wiki/YUM_Installation">https://wiki.postgresql.org/wiki/YUM_Installation</a>
+首先添加源，方便通过yum安装。</p>
+
+<blockquote>
+<p><code>yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm</code></p>
+</blockquote>
+
+<p>如果该链接失效，可通过  <code>https://yum.postgresql.org/repopackages.php</code> 获取最新地址。<br />
+添加成功后，可通过YUM安装。</p>
+
+<blockquote>
+<p>#<code>yum install postgresql10-server</code><br />
+#<code>/usr/pgsql-10/bin/postgresql-10-setup initdb</code><br />
+#<code>systemctl restart postgresql-10.service</code><br />
+#<code>su - postgres</code><br />
+-bash-4.2$ <code>psql</code></p>
+</blockquote>
+
+<p>接下来，在PostgreSQL的指令控制台继续操作：</p>
+
+<blockquote>
+<p>postgres=# create user <code>janusec</code> with password &lsquo;<code>your_password</code>&rsquo;;<br />
+postgres=# create database janusec owner janusec;<br />
+postgres=# grant all privileges on database janusec to janusec;<br />
+postgres=# \q<br />
+exit</p>
+</blockquote>
+
+<p>修改PostgreSQL认证方式</p>
+
+<blockquote>
+<p>#<code>vi /var/lib/pgsql/10/data/pg_hba.conf</code></p>
+</blockquote>
+
+<p>修改 pg_hba.conf 中这一行:</p>
+
+<blockquote>
+<p><code>host    all    all    127.0.0.1/32   md5</code></p>
+</blockquote>
+
+<p>重启 PostgreSQL 服务</p>
+
+<blockquote>
+<p>systemctl restart postgresql-10.service</p>
+</blockquote>
+
+<h4 id="为web管理启用-https">为Web管理启用 HTTPS</h4>
+
+<p>如果已配置证书，可使用任一Web应用的域名，以及管理端口（默认9443）进行访问：</p>
+
+<blockquote>
+<p><code>https://your_application_domain:9443/</code></p>
+</blockquote>
+
+<p>也可为Janusec Web管理系统分配一个域名（如： <code>janusec.your_domain_name.com</code>），并将Web管理配置为Janusec应用网关的一个应用（不需要启用WAF）, 然后可通过如下地址访问:</p>
+
+<blockquote>
+<p><code>https://janusec.your_domain_name.com/</code></p>
+</blockquote>
+
+            </article>
+      </div>
+  </div>
+</div>
+  <div class="container-fluid rowblock">
+    
+        &copy;Janusec All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
+        QQ Group: 776900157
+    
+</div>
+
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

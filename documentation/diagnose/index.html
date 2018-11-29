@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>Diagnose</title>
+    <meta name="keywords" content="[Janusec, Application Gateway, WAF, Web Application Firewall]">
+    <meta name="description" content="Diagnose for Janusec Application Gateway">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">        
+        <a href="/" class="navbar-brand">JANUSEC</a>
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/product/">
+                  Product
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/dl/">
+                  Download
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="https://github.com/Janusec/janusec">
+                  Github
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/documentation/quick-start/">
+                  Documentation
+            </a>
+          </li>            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">English</a>
+              <a class="dropdown-item" href="/cn/">中文</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+</header>
+  <div class="container-fluid">
+  <div class="row">    
+      <div class="col-sm-3">        
+        <ul class="list-group">
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/quick-start/">Quick Start</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/introduction/">Introduction</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/installation/">Installation</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/admin/">Administration</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/certificate-management/">Certificate Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/application-management/">Application Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/node-management/">Node Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/waf-management/">WAF Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/operation-management/">Operation Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/migrate-to-janusec/">Migrate to Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/update-janusec/">Update Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/pricing/">Pricing</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/faq/">FAQ</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/user-agreement/">User Agreement</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/diagnose/">Diagnose</a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="col-sm-9">
+            <article>
+            
+
+<h1 id="diagnose">Diagnose</h1>
+
+<hr />
+
+<h2 id="deployment">Deployment</h2>
+
+<hr />
+
+<h3 id="operating-system">Operating System</h3>
+
+<p>Operating System should be x86_64 and one of the following:</p>
+
+<ul>
+<li>CentOS 7<br /></li>
+<li>RHEL 7<br /></li>
+<li>Debian 9<br /></li>
+</ul>
+
+<h3 id="service-management">Service Management</h3>
+
+<p><code>systemd</code> is used for Service Management , check :</p>
+
+<blockquote>
+<p><code>command -v systemctl</code></p>
+</blockquote>
+
+<p>(Expect result: /usr/bin/systemctl)</p>
+
+<h3 id="postgresql">PostgreSQL</h3>
+
+<p>Use <code>psql</code> to check PostgreSQL Connection:</p>
+
+<blockquote>
+<p>psql -h <code>127.0.0.1</code> -U <code>janusec</code> -W <code>janusec</code></p>
+</blockquote>
+
+<p>If not OK, refer to <a href="/documentation/operation-management">Operation Management</a> , PostgreSQL part.</p>
+
+<p>Check version within PSQL Shell:</p>
+
+<blockquote>
+<p>select version();</p>
+</blockquote>
+
+<p>The version must be greater than <code>9.3</code>.</p>
+
+<h3 id="ports">Ports</h3>
+
+<blockquote>
+<p><code>netstat -anp | grep LISTEN | grep ':\(80\|443\|9080\|9443\)\s'</code></p>
+</blockquote>
+
+<p>Janusec will use 80/443/9080/9443 , if other program occupied thest ports, you shoud change it before installation of Janusec.</p>
+
+<h3 id="nodes-sync">Nodes Sync</h3>
+
+<p>In order to sync correctly, requires:</p>
+
+<ul>
+<li>Slave node use the correct time, error less than 60 seconds.<br /></li>
+<li>The <code>node_key</code> in <code>/usr/local/janusec/config.json</code> is the same with <a href="/documentation/node-management">Node Management</a>.<br />
+<br />
+<br />
+<br /></li>
+</ul>
+
+<h2 id="development">Development</h2>
+
+<hr />
+
+<h3 id="operating-system-1">Operating System</h3>
+
+<p>Linux is preferred.<br />
+Console debug only for other operating systems.<br />
+The release script (release.sh) support Linux only.</p>
+
+<h3 id="postgresql-1">PostgreSQL</h3>
+
+<p>Different configuration files used, <code>./config.json</code> for development , and <code>/usr/local/janusec/config.json</code> for deployment .</p>
+
+<h3 id="golang">Golang</h3>
+
+<p>At least Go 1.9+ .</p>
+
+<h3 id="code">Code</h3>
+
+<blockquote>
+<p><code>go get -u github.com/Janusec/janusec</code></p>
+</blockquote>
+
+<p>git clone is not preferred.</p>
+
+            </article>
+      </div>
+  </div>
+</div>
+  <div class="container-fluid rowblock">
+    
+        &copy;Janusec All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
+        QQ Group: 776900157
+    
+</div>
+
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>Migrate to Janusec</title>
+    <meta name="keywords" content="[Janusec, Application Gateway, WAF, Web Application Firewall]">
+    <meta name="description" content="Migrate to Janusec Application Gateway">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">        
+        <a href="/" class="navbar-brand">JANUSEC</a>
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/product/">
+                  Product
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/dl/">
+                  Download
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="https://github.com/Janusec/janusec">
+                  Github
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/documentation/quick-start/">
+                  Documentation
+            </a>
+          </li>            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">English</a>
+              <a class="dropdown-item" href="/cn/">中文</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+</header>
+  <div class="container-fluid">
+  <div class="row">    
+      <div class="col-sm-3">        
+        <ul class="list-group">
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/quick-start/">Quick Start</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/introduction/">Introduction</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/installation/">Installation</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/admin/">Administration</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/certificate-management/">Certificate Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/application-management/">Application Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/node-management/">Node Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/waf-management/">WAF Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/operation-management/">Operation Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/migrate-to-janusec/">Migrate to Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/update-janusec/">Update Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/pricing/">Pricing</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/faq/">FAQ</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/user-agreement/">User Agreement</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/diagnose/">Diagnose</a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="col-sm-9">
+            <article>
+            
+
+<h1 id="migrate-to-janusec-application-gateway">Migrate to Janusec Application Gateway</h1>
+
+<hr />
+
+<h4 id="step-1-install-and-configure-janusec-application-gateway">Step 1: Install and Configure Janusec Application Gateway</h4>
+
+<p>Refer to <a href="/documentation/installation/">Installation</a>, install janusec application gateway and configure digital certificate, application.</p>
+
+<h4 id="step-2-hosts-test">Step 2: Hosts Test</h4>
+
+<p>After configuration, modify you local hosts file <code>C:\Windows\System32\drivers\etc\hosts</code> ( not the Gateway) for test.</p>
+
+<blockquote>
+<p><code>the_gateway_ip</code>  <code>your_domain_name</code></p>
+</blockquote>
+
+<p>Then, open web browser and navigate to <code>https://your_domain_name</code>.</p>
+
+<h4 id="step-3-modify-dns">Step 3: Modify DNS</h4>
+
+<p>If test OK, modify your DNS setting for production, let domain name point to the gateway, and restore your local hosts.</p>
+
+<h4 id="step-4-enhance-security-optional">Step 4: Enhance Security ( Optional )</h4>
+
+<p>Modify the listening address of your real servers, from external or all IP address (example: <code>0.0.0.0:80</code>)  to  internal IP address (example: <code>10.10.10.10:80</code>).</p>
+
+            </article>
+      </div>
+  </div>
+</div>
+  <div class="container-fluid rowblock">
+    
+        &copy;Janusec All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
+        QQ Group: 776900157
+    
+</div>
+
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

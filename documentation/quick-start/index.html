@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>Quick Start</title>
+    <meta name="keywords" content="[Janusec Application Gateway Quick Start, WAF, Web Application Firewall]">
+    <meta name="description" content="Build a single node Janusec Application Gateway quickly.">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">        
+        <a href="/" class="navbar-brand">JANUSEC</a>
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/product/">
+                  Product
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/dl/">
+                  Download
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="https://github.com/Janusec/janusec">
+                  Github
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class="active nav-link" href="/documentation/quick-start/">
+                  Documentation
+            </a>
+          </li>            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">English</a>
+              <a class="dropdown-item" href="/cn/">中文</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+</header>
+  <div class="container-fluid">
+  <div class="row">    
+      <div class="col-sm-3">        
+        <ul class="list-group">
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/quick-start/">Quick Start</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/introduction/">Introduction</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/installation/">Installation</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/admin/">Administration</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/certificate-management/">Certificate Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/application-management/">Application Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/node-management/">Node Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/waf-management/">WAF Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/operation-management/">Operation Management</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/migrate-to-janusec/">Migrate to Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/update-janusec/">Update Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/pricing/">Pricing</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/faq/">FAQ</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/user-agreement/">User Agreement</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/documentation/diagnose/">Diagnose</a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="col-sm-9">
+            <article>
+            
+
+<h1 id="quick-start">Quick Start</h1>
+
+<hr />
+
+<p><a href="/cn/quick-start/">快速入门中文版</a></p>
+
+<p>This document will guide you to install a Single-Node <strong>Janusec Application Gateway</strong>.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<hr />
+
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Operating System</th>
+<th>Database</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Master Node</td>
+<td>CentOS/RHEL 7, or Debian 9, x86_64, with systemd</td>
+<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10</td>
+</tr>
+
+<tr>
+<td>Slave Node</td>
+<td>CentOS/RHEL 7, or Debian 9, x86_64, with systemd</td>
+<td>Not required</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="installation">Installation</h2>
+
+<hr />
+
+<h5 id="step-1-download">Step 1: Download</h5>
+
+<blockquote>
+<p>$cd ~<br />
+$wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br />
+$tar zxf ./janusec-latest.tar.gz</p>
+</blockquote>
+
+<h5 id="step-2-install">Step 2: Install</h5>
+
+<p>Switch to root and run install.sh , janusec application gateway will be installed to <code>/usr/local/janusec/</code></p>
+
+<blockquote>
+<p>$su<br />
+#cd janusec-0.9.3<br />
+#./install.sh</p>
+</blockquote>
+
+<p>Select <code>1. Master Node</code>, then it will:</p>
+
+<ul>
+<li>copy files to <code>/usr/local/janusec/</code><br /></li>
+<li>copy service file to system service directory<br /></li>
+<li>Enable Janusec Application Gateway as a system service, but not start it for the first time.<br /></li>
+</ul>
+
+<h5 id="step-3-config">Step 3: Config</h5>
+
+<p>PostgreSQL is not included in release package, you should prepare database name and account.<br />
+Now we assume you have <code>PostgreSQL</code> installed already, and database name and account is ready, then edit <code>/usr/local/janusec/config.json</code> :</p>
+
+<blockquote>
+<p>{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;master&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;master_node&rdquo;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_http_listen&rdquo;: &ldquo;:9080&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_https_listen&rdquo;: &ldquo;:9443&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;127.0.0.1&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;5432&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;user&rdquo;: &ldquo;<code>your_postgresql_user</code>&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;password&rdquo;: &ldquo;<code>your_postgresql_password</code>&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;dbname&rdquo;: &ldquo;<code>janusec</code>&rdquo;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;slave_node&rdquo;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_key&rdquo;: &ldquo;&rdquo;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;sync_addr&rdquo;: &ldquo;&rdquo;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</p>
+</blockquote>
+
+<h5 id="step-4-start-and-test-installation">Step 4: Start and Test Installation</h5>
+
+<blockquote>
+<p>#systemctl start janusec.service</p>
+</blockquote>
+
+<p>Open web browser such as <code>Chrome</code>, navigate with address:</p>
+
+<blockquote>
+<p>http://<code>your_ip_address</code>:9080/</p>
+</blockquote>
+
+<p>This is the administration address for Janusec Application Gateway.<br />
+Login with default username <code>admin</code> and password <code>J@nusec123</code> .</p>
+
+<h2 id="certificate-required-for-https">Certificate (required for <code>HTTPS</code>)</h2>
+
+<hr />
+
+<p>If you only use HTTP, skip this step.<br />
+Open http://<code>your_ip_address</code>:9080/ and add a new certificate.
+If you don&rsquo;t have a certificate, you can get a free certificate from <code>Let's Encrypt</code> or let Janusec produce a self-signed certificate( only for test).</p>
+
+<h2 id="application-required">Application (required)</h2>
+
+<hr />
+
+<p>Open http://<code>your_ip_address</code>:9080/ and add a new application.
+Fill in application name, actual IP:Port etc.</p>
+
+<h2 id="dns-or-hosts-required">DNS or Hosts (required)</h2>
+
+<hr />
+
+<p>Modify your DNS settings, let <code>your_domain_name</code> point to the Gateway for production, or modify you local hosts <code>C:\Windows\System32\drivers\etc\hosts</code> ( not the Gateway) for test.</p>
+
+<h2 id="validation">Validation</h2>
+
+<hr />
+
+<p>Open http://<code>your_domain_name</code>/ or https://<code>your_domain_name</code>/ .</p>
+
+<h2 id="waf-validation">WAF Validation</h2>
+
+<hr />
+
+<p>Test cases:</p>
+
+<blockquote>
+<p><code>http://your_domain_name/.svn/entries</code><br />
+<code>http://your_domain_name/test?id=1 and 1=1</code></p>
+</blockquote>
+
+<p>Block information:<br />
+<img src="/images/waf2.png" alt="WAF" title="WAF of Janusec Application Gateway" /></p>
+
+            </article>
+      </div>
+  </div>
+</div>
+  <div class="container-fluid rowblock">
+    
+        &copy;Janusec All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
+        QQ Group: 776900157
+    
+</div>
+
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

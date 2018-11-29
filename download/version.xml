@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Created By WebCruiser - Web Vulnerability Scanner http://www.janusec.com-->
+<ROOT>
+<Version Value="3.5.6.0" />
+<BuiltDate Value="2018-07-08" />
+<Download>
+    <URL Edition="Pro" Value="http://www.janusec.com/download/WebCruiserPro.zip" />
+    <URL Edition="Ent" Value="http://www.janusec.com/download/WebCruiserEnt.zip" />
+    <URL Edition="Free" Value="http://www.janusec.com/download/WebCruiser.zip" />
+</Download>
+</ROOT>

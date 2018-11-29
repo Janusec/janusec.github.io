@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>WAF管理</title>
+    <meta name="keywords" content="[WAF, Web Application Firewall, Web应用防火墙]">
+    <meta name="description" content="WAF管理 of Janusec应用网关">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">        
+        <a href="/" class="navbar-brand">JANUSEC</a>
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/product/">
+                  Product
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/dl/">
+                  Download
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="https://github.com/Janusec/janusec">
+                  Github
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/documentation/quick-start/">
+                  Documentation
+            </a>
+          </li>            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">English</a>
+              <a class="dropdown-item" href="/cn/">中文</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+</header>
+  <div class="container-fluid">
+  <div class="row">    
+      <div class="col-sm-3">        
+        <ul class="list-group">
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/quick-start/">快速入门</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/introduction/">产品介绍</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/installation/">安装</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/admin/">管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/certificate-management/">证书管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/application-management/">应用管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/node-management/">节点管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/waf-management/">WAF管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/operation-management/">运维管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/update-janusec/">升级Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/faq/">FAQ</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/diagnose/">问题诊断</a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="col-sm-9">
+            <article>
+            
+
+<h1 id="waf管理">WAF管理</h1>
+
+<hr />
+
+<h4 id="添加或编辑waf策略">添加或编辑WAF策略</h4>
+
+<p><img src="/images/waf1.png" alt="添加或编辑WAF策略" title="Janusec应用网关，添加或编辑WAF策略" /></p>
+
+<h4 id="典型的检查点">典型的检查点</h4>
+
+<blockquote>
+<p>举例: <code>http://www.yourdomain.com/blog/show.php?id=1&amp;category=2</code></p>
+</blockquote>
+
+<p>URLPath: <code>/blog/show.php</code><br />
+URLQuery: <code>id=1&amp;category=2</code><br />
+GetPostKey: [<code>id</code>, <code>category</code>]<br />
+GetPostValue: [<code>1</code>, <code>2</code>]</p>
+
+<blockquote>
+<p>GetPostKey, GetPostValue ： 同时作用于GET和POST方法<br />
+如果仅检查GET方法，请使用 URLQuery  .</p>
+</blockquote>
+
+<h4 id="正则表达式">正则表达式</h4>
+
+<p>Janusec应用网关采用 <a href="https://github.com/google/re2/wiki/Syntax">Google RE2 正则表达式</a> .<br />
+为简化正则表达式配置，Janusec应用网关对待检测的字符串值进行了预处理：</p>
+
+<ul>
+<li>删除  <code>'</code> 及  <code>&quot;</code><br /></li>
+<li>替换 <code>/**/</code> 为空格<br /></li>
+</ul>
+
+<p>正则举例:</p>
+
+<blockquote>
+<p><code>(?i)\s+(and|or)\s+[\w\p{L}]+=[\w\p{L}]+$</code></p>
+</blockquote>
+
+<p>可覆盖如下值:</p>
+
+<blockquote>
+<p><code>1' aNd '1'='1</code><br />
+<code>abc' oR &quot;abc&quot;=&quot;abc</code><br />
+<code>1'/**/And/**/'a'='a</code></p>
+</blockquote>
+
+<p>备注:</p>
+
+<blockquote>
+<p><code>p{L}</code> 用于UNICODE字符.</p>
+</blockquote>
+
+<h4 id="动作">动作</h4>
+
+<hr />
+
+<h5 id="block-阻断">Block（阻断）</h5>
+
+<p><img src="/images/waf2.png" alt="Janusec应用网关阻断恶意请求" /></p>
+
+<h5 id="captcha-验证码">CAPTCHA（验证码）</h5>
+
+<p>用于CC攻击或高频访问<br />
+<img src="/images/captcha.png" alt="Janusec应用网关验证码" /></p>
+
+            </article>
+      </div>
+  </div>
+</div>
+  <div class="container-fluid rowblock">
+    
+        &copy;Janusec All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
+        QQ Group: 776900157
+    
+</div>
+
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

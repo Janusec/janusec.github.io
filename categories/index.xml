@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Janusec</title>
+    <link>https://www.janusec.com/categories/</link>
+    <description>Recent content in Categories on Janusec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://www.janusec.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gateway</title>
+      <link>https://www.janusec.com/categories/gateway/</link>
+      <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/categories/gateway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scanner</title>
+      <link>https://www.janusec.com/categories/scanner/</link>
+      <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
+      
+      <guid>https://www.janusec.com/categories/scanner/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

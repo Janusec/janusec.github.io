@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>节点管理</title>
+    <meta name="keywords" content="[Janusec应用网关, 主节点, 从节点]">
+    <meta name="description" content="Janusec应用网关的节点管理">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">        
+        <a href="/" class="navbar-brand">JANUSEC</a>
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/product/">
+                  Product
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/dl/">
+                  Download
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="https://github.com/Janusec/janusec">
+                  Github
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/documentation/quick-start/">
+                  Documentation
+            </a>
+          </li>            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">English</a>
+              <a class="dropdown-item" href="/cn/">中文</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+</header>
+  <div class="container-fluid">
+  <div class="row">    
+      <div class="col-sm-3">        
+        <ul class="list-group">
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/quick-start/">快速入门</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/introduction/">产品介绍</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/installation/">安装</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/admin/">管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/certificate-management/">证书管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/application-management/">应用管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/node-management/">节点管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/waf-management/">WAF管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/operation-management/">运维管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/update-janusec/">升级Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/faq/">FAQ</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://www.janusec.com/cn/diagnose/">问题诊断</a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="col-sm-9">
+            <article>
+            
+
+<h1 id="节点管理">节点管理</h1>
+
+<hr />
+
+<p><img src="/images/gateway2.png" alt="应用网关" title="Janusec应用网关节点" /></p>
+
+<h4 id="节点类型">节点类型</h4>
+
+<ul>
+<li>主节点, 有且只有一个，并需要使用PostgreSQL.<br /></li>
+<li>从节点，可选，0个或多个，不需要数据库。<br /></li>
+</ul>
+
+<h4 id="单节点架构">单节点架构</h4>
+
+<ul>
+<li>一个主节点，没有从节点.<br /></li>
+<li>不需要GSLB或DNS负载均衡.<br /></li>
+<li>适用于一个或多个小型Web应用.<br /></li>
+</ul>
+
+<h4 id="多节点架构">多节点架构</h4>
+
+<ul>
+<li>一个主节点，多个从节点.<br /></li>
+<li>主节点需要使用PostgreSQL.</li>
+<li>需要GSLB或DNS负载均衡（不同地区的用户查询同一个域名，获取到不同的IP地址）.<br /></li>
+<li>适用于一个或多个大型Web业务.<br /></li>
+</ul>
+
+<h4 id="从节点">从节点</h4>
+
+<blockquote>
+<p>在统一的Web管理界面,可管理所有的从节点.</p>
+</blockquote>
+
+<p><img src="/images/node1.png" alt="从节点" title="Janusec应用网关的从节点" /></p>
+
+<p>从节点配置文件<code>/usr/local/janusec/config.json</code>中的<code>node_key</code>，需要据此配置.</p>
+
+            </article>
+      </div>
+  </div>
+</div>
+  <div class="container-fluid rowblock">
+    
+        &copy;Janusec All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
+        QQ Group: 776900157
+    
+</div>
+
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>
