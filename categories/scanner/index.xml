@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scanner on Janusec</title>
-    <link>https://www.janusec.com/categories/scanner/</link>
+    <link>/categories/scanner/</link>
     <description>Recent content in Scanner on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 11 May 2018 20:58:57 +0800</lastBuildDate>
     
-	<atom:link href="https://www.janusec.com/categories/scanner/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/scanner/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>WebCruiser Web Vulnerability Scanner</title>
-      <link>https://www.janusec.com/product/webcruiser-web-vulnerability-scanner/</link>
+      <link>/product/webcruiser-web-vulnerability-scanner/</link>
       <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
       
-      <guid>https://www.janusec.com/product/webcruiser-web-vulnerability-scanner/</guid>
+      <guid>/product/webcruiser-web-vulnerability-scanner/</guid>
       <description>WebCruiser Web Vulnerability Scanner, an effective and powerful web penetration testing tool that will aid you in auditing your website!
 It can support scanning website as well as POC (Proof of concept) for web vulnerabilities: SQL Injection, Cross Site Scripting, Local File Inclusion, Remote File Inclusion, Redirect etc.
 The most typical feature of WebCruiser comparing with other Web Vulnerability Scanners is that WebCruiser Web Vulnerability Scanner focuses on high risk vulnerabilities, and WebCruiser can scan a designated vulnerability type, or a designated URL, or a designated page separately, while the others usually will not.</description>
