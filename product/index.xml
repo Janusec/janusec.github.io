@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Product on Janusec</title>
-    <link>/product/</link>
+    <link>https://janusec.github.io/product/</link>
     <description>Recent content in Product on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Jun 2018 22:02:26 +0800</lastBuildDate>
     
-	<atom:link href="/product/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://janusec.github.io/product/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Janusec Application Gateway</title>
-      <link>/product/janusec-application-gateway/</link>
+      <link>https://janusec.github.io/product/janusec-application-gateway/</link>
       <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
       
-      <guid>/product/janusec-application-gateway/</guid>
+      <guid>https://janusec.github.io/product/janusec-application-gateway/</guid>
       <description>Janusec Application Gateway, an application security solutions for public cloud, private cloud, and traditional IDC, which provides web routing, load balancing, and web application firewall. With Janusec, you can build secure and scalable applications.
 Janusec Application Gateway Introduction PDF
 Key Features:  Web Application Firewall ( HTTPS support, No Agent Required )
@@ -27,10 +27,10 @@ Key Features:  Web Application Firewall ( HTTPS support, No Agent Required )
     
     <item>
       <title>WebCruiser Web Vulnerability Scanner</title>
-      <link>/product/webcruiser-web-vulnerability-scanner/</link>
+      <link>https://janusec.github.io/product/webcruiser-web-vulnerability-scanner/</link>
       <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
       
-      <guid>/product/webcruiser-web-vulnerability-scanner/</guid>
+      <guid>https://janusec.github.io/product/webcruiser-web-vulnerability-scanner/</guid>
       <description>WebCruiser Web Vulnerability Scanner, an effective and powerful web penetration testing tool that will aid you in auditing your website!
 It can support scanning website as well as POC (Proof of concept) for web vulnerabilities: SQL Injection, Cross Site Scripting, Local File Inclusion, Remote File Inclusion, Redirect etc.
 The most typical feature of WebCruiser comparing with other Web Vulnerability Scanners is that WebCruiser Web Vulnerability Scanner focuses on high risk vulnerabilities, and WebCruiser can scan a designated vulnerability type, or a designated URL, or a designated page separately, while the others usually will not.</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Janusec Application Gateway - Application Security Solution on Janusec</title>
-    <link>/</link>
+    <link>https://janusec.github.io/</link>
     <description>Recent content in Janusec Application Gateway - Application Security Solution on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 11 May 2018 21:03:34 +0800</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://janusec.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Download</title>
-      <link>/dl/</link>
+      <link>https://janusec.github.io/dl/</link>
       <pubDate>Thu, 24 May 2018 20:37:42 +0800</pubDate>
       
-      <guid>/dl/</guid>
+      <guid>https://janusec.github.io/dl/</guid>
       <description>Download Janusec Application Gateway    Type Requirements Download     Binary Release CentOS/RHEL 7 or Debian 9, with systemd 0.9.4   Source Code Linux with systemd Github    Console  wget https://www.janusec.com/download/janusec-latest.tar.gz
  WebCruiser Web Vulnerability Scanner WebCruiser Web Vulnerability Scanner Introduction
 Requirements  Platform: Windows 7/8/10
@@ -26,10 +26,10 @@ Requirements  Platform: Windows 7/8/10
     
     <item>
       <title>Quick Start</title>
-      <link>/documentation/quick-start/</link>
+      <link>https://janusec.github.io/documentation/quick-start/</link>
       <pubDate>Thu, 17 May 2018 22:28:32 +0800</pubDate>
       
-      <guid>/documentation/quick-start/</guid>
+      <guid>https://janusec.github.io/documentation/quick-start/</guid>
       <description>Quick Start 快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
 Requirements    Role Operating System Database     Master Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   Slave Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd Not required    Installation Step 1: Download  $cd ~</description>
@@ -37,10 +37,10 @@ Requirements    Role Operating System Database     Master Node CentOS/RHEL 7, or
     
     <item>
       <title>快速入门</title>
-      <link>/cn/quick-start/</link>
+      <link>https://janusec.github.io/cn/quick-start/</link>
       <pubDate>Thu, 17 May 2018 22:28:32 +0800</pubDate>
       
-      <guid>/cn/quick-start/</guid>
+      <guid>https://janusec.github.io/cn/quick-start/</guid>
       <description>快速入门 Switch to English Edition of Quick Start
 本入门指导将安装一个单节点（主节点）的Janusec应用网关（网关WAF）.
 安装需求    节点 操作系统 数据库     主节点 CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   从节点 CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd 不需要    本入门只安装一个主节点，不安装从节点，如需扩展，可参考安装一节。
@@ -52,10 +52,10 @@ $tar zxf ./janusec-latest.tar.gz
     
     <item>
       <title>Janusec Application Gateway</title>
-      <link>/product/janusec-application-gateway/</link>
+      <link>https://janusec.github.io/product/janusec-application-gateway/</link>
       <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
       
-      <guid>/product/janusec-application-gateway/</guid>
+      <guid>https://janusec.github.io/product/janusec-application-gateway/</guid>
       <description>Janusec Application Gateway, an application security solutions for public cloud, private cloud, and traditional IDC, which provides web routing, load balancing, and web application firewall. With Janusec, you can build secure and scalable applications.
 Janusec Application Gateway Introduction PDF
 Key Features:  Web Application Firewall ( HTTPS support, No Agent Required )
@@ -66,10 +66,10 @@ Key Features:  Web Application Firewall ( HTTPS support, No Agent Required )
     
     <item>
       <title>Introduction</title>
-      <link>/documentation/introduction/</link>
+      <link>https://janusec.github.io/documentation/introduction/</link>
       <pubDate>Sat, 12 May 2018 08:10:40 +0800</pubDate>
       
-      <guid>/documentation/introduction/</guid>
+      <guid>https://janusec.github.io/documentation/introduction/</guid>
       <description>Introduction Janusec Application Gateway, an application security solutions for public cloud, private cloud, and traditional IDC, which provides web routing, load balancing, and web application firewall. With Janusec, you can build secure and scalable applications.
 Janusec Application Gateway Introduction PDF
 Features:  Web Application Firewall ( HTTPS support, No Agent Required )
@@ -78,10 +78,10 @@ Features:  Web Application Firewall ( HTTPS support, No Agent Required )
     
     <item>
       <title>产品介绍</title>
-      <link>/cn/introduction/</link>
+      <link>https://janusec.github.io/cn/introduction/</link>
       <pubDate>Sat, 12 May 2018 08:10:40 +0800</pubDate>
       
-      <guid>/cn/introduction/</guid>
+      <guid>https://janusec.github.io/cn/introduction/</guid>
       <description> 产品介绍 Janusec应用网关，一种适用于各种场景（公有云、私有云、传统IDC等）的应用安全解决方案，提供Web路由、负载均衡、WAF（Web应用防火墙）等功能，可用于构建安全的、可扩展的应用。
 Janusec Application Gateway Introduction PDF
 产品特点:  WAF (Web Application Firewall, Web应用防火墙，天然支持HTTPS且不需要Agent )
@@ -101,10 +101,10 @@ Janusec Application Gateway Introduction PDF
     
     <item>
       <title>WebCruiser Web Vulnerability Scanner</title>
-      <link>/product/webcruiser-web-vulnerability-scanner/</link>
+      <link>https://janusec.github.io/product/webcruiser-web-vulnerability-scanner/</link>
       <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
       
-      <guid>/product/webcruiser-web-vulnerability-scanner/</guid>
+      <guid>https://janusec.github.io/product/webcruiser-web-vulnerability-scanner/</guid>
       <description>WebCruiser Web Vulnerability Scanner, an effective and powerful web penetration testing tool that will aid you in auditing your website!
 It can support scanning website as well as POC (Proof of concept) for web vulnerabilities: SQL Injection, Cross Site Scripting, Local File Inclusion, Remote File Inclusion, Redirect etc.
 The most typical feature of WebCruiser comparing with other Web Vulnerability Scanners is that WebCruiser Web Vulnerability Scanner focuses on high risk vulnerabilities, and WebCruiser can scan a designated vulnerability type, or a designated URL, or a designated page separately, while the others usually will not.</description>
@@ -112,10 +112,10 @@ The most typical feature of WebCruiser comparing with other Web Vulnerability Sc
     
     <item>
       <title>Installation</title>
-      <link>/documentation/installation/</link>
+      <link>https://janusec.github.io/documentation/installation/</link>
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
-      <guid>/documentation/installation/</guid>
+      <guid>https://janusec.github.io/documentation/installation/</guid>
       <description>Installation Requirements    Role Operating System Database     Master Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   Slave Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd Not required    Step 1: Download  $cd ~
 $wget https://www.janusec.com/download/janusec-latest.tar.gz
 $tar zxf ./janusec-latest.tar.gz
@@ -124,10 +124,10 @@ $tar zxf ./janusec-latest.tar.gz
     
     <item>
       <title>安装</title>
-      <link>/cn/installation/</link>
+      <link>https://janusec.github.io/cn/installation/</link>
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
-      <guid>/cn/installation/</guid>
+      <guid>https://janusec.github.io/cn/installation/</guid>
       <description>安装 需求    节点 操作系统 数据库     主节点 CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   从节点 CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd 不需要    Step 1: 下载  $cd ~
 $wget https://www.janusec.com/download/janusec-latest.tar.gz
 $tar zxf ./janusec-latest.tar.gz
@@ -138,10 +138,10 @@ $tar zxf ./janusec-latest.tar.gz
     
     <item>
       <title>Administration</title>
-      <link>/documentation/admin/</link>
+      <link>https://janusec.github.io/documentation/admin/</link>
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
-      <guid>/documentation/admin/</guid>
+      <guid>https://janusec.github.io/documentation/admin/</guid>
       <description>Web Administration Administration Portal http://janusec_application_gateway_master_node_ip:9080/
 For security reasons, use internal IP address is preferred.
 You can modify the config file of the master node: /usr/local/janusec/config.json :
@@ -155,10 +155,10 @@ WAF Management see WAF Management</description>
     
     <item>
       <title>管理</title>
-      <link>/cn/admin/</link>
+      <link>https://janusec.github.io/cn/admin/</link>
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
-      <guid>/cn/admin/</guid>
+      <guid>https://janusec.github.io/cn/admin/</guid>
       <description>Web化管理 管理入口 第一个管理入口：
 http://主节点IP地址:9080/
 安全原因，推荐使用内部IP地址IP:Port，可在配置文件（/usr/local/janusec/config.json）中修改。
@@ -172,10 +172,10 @@ WAF管理 参考 WAF管理</description>
     
     <item>
       <title>Certificate Management</title>
-      <link>/documentation/certificate-management/</link>
+      <link>https://janusec.github.io/documentation/certificate-management/</link>
       <pubDate>Sun, 20 May 2018 21:05:08 +0800</pubDate>
       
-      <guid>/documentation/certificate-management/</guid>
+      <guid>https://janusec.github.io/documentation/certificate-management/</guid>
       <description>Certificate Management Certificate List Open web administration portal and navigate to Certificate Management.
 Add or Edit Certificate Single domain subdomain.yourdomain.com or wildcard *.yourdomain.com certificate are all acceptable. A wildcard certificate is preferred.
 For production environment, you should have a legal digital certificate issued by a trusted CA ( such as Let&#39;s Encrypt ) .
@@ -184,10 +184,10 @@ For test purpose, when filled in the first field (Common Name or Subject Alterna
     
     <item>
       <title>证书管理</title>
-      <link>/cn/certificate-management/</link>
+      <link>https://janusec.github.io/cn/certificate-management/</link>
       <pubDate>Sun, 20 May 2018 21:05:08 +0800</pubDate>
       
-      <guid>/cn/certificate-management/</guid>
+      <guid>https://janusec.github.io/cn/certificate-management/</guid>
       <description> 证书管理 证书列表 在Web管理界面，导航到 Certificate Management （证书管理） .
 添加或编辑证书 这里可使用单域名证书（subdomain.yourdomain.com）或通配符证书（*.yourdomain.com），推荐使用通配符证书。
 生产环境，请使用权威第三方CA颁发的证书。
@@ -199,10 +199,10 @@ For test purpose, when filled in the first field (Common Name or Subject Alterna
     
     <item>
       <title>Application Management</title>
-      <link>/documentation/application-management/</link>
+      <link>https://janusec.github.io/documentation/application-management/</link>
       <pubDate>Sun, 20 May 2018 21:58:35 +0800</pubDate>
       
-      <guid>/documentation/application-management/</guid>
+      <guid>https://janusec.github.io/documentation/application-management/</guid>
       <description>Application Management Requirements At least one digital certificate is required if you need https support.
 Certificate Management
 Add or Edit Application Open web administration portal and navigate to Application Management.
@@ -215,10 +215,10 @@ Note:
     
     <item>
       <title>应用管理</title>
-      <link>/cn/application-management/</link>
+      <link>https://janusec.github.io/cn/application-management/</link>
       <pubDate>Sun, 20 May 2018 21:58:35 +0800</pubDate>
       
-      <guid>/cn/application-management/</guid>
+      <guid>https://janusec.github.io/cn/application-management/</guid>
       <description> 应用管理 需求 如果您需要 https 支持，至少需要一个数字证书。
 证书管理
 添加或编辑应用 打开Web管理门户并导航至Application Management。
@@ -232,10 +232,10 @@ Note:
     
     <item>
       <title>Node Management</title>
-      <link>/documentation/node-management/</link>
+      <link>https://janusec.github.io/documentation/node-management/</link>
       <pubDate>Sun, 20 May 2018 22:38:35 +0800</pubDate>
       
-      <guid>/documentation/node-management/</guid>
+      <guid>https://janusec.github.io/documentation/node-management/</guid>
       <description>Node Management Node Type  Master Node, there must have one and only one Master Node, and a PostgreSQL is required.
  Slave Node, optional, no database required.  Single Node Architecture  One Master Node.
  No DNS Load Balance required.
@@ -246,10 +246,10 @@ Note:
     
     <item>
       <title>节点管理</title>
-      <link>/cn/node-management/</link>
+      <link>https://janusec.github.io/cn/node-management/</link>
       <pubDate>Sun, 20 May 2018 22:38:35 +0800</pubDate>
       
-      <guid>/cn/node-management/</guid>
+      <guid>https://janusec.github.io/cn/node-management/</guid>
       <description>节点管理 节点类型  主节点, 有且只有一个，并需要使用PostgreSQL.
  从节点，可选，0个或多个，不需要数据库。
   单节点架构  一个主节点，没有从节点.
@@ -264,10 +264,10 @@ Note:
     
     <item>
       <title>WAF Management</title>
-      <link>/documentation/waf-management/</link>
+      <link>https://janusec.github.io/documentation/waf-management/</link>
       <pubDate>Mon, 21 May 2018 21:27:20 +0800</pubDate>
       
-      <guid>/documentation/waf-management/</guid>
+      <guid>https://janusec.github.io/documentation/waf-management/</guid>
       <description>WAF Management Add or Edit WAF Policy Typical Check Points  Example: http://www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2
  URLPath: /blog/show.php
 URLQuery: id=1&amp;amp;category=2
@@ -280,10 +280,10 @@ If you want to check url values only ( GET Only ), please select URLQuery .
     
     <item>
       <title>WAF管理</title>
-      <link>/cn/waf-management/</link>
+      <link>https://janusec.github.io/cn/waf-management/</link>
       <pubDate>Mon, 21 May 2018 21:27:20 +0800</pubDate>
       
-      <guid>/cn/waf-management/</guid>
+      <guid>https://janusec.github.io/cn/waf-management/</guid>
       <description>WAF管理 添加或编辑WAF策略 典型的检查点  举例: http://www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2
  URLPath: /blog/show.php
 URLQuery: id=1&amp;amp;category=2
@@ -308,19 +308,19 @@ abc&#39; oR &amp;quot;abc&amp;quot;=&amp;quot;abc
     
     <item>
       <title>Operation Management</title>
-      <link>/documentation/operation-management/</link>
+      <link>https://janusec.github.io/documentation/operation-management/</link>
       <pubDate>Fri, 25 May 2018 21:04:25 +0800</pubDate>
       
-      <guid>/documentation/operation-management/</guid>
+      <guid>https://janusec.github.io/documentation/operation-management/</guid>
       <description>Operation Management Deployment Architecture    Architecture Master Node Slave Node Description     Single-Node One None small scale applications with unified web management   Scalable One Any large scale applications with unified web management   Multiple Autonomous System Any Any Any Single or Scalable Architectures, maintained by different teams, each autonomous system has an unified web management portal.    Admin Account Web Administration address is one of the following:</description>
     </item>
     
     <item>
       <title>运维管理</title>
-      <link>/cn/operation-management/</link>
+      <link>https://janusec.github.io/cn/operation-management/</link>
       <pubDate>Fri, 25 May 2018 21:04:25 +0800</pubDate>
       
-      <guid>/cn/operation-management/</guid>
+      <guid>https://janusec.github.io/cn/operation-management/</guid>
       <description>运维管理 部署架构    架构 主节点 从节点 描述     单节点 一个 无 小规模Web应用，统一Web管理   可扩展 一个 任意 大规模Web应用，统一Web管理   多个自治系统 任意 任意 部署多套，每个自治系统内部统一Web管理.    管理账号 统一的Web管理地址包括如下：
  http://your_master_node_ip_address:9080/ (首次使用)
 https://your_master_node_domain_name:9443/ (证书配置后可用)
@@ -331,10 +331,10 @@ https://your_janusec_admin_domain_name/ (将Web管理应用当作普通应用在
     
     <item>
       <title>Migrate to Janusec</title>
-      <link>/documentation/migrate-to-janusec/</link>
+      <link>https://janusec.github.io/documentation/migrate-to-janusec/</link>
       <pubDate>Wed, 06 Jun 2018 21:56:05 +0800</pubDate>
       
-      <guid>/documentation/migrate-to-janusec/</guid>
+      <guid>https://janusec.github.io/documentation/migrate-to-janusec/</guid>
       <description>Migrate to Janusec Application Gateway Step 1: Install and Configure Janusec Application Gateway Refer to Installation, install janusec application gateway and configure digital certificate, application.
 Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\System32\drivers\etc\hosts ( not the Gateway) for test.
  the_gateway_ip your_domain_name
@@ -344,10 +344,10 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
     
     <item>
       <title>迁移到Janusec应用网关</title>
-      <link>/cn/migrate-to-janusec/</link>
+      <link>https://janusec.github.io/cn/migrate-to-janusec/</link>
       <pubDate>Wed, 06 Jun 2018 21:56:05 +0800</pubDate>
       
-      <guid>/cn/migrate-to-janusec/</guid>
+      <guid>https://janusec.github.io/cn/migrate-to-janusec/</guid>
       <description>迁移到Janusec应用网关 步骤 1: 安装并配置Janusec应用网关 参考 安装, 安装Janusec应用网关并配置好证书、Web应用.
 步骤 2: 修改Hosts文件测试 修改本地电脑的 C:\Windows\System32\drivers\etc\hosts (不是网关) ，将域名临时指向网关IP，用于测试.
  the_gateway_ip your_domain_name
@@ -358,10 +358,10 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
     
     <item>
       <title>Update Janusec</title>
-      <link>/documentation/update-janusec/</link>
+      <link>https://janusec.github.io/documentation/update-janusec/</link>
       <pubDate>Sun, 10 Jun 2018 20:11:45 +0800</pubDate>
       
-      <guid>/documentation/update-janusec/</guid>
+      <guid>https://janusec.github.io/documentation/update-janusec/</guid>
       <description>Update to Latest Version Version 0.9.3 upgrade to 0.9.4 Install janusec normally, or do the following before installation.
  drop table nodes;
  and delete the line which include node_id in config.json.
@@ -373,10 +373,10 @@ The installation program will not do this operation, you should execute the foll
     
     <item>
       <title>升级Janusec</title>
-      <link>/cn/update-janusec/</link>
+      <link>https://janusec.github.io/cn/update-janusec/</link>
       <pubDate>Sun, 10 Jun 2018 20:11:45 +0800</pubDate>
       
-      <guid>/cn/update-janusec/</guid>
+      <guid>https://janusec.github.io/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关 Version 0.9.3 upgrade to 0.9.4 可正常安装，建议升级前执行如下操作：
  drop table nodes;
  删除配置文件config.json中含有 node_id 的这一行.
@@ -393,19 +393,19 @@ The installation program will not do this operation, you should execute the foll
     
     <item>
       <title>Pricing</title>
-      <link>/documentation/pricing/</link>
+      <link>https://janusec.github.io/documentation/pricing/</link>
       <pubDate>Sun, 03 Jun 2018 12:00:30 +0800</pubDate>
       
-      <guid>/documentation/pricing/</guid>
+      <guid>https://janusec.github.io/documentation/pricing/</guid>
       <description> Pricing for Janusec Application Gateway    Plans Pricing License     Community Free GNU AGPLv3    </description>
     </item>
     
     <item>
       <title>FAQ</title>
-      <link>/cn/faq/</link>
+      <link>https://janusec.github.io/cn/faq/</link>
       <pubDate>Sat, 12 May 2018 07:45:49 +0800</pubDate>
       
-      <guid>/cn/faq/</guid>
+      <guid>https://janusec.github.io/cn/faq/</guid>
       <description> FAQ Q: Janusec应用网关与其它WAF的主要区别 ?  A: Janusec应用网关 也可称之为网关式WAF，它为克服传统WAF的缺点（如需部署Agent、HTTPS支持不好、数字证书私钥泄露等）而设计，将 WAF (Web Application Firewall)集成到到Web应用网关中，提升了用户访问、安全防御、维护管理等方面的体验。
  Q: Janusec应用网关是否需要在业务服务器上部署Agent ?  A: 不需要.
  Q: Janusec应用网关是否支持 HTTPS ?  A: 支持,Janusec应用网关天然支持 HTTPS .
@@ -417,10 +417,10 @@ The installation program will not do this operation, you should execute the foll
     
     <item>
       <title>FAQ</title>
-      <link>/documentation/faq/</link>
+      <link>https://janusec.github.io/documentation/faq/</link>
       <pubDate>Sat, 12 May 2018 07:45:49 +0800</pubDate>
       
-      <guid>/documentation/faq/</guid>
+      <guid>https://janusec.github.io/documentation/faq/</guid>
       <description>FAQ Q: What is the difference between Janusec Application Gateway and WAF ?  A: Janusec Application Gateway includes a WAF (Web Application Firewall), and Janusec eliminates the defects of traditional WAF.
  Q: Does it requires agent installation on business servers ?  A: No agent required.
  Q: Does it support https ?  A: Yes, https is naturally supported.
@@ -429,19 +429,19 @@ The installation program will not do this operation, you should execute the foll
     
     <item>
       <title>User Agreement</title>
-      <link>/documentation/user-agreement/</link>
+      <link>https://janusec.github.io/documentation/user-agreement/</link>
       <pubDate>Sun, 20 May 2018 20:38:58 +0800</pubDate>
       
-      <guid>/documentation/user-agreement/</guid>
+      <guid>https://janusec.github.io/documentation/user-agreement/</guid>
       <description>User Agreement and Privacy Policy  THE PRODUCT IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE PRODUCT OR THE USE OR OTHER DEALINGS IN THE PRODUCT.</description>
     </item>
     
     <item>
       <title>Diagnose</title>
-      <link>/documentation/diagnose/</link>
+      <link>https://janusec.github.io/documentation/diagnose/</link>
       <pubDate>Sun, 05 Aug 2018 11:52:52 +0800</pubDate>
       
-      <guid>/documentation/diagnose/</guid>
+      <guid>https://janusec.github.io/documentation/diagnose/</guid>
       <description>Diagnose Deployment Operating System Operating System should be x86_64 and one of the following:
  CentOS 7
  RHEL 7
@@ -456,10 +456,10 @@ PostgreSQL Use psql to check PostgreSQL Connection:
     
     <item>
       <title>问题诊断</title>
-      <link>/cn/diagnose/</link>
+      <link>https://janusec.github.io/cn/diagnose/</link>
       <pubDate>Sun, 05 Aug 2018 10:16:34 +0800</pubDate>
       
-      <guid>/cn/diagnose/</guid>
+      <guid>https://janusec.github.io/cn/diagnose/</guid>
       <description>问题诊断 部署 当安装Jausec时遇到问题，可先对照此检查表进行检查。
 操作系统 操作系统需要为x86_64架构的如下操作系统之一：
  CentOS 7
