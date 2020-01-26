@@ -38,11 +38,6 @@
   </url>
   
   <url>
-    <loc>https://janusec.github.io/product/webcruiser-web-vulnerability-scanner/</loc>
-    <lastmod>2018-05-11T20:58:57+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://janusec.github.io/documentation/installation/</loc>
     <lastmod>2018-05-19T10:11:09+08:00</lastmod>
   </url>
@@ -185,12 +180,6 @@
   
   <url>
     <loc>https://janusec.github.io/categories/gateway/</loc>
-    <lastmod>2018-05-11T20:58:57+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://janusec.github.io/categories/scanner/</loc>
     <lastmod>2018-05-11T20:58:57+08:00</lastmod>
     <priority>0</priority>
   </url>

@@ -241,7 +241,7 @@ PostgreSQL 使用psql命令来检查配置是否正常：
 如果登录验证不成功，可参考 运维管理 中的PostgreSQL安装部分。
 在PSQL Shell中执行版本检查：
  select version();
- 版本要求为9.3以上。
+ 版本要求为9.3以上（不支持PostgreSQL 9.2或更早的版本）。
 端口  netstat -anp | grep LISTEN | grep &#39;:\(80\|443\|9080\|9443\)\s&#39;
  Janusec网关需要使用80/443/9080/9443这几个端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。
 DNS 如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不需要任何修改。
@@ -249,7 +249,7 @@ DNS 如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不
 主从节点同步 为了保证主从节点正确同步，需要满足：
  各节点时间正确（误差不超过一分钟）
  从节点node_key跟Web管理控制台中节点管理中显示的node_key一致。
-  开发 操作系统 开发者操作系统不限，但建议采用Linux系统。</description>
+  开发 备注：以下内容仅供开发者阅读，直接下载二进制安装包的用户不需要阅读。</description>
     </item>
     
   </channel>

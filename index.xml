@@ -17,11 +17,8 @@
       <pubDate>Thu, 24 May 2018 20:37:42 +0800</pubDate>
       
       <guid>https://janusec.github.io/dl/</guid>
-      <description>Download Janusec Application Gateway    Type Requirements Download     Binary Release CentOS/RHEL 7 or Debian 9, with systemd 0.9.4   Source Code Linux with systemd Github    Console  wget https://www.janusec.com/download/janusec-latest.tar.gz
- WebCruiser Web Vulnerability Scanner WebCruiser Web Vulnerability Scanner Introduction
-Requirements  Platform: Windows 7/8/10
- .Net Framework 4.5+, IE 9+
-  Download    Platform Download     Windows Desktop WebCruiser Web Vulnerability Scanner Free Edition 3.</description>
+      <description> Download Janusec Application Gateway    Type Requirements Download     Binary Release CentOS/RHEL 7 or Debian 9, with systemd 0.9.4   Source Code Linux with systemd Github    Console  wget https://www.janusec.com/download/janusec-latest.tar.gz
+ </description>
     </item>
     
     <item>
@@ -97,17 +94,6 @@ Janusec Application Gateway Introduction PDF
   证书保护  私钥加密存储
  只在内存使用
   </description>
-    </item>
-    
-    <item>
-      <title>WebCruiser Web Vulnerability Scanner</title>
-      <link>https://janusec.github.io/product/webcruiser-web-vulnerability-scanner/</link>
-      <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
-      
-      <guid>https://janusec.github.io/product/webcruiser-web-vulnerability-scanner/</guid>
-      <description>WebCruiser Web Vulnerability Scanner, an effective and powerful web penetration testing tool that will aid you in auditing your website!
-It can support scanning website as well as POC (Proof of concept) for web vulnerabilities: SQL Injection, Cross Site Scripting, Local File Inclusion, Remote File Inclusion, Redirect etc.
-The most typical feature of WebCruiser comparing with other Web Vulnerability Scanners is that WebCruiser Web Vulnerability Scanner focuses on high risk vulnerabilities, and WebCruiser can scan a designated vulnerability type, or a designated URL, or a designated page separately, while the others usually will not.</description>
     </item>
     
     <item>
@@ -474,7 +460,7 @@ PostgreSQL 使用psql命令来检查配置是否正常：
 如果登录验证不成功，可参考 运维管理 中的PostgreSQL安装部分。
 在PSQL Shell中执行版本检查：
  select version();
- 版本要求为9.3以上。
+ 版本要求为9.3以上（不支持PostgreSQL 9.2或更早的版本）。
 端口  netstat -anp | grep LISTEN | grep &#39;:\(80\|443\|9080\|9443\)\s&#39;
  Janusec网关需要使用80/443/9080/9443这几个端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。
 DNS 如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不需要任何修改。
@@ -482,7 +468,7 @@ DNS 如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不
 主从节点同步 为了保证主从节点正确同步，需要满足：
  各节点时间正确（误差不超过一分钟）
  从节点node_key跟Web管理控制台中节点管理中显示的node_key一致。
-  开发 操作系统 开发者操作系统不限，但建议采用Linux系统。</description>
+  开发 备注：以下内容仅供开发者阅读，直接下载二进制安装包的用户不需要阅读。</description>
     </item>
     
   </channel>

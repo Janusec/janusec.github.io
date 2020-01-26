@@ -25,16 +25,5 @@ Key Features:  Web Application Firewall ( HTTPS support, No Agent Required )
   Make Defense Simple  SQL Injection</description>
     </item>
     
-    <item>
-      <title>WebCruiser Web Vulnerability Scanner</title>
-      <link>https://janusec.github.io/product/webcruiser-web-vulnerability-scanner/</link>
-      <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
-      
-      <guid>https://janusec.github.io/product/webcruiser-web-vulnerability-scanner/</guid>
-      <description>WebCruiser Web Vulnerability Scanner, an effective and powerful web penetration testing tool that will aid you in auditing your website!
-It can support scanning website as well as POC (Proof of concept) for web vulnerabilities: SQL Injection, Cross Site Scripting, Local File Inclusion, Remote File Inclusion, Redirect etc.
-The most typical feature of WebCruiser comparing with other Web Vulnerability Scanners is that WebCruiser Web Vulnerability Scanner focuses on high risk vulnerabilities, and WebCruiser can scan a designated vulnerability type, or a designated URL, or a designated page separately, while the others usually will not.</description>
-    </item>
-    
   </channel>
 </rss>
