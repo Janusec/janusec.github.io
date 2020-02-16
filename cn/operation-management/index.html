@@ -168,9 +168,8 @@
 <p>统一的Web管理地址包括如下：</p>
 
 <blockquote>
-<p>http://<code>your_master_node_ip_address</code>:9080/    (首次使用)<br />
-https://<code>your_master_node_domain_name</code>:9443/  (证书配置后可用)<br />
-https://<code>your_janusec_admin_domain_name</code>/     (将Web管理应用当作普通应用在应用网关注册，不启用WAF)</p>
+<p>http://<code>your_master_node_ip_address</code>/janusec-admin/    (首次使用)<br />
+https://<code>your_master_node_domain_name</code>/janusec-admin/  (证书配置后可用)</p>
 </blockquote>
 
 <table>
@@ -213,22 +212,8 @@ https://<code>your_janusec_admin_domain_name</code>/     (将Web管理应用当�
 <td align="center">443</td>
 <td>固定的网关HTTPS入口，主节点和从节点均开启</td>
 </tr>
-
-<tr>
-<td align="center"><code>9080</code></td>
-<td>可修改, HTTP Web 管理入口, 仅主节点开启</td>
-</tr>
-
-<tr>
-<td align="center"><code>9443</code></td>
-<td>可修改, HTTPS  Web 管理入口,  仅主节点开启</td>
-</tr>
 </tbody>
 </table>
-
-<blockquote>
-<p>默认的 <code>9080</code> 及 <code>9443</code> 端口可在配置文件 <code>/usr/local/janusec/config.json</code> 中修改。</p>
-</blockquote>
 
 <h4 id="进程">进程</h4>
 
@@ -325,16 +310,10 @@ exit</p>
 
 <h4 id="为web管理启用-https">为Web管理启用 HTTPS</h4>
 
-<p>如果已配置证书，可使用任一Web应用的域名，以及管理端口（默认9443）进行访问：</p>
+<p>如果已配置证书，可使用任一Web应用的域名，以及<code>/janusec-admin/</code>进行访问：</p>
 
 <blockquote>
-<p><code>https://your_application_domain:9443/</code></p>
-</blockquote>
-
-<p>也可为Janusec Web管理系统分配一个域名（如： <code>janusec.your_domain_name.com</code>），并将Web管理配置为Janusec应用网关的一个应用（不需要启用WAF）, 然后可通过如下地址访问:</p>
-
-<blockquote>
-<p><code>https://janusec.your_domain_name.com/</code></p>
+<p><code>https://your_application_domain/janusec-admin/</code></p>
 </blockquote>
 
             </article>

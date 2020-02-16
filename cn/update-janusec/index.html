@@ -127,50 +127,25 @@
 
 <hr />
 
-<h4 id="version-0-9-3-upgrade-to-0-9-4">Version 0.9.3 upgrade to 0.9.4</h4>
+<p>最新版本: v0.9.5 (2020.02.16)</p>
 
-<p>可正常安装，建议升级前执行如下操作：</p>
+<h4 id="version-0-9-4-upgrade-to-0-9-5">Version 0.9.4 upgrade to 0.9.5</h4>
 
-<blockquote>
-<p>drop table nodes;</p>
-</blockquote>
-
-<p>删除配置文件<code>config.json</code>中含有 <code>node_id</code> 的这一行.</p>
+<p>0.9.5变更了服务类型，建议升级前执行如下操作：</p>
 
 <blockquote>
-<p>systemctl restart janusec.service</p>
+<p><code>systemctl stop janusec</code></p>
 </blockquote>
 
-<h4 id="version-0-9-2-upgrade-to-0-9-3">Version 0.9.2 upgrade to 0.9.3</h4>
+<p>然后正常安装即可。</p>
 
-<p>PostgreSQL 表 <code>applications</code> 需要升级.<br />
-安装程序不会自动升级，需要手工执行SQL指令：</p>
+<p>如果:</p>
 
 <blockquote>
-<p>alter table applications add column hsts_enabled boolean default true;</p>
+<p><code>systemctl restart janusec</code></p>
 </blockquote>
 
-<p>然后参考 <a href="/cn/installation">安装</a> 安装Janusec应用网关, 并重启 <code>janusec.service</code>:</p>
-
-<blockquote>
-<p>systemctl restart janusec.service</p>
-</blockquote>
-
-<h4 id="version-0-9-1-upgrade-to-0-9-2">Version &lt;=0.9.1 upgrade to 0.9.2</h4>
-
-<p>PostgreSQL 表 <code>applications</code> 需要升级.<br />
-安装程序不会自动升级，需要手工执行SQL指令：</p>
-
-<blockquote>
-<p>alter table applications add column ip_method bigint default 1;<br />
-alter table applications add column waf_enabled boolean default true;</p>
-</blockquote>
-
-<p>然后参考 <a href="/cn/installation">安装</a> 安装Janusec应用网关, 并重启 <code>janusec.service</code>:</p>
-
-<blockquote>
-<p>systemctl restart janusec.service</p>
-</blockquote>
+<p>无效  ，可以kill其进程。</p>
 
             </article>
       </div>

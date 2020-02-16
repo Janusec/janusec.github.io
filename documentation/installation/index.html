@@ -177,7 +177,7 @@ $tar zxf ./janusec-latest.tar.gz</p>
 
 <blockquote>
 <p>$su<br />
-#cd janusec-0.9.4<br />
+#cd janusec-0.9.5<br />
 #./install.sh</p>
 </blockquote>
 
@@ -200,8 +200,6 @@ Now we assume you have <code>PostgreSQL</code> installed already, and database n
 <p>{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;master&rdquo;,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&ldquo;master_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_http_listen&rdquo;: &ldquo;:9080&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_https_listen&rdquo;: &ldquo;:9443&rdquo;,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;127.0.0.1&rdquo;,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;5432&rdquo;,<br />
@@ -219,13 +217,7 @@ Now we assume you have <code>PostgreSQL</code> installed already, and database n
 
 <ul>
 <li>&ldquo;node_role&rdquo;: &ldquo;master&rdquo;  ( fixed <code>master</code> )</li>
-<li>&ldquo;admin_http_listen&rdquo;: &ldquo;:9080&rdquo; ( Listen on all IP address by default, custom address with internal <code>IP:Port</code> is preferred, such as <code>10.10.10.10:9080</code> )<br /></li>
-<li>&ldquo;admin_https_listen&rdquo;: &ldquo;:9443&rdquo; ( Listen on all IP address by default, custom address with internal <code>IP:Port</code> is preferred, such as <code>10.10.10.10:9443</code> )<br /></li>
 </ul>
-
-<blockquote>
-<p>For security reasons, use internal <code>IP:Port</code> is preferred.</p>
-</blockquote>
 
 <h5 id="slave-node-optional">Slave Node (Optional)</h5>
 
@@ -249,7 +241,7 @@ You must copy the <code>node_key</code> in web administration portal if you need
 &nbsp;&nbsp;&nbsp;&nbsp;},<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&ldquo;slave_node&rdquo;: {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_key&rdquo;: &ldquo;<code>produced_by_web_admin_in_master_node</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;sync_addr&rdquo;: &ldquo;<code>http://master_ip:9080/janusec-api/</code>&rdquo;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;sync_addr&rdquo;: &ldquo;<code>http://master_ip/janusec-admin/api</code>&rdquo;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</p>
 </blockquote>
@@ -257,7 +249,7 @@ You must copy the <code>node_key</code> in web administration portal if you need
 <ul>
 <li>&ldquo;node_role&rdquo;: &ldquo;<code>slave</code>&rdquo;  (fixed <code>slave</code>)<br /></li>
 <li>&ldquo;node_key&rdquo;: &ldquo;<code>produced_by_web_admin_in_master_node</code>&rdquo;  (produced by web admin)<br /></li>
-<li>&ldquo;sync_addr&rdquo;: &ldquo;<code>http://master_ip:9080/janusec-api/</code>&rdquo;  (replace with the master IP address)</li>
+<li>&ldquo;sync_addr&rdquo;: &ldquo;<code>http://master_ip/janusec-admin/api</code>&rdquo;  (replace with the master IP address)</li>
 </ul>
 
 <h3 id="step-4-start">Step 4: Start</h3>
@@ -271,7 +263,7 @@ You must copy the <code>node_key</code> in web administration portal if you need
 <p>Open web browser such as <code>Chrome</code>, navigate with address:</p>
 
 <blockquote>
-<p>http://<code>your_master_ip_address</code>:9080/</p>
+<p>http://<code>your_master_ip_address</code>/janusec-admin/</p>
 </blockquote>
 
 <p>This is the first administration address for Janusec Application Gateway.<br />

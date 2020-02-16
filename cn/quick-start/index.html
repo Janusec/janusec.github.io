@@ -179,7 +179,7 @@ $tar zxf ./janusec-latest.tar.gz</p>
 
 <blockquote>
 <p>$su<br />
-#cd janusec-0.9.4<br />
+#cd janusec-0.9.5<br />
 #./install.sh</p>
 </blockquote>
 
@@ -201,8 +201,6 @@ $tar zxf ./janusec-latest.tar.gz</p>
 <p>{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;master&rdquo;,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&ldquo;master_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_http_listen&rdquo;: &ldquo;:9080&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_https_listen&rdquo;: &ldquo;:9443&rdquo;,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;127.0.0.1&rdquo;,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;5432&rdquo;,<br />
@@ -227,7 +225,7 @@ $tar zxf ./janusec-latest.tar.gz</p>
 <p>打开浏览器（比如Chrome）,使用如下地址：</p>
 
 <blockquote>
-<p>http://<code>您的网关IP地址</code>:9080/</p>
+<p>http://<code>您的网关IP地址</code>/janusec-admin/</p>
 </blockquote>
 
 <p>这是Janusec应用网关的第一个管理地址（后面可启用安全的管理地址）。<br />
@@ -240,14 +238,14 @@ $tar zxf ./janusec-latest.tar.gz</p>
 
 <p>如果仅使用HTTP，不使用HTTPS，可跳过此步骤；但强烈建议配置证书并启用HTTPS。</p>
 
-<p>使用浏览器打开 http://<code>您的网关IP地址</code>:9080/ 并<a href="/cn/certificate-management/">添加一张数字证书</a>。
+<p>使用浏览器打开 http://<code>您的网关IP地址</code>/janusec-admin/ 并<a href="/cn/certificate-management/">添加一张数字证书</a>。
 如果您还没有数字证书，可以从<code>Let's Encrypt</code>申请免费的数字证书，或者让Janusec生成一张自签名的数字证书（自签名证书仅用于测试用途）。</p>
 
 <h2 id="配置web应用-必选">配置Web应用 (必选)</h2>
 
 <hr />
 
-<p>使用浏览器打开  http://<code>您的网关IP地址</code>:9080/ 并<a href="/cn/application-management/">添加一个应用</a>.<br />
+<p>使用浏览器打开  http://<code>您的网关IP地址</code>/janusec-admin/ 并<a href="/cn/application-management/">添加一个应用</a>.<br />
 填写应用名称、实际服务器的 <code>IP:端口</code> 等信息。</p>
 
 <h2 id="修改dns或hosts-必选">修改DNS或Hosts (必选)</h2>

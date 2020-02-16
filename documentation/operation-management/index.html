@@ -178,9 +178,8 @@
 <p>Web Administration address is one of the following:</p>
 
 <blockquote>
-<p>http://<code>your_master_node_ip_address</code>:9080/    (first use)
-https://<code>your_master_node_domain_name</code>:9443/  (after certificate configured)<br />
-https://<code>your_janusec_admin_domain_name</code>/   (after registered this admin application)</p>
+<p>http://<code>your_master_node_ip_address</code>/janusec-admin/    (first use)
+https://<code>your_application_domain_name</code>/janusec-admin/  (after certificate configured)</p>
 </blockquote>
 
 <table>
@@ -223,22 +222,8 @@ https://<code>your_janusec_admin_domain_name</code>/   (after registered this ad
 <td align="center">443</td>
 <td>Fixed, Gateway HTTPS Entrance, Master Node and Slave Nodes</td>
 </tr>
-
-<tr>
-<td align="center"><code>9080</code></td>
-<td>Custom, HTTP Web Administration, <code>Master Node Only</code></td>
-</tr>
-
-<tr>
-<td align="center"><code>9443</code></td>
-<td>Custom, HTTPS  Web Administration, <code>Master Node Only</code></td>
-</tr>
 </tbody>
 </table>
-
-<blockquote>
-<p>The default <code>9080</code> or <code>9443</code> port can be modified in <code>/usr/local/janusec/config.json</code></p>
-</blockquote>
 
 <h4 id="process">Process</h4>
 
@@ -339,13 +324,7 @@ exit</p>
 <p>For Single Node:</p>
 
 <blockquote>
-<p><code>https://your_application_domain:9443/</code></p>
-</blockquote>
-
-<p>For Multiple Nodes, configure the admin as a common application, for example: <code>janusec.your_domain_name.com</code> , then:</p>
-
-<blockquote>
-<p><code>https://janusec.your_domain_name.com/</code></p>
+<p><code>https://your_application_domain/janusec-admin/</code></p>
 </blockquote>
 
             </article>

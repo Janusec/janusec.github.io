@@ -70,11 +70,8 @@ $tar zxf ./janusec-latest.tar.gz
       
       <guid>https://janusec.github.io/cn/admin/</guid>
       <description>Web化管理 管理入口 第一个管理入口：
-http://主节点IP地址:9080/
-安全原因，推荐使用内部IP地址IP:Port，可在配置文件（/usr/local/janusec/config.json）中修改。
- &amp;ldquo;admin_http_listen&amp;rdquo;: &amp;ldquo;10.10.10.10:9080&amp;rdquo;,
-&amp;ldquo;admin_https_listen&amp;rdquo;: &amp;ldquo;10.10.10.10:9443&amp;rdquo;,
- 数字证书管理 参考 证书管理
+http://主节点IP地址/janusec-admin/ 配置证书和应用后，可使用： https://您的任一应用域名/janusec-admin/
+数字证书管理 参考 证书管理
 应用管理 参考 应用管理
 节点管理 参考 节点管理
 WAF管理 参考 WAF管理</description>
@@ -165,11 +162,10 @@ abc&#39; oR &amp;quot;abc&amp;quot;=&amp;quot;abc
       
       <guid>https://janusec.github.io/cn/operation-management/</guid>
       <description>运维管理 部署架构    架构 主节点 从节点 描述     单节点 一个 无 小规模Web应用，统一Web管理   可扩展 一个 任意 大规模Web应用，统一Web管理   多个自治系统 任意 任意 部署多套，每个自治系统内部统一Web管理.    管理账号 统一的Web管理地址包括如下：
- http://your_master_node_ip_address:9080/ (首次使用)
-https://your_master_node_domain_name:9443/ (证书配置后可用)
-https://your_janusec_admin_domain_name/ (将Web管理应用当作普通应用在应用网关注册，不启用WAF)
+ http://your_master_node_ip_address/janusec-admin/ (首次使用)
+https://your_master_node_domain_name/janusec-admin/ (证书配置后可用)
     默认用户 默认口令     admin J@nusec123     需要修改口令后才能继续管理功能!
- 端口    端口 描述     80 固定的网关HTTP入口，主节点和从节点均开启   443 固定的网关HTTPS入口，主节点和从节点均开启   9080 可修改, HTTP Web 管理入口, 仅主节点开启   9443 可修改, HTTPS Web 管理入口, 仅主节点开启     默认的 9080 及 9443 端口可在配置文件 /usr/local/janusec/config.</description>
+ 端口    端口 描述     80 固定的网关HTTP入口，主节点和从节点均开启   443 固定的网关HTTPS入口，主节点和从节点均开启    进程  /usr/local/janusec/janusec</description>
     </item>
     
     <item>
@@ -192,18 +188,13 @@ https://your_janusec_admin_domain_name/ (将Web管理应用当作普通应用在
       <pubDate>Sun, 10 Jun 2018 20:11:45 +0800</pubDate>
       
       <guid>https://janusec.github.io/cn/update-janusec/</guid>
-      <description>升级到新版本Janusec应用网关 Version 0.9.3 upgrade to 0.9.4 可正常安装，建议升级前执行如下操作：
- drop table nodes;
- 删除配置文件config.json中含有 node_id 的这一行.
- systemctl restart janusec.service
- Version 0.9.2 upgrade to 0.9.3 PostgreSQL 表 applications 需要升级.
-安装程序不会自动升级，需要手工执行SQL指令：
- alter table applications add column hsts_enabled boolean default true;
- 然后参考 安装 安装Janusec应用网关, 并重启 janusec.service:
- systemctl restart janusec.service
- Version &amp;lt;=0.9.1 upgrade to 0.9.2 PostgreSQL 表 applications 需要升级.
-安装程序不会自动升级，需要手工执行SQL指令：
- alter table applications add column ip_method bigint default 1;</description>
+      <description>升级到新版本Janusec应用网关 最新版本: v0.9.5 (2020.02.16)
+Version 0.9.4 upgrade to 0.9.5 0.9.5变更了服务类型，建议升级前执行如下操作：
+ systemctl stop janusec
+ 然后正常安装即可。
+如果:
+ systemctl restart janusec
+ 无效 ，可以kill其进程。</description>
     </item>
     
     <item>
@@ -242,8 +233,8 @@ PostgreSQL 使用psql命令来检查配置是否正常：
 在PSQL Shell中执行版本检查：
  select version();
  版本要求为9.3以上（不支持PostgreSQL 9.2或更早的版本）。
-端口  netstat -anp | grep LISTEN | grep &#39;:\(80\|443\|9080\|9443\)\s&#39;
- Janusec网关需要使用80/443/9080/9443这几个端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。
+端口  netstat -anp | grep LISTEN | grep &#39;:\(80\|443\)\s&#39;
+ Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。
 DNS 如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不需要任何修改。
 如果是单独部署的Janusec网关，需要将现有的Web服务接入迁移到Janusec，请先使用hosts方式调试通过，然后再修改DNS指向。
 主从节点同步 为了保证主从节点正确同步，需要满足：

@@ -187,7 +187,7 @@ $tar zxf ./janusec-latest.tar.gz</p>
 
 <blockquote>
 <p>$su<br />
-#cd janusec-0.9.4<br />
+#cd janusec-0.9.5<br />
 #./install.sh</p>
 </blockquote>
 
@@ -208,8 +208,6 @@ Now we assume you have <code>PostgreSQL</code> installed already, and database n
 <p>{<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;master&rdquo;,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&ldquo;master_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_http_listen&rdquo;: &ldquo;:9080&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_https_listen&rdquo;: &ldquo;:9443&rdquo;,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;127.0.0.1&rdquo;,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;5432&rdquo;,<br />
@@ -234,7 +232,7 @@ Now we assume you have <code>PostgreSQL</code> installed already, and database n
 <p>Open web browser such as <code>Chrome</code>, navigate with address:</p>
 
 <blockquote>
-<p>http://<code>your_ip_address</code>:9080/</p>
+<p>http://<code>your_ip_address</code>/janusec-admin/</p>
 </blockquote>
 
 <p>This is the administration address for Janusec Application Gateway.<br />
@@ -245,14 +243,14 @@ Login with default username <code>admin</code> and password <code>J@nusec123</co
 <hr />
 
 <p>If you only use HTTP, skip this step.<br />
-Open http://<code>your_ip_address</code>:9080/ and add a new certificate.
+Open http://<code>your_ip_address</code>/janusec-admin/ and add a new certificate.
 If you don&rsquo;t have a certificate, you can get a free certificate from <code>Let's Encrypt</code> or let Janusec produce a self-signed certificate( only for test).</p>
 
 <h2 id="application-required">Application (required)</h2>
 
 <hr />
 
-<p>Open http://<code>your_ip_address</code>:9080/ and add a new application.
+<p>Open http://<code>your_ip_address</code>/janusec-admin/ and add a new application.
 Fill in application name, actual IP:Port etc.</p>
 
 <h2 id="dns-or-hosts-required">DNS or Hosts (required)</h2>

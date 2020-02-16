@@ -137,50 +137,25 @@
 
 <hr />
 
-<h4 id="version-0-9-3-upgrade-to-0-9-4">Version 0.9.3 upgrade to 0.9.4</h4>
+<p>Latest version: v0.9.5 (Feb 16, 2020)</p>
 
-<p>Install janusec normally, or do the following before installation.</p>
+<h4 id="version-0-9-4-upgrade-to-0-9-5">Version 0.9.4 upgrade to 0.9.5</h4>
 
-<blockquote>
-<p>drop table nodes;</p>
-</blockquote>
-
-<p>and delete the line which include <code>node_id</code> in config.json.</p>
+<p>0.9.5 changed the service type, so before installation:</p>
 
 <blockquote>
-<p>systemctl restart janusec.service</p>
+<p>systemctl stop janusec.service</p>
 </blockquote>
 
-<h4 id="version-0-9-2-upgrade-to-0-9-3">Version 0.9.2 upgrade to 0.9.3</h4>
+<p>stop the service, and then install the latest version.</p>
 
-<p>PostgreSQL table <code>applications</code> need to be updated.<br />
-The installation program will not do this operation, you should execute the following SQL command manually.</p>
+<p>If:</p>
 
 <blockquote>
-<p>alter table applications add column hsts_enabled boolean default true;</p>
+<p>systemctl restart janusec</p>
 </blockquote>
 
-<p>and then refer to <a href="/documentation/installation">Installation</a>, install Janusec Application Gateway and restart the <code>janusec.service</code>:</p>
-
-<blockquote>
-<p>systemctl restart janusec.service</p>
-</blockquote>
-
-<h4 id="version-0-9-1-upgrade-to-0-9-2">Version &lt;=0.9.1 upgrade to 0.9.2</h4>
-
-<p>PostgreSQL table <code>applications</code> need to be updated.<br />
-The installation program will not do this operation, you should execute the following SQL command manually.</p>
-
-<blockquote>
-<p>alter table applications add column ip_method bigint default 1;<br />
-alter table applications add column waf_enabled boolean default true;</p>
-</blockquote>
-
-<p>and then refer to <a href="/documentation/installation">Installation</a>, install Janusec Application Gateway and restart the <code>janusec.service</code>:</p>
-
-<blockquote>
-<p>systemctl restart janusec.service</p>
-</blockquote>
+<p>not work, just kill it.</p>
 
             </article>
       </div>
