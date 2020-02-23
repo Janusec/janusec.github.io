@@ -194,12 +194,12 @@ If:
  CentOS 7
  RHEL 7
  Debian 9
-  Service Management systemd is used for Service Management , check :
+  Time Please make sure the time is correct, time zone may be any.
+Service Management systemd is used for Service Management , check :
  command -v systemctl
  (Expect result: /usr/bin/systemctl)
 PostgreSQL Use psql to check PostgreSQL Connection:
- psql -h 127.0.0.1 -U janusec -W janusec
- If not OK, refer to Operation Management , PostgreSQL part.</description>
+ psql -h 127.0.0.1 -U janusec -W janusec</description>
     </item>
     
   </channel>

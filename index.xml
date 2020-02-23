@@ -419,12 +419,12 @@ Version 0.9.4 upgrade to 0.9.5 0.9.5变更了服务类型，建议升级前执�
  CentOS 7
  RHEL 7
  Debian 9
-  Service Management systemd is used for Service Management , check :
+  Time Please make sure the time is correct, time zone may be any.
+Service Management systemd is used for Service Management , check :
  command -v systemctl
  (Expect result: /usr/bin/systemctl)
 PostgreSQL Use psql to check PostgreSQL Connection:
- psql -h 127.0.0.1 -U janusec -W janusec
- If not OK, refer to Operation Management , PostgreSQL part.</description>
+ psql -h 127.0.0.1 -U janusec -W janusec</description>
     </item>
     
     <item>
@@ -438,7 +438,8 @@ PostgreSQL Use psql to check PostgreSQL Connection:
  CentOS 7
  RHEL 7
  Debian 9
-  服务管理工具 服务管理工具为systemd，检查方法，在命令行运行：
+  时间 服务器时间请先校准，时区不限，但需要保证时间正确。
+服务管理工具 服务管理工具为systemd，检查方法，在命令行运行：
  command -v systemctl
  （预期结果为：/usr/bin/systemctl）
 PostgreSQL 使用psql命令来检查配置是否正常：
@@ -454,8 +455,7 @@ DNS 如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不
 如果是单独部署的Janusec网关，需要将现有的Web服务接入迁移到Janusec，请先使用hosts方式调试通过，然后再修改DNS指向。
 主从节点同步 为了保证主从节点正确同步，需要满足：
  各节点时间正确（误差不超过一分钟）
- 从节点node_key跟Web管理控制台中节点管理中显示的node_key一致。
-  开发 备注：以下内容仅供开发者阅读，直接下载二进制安装包的用户不需要阅读。</description>
+ 从节点node_key跟Web管理控制台中节点管理中显示的node_key一致。</description>
     </item>
     
   </channel>
