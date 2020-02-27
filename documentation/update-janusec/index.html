@@ -137,9 +137,20 @@
 
 <hr />
 
-<p>Latest version: v0.9.5 (Feb 16, 2020)</p>
+<p>Latest version: v0.9.6 (Feb 27, 2020)</p>
 
-<h4 id="version-0-9-4-upgrade-to-0-9-5">Version 0.9.4 upgrade to 0.9.5</h4>
+<h4 id="version-0-9-5-upgrade-to-0-9-6">Version 0.9.5 upgrade to 0.9.6</h4>
+
+<p>The table <code>domains</code> need to be modified:</p>
+
+<blockquote>
+<p><code>psql -h 127.0.0.1 -U janusec -W janusec</code><br />
+<code>alter table domains add column redirect boolean default false, add column location varchar(256) default null;</code></p>
+</blockquote>
+
+<p>then install the latest version.</p>
+
+<h4 id="version-0-9-4-upgrade-to-0-9-5-feb-16-2020">Version 0.9.4 upgrade to 0.9.5 (Feb 16, 2020)</h4>
 
 <p>0.9.5 changed the service type, so before installation:</p>
 
