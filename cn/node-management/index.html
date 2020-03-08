@@ -161,7 +161,25 @@
 
 <p><img src="/images/node1.png" alt="从节点" title="Janusec应用网关的从节点" /></p>
 
-<p>从节点配置文件<code>/usr/local/janusec/config.json</code>中的<code>node_key</code>，需要据此配置.</p>
+<p>从节点配置文件<code>/usr/local/janusec/config.json</code>中的<code>node_key</code>，需要据此配置，类似：</p>
+
+<pre><code>{
+	&quot;node_role&quot;: &quot;slave&quot;,
+	&quot;master_node&quot;: {
+		&quot;database&quot;: {
+			&quot;host&quot;: &quot;&quot;,
+			&quot;port&quot;: &quot;&quot;,
+			&quot;user&quot;: &quot;&quot;,
+			&quot;password&quot;: &quot;&quot;,
+			&quot;dbname&quot;: &quot;&quot;
+		}
+	},
+	&quot;slave_node&quot;: {		
+		&quot;node_key&quot;: &quot;8c4609...5a5fa9&quot;,
+		&quot;sync_addr&quot;: &quot;http://192.168.100.107/janusec-admin/api&quot;
+	}	
+}
+</code></pre>
 
             </article>
       </div>

@@ -229,7 +229,7 @@ Note:
       <pubDate>Sun, 20 May 2018 22:38:35 +0800</pubDate>
       
       <guid>https://janusec.github.io/cn/node-management/</guid>
-      <description>节点管理 节点类型  主节点, 有且只有一个，并需要使用PostgreSQL.
+      <description> 节点管理 节点类型  主节点, 有且只有一个，并需要使用PostgreSQL.
  从节点，可选，0个或多个，不需要数据库。
   单节点架构  一个主节点，没有从节点.
  不需要GSLB或DNS负载均衡.
@@ -238,7 +238,8 @@ Note:
  主节点需要使用PostgreSQL. 需要GSLB或DNS负载均衡（不同地区的用户查询同一个域名，获取到不同的IP地址）.
  适用于一个或多个大型Web业务.
   从节点  在统一的Web管理界面,可管理所有的从节点.
- 从节点配置文件/usr/local/janusec/config.json中的node_key，需要据此配置.</description>
+ 从节点配置文件/usr/local/janusec/config.json中的node_key，需要据此配置，类似：
+{ &amp;quot;node_role&amp;quot;: &amp;quot;slave&amp;quot;, &amp;quot;master_node&amp;quot;: { &amp;quot;database&amp;quot;: { &amp;quot;host&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;port&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;user&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;password&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;dbname&amp;quot;: &amp;quot;&amp;quot; } }, &amp;quot;slave_node&amp;quot;: {	&amp;quot;node_key&amp;quot;: &amp;quot;8c4609...5a5fa9&amp;quot;, &amp;quot;sync_addr&amp;quot;: &amp;quot;http://192.168.100.107/janusec-admin/api&amp;quot; }	}  </description>
     </item>
     
     <item>
