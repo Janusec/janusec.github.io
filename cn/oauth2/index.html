@@ -255,6 +255,14 @@ X-Auth-User: <code>UserID</code></p>
 &ldquo;appsecret&rdquo;: &ldquo;ihUBspRAG1PtNdDLUZ&rdquo;</p>
 </blockquote>
 
+<h3 id="退出登录">退出登录</h3>
+
+<p>后端网站只需要添加一个退出链接 /oauth/logout ，用户点击后即可实现退出效果。</p>
+
+<h3 id="原理介绍与演示">原理介绍与演示</h3>
+
+<p>原理介绍与演示效果，参见： <a href="https://www.janusec.com/articles/opensource/1585458493.html">使用JANUSEC应用网关给内部网站添加身份认证</a></p>
+
 <h3 id="多节点注意事项">多节点注意事项</h3>
 
 <p>OAuth2需要使用回调域名(在config.json中callback配置)，这里请选定并配置一个域名，可以是任意已配置应用中的域名(不包括单独为主节点申请的域名)，假设为www.your_domain.com 。</p>
