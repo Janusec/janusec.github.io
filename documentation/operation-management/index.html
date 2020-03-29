@@ -69,6 +69,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="https://janusec.github.io/documentation/configuration/">Configuration File</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="https://janusec.github.io/documentation/admin/">Administration</a>
             </li>
           
@@ -177,10 +182,19 @@
 
 <p>Web Administration address is one of the following:</p>
 
+<p>When listen=false in config.json :</p>
+
 <blockquote>
 <p>http://<code>your_master_node_ip_address</code>/janusec-admin/    (first use)
-https://<code>your_application_domain_name</code>/janusec-admin/  (after certificate configured)</p>
+https://<code>your_application_domain_name</code>/janusec-admin/  (after certificate configured)<br />
+When listen=true  in config.json :</p>
+
+<p>http://<code>your_master_node_ip_address:9080</code>/janusec-admin/    (first use)<br />
+https://<code>your_master_node_domain_name:9443</code>/janusec-admin/  (after certificate configured)</p>
 </blockquote>
+
+<p>When using master node only, any application domain name can be used for admin.<br />
+But if you have one or more slave nodes, you should apply for a seperate domain name for master node.</p>
 
 <table>
 <thead>
@@ -222,6 +236,16 @@ https://<code>your_application_domain_name</code>/janusec-admin/  (after certifi
 <td align="center">443</td>
 <td>Fixed, Gateway HTTPS Entrance, Master Node and Slave Nodes</td>
 </tr>
+
+<tr>
+<td align="center">9080</td>
+<td>When listen=true in config.json, Master Node Only</td>
+</tr>
+
+<tr>
+<td align="center">9443</td>
+<td>When listen=true in config.json, Master Node Only</td>
+</tr>
 </tbody>
 </table>
 
@@ -249,20 +273,20 @@ https://<code>your_application_domain_name</code>/janusec-admin/  (after certifi
 <p>The service file is managed by <code>systemd</code> and located in:</p>
 
 <blockquote>
-<p>CentOS/RHEL 7: <code>/usr/lib/systemd/system/janusec.service</code><br />
-Debian 9: <code>/lib/systemd/system/janusec.service</code></p>
+<p>CentOS/RHEL 7: <code>/usr/lib/systemd/system/janusec</code><br />
+Debian 9: <code>/lib/systemd/system/janusec</code></p>
 </blockquote>
 
-<p>View more information about janusec.service by:</p>
+<p>View more information about janusec by:</p>
 
 <blockquote>
-<p>#<code>systemctl cat janusec.service</code></p>
+<p>#<code>systemctl cat janusec</code></p>
 </blockquote>
 
 <p>or</p>
 
 <blockquote>
-<p>#<code>systemctl status janusec.service</code></p>
+<p>#<code>systemctl status janusec</code></p>
 </blockquote>
 
 <h4 id="postgresql">PostgreSQL</h4>
@@ -324,7 +348,8 @@ exit</p>
 <p>For Single Node:</p>
 
 <blockquote>
-<p><code>https://your_application_domain/janusec-admin/</code></p>
+<p><code>https://your_application_domain/janusec-admin/</code> (when listen=false in config.json)<br />
+<code>https://your_application_domain:9443/janusec-admin/</code> (when listen=true in config.json)</p>
 </blockquote>
 
             </article>

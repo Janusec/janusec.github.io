@@ -69,6 +69,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="https://janusec.github.io/cn/configuration/">配置文件</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="https://janusec.github.io/cn/admin/">管理</a>
             </li>
           
@@ -95,6 +100,11 @@
             <li class="list__post list-group-item">
               <span></span>
               <a href="https://janusec.github.io/cn/operation-management/">运维管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/oauth2/">OAuth2身份认证</a>
             </li>
           
             <li class="list__post list-group-item">
@@ -167,7 +177,7 @@ $tar zxf ./janusec-latest.tar.gz</p>
 
 <blockquote>
 <p>$su<br />
-#cd janusec-0.9.6<br />
+#cd janusec-0.9.7<br />
 #./install.sh</p>
 </blockquote>
 
@@ -187,78 +197,56 @@ $tar zxf ./janusec-latest.tar.gz</p>
 
 <h5 id="主节点-第一个节点-必选">主节点 (第一个节点，必选)</h5>
 
-<blockquote>
-<p>{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;master&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;master_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;127.0.0.1&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;5432&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;user&rdquo;: &ldquo;<code>your_postgresql_user</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;password&rdquo;: &ldquo;<code>your_postgresql_password</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;dbname&rdquo;: &ldquo;<code>janusec</code>&rdquo;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;&nbsp;&nbsp;},<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;slave_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_key&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;sync_addr&rdquo;: &ldquo;&rdquo;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}</p>
-</blockquote>
+<p>可参考<a href="/cn/configuration/">配置文件</a>说明，其中：</p>
 
-<ul>
-<li>&ldquo;node_role&rdquo;: &ldquo;master&rdquo;  ( 固定为 <code>master</code> )<br /></li>
-</ul>
+<blockquote>
+<p>&ldquo;node_role&rdquo;: &ldquo;master&rdquo;  ( 固定为 <code>master</code> )</p>
+</blockquote>
 
 <h5 id="从节点-可选">从节点(可选)</h5>
 
 <p>通常多个小型应用只使用一个<code>主节点</code>就够了。<br />
-当流量增长后，可使用<code>从节点</code>扩展，需要配合您自己的GSLB（全球服务器负载均衡）或支持分区解析的DNS来实现（也就是说，不同地区的用户，会连接到不同的网关节点）。<br />
-需要先在统一的Web管理中添加节点，获取对应的<code>node_key</code> 信息，然后才能安装从节点。</p>
+当流量增长后，可使用<code>从节点</code>扩展，需要配合您自己的GSLB（全球服务器负载均衡）或支持分区解析的DNS来实现（也就是说，不同地区的用户，会连接到不同的网关节点）。</p>
+
+<p>可参考<a href="/cn/configuration/">配置文件</a>说明，其中:</p>
 
 <blockquote>
-<p>{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;<code>slave</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;master_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_http_listen&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_https_listen&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;user&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;password&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;dbname&rdquo;: &ldquo;&rdquo;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;&nbsp;&nbsp;},<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;slave_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_key&rdquo;: &ldquo;<code>produced_by_web_admin_in_master_node</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;sync_addr&rdquo;: &ldquo;<code>http://master_ip/janusec-admin/api</code>&rdquo;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}</p>
+<p>&ldquo;node_role&rdquo;: &ldquo;slave&rdquo;  ( 固定为 <code>slave</code> )</p>
 </blockquote>
 
-<ul>
-<li>&ldquo;node_role&rdquo;: &ldquo;<code>slave</code>&rdquo;  (固定为 <code>slave</code>)<br /></li>
-<li>&ldquo;node_key&rdquo;: &ldquo;<code>produced_by_web_admin_in_master_node</code>&rdquo;  (在Web管理界面生成)<br /></li>
-<li>&ldquo;sync_addr&rdquo;: &ldquo;<code>http://master_ip/janusec-admin/api</code>&rdquo;  (需替换为主节点IP地址)<br /></li>
-</ul>
+<p>并配置&rdquo;slave_node&rdquo;中的内容:<br />
+&gt; &ldquo;node_key&rdquo;: &ldquo;从管理后台节点管理中复制过来&rdquo;,
+&gt; &ldquo;sync_addr&rdquo;: &ldquo;<a href="https://gateway.master_node.com:9443/janusec-admin/api&quot;">https://gateway.master_node.com:9443/janusec-admin/api&quot;</a></p>
+
+<p>说明：<br />
+* 如果使用了从节点，请为主节点单独申请一个域名(例如gateway.master_node.com，用于从节点获取配置更新，该域名只指向主节点)，并且配置一个应用(Application)，Destination可配置为127.0.0.1:9999 （实际不使用）。<br />
+* 如果&rdquo;master_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，&rdquo;sync_addr&rdquo;中请勿包含冒号和端口号，如&rdquo;<a href="https://gateway.master_node.com/janusec-admin/api&quot;">https://gateway.master_node.com/janusec-admin/api&quot;</a></p>
 
 <h3 id="step-4-启动">Step 4: 启动</h3>
 
 <blockquote>
-<p>#systemctl start janusec.service</p>
+<p>#systemctl start janusec</p>
 </blockquote>
 
 <h3 id="step-5-测试安装">Step 5: 测试安装</h3>
 
 <p>打开浏览器（比如Chrome）,使用如下地址：</p>
 
+<p>在config.json中，如果 &ldquo;master_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，则管理入口为：</p>
+
 <blockquote>
-<p>http://<code>您的网关IP地址</code>/janusec-admin/</p>
+<p>http://<code>您的网关IP地址</code>/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址<br />
+https://<code>您的任意应用域名</code>/janusec-admin/ (在配置证书和应用之后可以使用)</p>
 </blockquote>
 
-<p>这是Janusec应用网关的第一个管理地址（后面可启用安全的管理地址）。<br />
-默认用户名：<code>admin</code><br />
+<p>如果 &ldquo;master_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为true，则默认管理入口为：</p>
+
+<blockquote>
+<p>http://<code>您的网关IP地址:9080</code>/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址<br />
+https://<code>您的任意应用域名:9443</code>/janusec-admin/ (在配置证书和应用之后可以使用)</p>
+</blockquote>
+
+<p>默认用户名：<code>admin</code><br />
 默认口令：<code>J@nusec123</code></p>
 
 <p>安全原因，您需要修改默认口令。</p>

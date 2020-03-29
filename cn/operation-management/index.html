@@ -69,6 +69,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="https://janusec.github.io/cn/configuration/">配置文件</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="https://janusec.github.io/cn/admin/">管理</a>
             </li>
           
@@ -95,6 +100,11 @@
             <li class="list__post list-group-item">
               <span></span>
               <a href="https://janusec.github.io/cn/operation-management/">运维管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/oauth2/">OAuth2身份认证</a>
             </li>
           
             <li class="list__post list-group-item">
@@ -165,12 +175,21 @@
 
 <h4 id="管理账号">管理账号</h4>
 
-<p>统一的Web管理地址包括如下：</p>
+<p>统一的Web管理地址，当配置文件config.json中listen=false时，包括如下：</p>
 
 <blockquote>
 <p>http://<code>your_master_node_ip_address</code>/janusec-admin/    (首次使用)<br />
 https://<code>your_master_node_domain_name</code>/janusec-admin/  (证书配置后可用)</p>
 </blockquote>
+
+<p>当配置文件config.json中listen=true时，地址：</p>
+
+<blockquote>
+<p>http://<code>your_master_node_ip_address:9080</code>/janusec-admin/    (首次使用)<br />
+https://<code>your_master_node_domain_name:9443</code>/janusec-admin/  (证书配置后可用)</p>
+</blockquote>
+
+<p>当使用单节点时，可使用任意应用的域名；当存在从节点时，应该为主节点申请单独的域名。</p>
 
 <table>
 <thead>
@@ -212,6 +231,16 @@ https://<code>your_master_node_domain_name</code>/janusec-admin/  (证书配置�
 <td align="center">443</td>
 <td>固定的网关HTTPS入口，主节点和从节点均开启</td>
 </tr>
+
+<tr>
+<td align="center">9080</td>
+<td>当config.json中listen=true时，仅主节点开启</td>
+</tr>
+
+<tr>
+<td align="center">9443</td>
+<td>当config.json中listen=true时，仅主节点开启</td>
+</tr>
 </tbody>
 </table>
 
@@ -239,20 +268,20 @@ https://<code>your_master_node_domain_name</code>/janusec-admin/  (证书配置�
 <p>使用 <code>systemd</code> 管理Janusec服务，位置:</p>
 
 <blockquote>
-<p>CentOS/RHEL 7: <code>/usr/lib/systemd/system/janusec.service</code><br />
-Debian 9: <code>/lib/systemd/system/janusec.service</code></p>
+<p>CentOS/RHEL 7: <code>/usr/lib/systemd/system/janusec</code><br />
+Debian 9: <code>/lib/systemd/system/janusec</code></p>
 </blockquote>
 
 <p>查看更多信息，可执行：</p>
 
 <blockquote>
-<p>#<code>systemctl cat janusec.service</code></p>
+<p>#<code>systemctl cat janusec</code></p>
 </blockquote>
 
 <p>或者</p>
 
 <blockquote>
-<p>#<code>systemctl status janusec.service</code></p>
+<p>#<code>systemctl status janusec</code></p>
 </blockquote>
 
 <h4 id="postgresql">PostgreSQL</h4>
@@ -313,7 +342,8 @@ exit</p>
 <p>如果已配置证书，可使用任一Web应用的域名，以及<code>/janusec-admin/</code>进行访问：</p>
 
 <blockquote>
-<p><code>https://your_application_domain/janusec-admin/</code></p>
+<p><code>https://your_application_domain/janusec-admin/</code> (config.json中listen=false时)<br />
+<code>https://your_application_domain:9443/janusec-admin/</code> (config.json中listen=true时)</p>
 </blockquote>
 
             </article>

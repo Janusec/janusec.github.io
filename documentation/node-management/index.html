@@ -69,6 +69,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="https://janusec.github.io/documentation/configuration/">Configuration File</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="https://janusec.github.io/documentation/admin/">Administration</a>
             </li>
           
@@ -175,21 +180,27 @@
 
 <pre><code>{
 	&quot;node_role&quot;: &quot;slave&quot;,
-	&quot;master_node&quot;: {
-		&quot;database&quot;: {
-			&quot;host&quot;: &quot;&quot;,
-			&quot;port&quot;: &quot;&quot;,
-			&quot;user&quot;: &quot;&quot;,
-			&quot;password&quot;: &quot;&quot;,
-			&quot;dbname&quot;: &quot;&quot;
-		}
-	},
+	...
 	&quot;slave_node&quot;: {		
 		&quot;node_key&quot;: &quot;8c4609...5a5fa9&quot;,
-		&quot;sync_addr&quot;: &quot;http://192.168.100.107/janusec-admin/api&quot;
+		&quot;sync_addr&quot;: &quot;http://192.168.100.107:9080/janusec-admin/api&quot;
 	}	
 }
 </code></pre>
+
+<p>For security reasons, you should apply for a seperate domain name for the master node, and configure an application, as follow:</p>
+
+<blockquote>
+<p>Application Name: JANUSEC<br />
+Destination: 127.0.0.1:9999 (It will not be accessed)<br />
+Domain: domain name for the master node<br />
+Certificate: certificate available to above domain name</p>
+</blockquote>
+
+<p>Then &ldquo;sync_addr&rdquo; can be configured with https, example: <code>https://your_gate_domain:9443/janusec-admin/api</code></p>
+
+<p>When listen=true in config.json, &ldquo;sync_addr&rdquo; should has colon and port number.<br />
+When listen=false, remove colon and port number.</p>
 
             </article>
       </div>

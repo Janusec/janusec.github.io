@@ -69,6 +69,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="https://janusec.github.io/cn/configuration/">配置文件</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="https://janusec.github.io/cn/admin/">管理</a>
             </li>
           
@@ -95,6 +100,11 @@
             <li class="list__post list-group-item">
               <span></span>
               <a href="https://janusec.github.io/cn/operation-management/">运维管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/oauth2/">OAuth2身份认证</a>
             </li>
           
             <li class="list__post list-group-item">
@@ -131,10 +141,19 @@
 
 <hr />
 
-<p>第一个管理入口：<br />
-http://<code>主节点IP地址</code>/janusec-admin/
-配置证书和应用后，可使用：
-https://<code>您的任一应用域名</code>/janusec-admin/</p>
+<p>当配置文件config.json中listen=false时，管理入口包括如下：</p>
+
+<blockquote>
+<p>http://<code>your_master_node_ip_address</code>/janusec-admin/    (首次使用)<br />
+https://<code>your_master_node_domain_name</code>/janusec-admin/  (证书配置后可用)</p>
+</blockquote>
+
+<p>当配置文件config.json中listen=true时，地址：</p>
+
+<blockquote>
+<p>http://<code>your_master_node_ip_address:9080</code>/janusec-admin/    (首次使用)<br />
+https://<code>your_master_node_domain_name:9443</code>/janusec-admin/  (证书配置后可用)</p>
+</blockquote>
 
 <h4 id="数字证书管理">数字证书管理</h4>
 

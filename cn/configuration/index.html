@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <title>配置文件</title>
+    <meta name="keywords" content="[配置文件, Janusec, 应用网关, WAF, Web应用防火墙]">
+    <meta name="description" content="Janusec应用网关配置文件说明">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">        
+        <a href="/" class="navbar-brand">JANUSEC</a>
+        
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/dl/">
+                  Download
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="https://github.com/Janusec/janusec">
+                  Github
+            </a>
+          </li>            
+          
+          <li class="nav-item">
+            <a class=" nav-link" href="/documentation/quick-start/">
+                  Documentation
+            </a>
+          </li>            
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Language
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/">English</a>
+              <a class="dropdown-item" href="/cn/">中文</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+</header>
+  <div class="container-fluid">
+  <div class="row">    
+      <div class="col-sm-3">        
+        <ul class="list-group">
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/quick-start/">快速入门</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/introduction/">产品介绍</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/installation/">安装</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/configuration/">配置文件</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/admin/">管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/certificate-management/">证书管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/application-management/">应用管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/node-management/">节点管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/waf-management/">WAF管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/operation-management/">运维管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/oauth2/">OAuth2身份认证</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/update-janusec/">升级Janusec</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/faq/">FAQ</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/diagnose/">问题诊断</a>
+            </li>
+          
+        </ul>
+      </div>
+      <div class="col-sm-9">
+            <article>
+            
+
+<h1 id="配置文件">配置文件</h1>
+
+<hr />
+
+<h4 id="配置文件路径">配置文件路径</h4>
+
+<hr />
+
+<p>生产环境配置文件为 <code>/usr/local/janusec/config.json</code><br />
+开发环境配置文件为 <code>./config.json</code></p>
+
+<h4 id="配置项说明">配置项说明</h4>
+
+<hr />
+
+<p>以下为Janusec Application Gateway V0.9.7 配置文件参考。<br />
+由于JSON格式支持的注释格式看起来不方便，下面采用<code>//</code>作为注释说明，实际使用时需要删除注释。</p>
+
+<pre><code>{
+    &quot;node_role&quot;: &quot;master&quot;,            // 单节点或主节点配置为&quot;master&quot;，从节点配置为&quot;slave&quot;
+    &quot;master_node&quot;: {                  // 主节点使用此配置，如果是从节点，这部分配置留空
+        &quot;admin&quot;: {                    // 后台管理
+            &quot;listen&quot;: true,           // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录
+            &quot;listen_http&quot;: &quot;:9080&quot;,   // 格式为:port或IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问
+            &quot;listen_https&quot;: &quot;:9443&quot;,  // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问
+            &quot;portal&quot;: &quot;https://gate.janusec.com:9443/janusec-admin/&quot;,   // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号
+            &quot;webssh_enabled&quot;: false   // 为true时，允许使用Web SSH运维功能
+        },
+        &quot;database&quot;: {                 // PostgreSQL 数据库配置，需要至少使用9.3以上版本
+            &quot;host&quot;: &quot;127.0.0.1&quot;,      // PostgreSQL IP地址
+            &quot;port&quot;: &quot;5432&quot;,           // PostgreSQL 监听端口，默认5432
+            &quot;user&quot;: &quot;postgres&quot;,       // 数据库用户名
+            &quot;password&quot;: &quot;123456&quot;,     // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密
+            &quot;dbname&quot;: &quot;janusec&quot;       // 数据库名
+        },
+        &quot;oauth&quot;: {                    // OAuth2统一身份认证
+            &quot;enabled&quot;: false,         // 设置为true时，启用OAuth2统一身份认证
+            &quot;provider&quot;: &quot;wxwork&quot;,     // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)
+            &quot;wxwork&quot;: {               // 企业微信配置
+                // 登录界面显示
+                &quot;display_name&quot;: &quot;Login with WeChat Work&quot;,     
+                // callback中只修改http/https及域名，后面的路径不变，也不带端口号
+                &quot;callback&quot;: &quot;https://your_domain.com/oauth/wxwork&quot;,  
+                // 在https://work.weixin.qq.com/wework_admin/frame#profile 下方可看到企业ID信息
+                &quot;corpid&quot;: &quot;wwd03be1f8&quot;,  
+                // 在https://work.weixin.qq.com/wework_admin/frame#apps 创建名为JANUSEC的自建应用即可看到
+                &quot;agentid&quot;: &quot;1000002&quot;,  
+                // corpsecret即上述自建应用的Secret，请据实修改                             
+                &quot;corpsecret&quot;: &quot;BgZtz_hssdZV5em-AyGhOgLlm18rU_NdZI&quot;  
+                // 备注：需要同时在该应用&quot;开发者接口&quot;一栏配置&quot;授权回调域&quot;，配置一个常用的应用域名作为网关的访问域名
+            },
+            &quot;dingtalk&quot;: {             // 钉钉配置
+                &quot;display_name&quot;: &quot;Login with DingTalk&quot;,     
+                // callback中只修改http/https及域名，后面的路径不变，也不带端口号
+                &quot;callback&quot;: &quot;https://your_domain.com/oauth/dingtalk&quot;, 
+                // 需要在钉钉开放平台注册应用
+                &quot;appid&quot;: &quot;dingoa8xvc&quot;,
+                &quot;appsecret&quot;: &quot;crrALdXUIj4T0zBekYh4u9sU_T1GZT&quot;
+            },
+            &quot;feishu&quot;: {
+                &quot;display_name&quot;: &quot;Login with Feishu&quot;,
+                // callback中只修改http/https及域名，后面的路径不变，也不带端口号
+                &quot;callback&quot;: &quot;https://your_domain.com/oauth/feishu&quot;,
+                &quot;appid&quot;: &quot;cli_9ef21d00e&quot;,
+                &quot;appsecret&quot;: &quot;ihUBspRAG1PtNdDLUZ&quot;
+                // 需要在飞书开放平台注册应用并经企业管理员审核通过(名称JANUSEC)
+                // 需要在飞书开放平台后台配置&quot;安全域名&quot;-&quot;重定向URL&quot;，配置为&quot;https://your_domain.com/oauth/feishu&quot; 
+            }
+        }
+    },
+    &quot;slave_node&quot;: {      // 从节点配置
+        // node_key在主节点的后台管理-节点管理中复制
+        &quot;node_key&quot;: &quot;&quot;,  
+        // 如果后台管理界面开启独立的监听端口(上面的listen为true)，则在IP或域名后面带上端口
+        // 如果使用https和域名，需要单独为主节点申请一个域名，并配置一个独立的应用(Application)使用该域名，Destination可填写127.0.0.1:9999(实际不用)
+        &quot;sync_addr&quot;: &quot;http://gateway.master_node.com:9080/janusec-admin/api&quot;
+    }
+}
+</code></pre>
+
+            </article>
+      </div>
+  </div>
+</div>
+  <div class="container-fluid rowblock">
+    
+        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
+        QQ Group: 776900157
+    
+</div>
+
+
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>

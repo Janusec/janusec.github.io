@@ -69,6 +69,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="https://janusec.github.io/documentation/configuration/">Configuration File</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="https://janusec.github.io/documentation/admin/">Administration</a>
             </li>
           
@@ -187,7 +192,7 @@ $tar zxf ./janusec-latest.tar.gz</p>
 
 <blockquote>
 <p>$su<br />
-#cd janusec-0.9.6<br />
+#cd janusec-0.9.7<br />
 #./install.sh</p>
 </blockquote>
 
@@ -202,31 +207,41 @@ $tar zxf ./janusec-latest.tar.gz</p>
 <h5 id="step-3-config">Step 3: Config</h5>
 
 <p>PostgreSQL is not included in release package, you should prepare database name and account.<br />
-Now we assume you have <code>PostgreSQL</code> installed already, and database name and account is ready, then edit <code>/usr/local/janusec/config.json</code> :</p>
+Now we assume you have <code>PostgreSQL</code> installed already, and database name and account is ready, then edit <code>/usr/local/janusec/config.json</code> (use <code>//</code> as comment, please delete them before using it):</p>
 
-<blockquote>
-<p>{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;master&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;master_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;127.0.0.1&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;5432&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;user&rdquo;: &ldquo;<code>your_postgresql_user</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;password&rdquo;: &ldquo;<code>your_postgresql_password</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;dbname&rdquo;: &ldquo;<code>janusec</code>&rdquo;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;&nbsp;&nbsp;},<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;slave_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_key&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;sync_addr&rdquo;: &ldquo;&rdquo;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-}</p>
-</blockquote>
+<pre><code>{
+    &quot;node_role&quot;: &quot;master&quot;,            // &quot;master&quot; for master node, &quot;slave&quot; for slave nodes
+    &quot;master_node&quot;: {                  // keep empty for slave nodes
+        &quot;admin&quot;: {                    // Administrator portal
+            &quot;listen&quot;: true,           // Listen on new ports for admin portal
+            &quot;listen_http&quot;: &quot;:9080&quot;,   // Format :port or Interal_IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available
+            &quot;listen_https&quot;: &quot;:9443&quot;,  // Format :port or Interal_IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available
+            &quot;portal&quot;: &quot;https://your_gate_domain.com:9443/janusec-admin/&quot;,   // Please skip this item when OAuth not used. It is for admin portal OAuth callback, if listen is false in config.json, remove colon and port number
+            &quot;webssh_enabled&quot;: false   // Web SSH Operation permitted when it is true
+        },
+        &quot;database&quot;: {                 // PostgreSQL 9.3+
+            &quot;host&quot;: &quot;127.0.0.1&quot;,      // PostgreSQL IP Address
+            &quot;port&quot;: &quot;5432&quot;,           // PostgreSQL Port, 5432
+            &quot;user&quot;: &quot;postgres&quot;,       // PostgreSQL user
+            &quot;password&quot;: &quot;123456&quot;,     // PostgreSQL password, less than 32bit
+            &quot;dbname&quot;: &quot;janusec&quot;       // PostgreSQL database name
+        },
+        &quot;oauth&quot;: {  
+            ...
+        }
+    },
+    &quot;slave_node&quot;: {      // for slave nodes
+        ...
+    }
+}
+</code></pre>
+
+<p>More detailed configuration, see <a href="/documentation/configuration/">Configuration File</a></p>
 
 <h5 id="step-4-start-and-test-installation">Step 4: Start and Test Installation</h5>
 
 <blockquote>
-<p>#systemctl start janusec.service</p>
+<p>#systemctl start janusec</p>
 </blockquote>
 
 <p>Open web browser such as <code>Chrome</code>, navigate with address:</p>

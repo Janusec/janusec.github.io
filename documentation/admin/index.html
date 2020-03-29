@@ -69,6 +69,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="https://janusec.github.io/documentation/configuration/">Configuration File</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="https://janusec.github.io/documentation/admin/">Administration</a>
             </li>
           
@@ -141,9 +146,19 @@
 
 <hr />
 
-<p>http://<code>master_node_ip</code>/janusec-admin/
-When finished certificate and application configuration:
-https://<code>your_application_domain_name</code>/janusec-admin/</p>
+<p>When listen=false in config.json :</p>
+
+<blockquote>
+<p>http://<code>your_master_node_ip_address</code>/janusec-admin/    (first use)
+https://<code>your_application_domain_name</code>/janusec-admin/  (after certificate configured)<br />
+When listen=true  in config.json :</p>
+
+<p>http://<code>your_master_node_ip_address:9080</code>/janusec-admin/    (first use)<br />
+https://<code>your_master_node_domain_name:9443</code>/janusec-admin/  (after certificate configured)</p>
+</blockquote>
+
+<p>When using master node only, any application domain name can be used for admin.<br />
+But if you have one or more slave nodes, you should apply for a seperate domain name for master node.</p>
 
 <h4 id="digital-certificate-management">Digital Certificate Management</h4>
 

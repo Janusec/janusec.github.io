@@ -69,6 +69,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="https://janusec.github.io/cn/configuration/">配置文件</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="https://janusec.github.io/cn/admin/">管理</a>
             </li>
           
@@ -95,6 +100,11 @@
             <li class="list__post list-group-item">
               <span></span>
               <a href="https://janusec.github.io/cn/operation-management/">运维管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/oauth2/">OAuth2身份认证</a>
             </li>
           
             <li class="list__post list-group-item">
@@ -165,21 +175,27 @@
 
 <pre><code>{
 	&quot;node_role&quot;: &quot;slave&quot;,
-	&quot;master_node&quot;: {
-		&quot;database&quot;: {
-			&quot;host&quot;: &quot;&quot;,
-			&quot;port&quot;: &quot;&quot;,
-			&quot;user&quot;: &quot;&quot;,
-			&quot;password&quot;: &quot;&quot;,
-			&quot;dbname&quot;: &quot;&quot;
-		}
-	},
+	...
 	&quot;slave_node&quot;: {		
 		&quot;node_key&quot;: &quot;8c4609...5a5fa9&quot;,
-		&quot;sync_addr&quot;: &quot;http://192.168.100.107/janusec-admin/api&quot;
+		&quot;sync_addr&quot;: &quot;http://192.168.100.107:9080/janusec-admin/api&quot;
 	}	
 }
 </code></pre>
+
+<p>安全起见，启动从节点时，应给主节点单独申请一个域名，并配置一个应用，建议配置如下：</p>
+
+<blockquote>
+<p>Application Name: JANUSEC<br />
+Destination: 127.0.0.1:9999 (不会实际访问)<br />
+Domain: 主节点专用域名<br />
+Certificate: 可用于主节点专用域名的证书</p>
+</blockquote>
+
+<p>这样&rdquo;sync_addr&rdquo;可以使用https加密传输通道，如<code>https://your_gate_domain:9443/janusec-admin/api</code>。</p>
+
+<p>当管理入口开启独立监听(配置文件config.json中listen=true)时，&rdquo;sync_addr&rdquo;应该带上冒号和端口号；<br />
+当(listen=false)时,则应去掉冒号和端口号。</p>
 
             </article>
       </div>

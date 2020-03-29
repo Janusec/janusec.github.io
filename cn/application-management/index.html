@@ -69,6 +69,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="https://janusec.github.io/cn/configuration/">配置文件</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="https://janusec.github.io/cn/admin/">管理</a>
             </li>
           
@@ -95,6 +100,11 @@
             <li class="list__post list-group-item">
               <span></span>
               <a href="https://janusec.github.io/cn/operation-management/">运维管理</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="https://janusec.github.io/cn/oauth2/">OAuth2身份认证</a>
             </li>
           
             <li class="list__post list-group-item">
@@ -129,8 +139,90 @@
 
 <h4 id="需求">需求</h4>
 
-<p>如果您需要 <code>https</code> 支持，至少需要一个数字证书。<br />
-<a href="/cn/certificate-management">证书管理</a></p>
+<p>如果您需要 <code>https</code> 支持，至少需要一个数字证书，参见<a href="/cn/certificate-management">证书管理</a>。</p>
+
+<h4 id="配置项说明">配置项说明</h4>
+
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Application Name</td>
+<td>应用名称，网站名称</td>
+</tr>
+
+<tr>
+<td>Backen or Internal Scheme</td>
+<td>后端使用的scheme，http或https，默认选http即可</td>
+</tr>
+
+<tr>
+<td>Destination</td>
+<td>后端网站的IP:Port，网关将请求转发到该处，可以配置多个，用于负载均衡</td>
+</tr>
+
+<tr>
+<td>Domain name</td>
+<td>使用的域名，点击下方的加号可以增加域名</td>
+</tr>
+
+<tr>
+<td>Certificate</td>
+<td>使用的证书，需要能够用于上面的域名</td>
+</tr>
+
+<tr>
+<td>Redirect to</td>
+<td>默认不勾选，用于将不常用域名跳转到常用域名</td>
+</tr>
+
+<tr>
+<td>Client IP for WAF</td>
+<td>网关获取IP的方式，默认REMOTE_ADDR(从IP包提取)，只有当流量来自可信任的其他设施(如CDN)时，才需要修改为其他方式</td>
+</tr>
+
+<tr>
+<td>Redirect HTTP to HTTPS</td>
+<td>通过Location告诉浏览器跳转到HTTPS</td>
+</tr>
+
+<tr>
+<td>Enable HSTS for HTTPS</td>
+<td>告诉浏览器在接下来的一年内自动使用HTTPS</td>
+</tr>
+
+<tr>
+<td>Enable WAF</td>
+<td>默认勾选，启用WAF</td>
+</tr>
+
+<tr>
+<td>Enable OAuth2</td>
+<td>启用OAuth2统一身份认证（需要配置文件中同时启用），默认不勾选</td>
+</tr>
+
+<tr>
+<td>Session Expire Seconds</td>
+<td>OAuth2认证通过后，有效会话时间(秒)，默认7200秒，即2小时</td>
+</tr>
+
+<tr>
+<td>Application Owner</td>
+<td>应用的负责人(可选)</td>
+</tr>
+
+<tr>
+<td>Description</td>
+<td>应用的描述(可选)</td>
+</tr>
+</tbody>
+</table>
 
 <h4 id="添加或编辑应用">添加或编辑应用</h4>
 

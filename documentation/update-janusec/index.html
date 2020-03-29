@@ -69,6 +69,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="https://janusec.github.io/documentation/configuration/">Configuration File</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="https://janusec.github.io/documentation/admin/">Administration</a>
             </li>
           
@@ -137,33 +142,63 @@
 
 <hr />
 
-<p>Latest version: v0.9.6 (Feb 27, 2020)</p>
-
-<h4 id="version-0-9-5-upgrade-to-0-9-6">Version 0.9.5 upgrade to 0.9.6</h4>
-
-<p>The table <code>domains</code> need to be modified:</p>
-
 <blockquote>
-<p><code>psql -h 127.0.0.1 -U janusec -W janusec</code><br />
-<code>alter table domains add column redirect boolean default false, add column location varchar(256) default null;</code></p>
+<p>This article is only for upgrade, not for new installation.</p>
 </blockquote>
 
-<p>then install the latest version.</p>
+<p>Latest version: v0.9.7 (Mar 28, 2020)</p>
 
-<h4 id="version-0-9-4-upgrade-to-0-9-5-feb-16-2020">Version 0.9.4 upgrade to 0.9.5 (Feb 16, 2020)</h4>
+<p>v0.9.7 (Mar 27, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.<br />
+v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</p>
+
+<h4 id="view-current-version">View current version</h4>
+
+<p>The version information is available at admin portal, or:</p>
+
+<blockquote>
+<p><code>./janusec --version</code></p>
+</blockquote>
+
+<h4 id="version-0-9-5-0-9-6-upgrade-to-0-9-7">Version 0.9.5, 0.9.6 upgrade to 0.9.7</h4>
+
+<p>config.json changed in V0.9.7, so backup and new config.json is required:</p>
+
+<blockquote>
+<p>#<code>cd /data/</code><br />
+#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br />
+#<code>tar zxf ./janusec-latest.tar.gz</code><br />
+#<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br />
+#<code>cp ./janusec-0.9.7/config.json.master_bak /usr/local/janusec/config.json</code></p>
+</blockquote>
+
+<p>Edit <code>/usr/local/janusec/config.json</code>, refer to <a href="/documentation/configuration/">Configuration File</a>, set database information.</p>
+
+<blockquote>
+<p>#<code>vi /usr/local/janusec/config.json</code></p>
+</blockquote>
+
+<p>then install the latest version（config.json will not be overwrote if it exists.）：</p>
+
+<blockquote>
+<p>#<code>cd /data/janusec-0.9.7/</code><br />
+#<code>./install.sh</code><br />
+#<code>systemctl restart janusec</code></p>
+</blockquote>
+
+<h4 id="version-0-9-4-or-earlier-upgrade-to-0-9-7">Version 0.9.4 or earlier upgrade to 0.9.7</h4>
 
 <p>0.9.5 changed the service type, so before installation:</p>
 
 <blockquote>
-<p>systemctl stop janusec.service</p>
+<p>#<code>systemctl stop janusec</code></p>
 </blockquote>
 
-<p>stop the service, and then install the latest version.</p>
+<p>stop the service. Next, and then repeat above upgrade process.</p>
 
 <p>If:</p>
 
 <blockquote>
-<p>systemctl restart janusec</p>
+<p>#<code>systemctl restart janusec</code></p>
 </blockquote>
 
 <p>not work, just kill it.</p>

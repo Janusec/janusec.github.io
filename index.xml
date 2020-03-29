@@ -17,7 +17,7 @@
       <pubDate>Thu, 24 May 2018 20:37:42 +0800</pubDate>
       
       <guid>https://janusec.github.io/dl/</guid>
-      <description> Download Janusec Application Gateway    Type Requirements Download     Binary Release CentOS/RHEL 7 or Debian 9, with systemd 0.9.6   Source Code Linux with systemd Github    Console  wget https://www.janusec.com/download/janusec-latest.tar.gz
+      <description> Download Janusec Application Gateway    Type Requirements Download     Binary Release CentOS/RHEL 7 or Debian 9, with systemd 0.9.7   Source Code Linux with systemd Github    Console  wget https://www.janusec.com/download/janusec-latest.tar.gz
  </description>
     </item>
     
@@ -123,16 +123,44 @@ $tar zxf ./janusec-latest.tar.gz
     </item>
     
     <item>
+      <title>Configuration File</title>
+      <link>https://janusec.github.io/documentation/configuration/</link>
+      <pubDate>Sun, 22 Mar 2020 10:11:09 +0800</pubDate>
+      
+      <guid>https://janusec.github.io/documentation/configuration/</guid>
+      <description>Configuration File Path of Configuration File Production environment: /usr/local/janusec/config.json
+Development environment: ./config.json
+Configuration Items The following is based on Janusec Application Gateway V0.9.7, and use // as comment, please delete // comment before using it.
+{ &amp;quot;node_role&amp;quot;: &amp;quot;master&amp;quot;, // &amp;quot;master&amp;quot; for master node, &amp;quot;slave&amp;quot; for slave nodes &amp;quot;master_node&amp;quot;: { // keep empty for slave nodes &amp;quot;admin&amp;quot;: { // Administrator portal &amp;quot;listen&amp;quot;: true, // Listen on new ports for admin portal &amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available &amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available &amp;quot;portal&amp;quot;: &amp;quot;https://gate.</description>
+    </item>
+    
+    <item>
+      <title>配置文件</title>
+      <link>https://janusec.github.io/cn/configuration/</link>
+      <pubDate>Sun, 22 Mar 2020 10:11:09 +0800</pubDate>
+      
+      <guid>https://janusec.github.io/cn/configuration/</guid>
+      <description>配置文件 配置文件路径 生产环境配置文件为 /usr/local/janusec/config.json
+开发环境配置文件为 ./config.json
+配置项说明 以下为Janusec Application Gateway V0.9.7 配置文件参考。
+由于JSON格式支持的注释格式看起来不方便，下面采用//作为注释说明，实际使用时需要删除注释。
+{ &amp;quot;node_role&amp;quot;: &amp;quot;master&amp;quot;, // 单节点或主节点配置为&amp;quot;master&amp;quot;，从节点配置为&amp;quot;slave&amp;quot; &amp;quot;master_node&amp;quot;: { // 主节点使用此配置，如果是从节点，这部分配置留空 &amp;quot;admin&amp;quot;: { // 后台管理 &amp;quot;listen&amp;quot;: true, // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录 &amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问 &amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问 &amp;quot;portal&amp;quot;: &amp;quot;https://gate.janusec.com:9443/janusec-admin/&amp;quot;, // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号 &amp;quot;webssh_enabled&amp;quot;: false // 为true时，允许使用Web SSH运维功能 }, &amp;quot;database&amp;quot;: { // PostgreSQL 数据库配置，需要至少使用9.3以上版本 &amp;quot;host&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, // PostgreSQL IP地址 &amp;quot;port&amp;quot;: &amp;quot;5432&amp;quot;, // PostgreSQL 监听端口，默认5432 &amp;quot;user&amp;quot;: &amp;quot;postgres&amp;quot;, // 数据库用户名 &amp;quot;password&amp;quot;: &amp;quot;123456&amp;quot;, // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密 &amp;quot;dbname&amp;quot;: &amp;quot;janusec&amp;quot; // 数据库名 }, &amp;quot;oauth&amp;quot;: { // OAuth2统一身份认证 &amp;quot;enabled&amp;quot;: false, // 设置为true时，启用OAuth2统一身份认证 &amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;, // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书) &amp;quot;wxwork&amp;quot;: { // 企业微信配置 // 登录界面显示 &amp;quot;display_name&amp;quot;: &amp;quot;Login with WeChat Work&amp;quot;, // callback中只修改http/https及域名，后面的路径不变，也不带端口号 &amp;quot;callback&amp;quot;: &amp;quot;https://your_domain.</description>
+    </item>
+    
+    <item>
       <title>Administration</title>
       <link>https://janusec.github.io/documentation/admin/</link>
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>https://janusec.github.io/documentation/admin/</guid>
-      <description>Web Administration Administration Portal http://master_node_ip/janusec-admin/ When finished certificate and application configuration: https://your_application_domain_name/janusec-admin/
-Digital Certificate Management see Certificate Management
-Application Management see Application Management
-Node Management see Node Management
-WAF Management see WAF Management</description>
+      <description>Web Administration Administration Portal When listen=false in config.json :
+ http://your_master_node_ip_address/janusec-admin/ (first use) https://your_application_domain_name/janusec-admin/ (after certificate configured)
+When listen=true in config.json :
+http://your_master_node_ip_address:9080/janusec-admin/ (first use)
+https://your_master_node_domain_name:9443/janusec-admin/ (after certificate configured)
+ When using master node only, any application domain name can be used for admin.
+But if you have one or more slave nodes, you should apply for a seperate domain name for master node.
+Digital Certificate Management see Certificate Management</description>
     </item>
     
     <item>
@@ -141,9 +169,13 @@ WAF Management see WAF Management</description>
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>https://janusec.github.io/cn/admin/</guid>
-      <description>Web化管理 管理入口 第一个管理入口：
-http://主节点IP地址/janusec-admin/ 配置证书和应用后，可使用： https://您的任一应用域名/janusec-admin/
-数字证书管理 参考 证书管理
+      <description>Web化管理 管理入口 当配置文件config.json中listen=false时，管理入口包括如下：
+ http://your_master_node_ip_address/janusec-admin/ (首次使用)
+https://your_master_node_domain_name/janusec-admin/ (证书配置后可用)
+ 当配置文件config.json中listen=true时，地址：
+ http://your_master_node_ip_address:9080/janusec-admin/ (首次使用)
+https://your_master_node_domain_name:9443/janusec-admin/ (证书配置后可用)
+ 数字证书管理 参考 证书管理
 应用管理 参考 应用管理
 节点管理 参考 节点管理
 WAF管理 参考 WAF管理</description>
@@ -198,15 +230,8 @@ Note:
       <pubDate>Sun, 20 May 2018 21:58:35 +0800</pubDate>
       
       <guid>https://janusec.github.io/cn/application-management/</guid>
-      <description> 应用管理 需求 如果您需要 https 支持，至少需要一个数字证书。
-证书管理
-添加或编辑应用 打开Web管理门户并导航至Application Management。
-注意:
- 后端（从网关到真实服务器）通常在内网，默认使用 http ，不需要证书；
- Destination（后端目的地）,使用 IP:Port 格式，其中端口不可省略（即使是80端口）； 多个Destination用于后端负载均衡；
- 网关获取用户IP，默认使用REMOTE_ADDR（从IP报文获取）； 当网关的前面还存在可信任的CDN时，REMOTE_ADDR获取的是CDN的地址，可参考CDN厂商的说明文档，通常CDN厂商会将用户IP附加在X-Forwarded-For后面，这时网关可配置成 X_Forwarded_For （网关将使用该字段的最后一个IP地址）；
- Janusec应用网关将会把REMOTE_ADDR获取的IP附加在X-Forwarded-For后面, 因此业务中如需使用用户IP地址，可提取X-Forwarded-For中的最后一个IP地址（网关直接向用户提供服务时），或倒数第二个IP地址（网关前面还存在可信任的CDN时）.
-  </description>
+      <description>应用管理 需求 如果您需要 https 支持，至少需要一个数字证书，参见证书管理。
+配置项说明    配置项 说明     Application Name 应用名称，网站名称   Backen or Internal Scheme 后端使用的scheme，http或https，默认选http即可   Destination 后端网站的IP:Port，网关将请求转发到该处，可以配置多个，用于负载均衡   Domain name 使用的域名，点击下方的加号可以增加域名   Certificate 使用的证书，需要能够用于上面的域名   Redirect to 默认不勾选，用于将不常用域名跳转到常用域名   Client IP for WAF 网关获取IP的方式，默认REMOTE_ADDR(从IP包提取)，只有当流量来自可信任的其他设施(如CDN)时，才需要修改为其他方式   Redirect HTTP to HTTPS 通过Location告诉浏览器跳转到HTTPS   Enable HSTS for HTTPS 告诉浏览器在接下来的一年内自动使用HTTPS   Enable WAF 默认勾选，启用WAF   Enable OAuth2 启用OAuth2统一身份认证（需要配置文件中同时启用），默认不勾选   Session Expire Seconds OAuth2认证通过后，有效会话时间(秒)，默认7200秒，即2小时   Application Owner 应用的负责人(可选)   Description 应用的描述(可选)    添加或编辑应用 打开Web管理门户并导航至Application Management。</description>
     </item>
     
     <item>
@@ -229,7 +254,7 @@ Note:
       <pubDate>Sun, 20 May 2018 22:38:35 +0800</pubDate>
       
       <guid>https://janusec.github.io/cn/node-management/</guid>
-      <description> 节点管理 节点类型  主节点, 有且只有一个，并需要使用PostgreSQL.
+      <description>节点管理 节点类型  主节点, 有且只有一个，并需要使用PostgreSQL.
  从节点，可选，0个或多个，不需要数据库。
   单节点架构  一个主节点，没有从节点.
  不需要GSLB或DNS负载均衡.
@@ -239,7 +264,14 @@ Note:
  适用于一个或多个大型Web业务.
   从节点  在统一的Web管理界面,可管理所有的从节点.
  从节点配置文件/usr/local/janusec/config.json中的node_key，需要据此配置，类似：
-{ &amp;quot;node_role&amp;quot;: &amp;quot;slave&amp;quot;, &amp;quot;master_node&amp;quot;: { &amp;quot;database&amp;quot;: { &amp;quot;host&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;port&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;user&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;password&amp;quot;: &amp;quot;&amp;quot;, &amp;quot;dbname&amp;quot;: &amp;quot;&amp;quot; } }, &amp;quot;slave_node&amp;quot;: {	&amp;quot;node_key&amp;quot;: &amp;quot;8c4609...5a5fa9&amp;quot;, &amp;quot;sync_addr&amp;quot;: &amp;quot;http://192.168.100.107/janusec-admin/api&amp;quot; }	}  </description>
+{ &amp;quot;node_role&amp;quot;: &amp;quot;slave&amp;quot;, ... &amp;quot;slave_node&amp;quot;: {	&amp;quot;node_key&amp;quot;: &amp;quot;8c4609...5a5fa9&amp;quot;, &amp;quot;sync_addr&amp;quot;: &amp;quot;http://192.168.100.107:9080/janusec-admin/api&amp;quot; }	}  安全起见，启动从节点时，应给主节点单独申请一个域名，并配置一个应用，建议配置如下：
+ Application Name: JANUSEC
+Destination: 127.0.0.1:9999 (不会实际访问)
+Domain: 主节点专用域名
+Certificate: 可用于主节点专用域名的证书
+ 这样&amp;rdquo;sync_addr&amp;rdquo;可以使用https加密传输通道，如https://your_gate_domain:9443/janusec-admin/api。
+当管理入口开启独立监听(配置文件config.json中listen=true)时，&amp;rdquo;sync_addr&amp;rdquo;应该带上冒号和端口号；
+当(listen=false)时,则应去掉冒号和端口号。</description>
     </item>
     
     <item>
@@ -301,11 +333,34 @@ abc&#39; oR &amp;quot;abc&amp;quot;=&amp;quot;abc
       <pubDate>Fri, 25 May 2018 21:04:25 +0800</pubDate>
       
       <guid>https://janusec.github.io/cn/operation-management/</guid>
-      <description>运维管理 部署架构    架构 主节点 从节点 描述     单节点 一个 无 小规模Web应用，统一Web管理   可扩展 一个 任意 大规模Web应用，统一Web管理   多个自治系统 任意 任意 部署多套，每个自治系统内部统一Web管理.    管理账号 统一的Web管理地址包括如下：
+      <description>运维管理 部署架构    架构 主节点 从节点 描述     单节点 一个 无 小规模Web应用，统一Web管理   可扩展 一个 任意 大规模Web应用，统一Web管理   多个自治系统 任意 任意 部署多套，每个自治系统内部统一Web管理.    管理账号 统一的Web管理地址，当配置文件config.json中listen=false时，包括如下：
  http://your_master_node_ip_address/janusec-admin/ (首次使用)
 https://your_master_node_domain_name/janusec-admin/ (证书配置后可用)
-    默认用户 默认口令     admin J@nusec123     需要修改口令后才能继续管理功能!
- 端口    端口 描述     80 固定的网关HTTP入口，主节点和从节点均开启   443 固定的网关HTTPS入口，主节点和从节点均开启    进程  /usr/local/janusec/janusec</description>
+ 当配置文件config.json中listen=true时，地址：
+ http://your_master_node_ip_address:9080/janusec-admin/ (首次使用)
+https://your_master_node_domain_name:9443/janusec-admin/ (证书配置后可用)
+ 当使用单节点时，可使用任意应用的域名；当存在从节点时，应该为主节点申请单独的域名。
+   默认用户 默认口令     admin J@nusec123     需要修改口令后才能继续管理功能!
+ 端口    端口 描述     80 固定的网关HTTP入口，主节点和从节点均开启   443 固定的网关HTTPS入口，主节点和从节点均开启   9080 当config.</description>
+    </item>
+    
+    <item>
+      <title>OAuth2身份认证</title>
+      <link>https://janusec.github.io/cn/oauth2/</link>
+      <pubDate>Sat, 28 Mar 2020 23:04:25 +0800</pubDate>
+      
+      <guid>https://janusec.github.io/cn/oauth2/</guid>
+      <description>OAuth2统一身份认证 简介 Janusec Application Gateway支持OAuth2统一身份认证，可使用企业微信、钉钉、飞书扫码登录，包括:
+ 管理后台
+ 配置中启用OAuth2身份认证的应用(用于员工访问内网应用)
+  配置 如需启用，请在配置文件config.json中开启：
+&amp;quot;oauth&amp;quot;: { &amp;quot;enabled&amp;quot;: true, &amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;, ... }  上述provider中，wxwork表示企业微信，dingtalk表示钉钉，feishu表示飞书。
+应用如何获取用户身份 Janusec认证通过后，会在HTTP请求的头部添加两行：
+ Authorization: Bearer Access-Token
+X-Auth-User: UserID
+ 应用可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。
+多节点注意事项 OAuth2需要使用回调域名(在config.json中callback配置)，这里请选定并配置一个域名，可以是任意已配置应用中的域名，假设为www.your_domain.com 。
+但需要注意的是，DNS解析应确保其对所有应用的解析，均指向同一个网关。如果员工访问的应用，跟回调域名指向不同的网关地址，则OAuth2将不可用。</description>
     </item>
     
     <item>
@@ -341,13 +396,13 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       <pubDate>Sun, 10 Jun 2018 20:11:45 +0800</pubDate>
       
       <guid>https://janusec.github.io/documentation/update-janusec/</guid>
-      <description>Update to Latest Version Latest version: v0.9.6 (Feb 27, 2020)
-Version 0.9.5 upgrade to 0.9.6 The table domains need to be modified:
- psql -h 127.0.0.1 -U janusec -W janusec
-alter table domains add column redirect boolean default false, add column location varchar(256) default null;
- then install the latest version.
-Version 0.9.4 upgrade to 0.9.5 (Feb 16, 2020) 0.9.5 changed the service type, so before installation:
- systemctl stop janusec.</description>
+      <description>Update to Latest Version  This article is only for upgrade, not for new installation.
+ Latest version: v0.9.7 (Mar 28, 2020)
+v0.9.7 (Mar 27, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.
+v0.9.6 (Feb 27, 2020): Add domain 301 redirect.
+View current version The version information is available at admin portal, or:
+ ./janusec --version
+ Version 0.9.5, 0.</description>
     </item>
     
     <item>
@@ -357,19 +412,30 @@ Version 0.9.4 upgrade to 0.9.5 (Feb 16, 2020) 0.9.5 changed the service type, so
       
       <guid>https://janusec.github.io/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关  本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v0.9.6 (2020.02.27)
-V0.9.5升级到V0.9.6 需要手工修改表格domains，添加2个字段：
- psql -h 127.0.0.1 -U janusec -W janusec
-alter table domains add column redirect boolean default false, add column location varchar(256) default null;
- 然后正常安装即可。
-V0.9.4升级到V0.9.6 0.9.5变更了服务类型，建议升级前执行如下操作：
- systemctl stop janusec
- 0.9.6需要手工修改表格domains，添加2个字段：
- psql -h 127.0.0.1 -U janusec -W janusec
-alter table domains add column redirect boolean default false, add column location varchar(256) default null;
- 然后正常安装即可。
+ 最新版本: v0.9.7 (2020.03.28)
+版本历史:
+v0.9.7 (2020.03.28): 为各应用及管理入口增加OAuth2统一登录（可选企业微信、钉钉、飞书）；可限制管理入口开放范围（例如只开放内网）；Web SSH安全运维支持禁用或开启。
+v0.9.6 (2020.02.27): 增加域名重定向。
+查看当前版本 当前版本信息可通过管理入口查看，或者:
+ ./janusec --version
+ V0.9.5, 0.9.6 升级到V0.9.7 V0.9.7修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在/data/janusec-latest.tar.gz，升级步骤参考：
+ #cd /data/
+#wget https://www.janusec.com/download/janusec-latest.tar.gz
+#tar zxf ./janusec-latest.tar.gz
+#mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old
+#cp ./janusec-0.9.7/config.json.master_bak /usr/local/janusec/config.json
+ 需要编辑新的/usr/local/janusec/config.json，参考配置文件，重新设置数据库账号口令等信息。
+ #vi /usr/local/janusec/config.json
+ 然后正常覆盖安装即可（已存在config.json的情况下不会覆盖config.json）：
+ #cd /data/janusec-0.9.7/
+#./install.sh
+#systemctl restart janusec
+ V0.9.4或更早版本升级到V0.9.7 由于升级过程中变更了服务类型(0.9.5)，建议升级前执行如下操作：
+ #systemctl stop janusec
+ 然后再参考上述V0.9.6升级到V0.9.7的过程。
 如果:
- systemctl restart janusec</description>
+ systemctl restart janusec
+ 无效 ，可以kill其进程。</description>
     </item>
     
     <item>

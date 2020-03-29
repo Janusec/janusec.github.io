@@ -47,16 +47,31 @@ $tar zxf ./janusec-latest.tar.gz
     </item>
     
     <item>
+      <title>Configuration File</title>
+      <link>https://janusec.github.io/documentation/configuration/</link>
+      <pubDate>Sun, 22 Mar 2020 10:11:09 +0800</pubDate>
+      
+      <guid>https://janusec.github.io/documentation/configuration/</guid>
+      <description>Configuration File Path of Configuration File Production environment: /usr/local/janusec/config.json
+Development environment: ./config.json
+Configuration Items The following is based on Janusec Application Gateway V0.9.7, and use // as comment, please delete // comment before using it.
+{ &amp;quot;node_role&amp;quot;: &amp;quot;master&amp;quot;, // &amp;quot;master&amp;quot; for master node, &amp;quot;slave&amp;quot; for slave nodes &amp;quot;master_node&amp;quot;: { // keep empty for slave nodes &amp;quot;admin&amp;quot;: { // Administrator portal &amp;quot;listen&amp;quot;: true, // Listen on new ports for admin portal &amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available &amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available &amp;quot;portal&amp;quot;: &amp;quot;https://gate.</description>
+    </item>
+    
+    <item>
       <title>Administration</title>
       <link>https://janusec.github.io/documentation/admin/</link>
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>https://janusec.github.io/documentation/admin/</guid>
-      <description>Web Administration Administration Portal http://master_node_ip/janusec-admin/ When finished certificate and application configuration: https://your_application_domain_name/janusec-admin/
-Digital Certificate Management see Certificate Management
-Application Management see Application Management
-Node Management see Node Management
-WAF Management see WAF Management</description>
+      <description>Web Administration Administration Portal When listen=false in config.json :
+ http://your_master_node_ip_address/janusec-admin/ (first use) https://your_application_domain_name/janusec-admin/ (after certificate configured)
+When listen=true in config.json :
+http://your_master_node_ip_address:9080/janusec-admin/ (first use)
+https://your_master_node_domain_name:9443/janusec-admin/ (after certificate configured)
+ When using master node only, any application domain name can be used for admin.
+But if you have one or more slave nodes, you should apply for a seperate domain name for master node.
+Digital Certificate Management see Certificate Management</description>
     </item>
     
     <item>
@@ -145,13 +160,13 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       <pubDate>Sun, 10 Jun 2018 20:11:45 +0800</pubDate>
       
       <guid>https://janusec.github.io/documentation/update-janusec/</guid>
-      <description>Update to Latest Version Latest version: v0.9.6 (Feb 27, 2020)
-Version 0.9.5 upgrade to 0.9.6 The table domains need to be modified:
- psql -h 127.0.0.1 -U janusec -W janusec
-alter table domains add column redirect boolean default false, add column location varchar(256) default null;
- then install the latest version.
-Version 0.9.4 upgrade to 0.9.5 (Feb 16, 2020) 0.9.5 changed the service type, so before installation:
- systemctl stop janusec.</description>
+      <description>Update to Latest Version  This article is only for upgrade, not for new installation.
+ Latest version: v0.9.7 (Mar 28, 2020)
+v0.9.7 (Mar 27, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.
+v0.9.6 (Feb 27, 2020): Add domain 301 redirect.
+View current version The version information is available at admin portal, or:
+ ./janusec --version
+ Version 0.9.5, 0.</description>
     </item>
     
     <item>
