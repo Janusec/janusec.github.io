@@ -161,8 +161,8 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       
       <guid>https://janusec.github.io/documentation/update-janusec/</guid>
       <description>Update to Latest Version  This article is only for upgrade, not for new installation.
- Latest version: v0.9.7 (Mar 28, 2020)
-v0.9.7 (Mar 27, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.
+ Latest version: v0.9.7 (Mar 29, 2020)
+v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.
 v0.9.6 (Feb 27, 2020): Add domain 301 redirect.
 View current version The version information is available at admin portal, or:
  ./janusec --version

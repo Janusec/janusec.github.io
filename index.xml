@@ -231,7 +231,7 @@ Note:
       
       <guid>https://janusec.github.io/cn/application-management/</guid>
       <description>应用管理 需求 如果您需要 https 支持，至少需要一个数字证书，参见证书管理。
-配置项说明    配置项 说明     Application Name 应用名称，网站名称   Backen or Internal Scheme 后端使用的scheme，http或https，默认选http即可   Destination 后端网站的IP:Port，网关将请求转发到该处，可以配置多个，用于负载均衡   Domain name 使用的域名，点击下方的加号可以增加域名   Certificate 使用的证书，需要能够用于上面的域名   Redirect to 默认不勾选，用于将不常用域名跳转到常用域名   Client IP for WAF 网关获取IP的方式，默认REMOTE_ADDR(从IP包提取)，只有当流量来自可信任的其他设施(如CDN)时，才需要修改为其他方式   Redirect HTTP to HTTPS 通过Location告诉浏览器跳转到HTTPS   Enable HSTS for HTTPS 告诉浏览器在接下来的一年内自动使用HTTPS   Enable WAF 默认勾选，启用WAF   Enable OAuth2 启用OAuth2统一身份认证（需要配置文件中同时启用），默认不勾选   Session Expire Seconds OAuth2认证通过后，有效会话时间(秒)，默认7200秒，即2小时   Application Owner 应用的负责人(可选)   Description 应用的描述(可选)    添加或编辑应用 打开Web管理门户并导航至Application Management。</description>
+配置项说明    配置项 说明     Application Name 应用名称，网站名称   Backen or Internal Scheme 后端使用的scheme，http或https，默认选http即可   Destination 后端网站的IP:Port，网关将请求转发到该处，可以配置多个，用于负载均衡   Domain name 使用的域名，点击下方的加号可以增加域名   Certificate 使用的证书，需要能够用于上面的域名   Redirect to 默认不勾选，用于将不常用域名跳转到常用域名   Client IP for WAF 网关获取IP的方式，默认REMOTE_ADDR(从IP包提取)，只有当流量来自可信任的其他设施(如CDN)时，才需要修改为其他方式   Redirect HTTP to HTTPS 通过Location告诉浏览器跳转到HTTPS   Enable HSTS for HTTPS 告诉浏览器在接下来的一年内自动使用HTTPS   Enable WAF 默认勾选，启用WAF   Enable OAuth2 启用OAuth2统一身份认证（需要配置文件中同时启用），默认不勾选   Session Expire Seconds OAuth2认证通过后，有效会话时间(秒)，默认7200秒，即2小时   Application Owner 应用的负责人(默认为当前用户)   Description 应用的描述(可选)    添加或编辑应用 打开Web管理门户并导航至Application Management。</description>
     </item>
     
     <item>
@@ -358,9 +358,19 @@ https://your_master_node_domain_name:9443/janusec-admin/ (证书配置后可用)
 应用如何获取用户身份 Janusec认证通过后，会在HTTP请求的头部添加两行：
  Authorization: Bearer Access-Token
 X-Auth-User: UserID
- 应用可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。
-多节点注意事项 OAuth2需要使用回调域名(在config.json中callback配置)，这里请选定并配置一个域名，可以是任意已配置应用中的域名，假设为www.your_domain.com 。
-但需要注意的是，DNS解析应确保其对所有应用的解析，均指向同一个网关。如果员工访问的应用，跟回调域名指向不同的网关地址，则OAuth2将不可用。</description>
+ 应用不需要修改即可使用，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。
+企业微信配置 在配置文件的&amp;quot;wxwork&amp;quot;字段：
+登录界面显示:
+ &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with WeChat Work&amp;rdquo;,
+ 回调地址(需要同时在该应用&amp;rdquo;开发者接口&amp;rdquo;一栏配置&amp;rdquo;授权回调域&amp;rdquo;，配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):
+ &amp;ldquo;callback&amp;rdquo;: &amp;ldquo;https://your_domain.com/oauth/wxwork&amp;rdquo;,
+ 企业ID (在https://work.weixin.qq.com/wework_admin/frame#profile 下方可看到企业ID信息):
+ &amp;ldquo;corpid&amp;rdquo;: &amp;ldquo;wwd03be1f8&amp;rdquo;,
+ AgentID (在https://work.weixin.qq.com/wework_admin/frame#apps 创建名为JANUSEC的自建应用即可看到):
+ &amp;ldquo;agentid&amp;rdquo;: &amp;ldquo;1000002&amp;rdquo;,
+ corpsecret (即上述自建应用的Secret，请据实修改):
+ &amp;ldquo;corpsecret&amp;rdquo;: &amp;ldquo;BgZtz_hssdZV5em-AyGhOgLlm18rU_NdZI&amp;rdquo;
+ 钉钉配置 在配置文件的&amp;quot;dingtalk&amp;quot;字段：</description>
     </item>
     
     <item>
@@ -397,8 +407,8 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       
       <guid>https://janusec.github.io/documentation/update-janusec/</guid>
       <description>Update to Latest Version  This article is only for upgrade, not for new installation.
- Latest version: v0.9.7 (Mar 28, 2020)
-v0.9.7 (Mar 27, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.
+ Latest version: v0.9.7 (Mar 29, 2020)
+v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.
 v0.9.6 (Feb 27, 2020): Add domain 301 redirect.
 View current version The version information is available at admin portal, or:
  ./janusec --version
@@ -412,9 +422,9 @@ View current version The version information is available at admin portal, or:
       
       <guid>https://janusec.github.io/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关  本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v0.9.7 (2020.03.28)
+ 最新版本: v0.9.7 (2020.03.29)
 版本历史:
-v0.9.7 (2020.03.28): 为各应用及管理入口增加OAuth2统一登录（可选企业微信、钉钉、飞书）；可限制管理入口开放范围（例如只开放内网）；Web SSH安全运维支持禁用或开启。
+v0.9.7 (2020.03.29): 为各应用及管理入口增加OAuth2统一登录（可选企业微信、钉钉、飞书）；可限制管理入口开放范围（例如只开放内网）；Web SSH安全运维支持禁用或开启。
 v0.9.6 (2020.02.27): 增加域名重定向。
 查看当前版本 当前版本信息可通过管理入口查看，或者:
  ./janusec --version
