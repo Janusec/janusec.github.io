@@ -535,11 +535,8 @@ PostgreSQL 使用psql命令来检查配置是否正常：
  版本要求为9.3以上（不支持PostgreSQL 9.2或更早的版本）。
 端口  netstat -anp | grep LISTEN | grep &#39;:\(80\|443\)\s&#39;
  Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。
-DNS 如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不需要任何修改。
-如果是单独部署的Janusec网关，需要将现有的Web服务接入迁移到Janusec，请先使用hosts方式调试通过，然后再修改DNS指向。
-主从节点同步 为了保证主从节点正确同步，需要满足：
- 各节点时间正确（误差不超过一分钟）
- 从节点node_key跟Web管理控制台中节点管理中显示的node_key一致。</description>
+当config.json中listen=true时，Janusec网关还需要使用9080/9443端口，一般用于从内网发起管理。
+&amp;gt; netstat -anp | grep LISTEN | grep &#39;:\(9080\|9443\)\s&#39;</description>
     </item>
     
   </channel>

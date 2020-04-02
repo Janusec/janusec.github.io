@@ -196,6 +196,12 @@
 
 <p>Janusec will use <sup>80</sup>&frasl;<sub>443</sub> , if other program occupied thest ports, you shoud change it before installation of Janusec.</p>
 
+<p>If listen=true in config.json, Janusec will use <sup>9080</sup>&frasl;<sub>9443</sub> also, used for internal management.</p>
+
+<blockquote>
+<p><code>netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'</code></p>
+</blockquote>
+
 <h3 id="nodes-sync">Nodes Sync</h3>
 
 <p>In order to sync correctly, requires:</p>
@@ -203,10 +209,25 @@
 <ul>
 <li>Slave node use the correct time, error less than 60 seconds.<br /></li>
 <li>The <code>node_key</code> in <code>/usr/local/janusec/config.json</code> is the same with <a href="/documentation/node-management">Node Management</a>.<br />
-<br />
-<br />
 <br /></li>
 </ul>
+
+<h3 id="log">Log</h3>
+
+<p>Log file is under /usr/local/janusec/log/</p>
+
+<h3 id="more-information">More Information</h3>
+
+<p>If all above are OK, you can stop the janusec service, and switch to run it under console, to view more output:</p>
+
+<blockquote>
+<p>#<code>systemctl stop janusec</code><br />
+#<code>cd /usr/local/janusec</code><br />
+#<code>./janusec</code></p>
+</blockquote>
+
+<p>如果发现有错误输出，可通过QQ群（776900157）反馈。<br />
+If error found, you can sent to the bottom email, or submit an issue on <a href="https://github.com/Janusec/janusec/issues">https://github.com/Janusec/janusec/issues</a></p>
 
 <h2 id="development">Development</h2>
 
