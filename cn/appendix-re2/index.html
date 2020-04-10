@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>产品介绍</title>
-    <meta name="keywords" content="[Janusec Application Gateway, Janusec应用网关, Janusec网关WAF]">
-    <meta name="description" content="Janusec应用网关产品介绍">
+    <title>附录1:RE2正则规则解读</title>
+    <meta name="keywords" content="[RE2正则规则解读, Janusec, Application Gateway, WAF, Web Application Firewall]">
+    <meta name="description" content="Janusec Application Gateway RE2正则规则解读">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -138,64 +138,33 @@
             <article>
             
 
-<h1 id="产品介绍">产品介绍</h1>
+<h1 id="附录1-re2正则规则解读">附录1:RE2正则规则解读</h1>
 
 <hr />
 
-<p><img src="/images/gateway1.png" alt="应用网关" title="Janusec应用网关" /><br />
-Janusec应用网关，一种适用于各种场景（公有云、私有云、传统IDC等）的应用安全解决方案，提供Web路由、负载均衡、WAF（Web应用防火墙）等功能，可用于构建安全的、可扩展的应用。</p>
+<h4 id="规则样例1">规则样例1</h4>
 
-<p><a href="/download/Janusec-Application-Gateway.pdf">Janusec Application Gateway Introduction PDF</a></p>
+<p>检查点(CheckPoint)：URLPath<br />
+解读：检查点URLPath表示URL地址中域名后面的路径(举例 www.yourdomain.com/blog/show.php?id=1&amp;category=2 ，URLPath 为<code>/blog/show.php</code> )</p>
 
-<hr />
+<p>RE2规则：(?i)/\.(git|svn)/<br />
+解读：(?i)表示不区分大小写，/原样匹配，\.匹配小数点，(git&#124;svn)表示匹配git或svn ，用于阻断访问错误发布的源代码。</p>
 
-<h4 id="产品特点">产品特点:</h4>
+<h4 id="规则样例2">规则样例2</h4>
 
-<ul>
-<li>WAF (Web Application Firewall, Web应用防火墙，天然支持<code>HTTPS</code>且不需要Agent )<br /></li>
-<li>统一的Web化管理<br /></li>
-<li>证书加密保护<br /></li>
-<li>负载均衡（可扩展的部署架构）<br /></li>
-</ul>
+<p>检查点(CheckPoint)：URLQuery<br />
+解读：检查点URLQuery表示URL中的参数(举例 www.yourdomain.com/blog/show.php?id=1&amp;category=2 ，URLQuery 为 <code>id=1&amp;category=2</code> )</p>
 
-<hr />
+<p>RE2规则：(?i)%\s+(and|or)\s+<br />
+解读：%原样匹配，\s+表示一个或多个空格，(and|or)匹配and或or的各种大小写组合（如aNd、AnD、oR等），用于防止SQL注入。</p>
 
-<h4 id="让防御更简单">让防御更简单</h4>
+<h3 id="规则样例3">规则样例3</h3>
 
-<ul>
-<li>SQL注入<br /></li>
-<li>跨站脚本<br /></li>
-<li>敏感数据泄露</li>
-<li>CC攻击</li>
-<li>阻断（<code>Block</code>）、验证码（<code>Captcha</code>）等多种策略</li>
-<li>支持多个检查点的组合策略<br /></li>
-</ul>
+<p>检查点(CheckPoint)：GetPostValue<br />
+解读：GetPostValue同时作用于GET和POST方法中的参数值(举例 www.yourdomain.com/blog/show.php?id=1&amp;category=2 ，GetPostValue 为参数值 <code>[1, 2]</code> )。</p>
 
-<hr />
-
-<h4 id="让管理更简单">让管理更简单</h4>
-
-<ul>
-<li>统一的Web化管理中心<br /></li>
-</ul>
-
-<hr />
-
-<h4 id="架构可扩展">架构可扩展</h4>
-
-<ul>
-<li>多网关节点支持<br /></li>
-<li>自动化策略同步<br /></li>
-</ul>
-
-<hr />
-
-<h4 id="证书保护">证书保护</h4>
-
-<ul>
-<li>私钥加密存储<br /></li>
-<li>只在内存使用<br /></li>
-</ul>
+<p>RE2规则：(?i)\s+(and|or)\s+[\w\p{L}]+=[\w\p{L}]+$<br />
+解读：[\w\p{L}]表示任意字母、数字或Unicode字符（如汉字），=原样匹配，$表示结尾，用于防止SQL注入。</p>
 
             </article>
       </div>

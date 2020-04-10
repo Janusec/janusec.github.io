@@ -244,10 +244,16 @@ Now we assume you have <code>PostgreSQL</code> installed already, and database n
 <p>#systemctl start janusec</p>
 </blockquote>
 
-<p>Open web browser such as <code>Chrome</code>, navigate with address:</p>
+<p>Open web browser such as <code>Chrome</code>, when listen=false in config.json, navigate with address:</p>
 
 <blockquote>
 <p>http://<code>your_ip_address</code>/janusec-admin/</p>
+</blockquote>
+
+<p>when listen=true in config.json:</p>
+
+<blockquote>
+<p>http://<code>your_ip_address</code>:9080/janusec-admin/</p>
 </blockquote>
 
 <p>This is the administration address for Janusec Application Gateway.<br />
