@@ -153,9 +153,9 @@
 <p>操作系统需要为x86_64架构的如下操作系统之一：</p>
 
 <ul>
-<li>CentOS 7<br /></li>
-<li>RHEL 7<br /></li>
-<li>Debian 9<br /></li>
+<li>CentOS 7+<br /></li>
+<li>RHEL 7+<br /></li>
+<li>Debian 9+<br /></li>
 </ul>
 
 <h3 id="时间">时间</h3>
@@ -203,8 +203,11 @@
 
 <p>Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。</p>
 
-<p>当config.json中listen=true时，Janusec网关还需要使用9080/9443端口，一般用于从内网发起管理。<br />
-&gt; <code>netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'</code></p>
+<p>当config.json中listen=true时，Janusec网关还需要使用9080/9443端口，一般用于从内网发起管理。</p>
+
+<blockquote>
+<p><code>netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'</code></p>
+</blockquote>
 
 <h3 id="dns">DNS</h3>
 
@@ -254,7 +257,7 @@
 
 <h3 id="golang版本">Golang版本</h3>
 
-<p>开发者所需要的Golang版本最低要求为Go 1.12+ 。</p>
+<p>开发者所需要的Golang版本最低要求为Go 1.14+ 。</p>
 
 <h3 id="代码获取">代码获取</h3>
 

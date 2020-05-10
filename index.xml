@@ -519,9 +519,9 @@ PostgreSQL Use psql to check PostgreSQL Connection:
       <guid>https://janusec.github.io/cn/diagnose/</guid>
       <description>问题诊断 部署 当安装Jausec时遇到问题，可先对照此检查表进行检查。
 操作系统 操作系统需要为x86_64架构的如下操作系统之一：
- CentOS 7
- RHEL 7
- Debian 9
+ CentOS 7+
+ RHEL 7+
+ Debian 9+
   时间 服务器时间请先校准，时区不限，但需要保证时间正确。
 服务管理工具 服务管理工具为systemd，检查方法，在命令行运行：
  command -v systemctl
@@ -537,7 +537,7 @@ PostgreSQL 使用psql命令来检查配置是否正常：
 端口  netstat -anp | grep LISTEN | grep &#39;:\(80\|443\)\s&#39;
  Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。
 当config.json中listen=true时，Janusec网关还需要使用9080/9443端口，一般用于从内网发起管理。
-&amp;gt; netstat -anp | grep LISTEN | grep &#39;:\(9080\|9443\)\s&#39;</description>
+ netstat -anp | grep LISTEN | grep &#39;:\(9080\|9443\)\s&#39;</description>
     </item>
     
     <item>
