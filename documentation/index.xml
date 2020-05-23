@@ -54,7 +54,7 @@ $tar zxf ./janusec-latest.tar.gz
       <guid>https://janusec.github.io/documentation/configuration/</guid>
       <description>Configuration File Path of Configuration File Production environment: /usr/local/janusec/config.json
 Development environment: ./config.json
-Configuration Items The following is based on Janusec Application Gateway V0.9.7, and use // as comment, please delete // comment before using it.
+Configuration Items The following is based on Janusec Application Gateway V0.9.8, and use // as comment, please delete // comment before using it.
 { &amp;quot;node_role&amp;quot;: &amp;quot;master&amp;quot;, // &amp;quot;master&amp;quot; for master node, &amp;quot;slave&amp;quot; for slave nodes &amp;quot;master_node&amp;quot;: { // keep empty for slave nodes &amp;quot;admin&amp;quot;: { // Administrator portal &amp;quot;listen&amp;quot;: true, // Listen on new ports for admin portal &amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available &amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available &amp;quot;portal&amp;quot;: &amp;quot;https://gate.</description>
     </item>
     
@@ -161,12 +161,11 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       
       <guid>https://janusec.github.io/documentation/update-janusec/</guid>
       <description>Update to Latest Version  This article is only for upgrade, not for new installation.
- Latest version: v0.9.7 (Mar 29, 2020)
+ Latest version: v0.9.8 (May 17, 2020)
+v0.9.8 (May 17, 2020): Add LDAP Authentication, static website, fastcgi support.
 v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.
 v0.9.6 (Feb 27, 2020): Add domain 301 redirect.
-View current version The version information is available at admin portal, or:
- ./janusec --version
- Version 0.9.5, 0.</description>
+View current version The version information is available at admin portal, or:</description>
     </item>
     
     <item>

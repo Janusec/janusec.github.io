@@ -144,7 +144,7 @@
 
 <h3 id="简介">简介</h3>
 
-<p>Janusec Application Gateway支持OAuth2统一身份认证，可使用企业微信、钉钉、飞书扫码登录，包括:</p>
+<p>Janusec Application Gateway支持LDAP身份认证和OAuth2统一身份认证，可使用企业微信、钉钉、飞书扫码登录，包括:</p>
 
 <ul>
 <li>管理后台<br /></li>
@@ -162,7 +162,7 @@
 }
 </code></pre>
 
-<p>上述provider中，wxwork表示企业微信，dingtalk表示钉钉，feishu表示飞书。</p>
+<p>上述provider中，wxwork表示企业微信扫码登录，dingtalk表示钉钉扫码登录，feishu表示飞书扫码登录，ldap表示LDAP认证。</p>
 
 <h3 id="应用如何获取用户身份">应用如何获取用户身份</h3>
 
@@ -258,6 +258,40 @@ X-Auth-User: <code>UserID</code></p>
 <blockquote>
 <p>&ldquo;appid&rdquo;: &ldquo;cli_9ef21d00e&rdquo;,<br />
 &ldquo;appsecret&rdquo;: &ldquo;ihUBspRAG1PtNdDLUZ&rdquo;</p>
+</blockquote>
+
+<h3 id="ldap配置">LDAP配置</h3>
+
+<p>在配置文件的<code>&quot;ldap&quot;</code>字段：</p>
+
+<p>登录界面显示:</p>
+
+<blockquote>
+<p>&ldquo;display_name&rdquo;: &ldquo;Login with LDAP&rdquo;,</p>
+</blockquote>
+
+<p>LDAP登录入口(配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):</p>
+
+<blockquote>
+<p>&ldquo;entrance&rdquo;: &ldquo;<code>https://your_domain.com</code>/ldap/login&rdquo;,</p>
+</blockquote>
+
+<p>LDAP服务器地址（格式采用 域名:端口 ，如果启用TLS，请注意修改端口号）：</p>
+
+<blockquote>
+<p>&ldquo;address&rdquo;: &ldquo;ldap_domain:389&rdquo;</p>
+</blockquote>
+
+<p>LDAP DN区分名称（需要根据实际DN修改，{uid}请保持不变）：</p>
+
+<blockquote>
+<p>&ldquo;dn&rdquo;: &ldquo;uid={uid},ou=People,dc=janusec,dc=com&rdquo;,</p>
+</blockquote>
+
+<p>是否启用TLS加密传输（如果启用，请一并检查LDAP服务器端口，默认636）：</p>
+
+<blockquote>
+<p>&ldquo;using_tls&rdquo;: false</p>
 </blockquote>
 
 <h3 id="退出登录">退出登录</h3>

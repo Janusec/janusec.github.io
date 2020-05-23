@@ -153,7 +153,7 @@ Development environment: <code>./config.json</code></p>
 
 <hr />
 
-<p>The following is based on Janusec Application Gateway V0.9.7, and use <code>//</code> as comment, please delete <code>// comment</code> before using it.</p>
+<p>The following is based on Janusec Application Gateway V0.9.8, and use <code>//</code> as comment, please delete <code>// comment</code> before using it.</p>
 
 <pre><code>{
     &quot;node_role&quot;: &quot;master&quot;,            // &quot;master&quot; for master node, &quot;slave&quot; for slave nodes
@@ -200,6 +200,18 @@ Development environment: <code>./config.json</code></p>
                 &quot;appsecret&quot;: &quot;ihUBspRAG1PtNdDLUZ&quot;
                 // Create application JANUSEC is required
                 // &quot;Secure Domain&quot;-&quot;Redirect URL&quot; is required, example: &quot;https://your_domain.com/oauth/feishu&quot; 
+            },
+            &quot;ldap&quot;: {
+                &quot;display_name&quot;: &quot;Login with LDAP&quot;,
+                // change the entrance, replace the domain
+                &quot;entrance&quot;: &quot;https://gate.janusec.com/ldap/login&quot;,
+                // change the ldap server with domain:port  
+                &quot;address&quot;: &quot;ldap.janusec.com:389&quot;,
+                // keep the {uid}
+                &quot;dn&quot;:&quot;uid={uid},ou=People,dc=janusec,dc=com&quot;,
+                &quot;using_tls&quot;:false,
+                // Enable Authenticator (Google Authenticator or Microsoft Authenticator)
+                &quot;authenticator_enabled&quot;: false
             }
         }
     },

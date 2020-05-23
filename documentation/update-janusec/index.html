@@ -146,9 +146,9 @@
 <p>This article is only for upgrade, not for new installation.</p>
 </blockquote>
 
-<p>Latest version: v0.9.7 (Mar 29, 2020)</p>
-
-<p>v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.<br />
+<p>Latest version: v0.9.8 (May 17, 2020)<br />
+v0.9.8 (May 17, 2020): Add LDAP Authentication, static website, fastcgi support.<br />
+v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.<br />
 v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</p>
 
 <h4 id="view-current-version">View current version</h4>
@@ -159,16 +159,16 @@ v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</p>
 <p><code>./janusec --version</code></p>
 </blockquote>
 
-<h4 id="version-0-9-5-0-9-6-upgrade-to-0-9-7">Version 0.9.5, 0.9.6 upgrade to 0.9.7</h4>
+<h4 id="version-0-9-5-0-9-6-0-9-7-upgrade-to-0-9-8">Version 0.9.5, 0.9.6, 0.9.7 upgrade to 0.9.8</h4>
 
-<p>config.json changed in V0.9.7, so backup and new config.json is required:</p>
+<p>config.json changed in V0.9.8, so backup and new config.json is required:</p>
 
 <blockquote>
 <p>#<code>cd /data/</code><br />
 #<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br />
 #<code>tar zxf ./janusec-latest.tar.gz</code><br />
 #<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br />
-#<code>cp ./janusec-0.9.7/config.json.master_bak /usr/local/janusec/config.json</code></p>
+#<code>cp ./janusec-0.9.8/config.json.master_bak /usr/local/janusec/config.json</code></p>
 </blockquote>
 
 <p>Edit <code>/usr/local/janusec/config.json</code>, refer to <a href="/documentation/configuration/">Configuration File</a>, set database information.</p>
@@ -180,12 +180,12 @@ v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</p>
 <p>then install the latest version（config.json will not be overwrote if it exists.）：</p>
 
 <blockquote>
-<p>#<code>cd /data/janusec-0.9.7/</code><br />
+<p>#<code>cd /data/janusec-0.9.8/</code><br />
 #<code>./install.sh</code><br />
 #<code>systemctl restart janusec</code></p>
 </blockquote>
 
-<h4 id="version-0-9-4-or-earlier-upgrade-to-0-9-7">Version 0.9.4 or earlier upgrade to 0.9.7</h4>
+<h4 id="version-0-9-4-or-earlier-upgrade-to-0-9-8">Version 0.9.4 or earlier upgrade to 0.9.8</h4>
 
 <p>0.9.5 changed the service type, so before installation:</p>
 

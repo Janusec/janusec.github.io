@@ -19,7 +19,7 @@
       <guid>https://janusec.github.io/cn/quick-start/</guid>
       <description>快速入门 Switch to English Edition of Quick Start
 本入门指导将安装一个单节点（主节点）的Janusec应用网关（网关WAF）.
-安装需求    节点 操作系统 数据库     主节点 CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   从节点 CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd 不需要    本入门只安装一个主节点，不安装从节点，如需扩展，可参考安装一节。
+安装需求    节点 操作系统 数据库     主节点 CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   从节点 CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd 不需要    本入门只安装一个主节点，不安装从节点，如需扩展，可参考安装一节。
 安装 步骤 1: 下载  $cd ~
 $wget https://www.janusec.com/download/janusec-latest.tar.gz
 $tar zxf ./janusec-latest.tar.gz
@@ -71,7 +71,7 @@ $tar zxf ./janusec-latest.tar.gz
       <guid>https://janusec.github.io/cn/configuration/</guid>
       <description>配置文件 配置文件路径 生产环境配置文件为 /usr/local/janusec/config.json
 开发环境配置文件为 ./config.json
-配置项说明 以下为Janusec Application Gateway V0.9.7 配置文件参考。
+配置项说明 以下为Janusec Application Gateway V0.9.8 配置文件参考。
 由于JSON格式支持的注释格式看起来不方便，下面采用//作为注释说明，实际使用时需要删除注释。
 { &amp;quot;node_role&amp;quot;: &amp;quot;master&amp;quot;, // 单节点或主节点配置为&amp;quot;master&amp;quot;，从节点配置为&amp;quot;slave&amp;quot; &amp;quot;master_node&amp;quot;: { // 主节点使用此配置，如果是从节点，这部分配置留空 &amp;quot;admin&amp;quot;: { // 后台管理 &amp;quot;listen&amp;quot;: true, // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录 &amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问 &amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问 &amp;quot;portal&amp;quot;: &amp;quot;https://gate.janusec.com:9443/janusec-admin/&amp;quot;, // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号 &amp;quot;webssh_enabled&amp;quot;: false // 为true时，允许使用Web SSH运维功能 }, &amp;quot;database&amp;quot;: { // PostgreSQL 数据库配置，需要至少使用9.3以上版本 &amp;quot;host&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, // PostgreSQL IP地址 &amp;quot;port&amp;quot;: &amp;quot;5432&amp;quot;, // PostgreSQL 监听端口，默认5432 &amp;quot;user&amp;quot;: &amp;quot;postgres&amp;quot;, // 数据库用户名 &amp;quot;password&amp;quot;: &amp;quot;123456&amp;quot;, // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密 &amp;quot;dbname&amp;quot;: &amp;quot;janusec&amp;quot; // 数据库名 }, &amp;quot;oauth&amp;quot;: { // OAuth2统一身份认证 &amp;quot;enabled&amp;quot;: false, // 设置为true时，启用OAuth2统一身份认证 &amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;, // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书) &amp;quot;wxwork&amp;quot;: { // 企业微信配置 // 登录界面显示 &amp;quot;display_name&amp;quot;: &amp;quot;Login with WeChat Work&amp;quot;, // callback中只修改http/https及域名，后面的路径不变，也不带端口号 &amp;quot;callback&amp;quot;: &amp;quot;https://your_domain.</description>
     </item>
@@ -196,11 +196,11 @@ https://your_master_node_domain_name:9443/janusec-admin/ (证书配置后可用)
       <pubDate>Sat, 28 Mar 2020 23:04:25 +0800</pubDate>
       
       <guid>https://janusec.github.io/cn/oauth2/</guid>
-      <description>OAuth2统一身份认证 简介 Janusec Application Gateway支持OAuth2统一身份认证，可使用企业微信、钉钉、飞书扫码登录，包括:
+      <description>OAuth2统一身份认证 简介 Janusec Application Gateway支持LDAP身份认证和OAuth2统一身份认证，可使用企业微信、钉钉、飞书扫码登录，包括:
  管理后台
  配置中启用OAuth2身份认证的应用(用于员工访问内网应用)
   配置 如需启用，请在配置文件config.json中开启：
-&amp;quot;oauth&amp;quot;: { &amp;quot;enabled&amp;quot;: true, &amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;, ... }  上述provider中，wxwork表示企业微信，dingtalk表示钉钉，feishu表示飞书。
+&amp;quot;oauth&amp;quot;: { &amp;quot;enabled&amp;quot;: true, &amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;, ... }  上述provider中，wxwork表示企业微信扫码登录，dingtalk表示钉钉扫码登录，feishu表示飞书扫码登录，ldap表示LDAP认证。
 应用如何获取用户身份 Janusec认证通过后，会在HTTP请求的头部添加两行：
  Authorization: Bearer Access-Token
 X-Auth-User: UserID
@@ -240,30 +240,30 @@ X-Auth-User: UserID
       
       <guid>https://janusec.github.io/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关  本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v0.9.7 (2020.03.29)
+ 最新版本: v0.9.8 (2020.05.17)
 版本历史:
+v0.9.8 (2020.05.17): 增加LDAP认证，增加静态网站、FastCGI网站支持。
 v0.9.7 (2020.03.29): 为各应用及管理入口增加OAuth2统一登录（可选企业微信、钉钉、飞书）；可限制管理入口开放范围（例如只开放内网）；Web SSH安全运维支持禁用或开启。
 v0.9.6 (2020.02.27): 增加域名重定向。
 查看当前版本 当前版本信息可通过管理入口查看，或者:
  ./janusec --version
- V0.9.5, 0.9.6 升级到V0.9.7 V0.9.7修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在/data/janusec-latest.tar.gz，升级步骤参考：
+ V0.9.5, 0.9.6, 0.9.7 升级到V0.9.8 V0.9.8修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在/data/janusec-latest.tar.gz，升级步骤参考：
  #cd /data/
 #wget https://www.janusec.com/download/janusec-latest.tar.gz
 #tar zxf ./janusec-latest.tar.gz
 #mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old
-#cp ./janusec-0.9.7/config.json.master_bak /usr/local/janusec/config.json
+#cp ./janusec-0.9.8/config.json.master_bak /usr/local/janusec/config.json
  需要编辑新的/usr/local/janusec/config.json，参考配置文件，重新设置数据库账号口令等信息。
  #vi /usr/local/janusec/config.json
  然后正常覆盖安装即可（已存在config.json的情况下不会覆盖config.json）：
- #cd /data/janusec-0.9.7/
+ #cd /data/janusec-0.9.8/
 #./install.sh
 #systemctl restart janusec
- V0.9.4或更早版本升级到V0.9.7 由于升级过程中变更了服务类型(0.9.5)，建议升级前执行如下操作：
+ V0.9.4或更早版本升级到V0.9.8 由于升级过程中变更了服务类型(0.9.5)，建议升级前执行如下操作：
  #systemctl stop janusec
- 然后再参考上述V0.9.6升级到V0.9.7的过程。
+ 然后再参考上述V0.9.7升级到V0.9.8的过程。
 如果:
- systemctl restart janusec
- 无效 ，可以kill其进程。</description>
+ systemctl restart janusec</description>
     </item>
     
     <item>
