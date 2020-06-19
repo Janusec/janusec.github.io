@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
     <title>Node Management</title>
-    <meta name="keywords" content="[Janusec Application Gateway, Slave Node, Master Node]">
+    <meta name="keywords" content="[Janusec Application Gateway, Replica Node, Primary Node]">
     <meta name="description" content="Node Management of Janusec Application Gateway">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
@@ -54,82 +54,82 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/quick-start/">Quick Start</a>
+              <a href="/documentation/quick-start/">Quick Start</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/introduction/">Introduction</a>
+              <a href="/documentation/introduction/">Introduction</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/installation/">Installation</a>
+              <a href="/documentation/installation/">Installation</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/configuration/">Configuration File</a>
+              <a href="/documentation/configuration/">Configuration File</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/admin/">Administration</a>
+              <a href="/documentation/admin/">Administration</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/certificate-management/">Certificate Management</a>
+              <a href="/documentation/certificate-management/">Certificate Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/application-management/">Application Management</a>
+              <a href="/documentation/application-management/">Application Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/node-management/">Node Management</a>
+              <a href="/documentation/node-management/">Node Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/waf-management/">WAF Management</a>
+              <a href="/documentation/waf-management/">WAF Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/operation-management/">Operation Management</a>
+              <a href="/documentation/operation-management/">Operation Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/migrate-to-janusec/">Migrate to Janusec</a>
+              <a href="/documentation/migrate-to-janusec/">Migrate to Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/update-janusec/">Update Janusec</a>
+              <a href="/documentation/update-janusec/">Update Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/pricing/">Pricing</a>
+              <a href="/documentation/pricing/">Pricing</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/faq/">FAQ</a>
+              <a href="/documentation/faq/">FAQ</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/user-agreement/">User Agreement</a>
+              <a href="/documentation/user-agreement/">User Agreement</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/diagnose/">Diagnose</a>
+              <a href="/documentation/diagnose/">Diagnose</a>
             </li>
           
         </ul>
@@ -147,14 +147,14 @@
 <h4 id="node-type">Node Type</h4>
 
 <ul>
-<li>Master Node, there must have one and only one Master Node, and a PostgreSQL is required.<br /></li>
-<li>Slave Node, optional, no database required.</li>
+<li>Primary Node, there must have one and only one Primary Node, and a PostgreSQL is required.<br /></li>
+<li>Replica Node, optional, no database required.</li>
 </ul>
 
 <h4 id="single-node-architecture">Single Node Architecture</h4>
 
 <ul>
-<li>One Master Node.<br /></li>
+<li>One Primary Node.<br /></li>
 <li>No DNS Load Balance required.<br /></li>
 <li>For small scale web applications.<br /></li>
 </ul>
@@ -162,38 +162,38 @@
 <h4 id="multiple-nodes-architecture">Multiple Nodes Architecture</h4>
 
 <ul>
-<li>One <code>Master Node</code> and multiple <code>Slave Nodes</code> Architecture.<br /></li>
-<li>Only the Master Node requires a PostgreSQL database.</li>
+<li>One <code>Primary Node</code> and multiple <code>Replica Nodes</code> Architecture.<br /></li>
+<li>Only the Primary Node requires a PostgreSQL database.</li>
 <li>GSLB or DNS Load Balance required.<br /></li>
 <li>For large scale web applications.<br /></li>
 </ul>
 
-<h4 id="slave-node">Slave Node</h4>
+<h4 id="replica-node">Replica Node</h4>
 
 <blockquote>
-<p>Open web administration portal, and manage slave nodes.</p>
+<p>Open web administration portal, and manage replica nodes.</p>
 </blockquote>
 
-<p><img src="/images/node1.png" alt="Slave Node" title="Slave Node of Janusec Application Gateway" /></p>
+<p><img src="/images/node1.png" alt="Replica Node" title="Replica Node of Janusec Application Gateway" /></p>
 
-<p>Slave Node: <code>node_key</code> in <code>/usr/local/janusec/config.json</code> are corresponding to the image, like the following:</p>
+<p>Replica Node: <code>node_key</code> in <code>/usr/local/janusec/config.json</code> are corresponding to the image, like the following:</p>
 
 <pre><code>{
-	&quot;node_role&quot;: &quot;slave&quot;,
+	&quot;node_role&quot;: &quot;replica&quot;,
 	...
-	&quot;slave_node&quot;: {		
+	&quot;replica_node&quot;: {		
 		&quot;node_key&quot;: &quot;8c4609...5a5fa9&quot;,
 		&quot;sync_addr&quot;: &quot;http://192.168.100.107:9080/janusec-admin/api&quot;
 	}	
 }
 </code></pre>
 
-<p>For security reasons, you should apply for a seperate domain name for the master node, and configure an application, as follow:</p>
+<p>For security reasons, you should apply for a seperate domain name for the primary node, and configure an application, as follow:</p>
 
 <blockquote>
 <p>Application Name: JANUSEC<br />
 Destination: 127.0.0.1:9999 (It will not be accessed)<br />
-Domain: domain name for the master node<br />
+Domain: domain name for the primary node<br />
 Certificate: certificate available to above domain name</p>
 </blockquote>
 

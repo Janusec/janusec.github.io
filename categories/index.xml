@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Janusec</title>
-    <link>https://janusec.github.io/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://janusec.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Gateway</title>
-      <link>https://janusec.github.io/categories/gateway/</link>
+      <link>/categories/gateway/</link>
       <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
       
-      <guid>https://janusec.github.io/categories/gateway/</guid>
+      <guid>/categories/gateway/</guid>
       <description></description>
     </item>
     

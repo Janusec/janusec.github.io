@@ -54,82 +54,82 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/quick-start/">Quick Start</a>
+              <a href="/documentation/quick-start/">Quick Start</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/introduction/">Introduction</a>
+              <a href="/documentation/introduction/">Introduction</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/installation/">Installation</a>
+              <a href="/documentation/installation/">Installation</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/configuration/">Configuration File</a>
+              <a href="/documentation/configuration/">Configuration File</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/admin/">Administration</a>
+              <a href="/documentation/admin/">Administration</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/certificate-management/">Certificate Management</a>
+              <a href="/documentation/certificate-management/">Certificate Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/application-management/">Application Management</a>
+              <a href="/documentation/application-management/">Application Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/node-management/">Node Management</a>
+              <a href="/documentation/node-management/">Node Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/waf-management/">WAF Management</a>
+              <a href="/documentation/waf-management/">WAF Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/operation-management/">Operation Management</a>
+              <a href="/documentation/operation-management/">Operation Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/migrate-to-janusec/">Migrate to Janusec</a>
+              <a href="/documentation/migrate-to-janusec/">Migrate to Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/update-janusec/">Update Janusec</a>
+              <a href="/documentation/update-janusec/">Update Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/pricing/">Pricing</a>
+              <a href="/documentation/pricing/">Pricing</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/faq/">FAQ</a>
+              <a href="/documentation/faq/">FAQ</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/user-agreement/">User Agreement</a>
+              <a href="/documentation/user-agreement/">User Agreement</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/diagnose/">Diagnose</a>
+              <a href="/documentation/diagnose/">Diagnose</a>
             </li>
           
         </ul>
@@ -161,13 +161,13 @@
 
 <tbody>
 <tr>
-<td>Master Node</td>
+<td>Primary Node</td>
 <td>CentOS/RHEL 7, or Debian 9, x86_64, with systemd</td>
 <td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10</td>
 </tr>
 
 <tr>
-<td>Slave Node</td>
+<td>Replica Node</td>
 <td>CentOS/RHEL 7, or Debian 9, x86_64, with systemd</td>
 <td>Not required</td>
 </tr>
@@ -192,11 +192,11 @@ $tar zxf ./janusec-latest.tar.gz</p>
 
 <blockquote>
 <p>$su<br />
-#cd janusec-0.9.8<br />
+#cd janusec-0.9.9<br />
 #./install.sh</p>
 </blockquote>
 
-<p>Select <code>1. Master Node</code>, then it will:</p>
+<p>Select <code>1. Primary Node</code>, then it will:</p>
 
 <ul>
 <li>copy files to <code>/usr/local/janusec/</code><br /></li>
@@ -210,8 +210,8 @@ $tar zxf ./janusec-latest.tar.gz</p>
 Now we assume you have <code>PostgreSQL</code> installed already, and database name and account is ready, then edit <code>/usr/local/janusec/config.json</code> (use <code>//</code> as comment, please delete them before using it):</p>
 
 <pre><code>{
-    &quot;node_role&quot;: &quot;master&quot;,            // &quot;master&quot; for master node, &quot;slave&quot; for slave nodes
-    &quot;master_node&quot;: {                  // keep empty for slave nodes
+    &quot;node_role&quot;: &quot;primary&quot;,            // &quot;primary&quot; for primary node, &quot;replica&quot; for replica nodes
+    &quot;primary_node&quot;: {                  // keep empty for replica nodes
         &quot;admin&quot;: {                    // Administrator portal
             &quot;listen&quot;: true,           // Listen on new ports for admin portal
             &quot;listen_http&quot;: &quot;:9080&quot;,   // Format :port or Interal_IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available
@@ -230,7 +230,7 @@ Now we assume you have <code>PostgreSQL</code> installed already, and database n
             ...
         }
     },
-    &quot;slave_node&quot;: {      // for slave nodes
+    &quot;replica_node&quot;: {      // for replica nodes
         ...
     }
 }

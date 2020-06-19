@@ -54,82 +54,82 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/quick-start/">Quick Start</a>
+              <a href="/documentation/quick-start/">Quick Start</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/introduction/">Introduction</a>
+              <a href="/documentation/introduction/">Introduction</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/installation/">Installation</a>
+              <a href="/documentation/installation/">Installation</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/configuration/">Configuration File</a>
+              <a href="/documentation/configuration/">Configuration File</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/admin/">Administration</a>
+              <a href="/documentation/admin/">Administration</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/certificate-management/">Certificate Management</a>
+              <a href="/documentation/certificate-management/">Certificate Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/application-management/">Application Management</a>
+              <a href="/documentation/application-management/">Application Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/node-management/">Node Management</a>
+              <a href="/documentation/node-management/">Node Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/waf-management/">WAF Management</a>
+              <a href="/documentation/waf-management/">WAF Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/operation-management/">Operation Management</a>
+              <a href="/documentation/operation-management/">Operation Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/migrate-to-janusec/">Migrate to Janusec</a>
+              <a href="/documentation/migrate-to-janusec/">Migrate to Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/update-janusec/">Update Janusec</a>
+              <a href="/documentation/update-janusec/">Update Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/pricing/">Pricing</a>
+              <a href="/documentation/pricing/">Pricing</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/faq/">FAQ</a>
+              <a href="/documentation/faq/">FAQ</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/user-agreement/">User Agreement</a>
+              <a href="/documentation/user-agreement/">User Agreement</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/documentation/diagnose/">Diagnose</a>
+              <a href="/documentation/diagnose/">Diagnose</a>
             </li>
           
         </ul>
@@ -149,16 +149,16 @@
 <p>When listen=false in config.json :</p>
 
 <blockquote>
-<p>http://<code>your_master_node_ip_address</code>/janusec-admin/    (first use)
+<p>http://<code>your_primary_node_ip_address</code>/janusec-admin/    (first use)
 https://<code>your_application_domain_name</code>/janusec-admin/  (after certificate configured)<br />
 When listen=true  in config.json :</p>
 
-<p>http://<code>your_master_node_ip_address:9080</code>/janusec-admin/    (first use)<br />
-https://<code>your_master_node_domain_name:9443</code>/janusec-admin/  (after certificate configured)</p>
+<p>http://<code>your_primary_node_ip_address:9080</code>/janusec-admin/    (first use)<br />
+https://<code>your_primary_node_domain_name:9443</code>/janusec-admin/  (after certificate configured)</p>
 </blockquote>
 
-<p>When using master node only, any application domain name can be used for admin.<br />
-But if you have one or more slave nodes, you should apply for a seperate domain name for master node.</p>
+<p>When using primary node only, any application domain name can be used for admin.<br />
+But if you have one or more replica nodes, you should apply for a seperate domain name for primary node.</p>
 
 <h4 id="digital-certificate-management">Digital Certificate Management</h4>
 

@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Documentations on Janusec</title>
-    <link>https://janusec.github.io/documentation/</link>
+    <link>/documentation/</link>
     <description>Recent content in Documentations on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 17 May 2018 22:28:32 +0800</lastBuildDate>
     
-	<atom:link href="https://janusec.github.io/documentation/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Quick Start</title>
-      <link>https://janusec.github.io/documentation/quick-start/</link>
+      <link>/documentation/quick-start/</link>
       <pubDate>Thu, 17 May 2018 22:28:32 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/quick-start/</guid>
+      <guid>/documentation/quick-start/</guid>
       <description>Quick Start 快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
-Requirements    Role Operating System Database     Master Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   Slave Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd Not required    Installation Step 1: Download  $cd ~</description>
+Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   Replica Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd Not required    Installation Step 1: Download  $cd ~</description>
     </item>
     
     <item>
       <title>Introduction</title>
-      <link>https://janusec.github.io/documentation/introduction/</link>
+      <link>/documentation/introduction/</link>
       <pubDate>Sat, 12 May 2018 08:10:40 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/introduction/</guid>
+      <guid>/documentation/introduction/</guid>
       <description>Introduction Janusec Application Gateway, an application security solutions for public cloud, private cloud, and traditional IDC, which provides web routing, load balancing, and web application firewall. With Janusec, you can build secure and scalable applications.
 Janusec Application Gateway Introduction PDF
 Features:  Web Application Firewall ( HTTPS support, No Agent Required )
- Load Balance Encrypted Certificates Manager Mater and Slave Nodes Supported  Make Defense Simple  SQL Injection</description>
+ Load Balance Encrypted Certificates Manager Mater and Replica Nodes Supported  Make Defense Simple  SQL Injection</description>
     </item>
     
     <item>
       <title>Installation</title>
-      <link>https://janusec.github.io/documentation/installation/</link>
+      <link>/documentation/installation/</link>
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/installation/</guid>
-      <description>Installation Requirements    Role Operating System Database     Master Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   Slave Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd Not required    Step 1: Download  $cd ~
+      <guid>/documentation/installation/</guid>
+      <description>Installation Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   Replica Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd Not required    Step 1: Download  $cd ~
 $wget https://www.janusec.com/download/janusec-latest.tar.gz
 $tar zxf ./janusec-latest.tar.gz
  Step 2: Install Switch to root and run install.</description>
@@ -48,38 +48,38 @@ $tar zxf ./janusec-latest.tar.gz
     
     <item>
       <title>Configuration File</title>
-      <link>https://janusec.github.io/documentation/configuration/</link>
+      <link>/documentation/configuration/</link>
       <pubDate>Sun, 22 Mar 2020 10:11:09 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/configuration/</guid>
+      <guid>/documentation/configuration/</guid>
       <description>Configuration File Path of Configuration File Production environment: /usr/local/janusec/config.json
 Development environment: ./config.json
-Configuration Items The following is based on Janusec Application Gateway V0.9.8, and use // as comment, please delete // comment before using it.
-{ &amp;quot;node_role&amp;quot;: &amp;quot;master&amp;quot;, // &amp;quot;master&amp;quot; for master node, &amp;quot;slave&amp;quot; for slave nodes &amp;quot;master_node&amp;quot;: { // keep empty for slave nodes &amp;quot;admin&amp;quot;: { // Administrator portal &amp;quot;listen&amp;quot;: true, // Listen on new ports for admin portal &amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available &amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available &amp;quot;portal&amp;quot;: &amp;quot;https://gate.</description>
+Configuration Items The following is based on Janusec Application Gateway V0.9.9, and use // as comment, please delete // comment before using it.
+{ &amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // &amp;quot;primary&amp;quot; for primary node, &amp;quot;replica&amp;quot; for replica nodes &amp;quot;primary_node&amp;quot;: { // keep empty for replica nodes &amp;quot;admin&amp;quot;: { // Administrator portal &amp;quot;listen&amp;quot;: true, // Listen on new ports for admin portal &amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available &amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available &amp;quot;portal&amp;quot;: &amp;quot;https://gate.</description>
     </item>
     
     <item>
       <title>Administration</title>
-      <link>https://janusec.github.io/documentation/admin/</link>
+      <link>/documentation/admin/</link>
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/admin/</guid>
+      <guid>/documentation/admin/</guid>
       <description>Web Administration Administration Portal When listen=false in config.json :
- http://your_master_node_ip_address/janusec-admin/ (first use) https://your_application_domain_name/janusec-admin/ (after certificate configured)
+ http://your_primary_node_ip_address/janusec-admin/ (first use) https://your_application_domain_name/janusec-admin/ (after certificate configured)
 When listen=true in config.json :
-http://your_master_node_ip_address:9080/janusec-admin/ (first use)
-https://your_master_node_domain_name:9443/janusec-admin/ (after certificate configured)
- When using master node only, any application domain name can be used for admin.
-But if you have one or more slave nodes, you should apply for a seperate domain name for master node.
+http://your_primary_node_ip_address:9080/janusec-admin/ (first use)
+https://your_primary_node_domain_name:9443/janusec-admin/ (after certificate configured)
+ When using primary node only, any application domain name can be used for admin.
+But if you have one or more replica nodes, you should apply for a seperate domain name for primary node.
 Digital Certificate Management see Certificate Management</description>
     </item>
     
     <item>
       <title>Certificate Management</title>
-      <link>https://janusec.github.io/documentation/certificate-management/</link>
+      <link>/documentation/certificate-management/</link>
       <pubDate>Sun, 20 May 2018 21:05:08 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/certificate-management/</guid>
+      <guid>/documentation/certificate-management/</guid>
       <description>Certificate Management Certificate List Open web administration portal and navigate to Certificate Management.
 Add or Edit Certificate Single domain subdomain.yourdomain.com or wildcard *.yourdomain.com certificate are all acceptable. A wildcard certificate is preferred.
 For production environment, you should have a legal digital certificate issued by a trusted CA ( such as Let&#39;s Encrypt ) .
@@ -88,10 +88,10 @@ For test purpose, when filled in the first field (Common Name or Subject Alterna
     
     <item>
       <title>Application Management</title>
-      <link>https://janusec.github.io/documentation/application-management/</link>
+      <link>/documentation/application-management/</link>
       <pubDate>Sun, 20 May 2018 21:58:35 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/application-management/</guid>
+      <guid>/documentation/application-management/</guid>
       <description>Application Management Requirements At least one digital certificate is required if you need https support.
 Certificate Management
 Add or Edit Application Open web administration portal and navigate to Application Management.
@@ -104,24 +104,24 @@ Note:
     
     <item>
       <title>Node Management</title>
-      <link>https://janusec.github.io/documentation/node-management/</link>
+      <link>/documentation/node-management/</link>
       <pubDate>Sun, 20 May 2018 22:38:35 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/node-management/</guid>
-      <description>Node Management Node Type  Master Node, there must have one and only one Master Node, and a PostgreSQL is required.
- Slave Node, optional, no database required.  Single Node Architecture  One Master Node.
+      <guid>/documentation/node-management/</guid>
+      <description>Node Management Node Type  Primary Node, there must have one and only one Primary Node, and a PostgreSQL is required.
+ Replica Node, optional, no database required.  Single Node Architecture  One Primary Node.
  No DNS Load Balance required.
  For small scale web applications.
-  Multiple Nodes Architecture  One Master Node and multiple Slave Nodes Architecture.
- Only the Master Node requires a PostgreSQL database.</description>
+  Multiple Nodes Architecture  One Primary Node and multiple Replica Nodes Architecture.
+ Only the Primary Node requires a PostgreSQL database.</description>
     </item>
     
     <item>
       <title>WAF Management</title>
-      <link>https://janusec.github.io/documentation/waf-management/</link>
+      <link>/documentation/waf-management/</link>
       <pubDate>Mon, 21 May 2018 21:27:20 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/waf-management/</guid>
+      <guid>/documentation/waf-management/</guid>
       <description>WAF Management Add or Edit WAF Policy Typical Check Points  Example: http://www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2
  URLPath: /blog/show.php
 URLQuery: id=1&amp;amp;category=2
@@ -134,19 +134,19 @@ If you want to check url values only ( GET Only ), please select URLQuery .
     
     <item>
       <title>Operation Management</title>
-      <link>https://janusec.github.io/documentation/operation-management/</link>
+      <link>/documentation/operation-management/</link>
       <pubDate>Fri, 25 May 2018 21:04:25 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/operation-management/</guid>
-      <description>Operation Management Deployment Architecture    Architecture Master Node Slave Node Description     Single-Node One None small scale applications with unified web management   Scalable One Any large scale applications with unified web management   Multiple Autonomous System Any Any Any Single or Scalable Architectures, maintained by different teams, each autonomous system has an unified web management portal.    Admin Account Web Administration address is one of the following:</description>
+      <guid>/documentation/operation-management/</guid>
+      <description>Operation Management Deployment Architecture    Architecture Primary Node Replica Node Description     Single-Node One None small scale applications with unified web management   Scalable One Any large scale applications with unified web management   Multiple Autonomous System Any Any Any Single or Scalable Architectures, maintained by different teams, each autonomous system has an unified web management portal.    Admin Account Web Administration address is one of the following:</description>
     </item>
     
     <item>
       <title>Migrate to Janusec</title>
-      <link>https://janusec.github.io/documentation/migrate-to-janusec/</link>
+      <link>/documentation/migrate-to-janusec/</link>
       <pubDate>Wed, 06 Jun 2018 21:56:05 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/migrate-to-janusec/</guid>
+      <guid>/documentation/migrate-to-janusec/</guid>
       <description>Migrate to Janusec Application Gateway Step 1: Install and Configure Janusec Application Gateway Refer to Installation, install janusec application gateway and configure digital certificate, application.
 Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\System32\drivers\etc\hosts ( not the Gateway) for test.
  the_gateway_ip your_domain_name
@@ -156,33 +156,33 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
     
     <item>
       <title>Update Janusec</title>
-      <link>https://janusec.github.io/documentation/update-janusec/</link>
+      <link>/documentation/update-janusec/</link>
       <pubDate>Sun, 10 Jun 2018 20:11:45 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/update-janusec/</guid>
+      <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version  This article is only for upgrade, not for new installation.
- Latest version: v0.9.8 (May 17, 2020)
+ Latest version: v0.9.9 (Jun 19, 2020)
+v0.9.9 (Jun 19, 2020): Add static files cache
 v0.9.8 (May 17, 2020): Add LDAP Authentication, static website, fastcgi support.
 v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.
-v0.9.6 (Feb 27, 2020): Add domain 301 redirect.
-View current version The version information is available at admin portal, or:</description>
+v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</description>
     </item>
     
     <item>
       <title>Pricing</title>
-      <link>https://janusec.github.io/documentation/pricing/</link>
+      <link>/documentation/pricing/</link>
       <pubDate>Sun, 03 Jun 2018 12:00:30 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/pricing/</guid>
+      <guid>/documentation/pricing/</guid>
       <description> Pricing for Janusec Application Gateway    Plans Pricing License     Community Free GNU AGPLv3    </description>
     </item>
     
     <item>
       <title>FAQ</title>
-      <link>https://janusec.github.io/documentation/faq/</link>
+      <link>/documentation/faq/</link>
       <pubDate>Sat, 12 May 2018 07:45:49 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/faq/</guid>
+      <guid>/documentation/faq/</guid>
       <description>FAQ Q: What is the difference between Janusec Application Gateway and WAF ?  A: Janusec Application Gateway includes a WAF (Web Application Firewall), and Janusec eliminates the defects of traditional WAF.
  Q: Does it requires agent installation on business servers ?  A: No agent required.
  Q: Does it support https ?  A: Yes, https is naturally supported.
@@ -191,19 +191,19 @@ View current version The version information is available at admin portal, or:</
     
     <item>
       <title>User Agreement</title>
-      <link>https://janusec.github.io/documentation/user-agreement/</link>
+      <link>/documentation/user-agreement/</link>
       <pubDate>Sun, 20 May 2018 20:38:58 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/user-agreement/</guid>
+      <guid>/documentation/user-agreement/</guid>
       <description>User Agreement and Privacy Policy  THE PRODUCT IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE PRODUCT OR THE USE OR OTHER DEALINGS IN THE PRODUCT.</description>
     </item>
     
     <item>
       <title>Diagnose</title>
-      <link>https://janusec.github.io/documentation/diagnose/</link>
+      <link>/documentation/diagnose/</link>
       <pubDate>Sun, 05 Aug 2018 11:52:52 +0800</pubDate>
       
-      <guid>https://janusec.github.io/documentation/diagnose/</guid>
+      <guid>/documentation/diagnose/</guid>
       <description>Diagnose Deployment Operating System Operating System should be x86_64 and one of the following:
  CentOS 7
  RHEL 7

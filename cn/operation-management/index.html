@@ -54,82 +54,82 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/quick-start/">快速入门</a>
+              <a href="/cn/quick-start/">快速入门</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/introduction/">产品介绍</a>
+              <a href="/cn/introduction/">产品介绍</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/installation/">安装</a>
+              <a href="/cn/installation/">安装</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/configuration/">配置文件</a>
+              <a href="/cn/configuration/">配置文件</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/admin/">管理</a>
+              <a href="/cn/admin/">管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/certificate-management/">证书管理</a>
+              <a href="/cn/certificate-management/">证书管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/application-management/">应用管理</a>
+              <a href="/cn/application-management/">应用管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/node-management/">节点管理</a>
+              <a href="/cn/node-management/">节点管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/waf-management/">WAF管理</a>
+              <a href="/cn/waf-management/">WAF管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/operation-management/">运维管理</a>
+              <a href="/cn/operation-management/">运维管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/oauth2/">OAuth2身份认证</a>
+              <a href="/cn/oauth2/">OAuth2身份认证</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+              <a href="/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/update-janusec/">升级Janusec</a>
+              <a href="/cn/update-janusec/">升级Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/faq/">FAQ</a>
+              <a href="/cn/faq/">FAQ</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/diagnose/">问题诊断</a>
+              <a href="/cn/diagnose/">问题诊断</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/appendix-re2/">附录1:RE2正则规则解读</a>
+              <a href="/cn/appendix-re2/">附录1:RE2正则规则解读</a>
             </li>
           
         </ul>
@@ -149,7 +149,7 @@
 <tr>
 <th>架构</th>
 <th align="center">主节点</th>
-<th align="center">从节点</th>
+<th align="center">副本节点</th>
 <th>描述</th>
 </tr>
 </thead>
@@ -183,18 +183,18 @@
 <p>统一的Web管理地址，当配置文件config.json中listen=false时，包括如下：</p>
 
 <blockquote>
-<p>http://<code>your_master_node_ip_address</code>/janusec-admin/    (首次使用)<br />
-https://<code>your_master_node_domain_name</code>/janusec-admin/  (证书配置后可用)</p>
+<p>http://<code>your_primary_node_ip_address</code>/janusec-admin/    (首次使用)<br />
+https://<code>your_primary_node_domain_name</code>/janusec-admin/  (证书配置后可用)</p>
 </blockquote>
 
 <p>当配置文件config.json中listen=true时，地址：</p>
 
 <blockquote>
-<p>http://<code>your_master_node_ip_address:9080</code>/janusec-admin/    (首次使用)<br />
-https://<code>your_master_node_domain_name:9443</code>/janusec-admin/  (证书配置后可用)</p>
+<p>http://<code>your_primary_node_ip_address:9080</code>/janusec-admin/    (首次使用)<br />
+https://<code>your_primary_node_domain_name:9443</code>/janusec-admin/  (证书配置后可用)</p>
 </blockquote>
 
-<p>当使用单节点时，可使用任意应用的域名；当存在从节点时，应该为主节点申请单独的域名。</p>
+<p>当使用单节点时，可使用任意应用的域名；当存在副本节点时，应该为主节点申请单独的域名。</p>
 
 <table>
 <thead>
@@ -229,12 +229,12 @@ https://<code>your_master_node_domain_name:9443</code>/janusec-admin/  (证书�
 <tbody>
 <tr>
 <td align="center">80</td>
-<td>固定的网关HTTP入口，主节点和从节点均开启</td>
+<td>固定的网关HTTP入口，主节点和副本节点均开启</td>
 </tr>
 
 <tr>
 <td align="center">443</td>
-<td>固定的网关HTTPS入口，主节点和从节点均开启</td>
+<td>固定的网关HTTPS入口，主节点和副本节点均开启</td>
 </tr>
 
 <tr>

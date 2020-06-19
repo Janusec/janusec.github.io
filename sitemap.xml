@@ -3,209 +3,209 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://janusec.github.io/product/</loc>
+    <loc>/product/</loc>
     <lastmod>2018-06-13T22:02:26+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/dl/</loc>
+    <loc>/dl/</loc>
     <lastmod>2018-05-24T20:37:42+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/quick-start/</loc>
+    <loc>/documentation/quick-start/</loc>
     <lastmod>2018-05-17T22:28:32+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/quick-start/</loc>
+    <loc>/cn/quick-start/</loc>
     <lastmod>2018-05-17T22:28:32+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/product/janusec-application-gateway/</loc>
+    <loc>/product/janusec-application-gateway/</loc>
     <lastmod>2018-05-11T20:58:57+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/introduction/</loc>
+    <loc>/documentation/introduction/</loc>
     <lastmod>2018-05-12T08:10:40+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/introduction/</loc>
+    <loc>/cn/introduction/</loc>
     <lastmod>2018-05-12T08:10:40+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/installation/</loc>
+    <loc>/documentation/installation/</loc>
     <lastmod>2018-05-19T10:11:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/installation/</loc>
+    <loc>/cn/installation/</loc>
     <lastmod>2018-05-19T10:11:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/configuration/</loc>
+    <loc>/documentation/configuration/</loc>
     <lastmod>2020-03-22T10:11:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/configuration/</loc>
+    <loc>/cn/configuration/</loc>
     <lastmod>2020-03-22T10:11:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/admin/</loc>
+    <loc>/documentation/admin/</loc>
     <lastmod>2018-05-19T10:11:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/admin/</loc>
+    <loc>/cn/admin/</loc>
     <lastmod>2018-05-19T10:11:09+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/certificate-management/</loc>
+    <loc>/documentation/certificate-management/</loc>
     <lastmod>2018-05-20T21:05:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/certificate-management/</loc>
+    <loc>/cn/certificate-management/</loc>
     <lastmod>2018-05-20T21:05:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/application-management/</loc>
+    <loc>/documentation/application-management/</loc>
     <lastmod>2018-05-20T21:58:35+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/application-management/</loc>
+    <loc>/cn/application-management/</loc>
     <lastmod>2018-05-20T21:58:35+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/node-management/</loc>
+    <loc>/documentation/node-management/</loc>
     <lastmod>2018-05-20T22:38:35+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/node-management/</loc>
+    <loc>/cn/node-management/</loc>
     <lastmod>2018-05-20T22:38:35+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/waf-management/</loc>
+    <loc>/documentation/waf-management/</loc>
     <lastmod>2018-05-21T21:27:20+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/waf-management/</loc>
+    <loc>/cn/waf-management/</loc>
     <lastmod>2018-05-21T21:27:20+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/operation-management/</loc>
+    <loc>/documentation/operation-management/</loc>
     <lastmod>2018-05-25T21:04:25+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/operation-management/</loc>
+    <loc>/cn/operation-management/</loc>
     <lastmod>2018-05-25T21:04:25+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/oauth2/</loc>
+    <loc>/cn/oauth2/</loc>
     <lastmod>2020-03-28T23:04:25+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/migrate-to-janusec/</loc>
+    <loc>/documentation/migrate-to-janusec/</loc>
     <lastmod>2018-06-06T21:56:05+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/migrate-to-janusec/</loc>
+    <loc>/cn/migrate-to-janusec/</loc>
     <lastmod>2018-06-06T21:56:05+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/update-janusec/</loc>
+    <loc>/documentation/update-janusec/</loc>
     <lastmod>2018-06-10T20:11:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/update-janusec/</loc>
+    <loc>/cn/update-janusec/</loc>
     <lastmod>2018-06-10T20:11:45+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/pricing/</loc>
+    <loc>/documentation/pricing/</loc>
     <lastmod>2018-06-03T12:00:30+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/faq/</loc>
+    <loc>/cn/faq/</loc>
     <lastmod>2018-05-12T07:45:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/faq/</loc>
+    <loc>/documentation/faq/</loc>
     <lastmod>2018-05-12T07:45:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/user-agreement/</loc>
+    <loc>/documentation/user-agreement/</loc>
     <lastmod>2018-05-20T20:38:58+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/diagnose/</loc>
+    <loc>/documentation/diagnose/</loc>
     <lastmod>2018-08-05T11:52:52+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/diagnose/</loc>
+    <loc>/cn/diagnose/</loc>
     <lastmod>2018-08-05T10:16:34+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/appendix-re2/</loc>
+    <loc>/cn/appendix-re2/</loc>
     <lastmod>2020-04-09T14:16:34+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/</loc>
+    <loc>/</loc>
     <lastmod>2018-05-11T21:03:34+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/cn/</loc>
+    <loc>/cn/</loc>
     <lastmod>2018-05-11T21:03:34+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/documentation/</loc>
+    <loc>/documentation/</loc>
     <lastmod>2018-05-17T22:28:32+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/categories/gateway/</loc>
+    <loc>/categories/gateway/</loc>
     <lastmod>2018-05-11T20:58:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://janusec.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   

@@ -54,82 +54,82 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/quick-start/">快速入门</a>
+              <a href="/cn/quick-start/">快速入门</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/introduction/">产品介绍</a>
+              <a href="/cn/introduction/">产品介绍</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/installation/">安装</a>
+              <a href="/cn/installation/">安装</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/configuration/">配置文件</a>
+              <a href="/cn/configuration/">配置文件</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/admin/">管理</a>
+              <a href="/cn/admin/">管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/certificate-management/">证书管理</a>
+              <a href="/cn/certificate-management/">证书管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/application-management/">应用管理</a>
+              <a href="/cn/application-management/">应用管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/node-management/">节点管理</a>
+              <a href="/cn/node-management/">节点管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/waf-management/">WAF管理</a>
+              <a href="/cn/waf-management/">WAF管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/operation-management/">运维管理</a>
+              <a href="/cn/operation-management/">运维管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/oauth2/">OAuth2身份认证</a>
+              <a href="/cn/oauth2/">OAuth2身份认证</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+              <a href="/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/update-janusec/">升级Janusec</a>
+              <a href="/cn/update-janusec/">升级Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/faq/">FAQ</a>
+              <a href="/cn/faq/">FAQ</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/diagnose/">问题诊断</a>
+              <a href="/cn/diagnose/">问题诊断</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/appendix-re2/">附录1:RE2正则规则解读</a>
+              <a href="/cn/appendix-re2/">附录1:RE2正则规则解读</a>
             </li>
           
         </ul>
@@ -161,14 +161,14 @@
 </tr>
 
 <tr>
-<td>从节点</td>
+<td>副本节点</td>
 <td>CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd</td>
 <td>不需要</td>
 </tr>
 </tbody>
 </table>
 
-<h3 id="step-1-下载">Step 1: 下载</h3>
+<h3 id="步骤1-下载">步骤1: 下载</h3>
 
 <blockquote>
 <p>$cd ~<br />
@@ -176,17 +176,17 @@ $wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br />
 $tar zxf ./janusec-latest.tar.gz</p>
 </blockquote>
 
-<h3 id="step-2-安装">Step 2: 安装</h3>
+<h3 id="步骤2-安装">步骤2: 安装</h3>
 
 <p>请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： <code>/usr/local/janusec/</code></p>
 
 <blockquote>
 <p>$su<br />
-#cd janusec-0.9.8<br />
+#cd janusec-0.9.9<br />
 #./install.sh</p>
 </blockquote>
 
-<p>选择 <code>1. Master Node</code>, 然后安装程序会:</p>
+<p>选择 <code>1. Primary Node</code>, 然后安装程序会:</p>
 
 <ul>
 <li>将所需文件复制到 <code>/usr/local/janusec/</code><br /></li>
@@ -194,7 +194,7 @@ $tar zxf ./janusec-latest.tar.gz</p>
 <li>将Janusec应用网关服务设置为自动启动，但首次安装时不会启动，需要在配置完成后手工启动一次.<br /></li>
 </ul>
 
-<h5 id="步骤-3-配置">步骤 3: 配置</h5>
+<h3 id="步骤3-配置">步骤3: 配置</h3>
 
 <p>PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、数据库、账号，可参考<a href="/cn/operation-management/">运维管理</a>中的PostgreSQL安装。<br />
 现在我们假设您已经安装好了PostgreSQL，且数据库已创建，用户名和口令已准备好。<br />
@@ -205,46 +205,49 @@ $tar zxf ./janusec-latest.tar.gz</p>
 <p>可参考<a href="/cn/configuration/">配置文件</a>说明，其中：</p>
 
 <blockquote>
-<p>&ldquo;node_role&rdquo;: &ldquo;master&rdquo;  ( 固定为 <code>master</code> )</p>
+<p>&ldquo;node_role&rdquo;: &ldquo;primary&rdquo;  ( 固定为 <code>primary</code> )</p>
 </blockquote>
 
-<h5 id="从节点-可选">从节点(可选)</h5>
+<h5 id="副本节点-可选">副本节点(可选)</h5>
 
 <p>通常多个小型应用只使用一个<code>主节点</code>就够了。<br />
-当流量增长后，可使用<code>从节点</code>扩展，需要配合您自己的GSLB（全球服务器负载均衡）或支持分区解析的DNS来实现（也就是说，不同地区的用户，会连接到不同的网关节点）。</p>
+当流量增长后，可使用<code>副本节点</code>扩展，需要配合您自己的GSLB（全球服务器负载均衡）或支持分区解析的DNS来实现（也就是说，不同地区的用户，会连接到不同的网关节点）。</p>
 
 <p>可参考<a href="/cn/configuration/">配置文件</a>说明，其中:</p>
 
 <blockquote>
-<p>&ldquo;node_role&rdquo;: &ldquo;slave&rdquo;  ( 固定为 <code>slave</code> )</p>
+<p>&ldquo;node_role&rdquo;: &ldquo;replica&rdquo;  ( 固定为 <code>replica</code> )</p>
 </blockquote>
 
-<p>并配置&rdquo;slave_node&rdquo;中的内容:<br />
-&gt; &ldquo;node_key&rdquo;: &ldquo;从管理后台节点管理中复制过来&rdquo;,
-&gt; &ldquo;sync_addr&rdquo;: &ldquo;<a href="https://gateway.master_node.com:9443/janusec-admin/api&quot;">https://gateway.master_node.com:9443/janusec-admin/api&quot;</a></p>
+<p>并配置&rdquo;replica_node&rdquo;中的内容:</p>
+
+<blockquote>
+<p>&ldquo;node_key&rdquo;: &ldquo;从管理后台节点管理中复制过来&rdquo;,<br />
+&ldquo;sync_addr&rdquo;: &ldquo;<a href="https://gateway.primary_node.com:9443/janusec-admin/api&quot;">https://gateway.primary_node.com:9443/janusec-admin/api&quot;</a></p>
+</blockquote>
 
 <p>说明：<br />
-* 如果使用了从节点，请为主节点单独申请一个域名(例如gateway.master_node.com，用于从节点获取配置更新，该域名只指向主节点)，并且配置一个应用(Application)，Destination可配置为127.0.0.1:9999 （实际不使用）。<br />
-* 如果&rdquo;master_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，&rdquo;sync_addr&rdquo;中请勿包含冒号和端口号，如&rdquo;<a href="https://gateway.master_node.com/janusec-admin/api&quot;">https://gateway.master_node.com/janusec-admin/api&quot;</a></p>
+* 如果使用了副本节点，请为主节点单独申请一个域名(例如gateway.primary_node.com，用于副本节点获取配置更新，该域名只指向主节点)，并且配置一个应用(Application)，Destination可配置为127.0.0.1:9999 （实际不使用）。<br />
+* 如果&rdquo;primary_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，&rdquo;sync_addr&rdquo;中请勿包含冒号和端口号，如&rdquo;<a href="https://gateway.primary_node.com/janusec-admin/api&quot;">https://gateway.primary_node.com/janusec-admin/api&quot;</a></p>
 
-<h3 id="step-4-启动">Step 4: 启动</h3>
+<h3 id="步骤4-启动">步骤4: 启动</h3>
 
 <blockquote>
 <p>#systemctl start janusec</p>
 </blockquote>
 
-<h3 id="step-5-测试安装">Step 5: 测试安装</h3>
+<h3 id="步骤5-测试安装">步骤5: 测试安装</h3>
 
 <p>打开浏览器（比如Chrome）,使用如下地址：</p>
 
-<p>在config.json中，如果 &ldquo;master_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，则管理入口为：</p>
+<p>在config.json中，如果 &ldquo;primary_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，则管理入口为：</p>
 
 <blockquote>
 <p>http://<code>您的网关IP地址</code>/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址<br />
 https://<code>您的任意应用域名</code>/janusec-admin/ (在配置证书和应用之后可以使用)</p>
 </blockquote>
 
-<p>如果 &ldquo;master_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为true，则默认管理入口为：</p>
+<p>如果 &ldquo;primary_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为true，则默认管理入口为：</p>
 
 <blockquote>
 <p>http://<code>您的网关IP地址:9080</code>/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址<br />

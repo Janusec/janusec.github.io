@@ -54,82 +54,82 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/quick-start/">快速入门</a>
+              <a href="/cn/quick-start/">快速入门</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/introduction/">产品介绍</a>
+              <a href="/cn/introduction/">产品介绍</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/installation/">安装</a>
+              <a href="/cn/installation/">安装</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/configuration/">配置文件</a>
+              <a href="/cn/configuration/">配置文件</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/admin/">管理</a>
+              <a href="/cn/admin/">管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/certificate-management/">证书管理</a>
+              <a href="/cn/certificate-management/">证书管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/application-management/">应用管理</a>
+              <a href="/cn/application-management/">应用管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/node-management/">节点管理</a>
+              <a href="/cn/node-management/">节点管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/waf-management/">WAF管理</a>
+              <a href="/cn/waf-management/">WAF管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/operation-management/">运维管理</a>
+              <a href="/cn/operation-management/">运维管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/oauth2/">OAuth2身份认证</a>
+              <a href="/cn/oauth2/">OAuth2身份认证</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+              <a href="/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/update-janusec/">升级Janusec</a>
+              <a href="/cn/update-janusec/">升级Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/faq/">FAQ</a>
+              <a href="/cn/faq/">FAQ</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/diagnose/">问题诊断</a>
+              <a href="/cn/diagnose/">问题诊断</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="https://janusec.github.io/cn/appendix-re2/">附录1:RE2正则规则解读</a>
+              <a href="/cn/appendix-re2/">附录1:RE2正则规则解读</a>
             </li>
           
         </ul>
@@ -214,13 +214,13 @@
 <p>如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不需要任何修改。<br />
 如果是单独部署的Janusec网关，需要将现有的Web服务接入迁移到Janusec，请先使用hosts方式调试通过，然后再修改DNS指向。</p>
 
-<h3 id="主从节点同步">主从节点同步</h3>
+<h3 id="主副本节点同步">主副本节点同步</h3>
 
-<p>为了保证主从节点正确同步，需要满足：</p>
+<p>为了保证主副本节点正确同步，需要满足：</p>
 
 <ul>
 <li>各节点时间正确（误差不超过一分钟）<br /></li>
-<li>从节点<code>node_key</code>跟Web管理控制台中<a href="/cn/node-management">节点管理</a>中显示的<code>node_key</code>一致。<br /></li>
+<li>副本节点<code>node_key</code>跟Web管理控制台中<a href="/cn/node-management">节点管理</a>中显示的<code>node_key</code>一致。<br /></li>
 </ul>
 
 <h3 id="日志">日志</h3>
