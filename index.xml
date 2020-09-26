@@ -17,7 +17,7 @@
       <pubDate>Thu, 24 May 2018 20:37:42 +0800</pubDate>
       
       <guid>/dl/</guid>
-      <description> Download Janusec Application Gateway    Type Requirements Download     Binary Release CentOS/RHEL 7+ or Debian 9+, with systemd 0.9.9   Binary Release CentOS/RHEL 7+ or Debian 9+, with systemd 0.9.7   Source Code Linux with systemd Github    Console  wget https://www.janusec.com/download/janusec-latest.tar.gz
+      <description> Download Janusec Application Gateway    Type Requirements Download     Binary Release CentOS/RHEL 7&amp;frasl;8+ or Debian 9&amp;frasl;10+, with systemd and nftables 0.9.10   Binary Release CentOS/RHEL 7&amp;frasl;8+ or Debian 9&amp;frasl;10+, with systemd 0.9.9   Source Code Linux with systemd Github    Console  wget https://www.janusec.com/download/janusec-latest.tar.gz
  </description>
     </item>
     
