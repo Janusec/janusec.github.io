@@ -162,19 +162,48 @@
 <tbody>
 <tr>
 <td>主节点</td>
-<td>CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd</td>
-<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10</td>
+<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, 或 Debian <sup>9</sup>&frasl;<sub>10</sub>+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables</td>
+<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）</td>
 </tr>
 
 <tr>
 <td>副本节点</td>
-<td>CentOS/RHEL 7+, 或 Debian 9+, x86_64, 使用 systemd</td>
+<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, 或 Debian <sup>9</sup>&frasl;<sub>10</sub>+, x86_64, 使用 systemd和nftables</td>
 <td>不需要</td>
 </tr>
 </tbody>
 </table>
 
 <p>本入门只安装一个主节点，不安装副本节点，如需扩展，可参考<a href="/cn/installation/">安装</a>一节。</p>
+
+<h2 id="准备主机防火墙nftables">准备主机防火墙nftables</h2>
+
+<hr />
+
+<p>nftables用于拦截CC攻击，减轻应用网关压力。</p>
+
+<p>CentOS 7默认没有安装nftables，需要手工安装并启动：</p>
+
+<blockquote>
+<p>#yum -y install nftables<br />
+#systemctl enable nftables<br />
+#systemctl start nftables</p>
+</blockquote>
+
+<p>CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：</p>
+
+<blockquote>
+<p>#systemctl enable firewalld<br />
+#systemctl start firewalld</p>
+</blockquote>
+
+<p>现在，可以通过如下指令查看规则：</p>
+
+<blockquote>
+<p>#nft list ruleset</p>
+</blockquote>
+
+<p>如果规则不是空的，可能会影响防火墙策略的生效。假定现在nftables的规则是空的，然后继续。</p>
 
 <h2 id="安装">安装</h2>
 
@@ -309,6 +338,41 @@ https://<code>your_domain_name</code>/ .<br />
 
 <p>阻断效果:<br />
 <img src="/images/waf2.png" alt="WAF" title="WAF of Janusec Application Gateway" /></p>
+
+<h2 id="防火墙验证">防火墙验证</h2>
+
+<hr />
+
+<p>可通过：</p>
+
+<blockquote>
+<p>#nft list table inet janusec</p>
+</blockquote>
+
+<p>或者：</p>
+
+<blockquote>
+<p>#nft list table inet janusec -a</p>
+</blockquote>
+
+<p>查看应用网关相关的规则，大概是这样的：</p>
+
+<pre><code>[root@CentOS8]# nft list table inet janusec -a
+table inet janusec { # handle 20
+	set blocklist { # handle 2
+		type ipv4_addr
+		flags timeout
+	}
+
+	chain input { # handle 1
+		type filter hook input priority 0; policy accept;
+		@nh,96,32 @blocklist drop # handle 3
+	}
+}
+
+</code></pre>
+
+<p>如需测试CC防御效果，请先检查WAF管理中的CC防护规则。</p>
 
             </article>
       </div>

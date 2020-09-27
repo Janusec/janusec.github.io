@@ -19,7 +19,7 @@
       <guid>/documentation/quick-start/</guid>
       <description>Quick Start 快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
-Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   Replica Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd Not required    Installation Step 1: Download  $cd ~</description>
+Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7&amp;frasl;8+, or Debian 9&amp;frasl;10+, x86_64, with systemd and nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)   Replica Node CentOS/RHEL 7&amp;frasl;8+, or Debian 9&amp;frasl;10+, x86_64, with systemd and nftables Not required    Prepare nftables nftables used for CC defense.</description>
     </item>
     
     <item>
@@ -40,10 +40,8 @@ Features:  Web Application Firewall ( HTTPS support, No Agent Required )
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/documentation/installation/</guid>
-      <description>Installation Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10   Replica Node CentOS/RHEL 7, or Debian 9, x86_64, with systemd Not required    Step 1: Download  $cd ~
-$wget https://www.janusec.com/download/janusec-latest.tar.gz
-$tar zxf ./janusec-latest.tar.gz
- Step 2: Install Switch to root and run install.</description>
+      <description>Installation Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7&amp;frasl;8+, or Debian 9&amp;frasl;10+, x86_64, with systemd and nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)   Replica Node CentOS/RHEL 7&amp;frasl;8+, or Debian 9&amp;frasl;10+, x86_64, with systemd and nftables Not required    Prepare nftables nftables used for CC defense.
+nftables is not installed for CentOS 7 by default, installation is required:</description>
     </item>
     
     <item>

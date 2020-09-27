@@ -156,17 +156,46 @@
 <tbody>
 <tr>
 <td>主节点</td>
-<td>CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd</td>
-<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10</td>
+<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, 或 Debian <sup>9</sup>&frasl;<sub>10</sub>+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables</td>
+<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）</td>
 </tr>
 
 <tr>
 <td>副本节点</td>
-<td>CentOS/RHEL 7, 或 Debian 9, x86_64, 使用 systemd</td>
+<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, 或 Debian <sup>9</sup>&frasl;<sub>10</sub>+, x86_64, 使用 systemd和nftables</td>
 <td>不需要</td>
 </tr>
 </tbody>
 </table>
+
+<h2 id="准备主机防火墙nftables">准备主机防火墙nftables</h2>
+
+<hr />
+
+<p>nftables用于拦截CC攻击，减轻应用网关压力。</p>
+
+<p>CentOS 7默认没有安装nftables，需要手工安装并启动：</p>
+
+<blockquote>
+<p>#yum -y install nftables<br />
+#systemctl enable nftables<br />
+#systemctl start nftables</p>
+</blockquote>
+
+<p>CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：</p>
+
+<blockquote>
+<p>#systemctl enable firewalld<br />
+#systemctl start firewalld</p>
+</blockquote>
+
+<p>现在，可以通过如下指令查看规则：</p>
+
+<blockquote>
+<p>#nft list ruleset</p>
+</blockquote>
+
+<p>如果规则不是空的，可能会影响防火墙策略的生效。假定现在nftables的规则是空的，然后继续。</p>
 
 <h3 id="步骤1-下载">步骤1: 下载</h3>
 

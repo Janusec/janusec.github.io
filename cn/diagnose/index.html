@@ -193,7 +193,7 @@
 <p>select version();</p>
 </blockquote>
 
-<p>版本要求为<code>9.3</code>以上（不支持PostgreSQL 9.2或更早的版本）。</p>
+<p>版本要求为<code>9.3</code>以上（首选10+，不支持PostgreSQL 9.2或更早的版本）。</p>
 
 <h3 id="端口">端口</h3>
 
@@ -226,6 +226,26 @@
 <h3 id="日志">日志</h3>
 
 <p>日志文件路径为 <code>/usr/local/janusec/log/</code> ，可查看日志中是否存在错误输出。</p>
+
+<h3 id="nftables防火墙">nftables防火墙</h3>
+
+<p>请确保nftables防火墙正常工作，且没有多余的规则影响JANUSEC，参考<a href="/cn/installation/">安装</a>一节。<br />
+JANUSEC启动后，正常情况下规则类似如下：</p>
+
+<pre><code>[root@CentOS8]# nft list table inet janusec -a
+table inet janusec { # handle 20
+	set blocklist { # handle 2
+		type ipv4_addr
+		flags timeout
+	}
+
+	chain input { # handle 1
+		type filter hook input priority 0; policy accept;
+		@nh,96,32 @blocklist drop # handle 3
+	}
+}
+
+</code></pre>
 
 <h3 id="更多错误信息">更多错误信息</h3>
 

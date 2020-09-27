@@ -162,17 +162,46 @@
 <tbody>
 <tr>
 <td>Primary Node</td>
-<td>CentOS/RHEL 7, or Debian 9, x86_64, with systemd</td>
-<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10</td>
+<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, or Debian <sup>9</sup>&frasl;<sub>10</sub>+, x86_64, with systemd and nftables</td>
+<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)</td>
 </tr>
 
 <tr>
 <td>Replica Node</td>
-<td>CentOS/RHEL 7, or Debian 9, x86_64, with systemd</td>
+<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, or Debian <sup>9</sup>&frasl;<sub>10</sub>+, x86_64, with systemd and nftables</td>
 <td>Not required</td>
 </tr>
 </tbody>
 </table>
+
+<h2 id="prepare-nftables">Prepare nftables</h2>
+
+<hr />
+
+<p>nftables used for CC defense.</p>
+
+<p>nftables is not installed for CentOS 7 by default, installation is required:</p>
+
+<blockquote>
+<p>#yum -y install nftables<br />
+#systemctl enable nftables<br />
+#systemctl start nftables</p>
+</blockquote>
+
+<p>nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld：</p>
+
+<blockquote>
+<p>#systemctl enable firewalld<br />
+#systemctl start firewalld</p>
+</blockquote>
+
+<p>Now, you can view the ruleset through:</p>
+
+<blockquote>
+<p>#nft list ruleset</p>
+</blockquote>
+
+<p>If the rule is not empty, it may affect the effectiveness of the firewall policy. Assuming that the nftables rule is empty now, then continue.</p>
 
 <h2 id="installation">Installation</h2>
 
@@ -299,6 +328,39 @@ Fill in application name, actual IP:Port etc.</p>
 
 <p>Block information:<br />
 <img src="/images/waf2.png" alt="WAF" title="WAF of Janusec Application Gateway" /></p>
+
+<h2 id="firewall-nftables-validation">Firewall nftables Validation</h2>
+
+<hr />
+
+<blockquote>
+<p>#nft list table inet janusec</p>
+</blockquote>
+
+<p>or:</p>
+
+<blockquote>
+<p>#nft list table inet janusec -a</p>
+</blockquote>
+
+<p>The result is like this:</p>
+
+<pre><code>[root@CentOS8]# nft list table inet janusec -a
+table inet janusec { # handle 20
+	set blocklist { # handle 2
+		type ipv4_addr
+		flags timeout
+	}
+
+	chain input { # handle 1
+		type filter hook input priority 0; policy accept;
+		@nh,96,32 @blocklist drop # handle 3
+	}
+}
+
+</code></pre>
+
+<p>If you need to test the effect of CC defense, please check the CC protection rules in WAF management at first.</p>
 
             </article>
       </div>
