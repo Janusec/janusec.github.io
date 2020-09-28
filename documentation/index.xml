@@ -159,11 +159,11 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version  This article is only for upgrade, not for new installation.
- Latest version: v0.9.9 (Jun 19, 2020)
+ Latest version: v0.9.10 (Sep 26, 2020)
+v0.9.10 (Sep 26, 2020): Add nftables support for CC defense
 v0.9.9 (Jun 19, 2020): Add static files cache
 v0.9.8 (May 17, 2020): Add LDAP Authentication, static website, fastcgi support.
-v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.
-v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</description>
+v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.</description>
     </item>
     
     <item>
@@ -203,9 +203,9 @@ v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</description>
       
       <guid>/documentation/diagnose/</guid>
       <description>Diagnose Deployment Operating System Operating System should be x86_64 and one of the following:
- CentOS 7
- RHEL 7
- Debian 9
+ CentOS 7&amp;frasl;8+
+ RHEL 7&amp;frasl;8+
+ Debian 9&amp;frasl;10+
   Time Please make sure the time is correct, time zone may be any.
 Service Management systemd is used for Service Management , check :
  command -v systemctl

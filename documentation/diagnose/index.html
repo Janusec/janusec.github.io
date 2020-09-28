@@ -151,9 +151,9 @@
 <p>Operating System should be x86_64 and one of the following:</p>
 
 <ul>
-<li>CentOS 7<br /></li>
-<li>RHEL 7<br /></li>
-<li>Debian 9<br /></li>
+<li>CentOS <sup>7</sup>&frasl;<sub>8</sub>+<br /></li>
+<li>RHEL <sup>7</sup>&frasl;<sub>8</sub>+<br /></li>
+<li>Debian <sup>9</sup>&frasl;<sub>10</sub>+<br /></li>
 </ul>
 
 <h3 id="time">Time</h3>
@@ -215,6 +215,27 @@
 <h3 id="log">Log</h3>
 
 <p>Log file is under /usr/local/janusec/log/</p>
+
+<h3 id="nftables">nftables</h3>
+
+<p>Please make sure nftables works well and there are no redundant rules that affect JANUSEC. Refer to <a href="/documentation/installation/">Installation</a>.</p>
+
+<p>After JANUSEC started, the rules is like this:</p>
+
+<pre><code>[root@CentOS8]# nft list table inet janusec -a
+table inet janusec { # handle 20
+	set blocklist { # handle 2
+		type ipv4_addr
+		flags timeout
+	}
+
+	chain input { # handle 1
+		type filter hook input priority 0; policy accept;
+		@nh,96,32 @blocklist drop # handle 3
+	}
+}
+
+</code></pre>
 
 <h3 id="more-information">More Information</h3>
 
