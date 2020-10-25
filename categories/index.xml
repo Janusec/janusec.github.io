@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Janusec</title>
@@ -6,12 +6,9 @@
     <description>Recent content in Categories on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 11 May 2018 20:58:57 +0800</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Gateway</title>
+      <title>gateway</title>
       <link>/categories/gateway/</link>
       <pubDate>Fri, 11 May 2018 20:58:57 +0800</pubDate>
       

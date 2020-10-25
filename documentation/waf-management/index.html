@@ -136,69 +136,45 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="waf-management">WAF Management</h1>
-
-<hr />
-
+            <h1 id="waf-management">WAF Management</h1>
+<hr>
 <h4 id="add-or-edit-waf-policy">Add or Edit WAF Policy</h4>
-
-<p><img src="/images/waf1.png" alt="Add or Edit WAF Policy" title="Add or Edit WAF Policy for Janusec Application Gateway" /></p>
-
+<p><img src="/images/waf1.png" alt="Add or Edit WAF Policy" title="Add or Edit WAF Policy for Janusec Application Gateway"></p>
 <h4 id="typical-check-points">Typical Check Points</h4>
-
 <blockquote>
 <p>Example: <code>http://www.yourdomain.com/blog/show.php?id=1&amp;category=2</code></p>
 </blockquote>
-
-<p>URLPath: <code>/blog/show.php</code><br />
-URLQuery: <code>id=1&amp;category=2</code><br />
-GetPostKey: [<code>id</code>, <code>category</code>]<br />
+<p>URLPath: <code>/blog/show.php</code><br>
+URLQuery: <code>id=1&amp;category=2</code><br>
+GetPostKey: [<code>id</code>, <code>category</code>]<br>
 GetPostValue: [<code>1</code>, <code>2</code>]</p>
-
 <blockquote>
-<p>GetPostKey, GetPostValue used for both GET and POST method<br />
+<p>GetPostKey, GetPostValue used for both GET and POST method<br>
 If you want to check url values only ( GET Only ), please select URLQuery .</p>
 </blockquote>
-
 <h4 id="regular-expression">Regular Expression</h4>
-
 <p>Janusec Application Gateway adopts <a href="https://github.com/google/re2/wiki/Syntax">Google RE2 Regular Expression</a> . In order to simplify configuration, Janusec Application Gateway will preprocess the values to be detected. Typically, remove <code>'</code> and <code>&quot;</code> , replace <code>/**/</code> by white space etc. Example:</p>
-
 <p>Regex:</p>
-
 <blockquote>
 <p><code>(?i)\s+(and|or)\s+[\w\p{L}]+=[\w\p{L}]+$</code></p>
 </blockquote>
-
 <p>will cover these values:</p>
-
 <blockquote>
-<p><code>1' aNd '1'='1</code><br />
-<code>abc' oR &quot;abc&quot;=&quot;abc</code><br />
+<p><code>1' aNd '1'='1</code><br>
+<code>abc' oR &quot;abc&quot;=&quot;abc</code><br>
 <code>1'/**/And/**/'a'='a</code></p>
 </blockquote>
-
 <p>Note:</p>
-
 <blockquote>
 <p><code>p{L}</code> used for unicode character.</p>
 </blockquote>
-
 <h4 id="action">Action</h4>
-
-<hr />
-
+<hr>
 <h5 id="block">Block</h5>
-
-<p><img src="/images/waf2.png" alt="Block Information of Janusec Application Gateway" /></p>
-
+<p><img src="/images/waf2.png" alt="Block Information of Janusec Application Gateway"></p>
 <h5 id="captcha">CAPTCHA</h5>
-
 <p>Usually used for CC attacks or frequently requests.</p>
-
-<p><img src="/images/captcha.png" alt="Captcha of Janusec Application Gateway" /></p>
+<p><img src="/images/captcha.png" alt="Captcha of Janusec Application Gateway"></p>
 
             </article>
       </div>
@@ -206,7 +182,7 @@ If you want to check url values only ( GET Only ), please select URLQuery .</p>
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

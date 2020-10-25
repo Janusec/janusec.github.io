@@ -136,219 +136,165 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="operation-management">Operation Management</h1>
-
-<hr />
-
+            <h1 id="operation-management">Operation Management</h1>
+<hr>
 <h4 id="deployment-architecture">Deployment Architecture</h4>
-
 <table>
 <thead>
 <tr>
 <th>Architecture</th>
-<th align="center">Primary Node</th>
-<th align="center">Replica Node</th>
+<th style="text-align:center">Primary Node</th>
+<th style="text-align:center">Replica Node</th>
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Single-Node</td>
-<td align="center">One</td>
-<td align="center">None</td>
+<td style="text-align:center">One</td>
+<td style="text-align:center">None</td>
 <td>small scale applications with unified web management</td>
 </tr>
-
 <tr>
 <td>Scalable</td>
-<td align="center">One</td>
-<td align="center">Any</td>
+<td style="text-align:center">One</td>
+<td style="text-align:center">Any</td>
 <td>large scale applications with unified web management</td>
 </tr>
-
 <tr>
 <td>Multiple Autonomous System</td>
-<td align="center">Any</td>
-<td align="center">Any</td>
+<td style="text-align:center">Any</td>
+<td style="text-align:center">Any</td>
 <td>Any Single or Scalable Architectures, maintained by different teams, each autonomous system has an unified web management portal.</td>
 </tr>
 </tbody>
 </table>
-
 <h4 id="admin-account">Admin Account</h4>
-
 <p>Web Administration address is one of the following:</p>
-
 <p>When listen=false in config.json :</p>
-
 <blockquote>
 <p>http://<code>your_primary_node_ip_address</code>/janusec-admin/    (first use)
-https://<code>your_application_domain_name</code>/janusec-admin/  (after certificate configured)<br />
+https://<code>your_application_domain_name</code>/janusec-admin/  (after certificate configured)<br>
 When listen=true  in config.json :</p>
-
-<p>http://<code>your_primary_node_ip_address:9080</code>/janusec-admin/    (first use)<br />
+</blockquote>
+<blockquote>
+<p>http://<code>your_primary_node_ip_address:9080</code>/janusec-admin/    (first use)  <br>
 https://<code>your_primary_node_domain_name:9443</code>/janusec-admin/  (after certificate configured)</p>
 </blockquote>
-
-<p>When using primary node only, any application domain name can be used for admin.<br />
+<p>When using primary node only, any application domain name can be used for admin.<br>
 But if you have one or more replica nodes, you should apply for a seperate domain name for primary node.</p>
-
 <table>
 <thead>
 <tr>
-<th align="center">Default User</th>
+<th style="text-align:center">Default User</th>
 <th>Default Password</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center"><code>admin</code></td>
+<td style="text-align:center"><code>admin</code></td>
 <td><code>J@nusec123</code></td>
 </tr>
 </tbody>
 </table>
-
 <blockquote>
 <p>modify password is required!</p>
 </blockquote>
-
 <h4 id="ports">Ports</h4>
-
 <table>
 <thead>
 <tr>
-<th align="center">Port</th>
+<th style="text-align:center">Port</th>
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">80</td>
+<td style="text-align:center">80</td>
 <td>Fixed, Gateway HTTP Entrance, Primary Node and Replica Nodes</td>
 </tr>
-
 <tr>
-<td align="center">443</td>
+<td style="text-align:center">443</td>
 <td>Fixed, Gateway HTTPS Entrance, Primary Node and Replica Nodes</td>
 </tr>
-
 <tr>
-<td align="center">9080</td>
+<td style="text-align:center">9080</td>
 <td>When listen=true in config.json, Primary Node Only</td>
 </tr>
-
 <tr>
-<td align="center">9443</td>
+<td style="text-align:center">9443</td>
 <td>When listen=true in config.json, Primary Node Only</td>
 </tr>
 </tbody>
 </table>
-
 <h4 id="process">Process</h4>
-
 <blockquote>
 <p><code>/usr/local/janusec/janusec</code></p>
 </blockquote>
-
 <h4 id="configuratation-file">Configuratation File</h4>
-
 <blockquote>
 <p><code>/usr/local/janusec/config.json</code></p>
 </blockquote>
-
 <p>The PostgreSQL password in <code>config.json</code> will be encrypted automatically</p>
-
 <ul>
-<li>when length of password &lt;= 32, will be treated as plain password and will be encrypted.<br /></li>
-<li>when length of password &gt; 32, will be treated as encrypted password and will be decrypted in memory.<br /></li>
+<li>when length of password &lt;= 32, will be treated as plain password and will be encrypted.</li>
+<li>when length of password &gt; 32, will be treated as encrypted password and will be decrypted in memory.</li>
 </ul>
-
 <h4 id="service">Service</h4>
-
 <p>The service file is managed by <code>systemd</code> and located in:</p>
-
 <blockquote>
-<p>CentOS/RHEL 7: <code>/usr/lib/systemd/system/janusec</code><br />
+<p>CentOS/RHEL 7: <code>/usr/lib/systemd/system/janusec</code>  <br>
 Debian 9: <code>/lib/systemd/system/janusec</code></p>
 </blockquote>
-
 <p>View more information about janusec by:</p>
-
 <blockquote>
 <p>#<code>systemctl cat janusec</code></p>
 </blockquote>
-
 <p>or</p>
-
 <blockquote>
 <p>#<code>systemctl status janusec</code></p>
 </blockquote>
-
 <h4 id="postgresql">PostgreSQL</h4>
-
 <p>PostgreSQL ( 9.3, 9.4, 9.5, 9.6, or 10 ) is not included in the release package, you should prepare it before installation, required by the Primary Node.</p>
-
 <p>Before the installation of the Primary Node, dbname, dbuser and password should be ready.</p>
-
 <h5 id="example-with-centos-7-and-postgresql-10">Example with CentOS 7 and PostgreSQL 10</h5>
-
 <p>Refer to <a href="https://wiki.postgresql.org/wiki/YUM_Installation">https://wiki.postgresql.org/wiki/YUM_Installation</a></p>
-
 <blockquote>
 <p><code>yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</code></p>
 </blockquote>
-
 <p>if the link outdated, copy the right link from <code>https://yum.postgresql.org/repopackages.php</code></p>
-
 <blockquote>
-<p>#<code>yum install postgresql10-server</code><br />
-#<code>/usr/pgsql-10/bin/postgresql-10-setup initdb</code><br />
+<p>#<code>yum install postgresql10-server</code><br>
+#<code>/usr/pgsql-10/bin/postgresql-10-setup initdb</code><br>
 #<code>systemctl restart postgresql-10.service</code>
-#<code>su - postgres</code><br />
+#<code>su - postgres</code><br>
 -bash-4.2$ <code>psql</code></p>
 </blockquote>
-
 <p>PostgreSQL Shell</p>
-
 <blockquote>
-<p>postgres=# create user <code>janusec</code> with password &lsquo;<code>your_password</code>&rsquo;;<br />
-postgres=# create database janusec owner janusec;<br />
-postgres=# grant all privileges on database janusec to janusec;<br />
-postgres=# \q<br />
+<p>postgres=# create user <code>janusec</code> with password &lsquo;<code>your_password</code>';<br>
+postgres=# create database janusec owner janusec;<br>
+postgres=# grant all privileges on database janusec to janusec;<br>
+postgres=# \q<br>
 exit</p>
 </blockquote>
-
 <p>PostgreSQL Authentication</p>
-
 <blockquote>
 <p>#<code>vi /var/lib/pgsql/10/data/pg_hba.conf</code></p>
 </blockquote>
-
 <p>Modified Authentication Method in pg_hba.conf:</p>
-
 <blockquote>
 <p><code>host    all    all    127.0.0.1/32   md5</code></p>
 </blockquote>
-
 <p>Restart PostgreSQL Service</p>
-
 <blockquote>
 <p>systemctl restart postgresql-10.service</p>
 </blockquote>
-
 <h4 id="enable-https-for-administration">Enable HTTPS for Administration</h4>
-
 <p>At least one certificate and one application configured, you can use the application domain and administration port to access it.</p>
-
 <p>For Single Node:</p>
-
 <blockquote>
-<p><code>https://your_application_domain/janusec-admin/</code> (when listen=false in config.json)<br />
+<p><code>https://your_application_domain/janusec-admin/</code> (when listen=false in config.json)  <br>
 <code>https://your_application_domain:9443/janusec-admin/</code> (when listen=true in config.json)</p>
 </blockquote>
 
@@ -358,7 +304,7 @@ exit</p>
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

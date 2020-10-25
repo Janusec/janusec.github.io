@@ -136,48 +136,33 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="节点管理">节点管理</h1>
-
-<hr />
-
-<p><img src="/images/gateway2.png" alt="应用网关" title="Janusec应用网关节点" /></p>
-
+            <h1 id="节点管理">节点管理</h1>
+<hr>
+<p><img src="/images/gateway2.png" alt="应用网关" title="Janusec应用网关节点"></p>
 <h4 id="节点类型">节点类型</h4>
-
 <ul>
-<li>主节点, 有且只有一个，并需要使用PostgreSQL.<br /></li>
-<li>副本节点，可选，0个或多个，不需要数据库。<br /></li>
+<li>主节点, 有且只有一个，并需要使用PostgreSQL.</li>
+<li>副本节点，可选，0个或多个，不需要数据库。</li>
 </ul>
-
 <h4 id="单节点架构">单节点架构</h4>
-
 <ul>
-<li>一个主节点，没有副本节点.<br /></li>
-<li>不需要GSLB或DNS负载均衡.<br /></li>
-<li>适用于一个或多个小型Web应用.<br /></li>
+<li>一个主节点，没有副本节点.</li>
+<li>不需要GSLB或DNS负载均衡.</li>
+<li>适用于一个或多个小型Web应用.</li>
 </ul>
-
 <h4 id="多节点架构">多节点架构</h4>
-
 <ul>
-<li>一个主节点，多个副本节点.<br /></li>
+<li>一个主节点，多个副本节点.</li>
 <li>主节点需要使用PostgreSQL.</li>
-<li>需要GSLB或DNS负载均衡（不同地区的用户查询同一个域名，获取到不同的IP地址）.<br /></li>
-<li>适用于一个或多个大型Web业务.<br /></li>
+<li>需要GSLB或DNS负载均衡（不同地区的用户查询同一个域名，获取到不同的IP地址）.</li>
+<li>适用于一个或多个大型Web业务.</li>
 </ul>
-
 <h4 id="副本节点">副本节点</h4>
-
 <blockquote>
 <p>在统一的Web管理界面,可管理所有的副本节点.</p>
 </blockquote>
-
-<p><img src="/images/node1.png" alt="副本节点" title="Janusec应用网关的副本节点" /></p>
-
+<p><img src="/images/node1.png" alt="副本节点" title="Janusec应用网关的副本节点"></p>
 <p>副本节点配置文件<code>/usr/local/janusec/config.json</code>中的<code>node_key</code>，需要据此配置，类似：</p>
-
 <pre><code>{
 	&quot;node_role&quot;: &quot;replica&quot;,
 	...
@@ -186,20 +171,15 @@
 		&quot;sync_addr&quot;: &quot;http://192.168.100.107:9080/janusec-admin/api&quot;
 	}	
 }
-</code></pre>
-
-<p>安全起见，启动副本节点时，应给主节点单独申请一个域名，并配置一个应用，建议配置如下：</p>
-
+</code></pre><p>安全起见，启动副本节点时，应给主节点单独申请一个域名，并配置一个应用，建议配置如下：</p>
 <blockquote>
-<p>Application Name: JANUSEC<br />
-Destination: 127.0.0.1:9999 (不会实际访问)<br />
-Domain: 主节点专用域名<br />
+<p>Application Name: JANUSEC<br>
+Destination: 127.0.0.1:9999 (不会实际访问)<br>
+Domain: 主节点专用域名<br>
 Certificate: 可用于主节点专用域名的证书</p>
 </blockquote>
-
-<p>这样&rdquo;sync_addr&rdquo;可以使用https加密传输通道，如<code>https://your_gate_domain:9443/janusec-admin/api</code>。</p>
-
-<p>当管理入口开启独立监听(配置文件config.json中listen=true)时，&rdquo;sync_addr&rdquo;应该带上冒号和端口号；<br />
+<p>这样&quot;sync_addr&quot;可以使用https加密传输通道，如<code>https://your_gate_domain:9443/janusec-admin/api</code>。</p>
+<p>当管理入口开启独立监听(配置文件config.json中listen=true)时，&ldquo;sync_addr&quot;应该带上冒号和端口号；<br>
 当(listen=false)时,则应去掉冒号和端口号。</p>
 
             </article>
@@ -208,7 +188,7 @@ Certificate: 可用于主节点专用域名的证书</p>
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

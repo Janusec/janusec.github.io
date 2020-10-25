@@ -136,102 +136,63 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="问题诊断">问题诊断</h1>
-
-<hr />
-
+            <h1 id="问题诊断">问题诊断</h1>
+<hr>
 <h2 id="部署">部署</h2>
-
-<hr />
-
+<hr>
 <p>当安装Jausec时遇到问题，可先对照此检查表进行检查。</p>
-
 <h3 id="操作系统">操作系统</h3>
-
 <p>操作系统需要为x86_64架构的如下操作系统之一：</p>
-
 <ul>
-<li>CentOS <sup>7</sup>&frasl;<sub>8</sub>+ (首选CentOS 8+)<br /></li>
-<li>RHEL <sup>7</sup>&frasl;<sub>8</sub>+<br /></li>
-<li>Debian <sup>9</sup>&frasl;<sub>10</sub>+<br /></li>
+<li>CentOS 7/8+ (首选CentOS 8+)</li>
+<li>RHEL 7/8+</li>
+<li>Debian 9/10+</li>
 </ul>
-
 <h3 id="时间">时间</h3>
-
 <p>服务器时间请先校准，时区不限，但需要保证时间正确。</p>
-
 <h3 id="服务管理工具">服务管理工具</h3>
-
 <p>服务管理工具为systemd，检查方法，在命令行运行：</p>
-
 <blockquote>
 <p><code>command -v systemctl</code></p>
 </blockquote>
-
 <p>（预期结果为：/usr/bin/systemctl）</p>
-
 <h3 id="配置文件">配置文件</h3>
-
 <p>参见<a href="/cn/configuration/">配置文件</a></p>
-
 <h3 id="postgresql">PostgreSQL</h3>
-
 <p>使用<code>psql</code>命令来检查配置是否正常：</p>
-
 <blockquote>
 <p>psql -h <code>127.0.0.1</code> -U <code>janusec</code> -W <code>janusec</code></p>
 </blockquote>
-
-<p>参数h后面跟IP地址，参数U后面跟数据库用户名，参数W表示接下来需要输入口令，最后是数据库名。<br />
+<p>参数h后面跟IP地址，参数U后面跟数据库用户名，参数W表示接下来需要输入口令，最后是数据库名。<br>
 如果登录验证不成功，可参考 <a href="/cn/operation-management">运维管理</a> 中的PostgreSQL安装部分。</p>
-
 <p>在PSQL Shell中执行版本检查：</p>
-
 <blockquote>
 <p>select version();</p>
 </blockquote>
-
 <p>版本要求为<code>9.3</code>以上（首选10+，不支持PostgreSQL 9.2或更早的版本）。</p>
-
 <h3 id="端口">端口</h3>
-
 <blockquote>
 <p><code>netstat -anp | grep LISTEN | grep ':\(80\|443\)\s'</code></p>
 </blockquote>
-
 <p>Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。</p>
-
 <p>当config.json中listen=true时，Janusec网关还需要使用9080/9443端口，一般用于从内网发起管理。</p>
-
 <blockquote>
 <p><code>netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'</code></p>
 </blockquote>
-
 <h3 id="dns">DNS</h3>
-
-<p>如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不需要任何修改。<br />
+<p>如果Janusec网关和后面的Web服务器位于同一台主机，则DNS不需要任何修改。<br>
 如果是单独部署的Janusec网关，需要将现有的Web服务接入迁移到Janusec，请先使用hosts方式调试通过，然后再修改DNS指向。</p>
-
 <h3 id="主副本节点同步">主副本节点同步</h3>
-
 <p>为了保证主副本节点正确同步，需要满足：</p>
-
 <ul>
-<li>各节点时间正确（误差不超过一分钟）<br /></li>
-<li>副本节点<code>node_key</code>跟Web管理控制台中<a href="/cn/node-management">节点管理</a>中显示的<code>node_key</code>一致。<br /></li>
+<li>各节点时间正确（误差不超过一分钟）</li>
+<li>副本节点<code>node_key</code>跟Web管理控制台中<a href="/cn/node-management">节点管理</a>中显示的<code>node_key</code>一致。</li>
 </ul>
-
 <h3 id="日志">日志</h3>
-
 <p>日志文件路径为 <code>/usr/local/janusec/log/</code> ，可查看日志中是否存在错误输出。</p>
-
 <h3 id="nftables防火墙">nftables防火墙</h3>
-
-<p>请确保nftables防火墙正常工作，且没有多余的规则影响JANUSEC，参考<a href="/cn/installation/">安装</a>一节。<br />
+<p>请确保nftables防火墙正常工作，且没有多余的规则影响JANUSEC，参考<a href="/cn/installation/">安装</a>一节。<br>
 JANUSEC启动后，正常情况下规则类似如下：</p>
-
 <pre><code>[root@CentOS8]# nft list table inet janusec -a
 table inet janusec { # handle 20
 	set blocklist { # handle 2
@@ -245,47 +206,29 @@ table inet janusec { # handle 20
 	}
 }
 
-</code></pre>
-
-<h3 id="更多错误信息">更多错误信息</h3>
-
+</code></pre><h3 id="更多错误信息">更多错误信息</h3>
 <p>如果上述检查都没有问题，可停止Janusec服务，改由控制台运行，以便观察更多的输出信息：</p>
-
 <blockquote>
-<p>#<code>systemctl stop janusec</code><br />
-#<code>cd /usr/local/janusec</code><br />
+<p>#<code>systemctl stop janusec</code><br>
+#<code>cd /usr/local/janusec</code><br>
 #<code>./janusec</code></p>
 </blockquote>
-
 <p>如果发现有错误输出，可通过QQ群（776900157）反馈。</p>
-
 <h2 id="开发">开发</h2>
-
-<hr />
-
+<hr>
 <p>备注：以下内容仅供开发者阅读，直接下载二进制安装包的用户不需要阅读。</p>
-
 <h3 id="操作系统-1">操作系统</h3>
-
-<p>开发者操作系统不限，但建议采用Linux系统。<br />
+<p>开发者操作系统不限，但建议采用Linux系统。<br>
 如果使用不在发布范围内的操作系统（Windows等），则只能在控制台调试，不能保障安装使用。
 发布脚本（release.sh）暂仅支持Linux。</p>
-
 <h3 id="postgresql-1">PostgreSQL</h3>
-
 <p>开发所需要的PostgreSQL跟上述部署要求相同，配置文件使用当前目录的<code>./config.json</code> (部署使用的配置文件为<code>/usr/local/janusec/config.json</code>) 。</p>
-
 <h3 id="golang版本">Golang版本</h3>
-
 <p>开发者所需要的Golang版本最低要求为Go 1.14+ 。</p>
-
 <h3 id="代码获取">代码获取</h3>
-
 <blockquote>
-<p><code>go get -u github.com/Janusec/janusec</code></p>
+<p>git clone <a href="https://github.com/Janusec/janusec.git">https://github.com/Janusec/janusec.git</a></p>
 </blockquote>
-
-<p>不推荐使用git clone方式。</p>
 
             </article>
       </div>
@@ -293,7 +236,7 @@ table inet janusec { # handle 20
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

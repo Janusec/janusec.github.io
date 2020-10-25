@@ -136,14 +136,9 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="安装">安装</h1>
-
-<hr />
-
+            <h1 id="安装">安装</h1>
+<hr>
 <h3 id="需求">需求</h3>
-
 <table>
 <thead>
 <tr>
@@ -152,140 +147,101 @@
 <th>数据库</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>主节点</td>
-<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, 或 Debian <sup>9</sup>&frasl;<sub>10</sub>+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables</td>
+<td>CentOS/RHEL 7/8+, 或 Debian 9/10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables</td>
 <td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）</td>
 </tr>
-
 <tr>
 <td>副本节点</td>
-<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, 或 Debian <sup>9</sup>&frasl;<sub>10</sub>+, x86_64, 使用 systemd和nftables</td>
+<td>CentOS/RHEL 7/8+, 或 Debian 9/10+, x86_64, 使用 systemd和nftables</td>
 <td>不需要</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="准备主机防火墙nftables">准备主机防火墙nftables</h2>
-
-<hr />
-
+<hr>
 <p>nftables用于拦截CC攻击，减轻应用网关压力。</p>
-
 <p>CentOS 7默认没有安装nftables，需要手工安装并启动：</p>
-
 <blockquote>
-<p>#yum -y install nftables<br />
-#systemctl enable nftables<br />
+<p>#yum -y install nftables<br>
+#systemctl enable nftables<br>
 #systemctl start nftables</p>
 </blockquote>
-
 <p>CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：</p>
-
 <blockquote>
-<p>#systemctl enable firewalld<br />
+<p>#systemctl enable firewalld<br>
 #systemctl start firewalld</p>
 </blockquote>
-
 <p>现在，可以通过如下指令查看规则：</p>
-
 <blockquote>
 <p>#nft list ruleset</p>
 </blockquote>
-
 <p>如果规则不是空的，可能会影响防火墙策略的生效。假定现在nftables的规则是空的，然后继续。</p>
-
 <h3 id="步骤1-下载">步骤1: 下载</h3>
-
 <blockquote>
-<p>$cd ~<br />
-$wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br />
+<p>$cd ~<br>
+$wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
 $tar zxf ./janusec-latest.tar.gz</p>
 </blockquote>
-
 <h3 id="步骤2-安装">步骤2: 安装</h3>
-
-<p>请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： <code>/usr/local/janusec/</code></p>
-
+<p>请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： <code>/usr/local/janusec/ </code></p>
 <blockquote>
-<p>$su<br />
-#cd janusec-0.9.9<br />
+<p>$su<br>
+#cd janusec-0.9.11<br>
 #./install.sh</p>
 </blockquote>
-
 <p>选择 <code>1. Primary Node</code>, 然后安装程序会:</p>
-
 <ul>
-<li>将所需文件复制到 <code>/usr/local/janusec/</code><br /></li>
-<li>将服务配置文件复制到系统服务目录<br /></li>
-<li>将Janusec应用网关服务设置为自动启动，但首次安装时不会启动，需要在配置完成后手工启动一次.<br /></li>
+<li>将所需文件复制到 <code>/usr/local/janusec/</code></li>
+<li>将服务配置文件复制到系统服务目录</li>
+<li>将Janusec应用网关服务设置为自动启动，但首次安装时不会启动，需要在配置完成后手工启动一次.</li>
 </ul>
-
 <h3 id="步骤3-配置">步骤3: 配置</h3>
-
-<p>PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、数据库、账号，可参考<a href="/cn/operation-management/">运维管理</a>中的PostgreSQL安装。<br />
-现在我们假设您已经安装好了PostgreSQL，且数据库已创建，用户名和口令已准备好。<br />
+<p>PostgreSQL没有包含在发布包中，需要自行准备PostgreSQL数据库、数据库、账号，可参考<a href="/cn/operation-management/">运维管理</a>中的PostgreSQL安装。<br>
+现在我们假设您已经安装好了PostgreSQL，且数据库已创建，用户名和口令已准备好。<br>
 然后编辑 <code>/usr/local/janusec/config.json</code> :</p>
-
-<h5 id="主节点-第一个节点-必选">主节点 (第一个节点，必选)</h5>
-
+<h5 id="主节点-第一个节点必选">主节点 (第一个节点，必选)</h5>
 <p>可参考<a href="/cn/configuration/">配置文件</a>说明，其中：</p>
-
 <blockquote>
 <p>&ldquo;node_role&rdquo;: &ldquo;primary&rdquo;  ( 固定为 <code>primary</code> )</p>
 </blockquote>
-
-<h5 id="副本节点-可选">副本节点(可选)</h5>
-
-<p>通常多个小型应用只使用一个<code>主节点</code>就够了。<br />
+<h5 id="副本节点可选">副本节点(可选)</h5>
+<p>通常多个小型应用只使用一个<code>主节点</code>就够了。<br>
 当流量增长后，可使用<code>副本节点</code>扩展，需要配合您自己的GSLB（全球服务器负载均衡）或支持分区解析的DNS来实现（也就是说，不同地区的用户，会连接到不同的网关节点）。</p>
-
 <p>可参考<a href="/cn/configuration/">配置文件</a>说明，其中:</p>
-
 <blockquote>
 <p>&ldquo;node_role&rdquo;: &ldquo;replica&rdquo;  ( 固定为 <code>replica</code> )</p>
 </blockquote>
-
-<p>并配置&rdquo;replica_node&rdquo;中的内容:</p>
-
+<p>并配置&quot;replica_node&quot;中的内容:</p>
 <blockquote>
-<p>&ldquo;node_key&rdquo;: &ldquo;从管理后台节点管理中复制过来&rdquo;,<br />
-&ldquo;sync_addr&rdquo;: &ldquo;<a href="https://gateway.primary_node.com:9443/janusec-admin/api&quot;">https://gateway.primary_node.com:9443/janusec-admin/api&quot;</a></p>
+<p>&ldquo;node_key&rdquo;: &ldquo;从管理后台节点管理中复制过来&rdquo;,<br>
+&ldquo;sync_addr&rdquo;: &ldquo;<a href="https://gateway.primary_node.com">https://gateway.primary_node.com</a>:9443/janusec-admin/api&rdquo;</p>
 </blockquote>
-
-<p>说明：<br />
-* 如果使用了副本节点，请为主节点单独申请一个域名(例如gateway.primary_node.com，用于副本节点获取配置更新，该域名只指向主节点)，并且配置一个应用(Application)，Destination可配置为127.0.0.1:9999 （实际不使用）。<br />
-* 如果&rdquo;primary_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，&rdquo;sync_addr&rdquo;中请勿包含冒号和端口号，如&rdquo;<a href="https://gateway.primary_node.com/janusec-admin/api&quot;">https://gateway.primary_node.com/janusec-admin/api&quot;</a></p>
-
+<p>说明：</p>
+<ul>
+<li>如果使用了副本节点，请为主节点单独申请一个域名(例如gateway.primary_node.com，用于副本节点获取配置更新，该域名只指向主节点)，并且配置一个应用(Application)，Destination可配置为127.0.0.1:9999 （实际不使用）。</li>
+<li>如果&quot;primary_node&quot; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，&ldquo;sync_addr&quot;中请勿包含冒号和端口号，如&quot;https://gateway.primary_node.com/janusec-admin/api&rdquo;</li>
+</ul>
 <h3 id="步骤4-启动">步骤4: 启动</h3>
-
 <blockquote>
 <p>#systemctl start janusec</p>
 </blockquote>
-
 <h3 id="步骤5-测试安装">步骤5: 测试安装</h3>
-
 <p>打开浏览器（比如Chrome）,使用如下地址：</p>
-
 <p>在config.json中，如果 &ldquo;primary_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，则管理入口为：</p>
-
 <blockquote>
-<p>http://<code>您的网关IP地址</code>/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址<br />
+<p>http://<code>您的网关IP地址</code>/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址<br>
 https://<code>您的任意应用域名</code>/janusec-admin/ (在配置证书和应用之后可以使用)</p>
 </blockquote>
-
 <p>如果 &ldquo;primary_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为true，则默认管理入口为：</p>
-
 <blockquote>
-<p>http://<code>您的网关IP地址:9080</code>/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址<br />
+<p>http://<code>您的网关IP地址:9080</code>/janusec-admin/ ， 这是Janusec应用网关的第一个管理地址<br>
 https://<code>您的任意应用域名:9443</code>/janusec-admin/ (在配置证书和应用之后可以使用)</p>
 </blockquote>
-
-<p>默认用户名：<code>admin</code><br />
+<p>默认用户名：<code>admin</code><br>
 默认口令：<code>J@nusec123</code></p>
-
 <p>安全原因，您需要修改默认口令。</p>
 
             </article>
@@ -294,7 +250,7 @@ https://<code>您的任意应用域名:9443</code>/janusec-admin/ (在配置证�
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

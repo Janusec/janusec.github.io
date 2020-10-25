@@ -136,30 +136,21 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="application-management">Application Management</h1>
-
-<hr />
-
+            <h1 id="application-management">Application Management</h1>
+<hr>
 <h4 id="requirements">Requirements</h4>
-
-<p>At least one digital certificate is required if you need <code>https</code> support.<br />
+<p>At least one digital certificate is required if you need <code>https</code> support. <br>
 <a href="/documentation/certificate-management">Certificate Management</a></p>
-
 <h4 id="add-or-edit-application">Add or Edit Application</h4>
-
-<p>Open web administration portal and navigate to <code>Application Management</code>.<br />
-<img src="/images/application1.png" alt="Add or Edit an Application" title="Application Management of Janusec Application Gateway" /></p>
-
+<p>Open web administration portal and navigate to <code>Application Management</code>.<br>
+<img src="/images/application1.png" alt="Add or Edit an Application" title="Application Management of Janusec Application Gateway"></p>
 <p><strong>Note</strong>:</p>
-
 <ul>
-<li>Backend or Internal Scheme, default <code>http</code> and thus no certificates required in your real servers.<br /></li>
-<li>Destination, <code>IP:Port</code> format, port is required even if the port is <code>80</code>.<br /></li>
-<li>Multiple destinations for backend load balancing.<br /></li>
-<li>Client IP for WAF, default <code>REMOTE_ADDR</code>, Janusec WAF will get IP address from IP package, but if you are using Janusec Application Gateway behind a trustable CDN of third parties, usually the last IP of <code>X-Forwarded-For</code> should be taken, please refer to the documentation of CDN, and select relevant option, for example: the option <code>X_Forwarded_For</code> used for the last IP of <code>X-Forwarded-For</code> within the request header.<br /></li>
-<li>Janusec Application Gateway will add or append the IP address of the client or CDN to the end of <code>X-Forwarded-For</code>, so your real servers behind Janusec Application Gateway should always use the last IP or the penultimate IP of <code>X-Forwarded-For</code> as client IP address.<br /></li>
+<li>Backend or Internal Scheme, default <code>http</code> and thus no certificates required in your real servers.</li>
+<li>Destination, <code>IP:Port</code> format, port is required even if the port is <code>80</code>.</li>
+<li>Multiple destinations for backend load balancing.</li>
+<li>Client IP for WAF, default <code>REMOTE_ADDR</code>, Janusec WAF will get IP address from IP package, but if you are using Janusec Application Gateway behind a trustable CDN of third parties, usually the last IP of <code>X-Forwarded-For</code> should be taken, please refer to the documentation of CDN, and select relevant option, for example: the option <code>X_Forwarded_For</code> used for the last IP of <code>X-Forwarded-For</code> within the request header.</li>
+<li>Janusec Application Gateway will add or append the IP address of the client or CDN to the end of <code>X-Forwarded-For</code>, so your real servers behind Janusec Application Gateway should always use the last IP or the penultimate IP of <code>X-Forwarded-For</code> as client IP address.</li>
 </ul>
 
             </article>
@@ -168,7 +159,7 @@
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

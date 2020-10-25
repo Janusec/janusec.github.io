@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Janusec应用网关 - 应用安全解决方案 on Janusec</title>
@@ -6,24 +6,19 @@
     <description>Recent content in Janusec应用网关 - 应用安全解决方案 on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 May 2018 21:03:34 +0800</lastBuildDate>
-    
-	<atom:link href="/cn/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 11 May 2018 21:03:34 +0800</lastBuildDate><atom:link href="/cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>快速入门</title>
       <link>/cn/quick-start/</link>
       <pubDate>Thu, 17 May 2018 22:28:32 +0800</pubDate>
       
       <guid>/cn/quick-start/</guid>
-      <description>快速入门 Switch to English Edition of Quick Start
+      <description>快速入门  Switch to English Edition of Quick Start
 本入门指导将安装一个单节点（主节点）的Janusec应用网关（网关WAF）.
-安装需求    节点 操作系统 数据库     主节点 CentOS/RHEL 7&amp;frasl;8+, 或 Debian 9&amp;frasl;10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）   副本节点 CentOS/RHEL 7&amp;frasl;8+, 或 Debian 9&amp;frasl;10+, x86_64, 使用 systemd和nftables 不需要    本入门只安装一个主节点，不安装副本节点，如需扩展，可参考安装一节。
-准备主机防火墙nftables nftables用于拦截CC攻击，减轻应用网关压力。
+安装需求     节点 操作系统 数据库     主节点 CentOS/RHEL 7/8+, 或 Debian 9/10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）   副本节点 CentOS/RHEL 7/8+, 或 Debian 9/10+, x86_64, 使用 systemd和nftables 不需要    本入门只安装一个主节点，不安装副本节点，如需扩展，可参考安装一节。
+准备主机防火墙nftables  nftables用于拦截CC攻击，减轻应用网关压力。
 CentOS 7默认没有安装nftables，需要手工安装并启动：
- #yum -y install nftables
-#systemctl enable nftables</description>
+ #yum -y install nftables</description>
     </item>
     
     <item>
@@ -32,21 +27,9 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
       <pubDate>Sat, 12 May 2018 08:10:40 +0800</pubDate>
       
       <guid>/cn/introduction/</guid>
-      <description> 产品介绍 Janusec应用网关，一种适用于各种场景（公有云、私有云、传统IDC等）的应用安全解决方案，提供Web路由、负载均衡、WAF（Web应用防火墙）等功能，可用于构建安全的、可扩展的应用。
+      <description>产品介绍  Janusec应用网关，一种适用于各种场景（公有云、私有云、传统IDC等）的应用安全解决方案，提供Web路由、负载均衡、WAF（Web应用防火墙）等功能，可用于构建安全的、可扩展的应用。
 Janusec Application Gateway Introduction PDF
-产品特点:  WAF (Web Application Firewall, Web应用防火墙，天然支持HTTPS且不需要Agent )
- 统一的Web化管理
- 证书加密保护
- 负载均衡（可扩展的部署架构）
-  让防御更简单  SQL注入
- 跨站脚本
- 敏感数据泄露 CC攻击 阻断（Block）、验证码（Captcha）等多种策略 支持多个检查点的组合策略
-  让管理更简单  统一的Web化管理中心
-  架构可扩展  多网关节点支持
- 自动化策略同步
-  证书保护  私钥加密存储
- 只在内存使用
-  </description>
+ 产品特点:  WAF (Web Application Firewall, Web应用防火墙，天然支持HTTPS且不需要Agent ) 统一的Web化管理 证书加密保护 负载均衡（可扩展的部署架构）   让防御更简单  SQL注入 跨站脚本 敏感数据泄露 CC攻击 阻断（Block）、验证码（Captcha）等多种策略 支持多个检查点的组合策略   让管理更简单  统一的Web化管理中心   架构可扩展  多网关节点支持 自动化策略同步   证书保护  私钥加密存储 只在内存使用  </description>
     </item>
     
     <item>
@@ -55,7 +38,7 @@ Janusec Application Gateway Introduction PDF
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/cn/installation/</guid>
-      <description>安装 需求    节点 操作系统 数据库     主节点 CentOS/RHEL 7&amp;frasl;8+, 或 Debian 9&amp;frasl;10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）   副本节点 CentOS/RHEL 7&amp;frasl;8+, 或 Debian 9&amp;frasl;10+, x86_64, 使用 systemd和nftables 不需要    准备主机防火墙nftables nftables用于拦截CC攻击，减轻应用网关压力。
+      <description>安装  需求    节点 操作系统 数据库     主节点 CentOS/RHEL 7/8+, 或 Debian 9/10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）   副本节点 CentOS/RHEL 7/8+, 或 Debian 9/10+, x86_64, 使用 systemd和nftables 不需要    准备主机防火墙nftables  nftables用于拦截CC攻击，减轻应用网关压力。
 CentOS 7默认没有安装nftables，需要手工安装并启动：
  #yum -y install nftables
 #systemctl enable nftables
@@ -70,11 +53,11 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
       <pubDate>Sun, 22 Mar 2020 10:11:09 +0800</pubDate>
       
       <guid>/cn/configuration/</guid>
-      <description>配置文件 配置文件路径 生产环境配置文件为 /usr/local/janusec/config.json
+      <description>配置文件  配置文件路径  生产环境配置文件为 /usr/local/janusec/config.json
 开发环境配置文件为 ./config.json
-配置项说明 以下为Janusec Application Gateway V0.9.9 配置文件参考。
+配置项说明  以下为Janusec Application Gateway V0.9.9 配置文件参考。
 由于JSON格式支持的注释格式看起来不方便，下面采用//作为注释说明，实际使用时需要删除注释。
-{ &amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // 单节点或主节点配置为&amp;quot;primary&amp;quot;，副本节点配置为&amp;quot;replica&amp;quot; &amp;quot;primary_node&amp;quot;: { // 主节点使用此配置，如果是副本节点，这部分配置留空 &amp;quot;admin&amp;quot;: { // 后台管理 &amp;quot;listen&amp;quot;: true, // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录 &amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问 &amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问 &amp;quot;portal&amp;quot;: &amp;quot;https://gate.janusec.com:9443/janusec-admin/&amp;quot;, // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号 &amp;quot;webssh_enabled&amp;quot;: false // 为true时，允许使用Web SSH运维功能 }, &amp;quot;database&amp;quot;: { // PostgreSQL 数据库配置，需要至少使用9.3以上版本 &amp;quot;host&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, // PostgreSQL IP地址 &amp;quot;port&amp;quot;: &amp;quot;5432&amp;quot;, // PostgreSQL 监听端口，默认5432 &amp;quot;user&amp;quot;: &amp;quot;postgres&amp;quot;, // 数据库用户名 &amp;quot;password&amp;quot;: &amp;quot;123456&amp;quot;, // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密 &amp;quot;dbname&amp;quot;: &amp;quot;janusec&amp;quot; // 数据库名 }, &amp;quot;oauth&amp;quot;: { // OAuth2统一身份认证 &amp;quot;enabled&amp;quot;: false, // 设置为true时，启用OAuth2统一身份认证 &amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;, // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)、ldap(LDAP) &amp;quot;wxwork&amp;quot;: { // 企业微信配置 // 登录界面显示 &amp;quot;display_name&amp;quot;: &amp;quot;Login with WeChat Work&amp;quot;, // callback中只修改http/https及域名，后面的路径不变，也不带端口号 &amp;quot;callback&amp;quot;: &amp;quot;https://your_domain.</description>
+{&amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // 单节点或主节点配置为&amp;quot;primary&amp;quot;，副本节点配置为&amp;quot;replica&amp;quot;&amp;quot;primary_node&amp;quot;: { // 主节点使用此配置，如果是副本节点，这部分配置留空&amp;quot;admin&amp;quot;: { // 后台管理&amp;quot;listen&amp;quot;: true, // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录&amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问&amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问&amp;quot;portal&amp;quot;: &amp;quot;https://gate.janusec.com:9443/janusec-admin/&amp;quot;, // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号&amp;quot;webssh_enabled&amp;quot;: false // 为true时，允许使用Web SSH运维功能},&amp;quot;database&amp;quot;: { // PostgreSQL 数据库配置，需要至少使用9.3以上版本&amp;quot;host&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, // PostgreSQL IP地址&amp;quot;port&amp;quot;: &amp;quot;5432&amp;quot;, // PostgreSQL 监听端口，默认5432&amp;quot;user&amp;quot;: &amp;quot;postgres&amp;quot;, // 数据库用户名&amp;quot;password&amp;quot;: &amp;quot;123456&amp;quot;, // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密&amp;quot;dbname&amp;quot;: &amp;quot;janusec&amp;quot; // 数据库名},&amp;quot;oauth&amp;quot;: { // OAuth2统一身份认证&amp;quot;enabled&amp;quot;: false, // 设置为true时，启用OAuth2统一身份认证&amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;, // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)、ldap(LDAP)&amp;quot;wxwork&amp;quot;: { // 企业微信配置// 登录界面显示&amp;quot;display_name&amp;quot;: &amp;quot;Login with WeChat Work&amp;quot;, // callback中只修改http/https及域名，后面的路径不变，也不带端口号&amp;quot;callback&amp;quot;: &amp;quot;https://your_domain.</description>
     </item>
     
     <item>
@@ -83,12 +66,10 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/cn/admin/</guid>
-      <description>Web化管理 管理入口 当配置文件config.json中listen=false时，管理入口包括如下：
- http://your_primary_node_ip_address/janusec-admin/ (首次使用)
-https://your_primary_node_domain_name/janusec-admin/ (证书配置后可用)
+      <description>Web化管理  管理入口  当配置文件config.json中listen=false时，管理入口包括如下：
+ http://your_primary_node_ip_address/janusec-admin/ (首次使用) https://your_primary_node_domain_name/janusec-admin/ (证书配置后可用)
  当配置文件config.json中listen=true时，地址：
- http://your_primary_node_ip_address:9080/janusec-admin/ (首次使用)
-https://your_primary_node_domain_name:9443/janusec-admin/ (证书配置后可用)
+ http://your_primary_node_ip_address:9080/janusec-admin/ (首次使用) https://your_primary_node_domain_name:9443/janusec-admin/ (证书配置后可用)
  数字证书管理 参考 证书管理
 应用管理 参考 应用管理
 节点管理 参考 节点管理
@@ -101,12 +82,11 @@ WAF管理 参考 WAF管理</description>
       <pubDate>Sun, 20 May 2018 21:05:08 +0800</pubDate>
       
       <guid>/cn/certificate-management/</guid>
-      <description> 证书管理 证书列表 在Web管理界面，导航到 Certificate Management （证书管理） .
+      <description>证书管理  证书列表 在Web管理界面，导航到 Certificate Management （证书管理） .
 添加或编辑证书 这里可使用单域名证书（subdomain.yourdomain.com）或通配符证书（*.yourdomain.com），推荐使用通配符证书。
 生产环境，请使用权威第三方CA颁发的证书。
 测试环境，可使用Janusec自签发证书(在Common Name or Subject Alternative Name字段输入通配域名之后，可点击Self-Sign Certificate按钮)，不过自签证书不受信任，需要手工从浏览器导出，并导入到可信根CA颁发机构中。
-证书保护  证书私钥，加密存储在数据库中.
-不同的部署实例，加密密钥是不同的.
+证书保护  证书私钥，加密存储在数据库中. 不同的部署实例，加密密钥是不同的.
  </description>
     </item>
     
@@ -116,8 +96,10 @@ WAF管理 参考 WAF管理</description>
       <pubDate>Sun, 20 May 2018 21:58:35 +0800</pubDate>
       
       <guid>/cn/application-management/</guid>
-      <description>应用管理 需求 如果您需要 https 支持，至少需要一个数字证书，参见证书管理。
-配置项说明    配置项 说明     Application Name 应用名称，网站名称   Backen or Internal Scheme 后端使用的scheme，http或https，默认选http即可   Destination 后端网站的IP:Port，网关将请求转发到该处，可以配置多个，用于负载均衡   Domain name 使用的域名，点击下方的加号可以增加域名   Certificate 使用的证书，需要能够用于上面的域名   Redirect to 默认不勾选，用于将不常用域名跳转到常用域名   Client IP for WAF 网关获取IP的方式，默认REMOTE_ADDR(从IP包提取)，只有当流量来自可信任的其他设施(如CDN)时，才需要修改为其他方式   Redirect HTTP to HTTPS 通过Location告诉浏览器跳转到HTTPS   Enable HSTS for HTTPS 告诉浏览器在接下来的一年内自动使用HTTPS   Enable WAF 默认勾选，启用WAF   Enable OAuth2 启用OAuth2统一身份认证（需要配置文件中同时启用），默认不勾选   Session Expire Seconds OAuth2认证通过后，有效会话时间(秒)，默认7200秒，即2小时   Application Owner 应用的负责人(默认为当前用户)   Description 应用的描述(可选)    添加或编辑应用 打开Web管理门户并导航至Application Management。</description>
+      <description>应用管理  需求 如果您需要 https 支持，至少需要一个数字证书，参见证书管理。
+添加或编辑应用 打开Web管理门户并导航至Application Management。
+注意:
+ 后端（从网关到真实服务器）通常在内网，默认使用 http ，不需要证书； Destination（后端目的地）,使用 IP:Port 格式，其中端口不可省略（即使是80端口）； 多个Destination用于后端负载均衡； 网关获取用户IP，默认使用REMOTE_ADDR（从IP报文获取）； 当网关的前面还存在可信任的CDN时，REMOTE_ADDR获取的是CDN的地址，可参考CDN厂商的说明文档，通常CDN厂商会将用户IP附加在X-Forwarded-For后面，这时网关可配置成 X_Forwarded_For （网关将使用该字段的最后一个IP地址）； Janusec应用网关将会把REMOTE_ADDR获取的IP附加在X-Forwarded-For后面, 因此业务中如需使用用户IP地址，可提取X-Forwarded-For中的最后一个IP地址（网关直接向用户提供服务时），或倒数第二个IP地址（网关前面还存在可信任的CDN时）.  </description>
     </item>
     
     <item>
@@ -126,23 +108,15 @@ WAF管理 参考 WAF管理</description>
       <pubDate>Sun, 20 May 2018 22:38:35 +0800</pubDate>
       
       <guid>/cn/node-management/</guid>
-      <description>节点管理 节点类型  主节点, 有且只有一个，并需要使用PostgreSQL.
- 副本节点，可选，0个或多个，不需要数据库。
-  单节点架构  一个主节点，没有副本节点.
- 不需要GSLB或DNS负载均衡.
- 适用于一个或多个小型Web应用.
-  多节点架构  一个主节点，多个副本节点.
- 主节点需要使用PostgreSQL. 需要GSLB或DNS负载均衡（不同地区的用户查询同一个域名，获取到不同的IP地址）.
- 适用于一个或多个大型Web业务.
-  副本节点  在统一的Web管理界面,可管理所有的副本节点.
+      <description>节点管理  节点类型  主节点, 有且只有一个，并需要使用PostgreSQL. 副本节点，可选，0个或多个，不需要数据库。  单节点架构  一个主节点，没有副本节点. 不需要GSLB或DNS负载均衡. 适用于一个或多个小型Web应用.  多节点架构  一个主节点，多个副本节点. 主节点需要使用PostgreSQL. 需要GSLB或DNS负载均衡（不同地区的用户查询同一个域名，获取到不同的IP地址）. 适用于一个或多个大型Web业务.  副本节点  在统一的Web管理界面,可管理所有的副本节点.
  副本节点配置文件/usr/local/janusec/config.json中的node_key，需要据此配置，类似：
-{ &amp;quot;node_role&amp;quot;: &amp;quot;replica&amp;quot;, ... &amp;quot;replica_node&amp;quot;: {	&amp;quot;node_key&amp;quot;: &amp;quot;8c4609...5a5fa9&amp;quot;, &amp;quot;sync_addr&amp;quot;: &amp;quot;http://192.168.100.107:9080/janusec-admin/api&amp;quot; }	}  安全起见，启动副本节点时，应给主节点单独申请一个域名，并配置一个应用，建议配置如下：
+{ &amp;quot;node_role&amp;quot;: &amp;quot;replica&amp;quot;, ... &amp;quot;replica_node&amp;quot;: {	&amp;quot;node_key&amp;quot;: &amp;quot;8c4609...5a5fa9&amp;quot;, &amp;quot;sync_addr&amp;quot;: &amp;quot;http://192.168.100.107:9080/janusec-admin/api&amp;quot; }	} 安全起见，启动副本节点时，应给主节点单独申请一个域名，并配置一个应用，建议配置如下：
  Application Name: JANUSEC
 Destination: 127.0.0.1:9999 (不会实际访问)
 Domain: 主节点专用域名
 Certificate: 可用于主节点专用域名的证书
- 这样&amp;rdquo;sync_addr&amp;rdquo;可以使用https加密传输通道，如https://your_gate_domain:9443/janusec-admin/api。
-当管理入口开启独立监听(配置文件config.json中listen=true)时，&amp;rdquo;sync_addr&amp;rdquo;应该带上冒号和端口号；
+ 这样&amp;quot;sync_addr&amp;quot;可以使用https加密传输通道，如https://your_gate_domain:9443/janusec-admin/api。
+当管理入口开启独立监听(配置文件config.json中listen=true)时，&amp;ldquo;sync_addr&amp;quot;应该带上冒号和端口号；
 当(listen=false)时,则应去掉冒号和端口号。</description>
     </item>
     
@@ -152,18 +126,15 @@ Certificate: 可用于主节点专用域名的证书
       <pubDate>Mon, 21 May 2018 21:27:20 +0800</pubDate>
       
       <guid>/cn/waf-management/</guid>
-      <description>WAF管理 添加或编辑WAF策略 典型的检查点  举例: http://www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2
+      <description>WAF管理  添加或编辑WAF策略 典型的检查点  举例: http://www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2
  URLPath: /blog/show.php
 URLQuery: id=1&amp;amp;category=2
 GetPostKey: [id, category]
 GetPostValue: [1, 2]
- GetPostKey, GetPostValue ： 同时作用于GET和POST方法
-如果仅检查GET方法，请使用 URLQuery .
+ GetPostKey, GetPostValue ： 同时作用于GET和POST方法 如果仅检查GET方法，请使用 URLQuery .
  正则表达式 Janusec应用网关采用 Google RE2 正则表达式 .
 为简化正则表达式配置，Janusec应用网关对待检测的字符串值进行了预处理：
- 删除 &#39; 及 &amp;quot;
- 替换 /**/ 为空格
-  正则举例:
+ 删除 &#39; 及 &amp;quot; 替换 /**/ 为空格  正则举例:
  (?i)\s+(and|or)\s+[\w\p{L}]+=[\w\p{L}]+$
  可覆盖如下值:
  1&#39; aNd &#39;1&#39;=&#39;1
@@ -171,7 +142,7 @@ abc&#39; oR &amp;quot;abc&amp;quot;=&amp;quot;abc
 1&#39;/**/And/**/&#39;a&#39;=&#39;a
  备注:
  p{L} 用于UNICODE字符.
- 动作 Block（阻断） CAPTCHA（验证码） 用于CC攻击或高频访问</description>
+ 动作  Block（阻断） CAPTCHA（验证码） 用于CC攻击或高频访问</description>
     </item>
     
     <item>
@@ -180,12 +151,10 @@ abc&#39; oR &amp;quot;abc&amp;quot;=&amp;quot;abc
       <pubDate>Fri, 25 May 2018 21:04:25 +0800</pubDate>
       
       <guid>/cn/operation-management/</guid>
-      <description>运维管理 部署架构    架构 主节点 副本节点 描述     单节点 一个 无 小规模Web应用，统一Web管理   可扩展 一个 任意 大规模Web应用，统一Web管理   多个自治系统 任意 任意 部署多套，每个自治系统内部统一Web管理.    管理账号 统一的Web管理地址，当配置文件config.json中listen=false时，包括如下：
- http://your_primary_node_ip_address/janusec-admin/ (首次使用)
-https://your_primary_node_domain_name/janusec-admin/ (证书配置后可用)
+      <description>运维管理  部署架构    架构 主节点 副本节点 描述     单节点 一个 无 小规模Web应用，统一Web管理   可扩展 一个 任意 大规模Web应用，统一Web管理   多个自治系统 任意 任意 部署多套，每个自治系统内部统一Web管理.    管理账号 统一的Web管理地址，当配置文件config.json中listen=false时，包括如下：
+ http://your_primary_node_ip_address/janusec-admin/ (首次使用) https://your_primary_node_domain_name/janusec-admin/ (证书配置后可用)
  当配置文件config.json中listen=true时，地址：
- http://your_primary_node_ip_address:9080/janusec-admin/ (首次使用)
-https://your_primary_node_domain_name:9443/janusec-admin/ (证书配置后可用)
+ http://your_primary_node_ip_address:9080/janusec-admin/ (首次使用) https://your_primary_node_domain_name:9443/janusec-admin/ (证书配置后可用)
  当使用单节点时，可使用任意应用的域名；当存在副本节点时，应该为主节点申请单独的域名。
    默认用户 默认口令     admin J@nusec123     需要修改口令后才能继续管理功能!
  端口    端口 描述     80 固定的网关HTTP入口，主节点和副本节点均开启   443 固定的网关HTTPS入口，主节点和副本节点均开启   9080 当config.</description>
@@ -197,11 +166,9 @@ https://your_primary_node_domain_name:9443/janusec-admin/ (证书配置后可用
       <pubDate>Sat, 28 Mar 2020 23:04:25 +0800</pubDate>
       
       <guid>/cn/oauth2/</guid>
-      <description>OAuth2统一身份认证 简介 Janusec Application Gateway支持LDAP身份认证和OAuth2统一身份认证，可使用企业微信、钉钉、飞书扫码登录，包括:
- 管理后台
- 配置中启用OAuth2身份认证的应用(用于员工访问内网应用)
-  配置 如需启用，请在配置文件config.json中开启：
-&amp;quot;oauth&amp;quot;: { &amp;quot;enabled&amp;quot;: true, &amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;, ... }  上述provider中，wxwork表示企业微信扫码登录，dingtalk表示钉钉扫码登录，feishu表示飞书扫码登录，ldap表示LDAP认证。
+      <description>OAuth2统一身份认证  简介 Janusec Application Gateway支持LDAP身份认证和OAuth2统一身份认证，可使用企业微信、钉钉、飞书扫码登录，包括:
+ 管理后台 配置中启用OAuth2身份认证的应用(用于员工访问内网应用)  配置 如需启用，请在配置文件config.json中开启：
+&amp;quot;oauth&amp;quot;: {&amp;quot;enabled&amp;quot;: true,&amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;,...}上述provider中，wxwork表示企业微信扫码登录，dingtalk表示钉钉扫码登录，feishu表示飞书扫码登录，ldap表示LDAP认证。
 应用如何获取用户身份 Janusec认证通过后，会在HTTP请求的头部添加两行：
  Authorization: Bearer Access-Token
 X-Auth-User: UserID
@@ -209,7 +176,7 @@ X-Auth-User: UserID
 企业微信配置 在配置文件的&amp;quot;wxwork&amp;quot;字段：
 登录界面显示:
  &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with WeChat Work&amp;rdquo;,
- 回调地址(需要同时在该应用&amp;rdquo;开发者接口&amp;rdquo;一栏配置&amp;rdquo;授权回调域&amp;rdquo;，配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):
+ 回调地址(需要同时在该应用&amp;quot;开发者接口&amp;quot;一栏配置&amp;quot;授权回调域&amp;quot;，配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):
  &amp;ldquo;callback&amp;rdquo;: &amp;ldquo;https://your_domain.com/oauth/wxwork&amp;rdquo;,
  企业ID (在https://work.weixin.qq.com/wework_admin/frame#profile 下方可看到企业ID信息):
  &amp;ldquo;corpid&amp;rdquo;: &amp;ldquo;wwd03be1f8&amp;rdquo;,
@@ -217,7 +184,9 @@ X-Auth-User: UserID
  &amp;ldquo;agentid&amp;rdquo;: &amp;ldquo;1000002&amp;rdquo;,
  corpsecret (即上述自建应用的Secret，请据实修改):
  &amp;ldquo;corpsecret&amp;rdquo;: &amp;ldquo;BgZtz_hssdZV5em-AyGhOgLlm18rU_NdZI&amp;rdquo;
- 钉钉配置 在配置文件的&amp;quot;dingtalk&amp;quot;字段：</description>
+ 钉钉配置 在配置文件的&amp;quot;dingtalk&amp;quot;字段：
+登录界面显示:
+ &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with DingTalk&amp;rdquo;,</description>
     </item>
     
     <item>
@@ -226,7 +195,7 @@ X-Auth-User: UserID
       <pubDate>Wed, 06 Jun 2018 21:56:05 +0800</pubDate>
       
       <guid>/cn/migrate-to-janusec/</guid>
-      <description>迁移到Janusec应用网关 步骤 1: 安装并配置Janusec应用网关 参考 安装, 安装Janusec应用网关并配置好证书、Web应用.
+      <description>迁移到Janusec应用网关  步骤 1: 安装并配置Janusec应用网关 参考 安装, 安装Janusec应用网关并配置好证书、Web应用.
 步骤 2: 修改Hosts文件测试 修改本地电脑的 C:\Windows\System32\drivers\etc\hosts (不是网关) ，将域名临时指向网关IP，用于测试.
  the_gateway_ip your_domain_name
  然后可打开浏览器测试访问 https://your_domain_name .
@@ -240,16 +209,17 @@ X-Auth-User: UserID
       <pubDate>Sun, 10 Jun 2018 20:11:45 +0800</pubDate>
       
       <guid>/cn/update-janusec/</guid>
-      <description>升级到新版本Janusec应用网关  本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v0.9.10 (2020.09.26)
+      <description>升级到新版本Janusec应用网关   本文仅供旧版本升级参考，新安装请忽略。
+ 最新版本: v0.9.11 (2020.10.24)
 版本历史:
-v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod v0.9.9 (2020.06.19): 增加静态文件缓存
+v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod
+v0.9.9 (2020.06.19): 增加静态文件缓存
 v0.9.8 (2020.05.17): 增加LDAP认证，增加静态网站、FastCGI网站支持。
 v0.9.7 (2020.03.29): 为各应用及管理入口增加OAuth2统一登录（可选企业微信、钉钉、飞书）；可限制管理入口开放范围（例如只开放内网）；Web SSH安全运维支持禁用或开启。
 v0.9.6 (2020.02.27): 增加域名重定向。
 查看当前版本 当前版本信息可通过管理入口查看，或者:
  ./janusec --version
- V0.9.9升级到V0.9.10 V0.9.10启用nftables，用于拦截CC攻击，减轻应用网关压力。
+ 从V0.9.9升级 从V0.9.10开始，启用nftables，用于拦截CC攻击，减轻应用网关压力。
 CentOS 7默认没有安装nftables，需要手工安装并启动：
  #yum -y install nftables
 #systemctl enable nftables
@@ -260,9 +230,7 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
  然后覆盖安装即可：
  #wget https://www.janusec.com/download/janusec-latest.tar.gz
 #tar zxf ./janusec-latest.tar.gz
-#cd /data/janusec-0.9.10/
-#./install.sh
-#systemctl restart janusec</description>
+#cd /data/janusec-0.9.11/</description>
     </item>
     
     <item>
@@ -271,7 +239,7 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
       <pubDate>Sat, 12 May 2018 07:45:49 +0800</pubDate>
       
       <guid>/cn/faq/</guid>
-      <description> FAQ Q: Janusec应用网关与其它WAF的主要区别 ?  A: Janusec应用网关 也可称之为网关式WAF，它为克服传统WAF的缺点（如需部署Agent、HTTPS支持不好、数字证书私钥泄露等）而设计，将 WAF (Web Application Firewall)集成到到Web应用网关中，提升了用户访问、安全防御、维护管理等方面的体验。
+      <description>FAQ  Q: Janusec应用网关与其它WAF的主要区别 ?  A: Janusec应用网关 也可称之为网关式WAF，它为克服传统WAF的缺点（如需部署Agent、HTTPS支持不好、数字证书私钥泄露等）而设计，将 WAF (Web Application Firewall)集成到到Web应用网关中，提升了用户访问、安全防御、维护管理等方面的体验。
  Q: Janusec应用网关是否需要在业务服务器上部署Agent ?  A: 不需要.
  Q: Janusec应用网关是否支持 HTTPS ?  A: 支持,Janusec应用网关天然支持 HTTPS .
  Q: 证书私钥是否安全 ?  A: 证书私钥加密存储在数据库中，仅在内存解密使用. Janusec应用网关不需要使用以文件形式存放的证书，服务器上的明文证书文件可在妥善备份后删除。
@@ -286,12 +254,9 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
       <pubDate>Sun, 05 Aug 2018 10:16:34 +0800</pubDate>
       
       <guid>/cn/diagnose/</guid>
-      <description>问题诊断 部署 当安装Jausec时遇到问题，可先对照此检查表进行检查。
+      <description>问题诊断  部署  当安装Jausec时遇到问题，可先对照此检查表进行检查。
 操作系统 操作系统需要为x86_64架构的如下操作系统之一：
- CentOS 7&amp;frasl;8+ (首选CentOS 8+)
- RHEL 7&amp;frasl;8+
- Debian 9&amp;frasl;10+
-  时间 服务器时间请先校准，时区不限，但需要保证时间正确。
+ CentOS 7/8+ (首选CentOS 8+) RHEL 7/8+ Debian 9/10+  时间 服务器时间请先校准，时区不限，但需要保证时间正确。
 服务管理工具 服务管理工具为systemd，检查方法，在命令行运行：
  command -v systemctl
  （预期结果为：/usr/bin/systemctl）
@@ -315,11 +280,11 @@ PostgreSQL 使用psql命令来检查配置是否正常：
       <pubDate>Thu, 09 Apr 2020 14:16:34 +0800</pubDate>
       
       <guid>/cn/appendix-re2/</guid>
-      <description>附录1:RE2正则规则解读 规则样例1 检查点(CheckPoint)：URLPath
+      <description>附录1:RE2正则规则解读  规则样例1 检查点(CheckPoint)：URLPath
 解读：检查点URLPath表示URL地址中域名后面的路径(举例 www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2 ，URLPath 为/blog/show.php )
 RE2规则：
  (?i)/\.(git|svn)/
- 解读：(?i)表示不区分大小写，/原样匹配，\.匹配小数点，(git&amp;#124;svn)表示匹配git或svn ，用于阻断访问错误发布的源代码。
+ 解读：(?i)表示不区分大小写，/原样匹配，\.匹配小数点，(git|svn)表示匹配git或svn ，用于阻断访问错误发布的源代码。
 规则样例2 检查点(CheckPoint)：URLQuery
 解读：检查点URLQuery表示URL中的参数(举例 www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2 ，URLQuery 为 id=1&amp;amp;category=2 )
 RE2规则：

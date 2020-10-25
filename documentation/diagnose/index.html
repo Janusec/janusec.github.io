@@ -136,92 +136,56 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="diagnose">Diagnose</h1>
-
-<hr />
-
+            <h1 id="diagnose">Diagnose</h1>
+<hr>
 <h2 id="deployment">Deployment</h2>
-
-<hr />
-
+<hr>
 <h3 id="operating-system">Operating System</h3>
-
 <p>Operating System should be x86_64 and one of the following:</p>
-
 <ul>
-<li>CentOS <sup>7</sup>&frasl;<sub>8</sub>+<br /></li>
-<li>RHEL <sup>7</sup>&frasl;<sub>8</sub>+<br /></li>
-<li>Debian <sup>9</sup>&frasl;<sub>10</sub>+<br /></li>
+<li>CentOS 7/8+</li>
+<li>RHEL 7/8+</li>
+<li>Debian 9/10+</li>
 </ul>
-
 <h3 id="time">Time</h3>
-
 <p>Please make sure the time is correct, time zone may be any.</p>
-
 <h3 id="service-management">Service Management</h3>
-
 <p><code>systemd</code> is used for Service Management , check :</p>
-
 <blockquote>
 <p><code>command -v systemctl</code></p>
 </blockquote>
-
 <p>(Expect result: /usr/bin/systemctl)</p>
-
 <h3 id="postgresql">PostgreSQL</h3>
-
 <p>Use <code>psql</code> to check PostgreSQL Connection:</p>
-
 <blockquote>
 <p>psql -h <code>127.0.0.1</code> -U <code>janusec</code> -W <code>janusec</code></p>
 </blockquote>
-
 <p>If not OK, refer to <a href="/documentation/operation-management">Operation Management</a> , PostgreSQL part.</p>
-
 <p>Check version within PSQL Shell:</p>
-
 <blockquote>
 <p>select version();</p>
 </blockquote>
-
 <p>The version must be greater than <code>9.3</code>.</p>
-
 <h3 id="ports">Ports</h3>
-
 <blockquote>
 <p><code>netstat -anp | grep LISTEN | grep ':\(80\|443\)\s'</code></p>
 </blockquote>
-
-<p>Janusec will use <sup>80</sup>&frasl;<sub>443</sub> , if other program occupied thest ports, you shoud change it before installation of Janusec.</p>
-
-<p>If listen=true in config.json, Janusec will use <sup>9080</sup>&frasl;<sub>9443</sub> also, used for internal management.</p>
-
+<p>Janusec will use 80/443 , if other program occupied thest ports, you shoud change it before installation of Janusec.</p>
+<p>If listen=true in config.json, Janusec will use 9080/9443 also, used for internal management.</p>
 <blockquote>
 <p><code>netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'</code></p>
 </blockquote>
-
 <h3 id="nodes-sync">Nodes Sync</h3>
-
 <p>In order to sync correctly, requires:</p>
-
 <ul>
-<li>Replica node use the correct time, error less than 60 seconds.<br /></li>
-<li>The <code>node_key</code> in <code>/usr/local/janusec/config.json</code> is the same with <a href="/documentation/node-management">Node Management</a>.<br />
-<br /></li>
+<li>Replica node use the correct time, error less than 60 seconds.</li>
+<li>The <code>node_key</code> in <code>/usr/local/janusec/config.json</code> is the same with <a href="/documentation/node-management">Node Management</a>.</li>
 </ul>
-
 <h3 id="log">Log</h3>
-
 <p>Log file is under /usr/local/janusec/log/</p>
-
 <h3 id="nftables">nftables</h3>
-
 <p>Please make sure nftables works well and there are no redundant rules that affect JANUSEC. Refer to <a href="/documentation/installation/">Installation</a>.</p>
-
 <p>After JANUSEC started, the rules is like this:</p>
-
 <pre><code>[root@CentOS8]# nft list table inet janusec -a
 table inet janusec { # handle 20
 	set blocklist { # handle 2
@@ -235,46 +199,29 @@ table inet janusec { # handle 20
 	}
 }
 
-</code></pre>
-
-<h3 id="more-information">More Information</h3>
-
+</code></pre><h3 id="more-information">More Information</h3>
 <p>If all above are OK, you can stop the janusec service, and switch to run it under console, to view more output:</p>
-
 <blockquote>
-<p>#<code>systemctl stop janusec</code><br />
-#<code>cd /usr/local/janusec</code><br />
+<p>#<code>systemctl stop janusec</code><br>
+#<code>cd /usr/local/janusec</code><br>
 #<code>./janusec</code></p>
 </blockquote>
-
-<p>如果发现有错误输出，可通过QQ群（776900157）反馈。<br />
+<p>如果发现有错误输出，可通过QQ群（776900157）反馈。<br>
 If error found, you can sent to the bottom email, or submit an issue on <a href="https://github.com/Janusec/janusec/issues">https://github.com/Janusec/janusec/issues</a></p>
-
 <h2 id="development">Development</h2>
-
-<hr />
-
+<hr>
 <h3 id="operating-system-1">Operating System</h3>
-
-<p>Linux is preferred.<br />
-Console debug only for other operating systems.<br />
+<p>Linux is preferred.<br>
+Console debug only for other operating systems.<br>
 The release script (release.sh) support Linux only.</p>
-
 <h3 id="postgresql-1">PostgreSQL</h3>
-
 <p>Different configuration files used, <code>./config.json</code> for development , and <code>/usr/local/janusec/config.json</code> for deployment .</p>
-
 <h3 id="golang">Golang</h3>
-
 <p>At least Go 1.14+ .</p>
-
 <h3 id="code">Code</h3>
-
 <blockquote>
-<p><code>go get -u github.com/Janusec/janusec</code></p>
+<p>git clone <a href="https://github.com/Janusec/janusec.git">https://github.com/Janusec/janusec.git</a></p>
 </blockquote>
-
-<p>git clone is not preferred.</p>
 
             </article>
       </div>
@@ -282,7 +229,7 @@ The release script (release.sh) support Linux only.</p>
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

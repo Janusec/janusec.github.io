@@ -136,48 +136,33 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="node-management">Node Management</h1>
-
-<hr />
-
-<p><img src="/images/gateway2.png" alt="Application Gateway" title="Janusec Application Gateway Nodes" /></p>
-
+            <h1 id="node-management">Node Management</h1>
+<hr>
+<p><img src="/images/gateway2.png" alt="Application Gateway" title="Janusec Application Gateway Nodes"></p>
 <h4 id="node-type">Node Type</h4>
-
 <ul>
-<li>Primary Node, there must have one and only one Primary Node, and a PostgreSQL is required.<br /></li>
+<li>Primary Node, there must have one and only one Primary Node, and a PostgreSQL is required.</li>
 <li>Replica Node, optional, no database required.</li>
 </ul>
-
 <h4 id="single-node-architecture">Single Node Architecture</h4>
-
 <ul>
-<li>One Primary Node.<br /></li>
-<li>No DNS Load Balance required.<br /></li>
-<li>For small scale web applications.<br /></li>
+<li>One Primary Node.</li>
+<li>No DNS Load Balance required.</li>
+<li>For small scale web applications.</li>
 </ul>
-
 <h4 id="multiple-nodes-architecture">Multiple Nodes Architecture</h4>
-
 <ul>
-<li>One <code>Primary Node</code> and multiple <code>Replica Nodes</code> Architecture.<br /></li>
+<li>One <code>Primary Node</code> and multiple <code>Replica Nodes</code> Architecture.</li>
 <li>Only the Primary Node requires a PostgreSQL database.</li>
-<li>GSLB or DNS Load Balance required.<br /></li>
-<li>For large scale web applications.<br /></li>
+<li>GSLB or DNS Load Balance required.</li>
+<li>For large scale web applications.</li>
 </ul>
-
 <h4 id="replica-node">Replica Node</h4>
-
 <blockquote>
 <p>Open web administration portal, and manage replica nodes.</p>
 </blockquote>
-
-<p><img src="/images/node1.png" alt="Replica Node" title="Replica Node of Janusec Application Gateway" /></p>
-
+<p><img src="/images/node1.png" alt="Replica Node" title="Replica Node of Janusec Application Gateway"></p>
 <p>Replica Node: <code>node_key</code> in <code>/usr/local/janusec/config.json</code> are corresponding to the image, like the following:</p>
-
 <pre><code>{
 	&quot;node_role&quot;: &quot;replica&quot;,
 	...
@@ -186,20 +171,15 @@
 		&quot;sync_addr&quot;: &quot;http://192.168.100.107:9080/janusec-admin/api&quot;
 	}	
 }
-</code></pre>
-
-<p>For security reasons, you should apply for a seperate domain name for the primary node, and configure an application, as follow:</p>
-
+</code></pre><p>For security reasons, you should apply for a seperate domain name for the primary node, and configure an application, as follow:</p>
 <blockquote>
-<p>Application Name: JANUSEC<br />
-Destination: 127.0.0.1:9999 (It will not be accessed)<br />
-Domain: domain name for the primary node<br />
+<p>Application Name: JANUSEC<br>
+Destination: 127.0.0.1:9999 (It will not be accessed)<br>
+Domain: domain name for the primary node <br>
 Certificate: certificate available to above domain name</p>
 </blockquote>
-
 <p>Then &ldquo;sync_addr&rdquo; can be configured with https, example: <code>https://your_gate_domain:9443/janusec-admin/api</code></p>
-
-<p>When listen=true in config.json, &ldquo;sync_addr&rdquo; should has colon and port number.<br />
+<p>When listen=true in config.json, &ldquo;sync_addr&rdquo; should has colon and port number. <br>
 When listen=false, remove colon and port number.</p>
 
             </article>
@@ -208,7 +188,7 @@ When listen=false, remove colon and port number.</p>
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

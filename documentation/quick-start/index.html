@@ -136,20 +136,12 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="quick-start">Quick Start</h1>
-
-<hr />
-
+            <h1 id="quick-start">Quick Start</h1>
+<hr>
 <p><a href="/cn/quick-start/">快速入门中文版</a></p>
-
 <p>This document will guide you to install a Single-Node <strong>Janusec Application Gateway</strong>.</p>
-
 <h2 id="requirements">Requirements</h2>
-
-<hr />
-
+<hr>
 <table>
 <thead>
 <tr>
@@ -158,86 +150,62 @@
 <th>Database</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Primary Node</td>
-<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, or Debian <sup>9</sup>&frasl;<sub>10</sub>+, x86_64, with systemd and nftables</td>
+<td>CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables</td>
 <td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)</td>
 </tr>
-
 <tr>
 <td>Replica Node</td>
-<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, or Debian <sup>9</sup>&frasl;<sub>10</sub>+, x86_64, with systemd and nftables</td>
+<td>CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables</td>
 <td>Not required</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="prepare-nftables">Prepare nftables</h2>
-
-<hr />
-
+<hr>
 <p>nftables used for CC defense.</p>
-
 <p>nftables is not installed for CentOS 7 by default, installation is required:</p>
-
 <blockquote>
-<p>#yum -y install nftables<br />
-#systemctl enable nftables<br />
+<p>#yum -y install nftables<br>
+#systemctl enable nftables<br>
 #systemctl start nftables</p>
 </blockquote>
-
-<p>nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld：</p>
-
+<p>nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld ：</p>
 <blockquote>
-<p>#systemctl enable firewalld<br />
+<p>#systemctl enable firewalld<br>
 #systemctl start firewalld</p>
 </blockquote>
-
 <p>Now, you can view the ruleset through:</p>
-
 <blockquote>
 <p>#nft list ruleset</p>
 </blockquote>
-
 <p>If the rule is not empty, it may affect the effectiveness of the firewall policy. Assuming that the nftables rule is empty now, then continue.</p>
-
 <h2 id="installation">Installation</h2>
-
-<hr />
-
+<hr>
 <h5 id="step-1-download">Step 1: Download</h5>
-
 <blockquote>
-<p>$cd ~<br />
-$wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br />
+<p>$cd ~<br>
+$wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
 $tar zxf ./janusec-latest.tar.gz</p>
 </blockquote>
-
 <h5 id="step-2-install">Step 2: Install</h5>
-
-<p>Switch to root and run install.sh , janusec application gateway will be installed to <code>/usr/local/janusec/</code></p>
-
+<p>Switch to root and run install.sh , janusec application gateway will be installed to <code>/usr/local/janusec/ </code></p>
 <blockquote>
-<p>$su<br />
-#cd janusec-0.9.9<br />
+<p>$su<br>
+#cd janusec-0.9.11<br>
 #./install.sh</p>
 </blockquote>
-
 <p>Select <code>1. Primary Node</code>, then it will:</p>
-
 <ul>
-<li>copy files to <code>/usr/local/janusec/</code><br /></li>
-<li>copy service file to system service directory<br /></li>
-<li>Enable Janusec Application Gateway as a system service, but not start it for the first time.<br /></li>
+<li>copy files to <code>/usr/local/janusec/</code></li>
+<li>copy service file to system service directory</li>
+<li>Enable Janusec Application Gateway as a system service, but not start it for the first time.</li>
 </ul>
-
 <h5 id="step-3-config">Step 3: Config</h5>
-
-<p>PostgreSQL is not included in release package, you should prepare database name and account.<br />
+<p>PostgreSQL is not included in release package, you should prepare database name and account.<br>
 Now we assume you have <code>PostgreSQL</code> installed already, and database name and account is ready, then edit <code>/usr/local/janusec/config.json</code> (use <code>//</code> as comment, please delete them before using it):</p>
-
 <pre><code>{
     &quot;node_role&quot;: &quot;primary&quot;,            // &quot;primary&quot; for primary node, &quot;replica&quot; for replica nodes
     &quot;primary_node&quot;: {                  // keep empty for replica nodes
@@ -263,88 +231,55 @@ Now we assume you have <code>PostgreSQL</code> installed already, and database n
         ...
     }
 }
-</code></pre>
-
-<p>More detailed configuration, see <a href="/documentation/configuration/">Configuration File</a></p>
-
+</code></pre><p>More detailed configuration, see <a href="/documentation/configuration/">Configuration File</a></p>
 <h5 id="step-4-start-and-test-installation">Step 4: Start and Test Installation</h5>
-
 <blockquote>
 <p>#systemctl start janusec</p>
 </blockquote>
-
 <p>Open web browser such as <code>Chrome</code>, when listen=false in config.json, navigate with address:</p>
-
 <blockquote>
 <p>http://<code>your_ip_address</code>/janusec-admin/</p>
 </blockquote>
-
 <p>when listen=true in config.json:</p>
-
 <blockquote>
 <p>http://<code>your_ip_address</code>:9080/janusec-admin/</p>
 </blockquote>
-
-<p>This is the administration address for Janusec Application Gateway.<br />
+<p>This is the administration address for Janusec Application Gateway.<br>
 Login with default username <code>admin</code> and password <code>J@nusec123</code> .</p>
-
 <h2 id="certificate-required-for-https">Certificate (required for <code>HTTPS</code>)</h2>
-
-<hr />
-
-<p>If you only use HTTP, skip this step.<br />
+<hr>
+<p>If you only use HTTP, skip this step.<br>
 Open http://<code>your_ip_address</code>/janusec-admin/ and add a new certificate.
 If you don&rsquo;t have a certificate, you can get a free certificate from <code>Let's Encrypt</code> or let Janusec produce a self-signed certificate( only for test).</p>
-
 <h2 id="application-required">Application (required)</h2>
-
-<hr />
-
+<hr>
 <p>Open http://<code>your_ip_address</code>/janusec-admin/ and add a new application.
 Fill in application name, actual IP:Port etc.</p>
-
 <h2 id="dns-or-hosts-required">DNS or Hosts (required)</h2>
-
-<hr />
-
+<hr>
 <p>Modify your DNS settings, let <code>your_domain_name</code> point to the Gateway for production, or modify you local hosts <code>C:\Windows\System32\drivers\etc\hosts</code> ( not the Gateway) for test.</p>
-
 <h2 id="validation">Validation</h2>
-
-<hr />
-
+<hr>
 <p>Open http://<code>your_domain_name</code>/ or https://<code>your_domain_name</code>/ .</p>
-
 <h2 id="waf-validation">WAF Validation</h2>
-
-<hr />
-
+<hr>
 <p>Test cases:</p>
-
 <blockquote>
-<p><code>http://your_domain_name/.svn/entries</code><br />
+<p><code>http://your_domain_name/.svn/entries</code><br>
 <code>http://your_domain_name/test?id=1 and 1=1</code></p>
 </blockquote>
-
-<p>Block information:<br />
-<img src="/images/waf2.png" alt="WAF" title="WAF of Janusec Application Gateway" /></p>
-
+<p>Block information:<br>
+<img src="/images/waf2.png" alt="WAF" title="WAF of Janusec Application Gateway"></p>
 <h2 id="firewall-nftables-validation">Firewall nftables Validation</h2>
-
-<hr />
-
+<hr>
 <blockquote>
 <p>#nft list table inet janusec</p>
 </blockquote>
-
 <p>or:</p>
-
 <blockquote>
 <p>#nft list table inet janusec -a</p>
 </blockquote>
-
 <p>The result is like this:</p>
-
 <pre><code>[root@CentOS8]# nft list table inet janusec -a
 table inet janusec { # handle 20
 	set blocklist { # handle 2
@@ -358,9 +293,7 @@ table inet janusec { # handle 20
 	}
 }
 
-</code></pre>
-
-<p>If you need to test the effect of CC defense, please check the CC protection rules in WAF management at first.</p>
+</code></pre><p>If you need to test the effect of CC defense, please check the CC protection rules in WAF management at first.</p>
 
             </article>
       </div>
@@ -368,7 +301,7 @@ table inet janusec { # handle 20
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

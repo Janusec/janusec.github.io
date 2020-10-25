@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gateway on Janusec</title>
+    <title>gateway on Janusec</title>
     <link>/categories/gateway/</link>
-    <description>Recent content in Gateway on Janusec</description>
+    <description>Recent content in gateway on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 May 2018 20:58:57 +0800</lastBuildDate>
-    
-	<atom:link href="/categories/gateway/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 11 May 2018 20:58:57 +0800</lastBuildDate><atom:link href="/categories/gateway/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Janusec Application Gateway</title>
       <link>/product/janusec-application-gateway/</link>
@@ -19,10 +15,7 @@
       <guid>/product/janusec-application-gateway/</guid>
       <description>Janusec Application Gateway, an application security solutions for public cloud, private cloud, and traditional IDC, which provides web routing, load balancing, and web application firewall. With Janusec, you can build secure and scalable applications.
 Janusec Application Gateway Introduction PDF
-Key Features:  Web Application Firewall ( HTTPS support, No Agent Required )
- Unified Web Administration
- Certificate Protection (Encryption) Scalable Architecture with Load Balance
-  Make Defense Simple  SQL Injection</description>
+Key Features:  Web Application Firewall ( HTTPS support, No Agent Required ) Unified Web Administration Certificate Protection (Encryption) Scalable Architecture with Load Balance  Make Defense Simple  SQL Injection Cross-site Scripting Sensitive Data Leakage CC Attacks Block, Captcha, ByPass policy Group Policy with Multiple Check Points  Scalable Architecture  Single node for small scale web applications Multiple nodes for large scale web applications  Quick Start</description>
     </item>
     
   </channel>

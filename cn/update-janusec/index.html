@@ -136,104 +136,80 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="升级到新版本janusec应用网关">升级到新版本Janusec应用网关</h1>
-
-<hr />
-
+            <h1 id="升级到新版本janusec应用网关">升级到新版本Janusec应用网关</h1>
+<hr>
 <blockquote>
 <p>本文仅供旧版本升级参考，新安装请忽略。</p>
 </blockquote>
-
-<p>最新版本: v0.9.10 (2020.09.26)</p>
-
-<p>版本历史:<br />
-v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod
-v0.9.9 (2020.06.19): 增加静态文件缓存<br />
-v0.9.8 (2020.05.17): 增加LDAP认证，增加静态网站、FastCGI网站支持。<br />
-v0.9.7 (2020.03.29): 为各应用及管理入口增加OAuth2统一登录（可选企业微信、钉钉、飞书）；可限制管理入口开放范围（例如只开放内网）；Web SSH安全运维支持禁用或开启。<br />
+<p>最新版本: v0.9.11 (2020.10.24)</p>
+<p>版本历史:<br>
+v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP
+v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod<br>
+v0.9.9 (2020.06.19): 增加静态文件缓存<br>
+v0.9.8 (2020.05.17): 增加LDAP认证，增加静态网站、FastCGI网站支持。<br>
+v0.9.7 (2020.03.29): 为各应用及管理入口增加OAuth2统一登录（可选企业微信、钉钉、飞书）；可限制管理入口开放范围（例如只开放内网）；Web SSH安全运维支持禁用或开启。<br>
 v0.9.6 (2020.02.27): 增加域名重定向。</p>
-
 <h3 id="查看当前版本">查看当前版本</h3>
-
 <p>当前版本信息可通过管理入口查看，或者:</p>
-
 <blockquote>
 <p><code>./janusec --version</code></p>
 </blockquote>
-
-<h3 id="v0-9-9升级到v0-9-10">V0.9.9升级到V0.9.10</h3>
-
-<p>V0.9.10启用nftables，用于拦截CC攻击，减轻应用网关压力。</p>
-
+<h3 id="从v099升级">从V0.9.9升级</h3>
+<p>从V0.9.10开始，启用nftables，用于拦截CC攻击，减轻应用网关压力。</p>
 <p>CentOS 7默认没有安装nftables，需要手工安装并启动：</p>
-
 <blockquote>
-<p>#yum -y install nftables<br />
-#systemctl enable nftables<br />
+<p>#yum -y install nftables<br>
+#systemctl enable nftables<br>
 #systemctl start nftables</p>
 </blockquote>
-
 <p>CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：</p>
-
 <blockquote>
-<p>#systemctl enable firewalld<br />
+<p>#systemctl enable firewalld<br>
 #systemctl start firewalld</p>
 </blockquote>
-
 <p>然后覆盖安装即可：</p>
-
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br />
-#<code>tar zxf ./janusec-latest.tar.gz</code><br />
-#<code>cd /data/janusec-0.9.10/</code><br />
-#<code>./install.sh</code><br />
+<p>#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
+#<code>tar zxf ./janusec-latest.tar.gz</code><br>
+#<code>cd /data/janusec-0.9.11/</code><br>
+#<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
-
-<h3 id="v0-9-5-升级到v0-9-9">V0.9.5+ 升级到V0.9.9</h3>
-
+<h3 id="从v095v098-升级">从V0.9.5~V0.9.8 升级</h3>
 <p>V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在<code>/data/janusec-latest.tar.gz</code>，升级步骤参考：</p>
-
 <blockquote>
-<p>#<code>cd /data/</code><br />
-#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br />
-#<code>tar zxf ./janusec-latest.tar.gz</code><br />
-#<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br />
-#<code>cp ./janusec-0.9.9/config.json.primary_bak /usr/local/janusec/config.json</code></p>
+<p>#<code>cd /data/</code><br>
+#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
+#<code>tar zxf ./janusec-latest.tar.gz</code><br>
+#<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
+#<code>cp ./janusec-0.9.11/config.json.primary_bak /usr/local/janusec/config.json</code></p>
 </blockquote>
-
 <p>需要编辑新的<code>/usr/local/janusec/config.json</code>，参考<a href="/cn/configuration/">配置文件</a>，重新设置数据库账号口令等信息。</p>
-
 <blockquote>
 <p>#<code>vi /usr/local/janusec/config.json</code></p>
 </blockquote>
-
 <p>然后正常覆盖安装即可（已存在config.json的情况下不会覆盖config.json）：</p>
-
 <blockquote>
-<p>#<code>cd /data/janusec-0.9.9/</code><br />
-#<code>./install.sh</code><br />
+<p>#<code>cd /data/janusec-0.9.11/</code><br>
+#<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
-
-<h3 id="v0-9-4或更早版本升级到v0-9-9">V0.9.4或更早版本升级到V0.9.9</h3>
-
-<p>由于升级过程中变更了服务类型(0.9.5)，建议升级前执行如下操作：</p>
-
+<h3 id="从v094或更早版本升级">从V0.9.4或更早版本升级</h3>
+<p>升级过程中变更了服务类型(0.9.5)和配置文件config.json。<br>
+建议升级前执行如下操作：</p>
+<p>第一步：</p>
 <blockquote>
 <p>#<code>systemctl stop janusec</code></p>
 </blockquote>
-
-<p>然后再参考上述V0.9.5+升级到V0.9.9的过程。</p>
-
+<p>否则无法重启服务。</p>
+<p>第二步：<br>
+备份配置文件或记录其中的口令备用（原始口令或加密后的口令均可）。<br>
+删除配置文件config.json后，重新安装最新版本（新安装不会覆盖已存在的配置文件，因此需要删除，让安装程序自动复制一份新的配置文件）。<br>
+安装后，检查新配置文件，将原始口令或加密后的口令配置进去。</p>
 <p>如果:</p>
-
 <blockquote>
 <p><code>systemctl restart janusec</code></p>
 </blockquote>
-
 <p>无效  ，可以kill其进程。</p>
 
             </article>
@@ -242,7 +218,7 @@ v0.9.6 (2020.02.27): 增加域名重定向。</p>
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

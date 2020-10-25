@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Documentations on Janusec</title>
@@ -6,20 +6,16 @@
     <description>Recent content in Documentations on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 May 2018 22:28:32 +0800</lastBuildDate>
-    
-	<atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 22 Mar 2020 10:11:09 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quick Start</title>
       <link>/documentation/quick-start/</link>
       <pubDate>Thu, 17 May 2018 22:28:32 +0800</pubDate>
       
       <guid>/documentation/quick-start/</guid>
-      <description>Quick Start 快速入门中文版
+      <description>Quick Start  快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
-Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7&amp;frasl;8+, or Debian 9&amp;frasl;10+, x86_64, with systemd and nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)   Replica Node CentOS/RHEL 7&amp;frasl;8+, or Debian 9&amp;frasl;10+, x86_64, with systemd and nftables Not required    Prepare nftables nftables used for CC defense.</description>
+Requirements     Role Operating System Database     Primary Node CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)   Replica Node CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables Not required    Prepare nftables  nftables used for CC defense.</description>
     </item>
     
     <item>
@@ -28,10 +24,9 @@ Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7&am
       <pubDate>Sat, 12 May 2018 08:10:40 +0800</pubDate>
       
       <guid>/documentation/introduction/</guid>
-      <description>Introduction Janusec Application Gateway, an application security solutions for public cloud, private cloud, and traditional IDC, which provides web routing, load balancing, and web application firewall. With Janusec, you can build secure and scalable applications.
+      <description>Introduction  Janusec Application Gateway, an application security solutions for public cloud, private cloud, and traditional IDC, which provides web routing, load balancing, and web application firewall. With Janusec, you can build secure and scalable applications.
 Janusec Application Gateway Introduction PDF
-Features:  Web Application Firewall ( HTTPS support, No Agent Required )
- Load Balance Encrypted Certificates Manager Mater and Replica Nodes Supported  Make Defense Simple  SQL Injection</description>
+ Features:  Web Application Firewall ( HTTPS support, No Agent Required ) Load Balance Encrypted Certificates Manager Mater and Replica Nodes Supported   Make Defense Simple  SQL Injection Cross-site Scripting Sensitive Data Leakage CC Attacks Block, Captcha, ByPass Policy Group Policy with Multiple Check Points   Make Administration Simple  Administration by Web Browser Integrated Administration Center   Make Architecture Scalable  Multiple Gateway Nodes   Data Protection  Private Keys Encrypted  </description>
     </item>
     
     <item>
@@ -40,7 +35,7 @@ Features:  Web Application Firewall ( HTTPS support, No Agent Required )
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/documentation/installation/</guid>
-      <description>Installation Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7&amp;frasl;8+, or Debian 9&amp;frasl;10+, x86_64, with systemd and nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)   Replica Node CentOS/RHEL 7&amp;frasl;8+, or Debian 9&amp;frasl;10+, x86_64, with systemd and nftables Not required    Prepare nftables nftables used for CC defense.
+      <description>Installation  Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)   Replica Node CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables Not required    Prepare nftables  nftables used for CC defense.
 nftables is not installed for CentOS 7 by default, installation is required:</description>
     </item>
     
@@ -50,10 +45,10 @@ nftables is not installed for CentOS 7 by default, installation is required:</de
       <pubDate>Sun, 22 Mar 2020 10:11:09 +0800</pubDate>
       
       <guid>/documentation/configuration/</guid>
-      <description>Configuration File Path of Configuration File Production environment: /usr/local/janusec/config.json
+      <description>Configuration File  Path of Configuration File  Production environment: /usr/local/janusec/config.json
 Development environment: ./config.json
-Configuration Items The following is based on Janusec Application Gateway V0.9.9, and use // as comment, please delete // comment before using it.
-{ &amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // &amp;quot;primary&amp;quot; for primary node, &amp;quot;replica&amp;quot; for replica nodes &amp;quot;primary_node&amp;quot;: { // keep empty for replica nodes &amp;quot;admin&amp;quot;: { // Administrator portal &amp;quot;listen&amp;quot;: true, // Listen on new ports for admin portal &amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available &amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available &amp;quot;portal&amp;quot;: &amp;quot;https://gate.</description>
+Configuration Items  The following is based on Janusec Application Gateway V0.9.9, and use // as comment, please delete // comment before using it.
+{&amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // &amp;quot;primary&amp;quot; for primary node, &amp;quot;replica&amp;quot; for replica nodes&amp;quot;primary_node&amp;quot;: { // keep empty for replica nodes&amp;quot;admin&amp;quot;: { // Administrator portal&amp;quot;listen&amp;quot;: true, // Listen on new ports for admin portal&amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available&amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available&amp;quot;portal&amp;quot;: &amp;quot;https://gate.</description>
     </item>
     
     <item>
@@ -62,11 +57,10 @@ Configuration Items The following is based on Janusec Application Gateway V0.9.9
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/documentation/admin/</guid>
-      <description>Web Administration Administration Portal When listen=false in config.json :
+      <description>Web Administration  Administration Portal  When listen=false in config.json :
  http://your_primary_node_ip_address/janusec-admin/ (first use) https://your_application_domain_name/janusec-admin/ (after certificate configured)
 When listen=true in config.json :
-http://your_primary_node_ip_address:9080/janusec-admin/ (first use)
-https://your_primary_node_domain_name:9443/janusec-admin/ (after certificate configured)
+  http://your_primary_node_ip_address:9080/janusec-admin/ (first use) https://your_primary_node_domain_name:9443/janusec-admin/ (after certificate configured)
  When using primary node only, any application domain name can be used for admin.
 But if you have one or more replica nodes, you should apply for a seperate domain name for primary node.
 Digital Certificate Management see Certificate Management</description>
@@ -78,7 +72,7 @@ Digital Certificate Management see Certificate Management</description>
       <pubDate>Sun, 20 May 2018 21:05:08 +0800</pubDate>
       
       <guid>/documentation/certificate-management/</guid>
-      <description>Certificate Management Certificate List Open web administration portal and navigate to Certificate Management.
+      <description>Certificate Management  Certificate List Open web administration portal and navigate to Certificate Management.
 Add or Edit Certificate Single domain subdomain.yourdomain.com or wildcard *.yourdomain.com certificate are all acceptable. A wildcard certificate is preferred.
 For production environment, you should have a legal digital certificate issued by a trusted CA ( such as Let&#39;s Encrypt ) .
 For test purpose, when filled in the first field (Common Name or Subject Alternative Name), click Self-Sign Certificate button, it will produce a self-sign certificate for you, and you need export it with browser and add it to the trusted root CA.</description>
@@ -90,14 +84,10 @@ For test purpose, when filled in the first field (Common Name or Subject Alterna
       <pubDate>Sun, 20 May 2018 21:58:35 +0800</pubDate>
       
       <guid>/documentation/application-management/</guid>
-      <description>Application Management Requirements At least one digital certificate is required if you need https support.
-Certificate Management
+      <description>Application Management  Requirements At least one digital certificate is required if you need https support. Certificate Management
 Add or Edit Application Open web administration portal and navigate to Application Management.
 Note:
- Backend or Internal Scheme, default http and thus no certificates required in your real servers.
- Destination, IP:Port format, port is required even if the port is 80.
- Multiple destinations for backend load balancing.
- Client IP for WAF, default REMOTE_ADDR, Janusec WAF will get IP address from IP package, but if you are using Janusec Application Gateway behind a trustable CDN of third parties, usually the last IP of X-Forwarded-For should be taken, please refer to the documentation of CDN, and select relevant option, for example: the option X_Forwarded_For used for the last IP of X-Forwarded-For within the request header.</description>
+ Backend or Internal Scheme, default http and thus no certificates required in your real servers. Destination, IP:Port format, port is required even if the port is 80. Multiple destinations for backend load balancing. Client IP for WAF, default REMOTE_ADDR, Janusec WAF will get IP address from IP package, but if you are using Janusec Application Gateway behind a trustable CDN of third parties, usually the last IP of X-Forwarded-For should be taken, please refer to the documentation of CDN, and select relevant option, for example: the option X_Forwarded_For used for the last IP of X-Forwarded-For within the request header.</description>
     </item>
     
     <item>
@@ -106,12 +96,7 @@ Note:
       <pubDate>Sun, 20 May 2018 22:38:35 +0800</pubDate>
       
       <guid>/documentation/node-management/</guid>
-      <description>Node Management Node Type  Primary Node, there must have one and only one Primary Node, and a PostgreSQL is required.
- Replica Node, optional, no database required.  Single Node Architecture  One Primary Node.
- No DNS Load Balance required.
- For small scale web applications.
-  Multiple Nodes Architecture  One Primary Node and multiple Replica Nodes Architecture.
- Only the Primary Node requires a PostgreSQL database.</description>
+      <description>Node Management  Node Type  Primary Node, there must have one and only one Primary Node, and a PostgreSQL is required. Replica Node, optional, no database required.  Single Node Architecture  One Primary Node. No DNS Load Balance required. For small scale web applications.  Multiple Nodes Architecture  One Primary Node and multiple Replica Nodes Architecture. Only the Primary Node requires a PostgreSQL database. GSLB or DNS Load Balance required.</description>
     </item>
     
     <item>
@@ -120,7 +105,7 @@ Note:
       <pubDate>Mon, 21 May 2018 21:27:20 +0800</pubDate>
       
       <guid>/documentation/waf-management/</guid>
-      <description>WAF Management Add or Edit WAF Policy Typical Check Points  Example: http://www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2
+      <description>WAF Management  Add or Edit WAF Policy Typical Check Points  Example: http://www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2
  URLPath: /blog/show.php
 URLQuery: id=1&amp;amp;category=2
 GetPostKey: [id, category]
@@ -136,7 +121,7 @@ If you want to check url values only ( GET Only ), please select URLQuery .
       <pubDate>Fri, 25 May 2018 21:04:25 +0800</pubDate>
       
       <guid>/documentation/operation-management/</guid>
-      <description>Operation Management Deployment Architecture    Architecture Primary Node Replica Node Description     Single-Node One None small scale applications with unified web management   Scalable One Any large scale applications with unified web management   Multiple Autonomous System Any Any Any Single or Scalable Architectures, maintained by different teams, each autonomous system has an unified web management portal.    Admin Account Web Administration address is one of the following:</description>
+      <description>Operation Management  Deployment Architecture    Architecture Primary Node Replica Node Description     Single-Node One None small scale applications with unified web management   Scalable One Any large scale applications with unified web management   Multiple Autonomous System Any Any Any Single or Scalable Architectures, maintained by different teams, each autonomous system has an unified web management portal.    Admin Account Web Administration address is one of the following:</description>
     </item>
     
     <item>
@@ -145,7 +130,7 @@ If you want to check url values only ( GET Only ), please select URLQuery .
       <pubDate>Wed, 06 Jun 2018 21:56:05 +0800</pubDate>
       
       <guid>/documentation/migrate-to-janusec/</guid>
-      <description>Migrate to Janusec Application Gateway Step 1: Install and Configure Janusec Application Gateway Refer to Installation, install janusec application gateway and configure digital certificate, application.
+      <description>Migrate to Janusec Application Gateway  Step 1: Install and Configure Janusec Application Gateway Refer to Installation, install janusec application gateway and configure digital certificate, application.
 Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\System32\drivers\etc\hosts ( not the Gateway) for test.
  the_gateway_ip your_domain_name
  Then, open web browser and navigate to https://your_domain_name.
@@ -158,12 +143,12 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       <pubDate>Sun, 10 Jun 2018 20:11:45 +0800</pubDate>
       
       <guid>/documentation/update-janusec/</guid>
-      <description>Update to Latest Version  This article is only for upgrade, not for new installation.
- Latest version: v0.9.10 (Sep 26, 2020)
-v0.9.10 (Sep 26, 2020): Add nftables support for CC defense
+      <description>Update to Latest Version   This article is only for upgrade, not for new installation.
+ Latest version: v0.9.11 (Oct 24, 2020)
+v0.9.11 (Oct 24, 2020)： Add health check for backend servers, add CSP v0.9.10 (Sep 26, 2020): Add nftables support for CC defense
 v0.9.9 (Jun 19, 2020): Add static files cache
 v0.9.8 (May 17, 2020): Add LDAP Authentication, static website, fastcgi support.
-v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.</description>
+v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal.</description>
     </item>
     
     <item>
@@ -172,7 +157,7 @@ v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applicatio
       <pubDate>Sun, 03 Jun 2018 12:00:30 +0800</pubDate>
       
       <guid>/documentation/pricing/</guid>
-      <description> Pricing for Janusec Application Gateway    Plans Pricing License     Community Free GNU AGPLv3    </description>
+      <description>Pricing for Janusec Application Gateway     Plans Pricing License     Community Free GNU AGPLv3    </description>
     </item>
     
     <item>
@@ -181,7 +166,7 @@ v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applicatio
       <pubDate>Sat, 12 May 2018 07:45:49 +0800</pubDate>
       
       <guid>/documentation/faq/</guid>
-      <description>FAQ Q: What is the difference between Janusec Application Gateway and WAF ?  A: Janusec Application Gateway includes a WAF (Web Application Firewall), and Janusec eliminates the defects of traditional WAF.
+      <description>FAQ  Q: What is the difference between Janusec Application Gateway and WAF ?  A: Janusec Application Gateway includes a WAF (Web Application Firewall), and Janusec eliminates the defects of traditional WAF.
  Q: Does it requires agent installation on business servers ?  A: No agent required.
  Q: Does it support https ?  A: Yes, https is naturally supported.
  Q: Is my private key secure ?</description>
@@ -193,7 +178,7 @@ v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applicatio
       <pubDate>Sun, 20 May 2018 20:38:58 +0800</pubDate>
       
       <guid>/documentation/user-agreement/</guid>
-      <description>User Agreement and Privacy Policy  THE PRODUCT IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE PRODUCT OR THE USE OR OTHER DEALINGS IN THE PRODUCT.</description>
+      <description>User Agreement and Privacy Policy    THE PRODUCT IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE PRODUCT OR THE USE OR OTHER DEALINGS IN THE PRODUCT.</description>
     </item>
     
     <item>
@@ -202,11 +187,8 @@ v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applicatio
       <pubDate>Sun, 05 Aug 2018 11:52:52 +0800</pubDate>
       
       <guid>/documentation/diagnose/</guid>
-      <description>Diagnose Deployment Operating System Operating System should be x86_64 and one of the following:
- CentOS 7&amp;frasl;8+
- RHEL 7&amp;frasl;8+
- Debian 9&amp;frasl;10+
-  Time Please make sure the time is correct, time zone may be any.
+      <description>Diagnose  Deployment  Operating System Operating System should be x86_64 and one of the following:
+ CentOS 7/8+ RHEL 7/8+ Debian 9/10+  Time Please make sure the time is correct, time zone may be any.
 Service Management systemd is used for Service Management , check :
  command -v systemctl
  (Expect result: /usr/bin/systemctl)

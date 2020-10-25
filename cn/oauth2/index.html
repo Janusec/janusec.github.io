@@ -136,176 +136,112 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="oauth2统一身份认证">OAuth2统一身份认证</h1>
-
-<hr />
-
+            <h1 id="oauth2统一身份认证">OAuth2统一身份认证</h1>
+<hr>
 <h3 id="简介">简介</h3>
-
 <p>Janusec Application Gateway支持LDAP身份认证和OAuth2统一身份认证，可使用企业微信、钉钉、飞书扫码登录，包括:</p>
-
 <ul>
-<li>管理后台<br /></li>
-<li>配置中启用OAuth2身份认证的应用(用于员工访问内网应用)<br /></li>
+<li>管理后台</li>
+<li>配置中启用OAuth2身份认证的应用(用于员工访问内网应用)</li>
 </ul>
-
 <h3 id="配置">配置</h3>
-
 <p>如需启用，请在配置文件config.json中开启：</p>
-
 <pre><code>&quot;oauth&quot;: {
             &quot;enabled&quot;: true,
             &quot;provider&quot;: &quot;wxwork&quot;,
             ...
 }
-</code></pre>
-
-<p>上述provider中，wxwork表示企业微信扫码登录，dingtalk表示钉钉扫码登录，feishu表示飞书扫码登录，ldap表示LDAP认证。</p>
-
+</code></pre><p>上述provider中，wxwork表示企业微信扫码登录，dingtalk表示钉钉扫码登录，feishu表示飞书扫码登录，ldap表示LDAP认证。</p>
 <h3 id="应用如何获取用户身份">应用如何获取用户身份</h3>
-
 <p>Janusec认证通过后，会在HTTP请求的头部添加两行：</p>
-
 <blockquote>
-<p>Authorization: Bearer <code>Access-Token</code><br />
+<p>Authorization: Bearer <code>Access-Token</code><br>
 X-Auth-User: <code>UserID</code></p>
 </blockquote>
-
 <p>应用不需要修改即可使用，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。</p>
-
 <h3 id="企业微信配置">企业微信配置</h3>
-
 <p>在配置文件的<code>&quot;wxwork&quot;</code>字段：</p>
-
 <p>登录界面显示:</p>
-
 <blockquote>
 <p>&ldquo;display_name&rdquo;: &ldquo;Login with WeChat Work&rdquo;,</p>
 </blockquote>
-
-<p>回调地址(需要同时在该应用&rdquo;开发者接口&rdquo;一栏配置&rdquo;授权回调域&rdquo;，配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):</p>
-
+<p>回调地址(需要同时在该应用&quot;开发者接口&quot;一栏配置&quot;授权回调域&quot;，配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):</p>
 <blockquote>
 <p>&ldquo;callback&rdquo;: &ldquo;<code>https://your_domain.com</code>/oauth/wxwork&rdquo;,</p>
 </blockquote>
-
-<p>企业ID (在<a href="https://work.weixin.qq.com/wework_admin/frame#profile">https://work.weixin.qq.com/wework_admin/frame#profile</a> 下方可看到企业ID信息):</p>
-
+<p>企业ID (在https://work.weixin.qq.com/wework_admin/frame#profile 下方可看到企业ID信息):</p>
 <blockquote>
 <p>&ldquo;corpid&rdquo;: &ldquo;wwd03be1f8&rdquo;,</p>
 </blockquote>
-
-<p>AgentID (在<a href="https://work.weixin.qq.com/wework_admin/frame#apps">https://work.weixin.qq.com/wework_admin/frame#apps</a> 创建名为JANUSEC的自建应用即可看到):</p>
-
+<p>AgentID (在https://work.weixin.qq.com/wework_admin/frame#apps 创建名为JANUSEC的自建应用即可看到):</p>
 <blockquote>
 <p>&ldquo;agentid&rdquo;: &ldquo;1000002&rdquo;,</p>
 </blockquote>
-
 <p>corpsecret (即上述自建应用的Secret，请据实修改):</p>
-
 <blockquote>
 <p>&ldquo;corpsecret&rdquo;: &ldquo;BgZtz_hssdZV5em-AyGhOgLlm18rU_NdZI&rdquo;</p>
 </blockquote>
-
 <h3 id="钉钉配置">钉钉配置</h3>
-
 <p>在配置文件的<code>&quot;dingtalk&quot;</code>字段：</p>
-
 <p>登录界面显示:</p>
-
 <blockquote>
 <p>&ldquo;display_name&rdquo;: &ldquo;Login with DingTalk&rdquo;,</p>
 </blockquote>
-
 <p>回调地址(配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):</p>
-
 <blockquote>
 <p>&ldquo;callback&rdquo;: &ldquo;<code>https://your_domain.com</code>/oauth/dingtalk&rdquo;,</p>
 </blockquote>
-
 <p>请在钉钉开放平台注册一个自建应用，获取下面的信息。</p>
-
 <blockquote>
-<p>&ldquo;appid&rdquo;: &ldquo;dingoa8xvc&rdquo;,<br />
+<p>&ldquo;appid&rdquo;: &ldquo;dingoa8xvc&rdquo;,<br>
 &ldquo;appsecret&rdquo;: &ldquo;crrALdXUIj4T0zBekYh4u9sU_T1GZT&rdquo;</p>
 </blockquote>
-
 <p>appsecret即上述自建应用的Secret，请据实修改。</p>
-
 <h3 id="飞书配置">飞书配置</h3>
-
-<p>需要在飞书开放平台注册应用(比如名称JANUSEC)并经企业管理员审核通过。<br />
-需要在飞书开放平台后台配置&rdquo;安全域名&rdquo;-&ldquo;重定向URL&rdquo;，配置为&rdquo;<a href="https://your_domain.com/oauth/feishu&quot;">https://your_domain.com/oauth/feishu&quot;</a></p>
-
+<p>需要在飞书开放平台注册应用(比如名称JANUSEC)并经企业管理员审核通过。<br>
+需要在飞书开放平台后台配置&quot;安全域名&quot;-&ldquo;重定向URL&rdquo;，配置为&quot;https://your_domain.com/oauth/feishu&quot;</p>
 <p>在配置文件的<code>&quot;feishu&quot;</code>字段：</p>
-
 <p>登录界面显示:</p>
-
 <blockquote>
 <p>&ldquo;display_name&rdquo;: &ldquo;Login with Feishu&rdquo;,</p>
 </blockquote>
-
 <p>回调地址(配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):</p>
-
 <blockquote>
 <p>&ldquo;callback&rdquo;: &ldquo;<code>https://your_domain.com</code>/oauth/dingtalk&rdquo;,</p>
 </blockquote>
-
 <p>请在飞书开放平台注册一个自建应用，获取下面的信息。</p>
-
 <blockquote>
-<p>&ldquo;appid&rdquo;: &ldquo;cli_9ef21d00e&rdquo;,<br />
+<p>&ldquo;appid&rdquo;: &ldquo;cli_9ef21d00e&rdquo;,<br>
 &ldquo;appsecret&rdquo;: &ldquo;ihUBspRAG1PtNdDLUZ&rdquo;</p>
 </blockquote>
-
 <h3 id="ldap配置">LDAP配置</h3>
-
 <p>在配置文件的<code>&quot;ldap&quot;</code>字段：</p>
-
 <p>登录界面显示:</p>
-
 <blockquote>
 <p>&ldquo;display_name&rdquo;: &ldquo;Login with LDAP&rdquo;,</p>
 </blockquote>
-
 <p>LDAP登录入口(配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):</p>
-
 <blockquote>
 <p>&ldquo;entrance&rdquo;: &ldquo;<code>https://your_domain.com</code>/ldap/login&rdquo;,</p>
 </blockquote>
-
 <p>LDAP服务器地址（格式采用 域名:端口 ，如果启用TLS，请注意修改端口号）：</p>
-
 <blockquote>
 <p>&ldquo;address&rdquo;: &ldquo;ldap_domain:389&rdquo;</p>
 </blockquote>
-
 <p>LDAP DN区分名称（需要根据实际DN修改，{uid}请保持不变）：</p>
-
 <blockquote>
 <p>&ldquo;dn&rdquo;: &ldquo;uid={uid},ou=People,dc=janusec,dc=com&rdquo;,</p>
 </blockquote>
-
 <p>是否启用TLS加密传输（如果启用，请一并检查LDAP服务器端口，默认636）：</p>
-
 <blockquote>
 <p>&ldquo;using_tls&rdquo;: false</p>
 </blockquote>
-
 <h3 id="退出登录">退出登录</h3>
-
 <p>后端网站只需要添加一个退出链接 /oauth/logout ，用户点击后即可实现退出效果。</p>
-
 <h3 id="原理介绍与演示">原理介绍与演示</h3>
-
 <p>原理介绍与演示效果，参见： <a href="https://www.janusec.com/articles/opensource/1585458493.html">使用JANUSEC应用网关给内部网站添加身份认证</a></p>
-
 <h3 id="多节点注意事项">多节点注意事项</h3>
-
 <p>OAuth2需要使用回调域名(在config.json中callback配置)，这里请选定并配置一个域名，可以是任意已配置应用中的域名(不包括单独为主节点申请的域名)，假设为www.your_domain.com 。</p>
-
 <p>但需要注意的是，DNS解析应确保其对所有应用的解析，在同一个办公场地，均指向同一个网关。如果员工访问的应用，跟回调域名指向不同的网关地址，则OAuth2将不可用。</p>
 
             </article>
@@ -314,7 +250,7 @@ X-Auth-User: <code>UserID</code></p>
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

@@ -136,14 +136,9 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="installation">Installation</h1>
-
-<hr />
-
+            <h1 id="installation">Installation</h1>
+<hr>
 <h3 id="requirements">Requirements</h3>
-
 <table>
 <thead>
 <tr>
@@ -152,156 +147,122 @@
 <th>Database</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Primary Node</td>
-<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, or Debian <sup>9</sup>&frasl;<sub>10</sub>+, x86_64, with systemd and nftables</td>
+<td>CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables</td>
 <td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)</td>
 </tr>
-
 <tr>
 <td>Replica Node</td>
-<td>CentOS/RHEL <sup>7</sup>&frasl;<sub>8</sub>+, or Debian <sup>9</sup>&frasl;<sub>10</sub>+, x86_64, with systemd and nftables</td>
+<td>CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables</td>
 <td>Not required</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="prepare-nftables">Prepare nftables</h2>
-
-<hr />
-
+<hr>
 <p>nftables used for CC defense.</p>
-
 <p>nftables is not installed for CentOS 7 by default, installation is required:</p>
-
 <blockquote>
-<p>#yum -y install nftables<br />
-#systemctl enable nftables<br />
+<p>#yum -y install nftables<br>
+#systemctl enable nftables<br>
 #systemctl start nftables</p>
 </blockquote>
-
 <p>nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld：</p>
-
 <blockquote>
-<p>#systemctl enable firewalld<br />
+<p>#systemctl enable firewalld<br>
 #systemctl start firewalld</p>
 </blockquote>
-
 <p>Now, you can view the ruleset through:</p>
-
 <blockquote>
 <p>#nft list ruleset</p>
 </blockquote>
-
 <p>If the rule is not empty, it may affect the effectiveness of the firewall policy. Assuming that the nftables rule is empty now, then continue.</p>
-
 <h3 id="step-1-download">Step 1: Download</h3>
-
 <blockquote>
-<p>$cd ~<br />
-$wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br />
+<p>$cd ~<br>
+$wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
 $tar zxf ./janusec-latest.tar.gz</p>
 </blockquote>
-
 <h3 id="step-2-install">Step 2: Install</h3>
-
-<p>Switch to root and run install.sh , janusec application gateway will be installed to <code>/usr/local/janusec/</code></p>
-
+<p>Switch to root and run install.sh , janusec application gateway will be installed to <code>/usr/local/janusec/ </code></p>
 <blockquote>
-<p>$su<br />
-#cd janusec-0.9.9<br />
+<p>$su<br>
+#cd janusec-0.9.11<br>
 #./install.sh</p>
 </blockquote>
-
 <p>Select <code>1. Primary Node</code>, then it will:</p>
-
 <ul>
-<li>copy files to <code>/usr/local/janusec/</code><br /></li>
-<li>copy service file to system service directory<br /></li>
-<li>Enable Janusec Application Gateway as a system service, but not start it for the first time.<br /></li>
+<li>copy files to <code>/usr/local/janusec/</code></li>
+<li>copy service file to system service directory</li>
+<li>Enable Janusec Application Gateway as a system service, but not start it for the first time.</li>
 </ul>
-
 <h3 id="step-3-config">Step 3: Config</h3>
-
-<p>PostgreSQL is not included in release package, you should prepare database name and account.<br />
+<p>PostgreSQL is not included in release package, you should prepare database name and account.<br>
 Now we assume you have <code>PostgreSQL</code> installed already, and database name and account is ready, then edit <code>/usr/local/janusec/config.json</code> :</p>
-
 <h5 id="primary-node-the-first-node">Primary Node (The First Node)</h5>
-
 <blockquote>
-<p>{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;primary&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;primary_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;127.0.0.1&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;5432&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;user&rdquo;: &ldquo;<code>your_postgresql_user</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;password&rdquo;: &ldquo;<code>your_postgresql_password</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;dbname&rdquo;: &ldquo;<code>janusec</code>&rdquo;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;&nbsp;&nbsp;},<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;replica_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_key&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;sync_addr&rdquo;: &ldquo;&rdquo;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<p>{<br>
+    &ldquo;node_role&rdquo;: &ldquo;primary&rdquo;,<br>
+    &ldquo;primary_node&rdquo;: {<br>
+        &ldquo;database&rdquo;: {<br>
+            &ldquo;host&rdquo;: &ldquo;127.0.0.1&rdquo;,<br>
+            &ldquo;port&rdquo;: &ldquo;5432&rdquo;,<br>
+            &ldquo;user&rdquo;: &ldquo;<code>your_postgresql_user</code>&rdquo;,<br>
+            &ldquo;password&rdquo;: &ldquo;<code>your_postgresql_password</code>&rdquo;,<br>
+            &ldquo;dbname&rdquo;: &ldquo;<code>janusec</code>&rdquo;<br>
+        }<br>
+    },<br>
+    &ldquo;replica_node&rdquo;: {<br>
+        &ldquo;node_key&rdquo;: &ldquo;&rdquo;,<br>
+        &ldquo;sync_addr&rdquo;: &quot;&quot;<br>
+    }<br>
 }</p>
 </blockquote>
-
 <ul>
 <li>&ldquo;node_role&rdquo;: &ldquo;primary&rdquo;  ( fixed <code>primary</code> )</li>
 </ul>
-
 <h5 id="replica-node-optional">Replica Node (Optional)</h5>
-
-<p>Usually only one <strong>Primary Node</strong> is required for small scale web applications.<br />
-<strong>Replica Nodes</strong> is for large scale web applications, and need GSLB (Global Server Load Balance) of yourselves.<br />
+<p>Usually only one <strong>Primary Node</strong> is required for small scale web applications.<br>
+<strong>Replica Nodes</strong> is for large scale web applications, and need GSLB (Global Server Load Balance) of yourselves.<br>
 You must copy the <code>node_key</code> in web administration portal if you need replica nodes, and paste into the <code>config.json</code> of replica nodes.</p>
-
 <blockquote>
-<p>{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_role&rdquo;: &ldquo;<code>replica</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;primary_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_http_listen&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;admin_https_listen&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;database&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;host&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;port&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;user&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;password&rdquo;: &ldquo;&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;dbname&rdquo;: &ldquo;&rdquo;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-&nbsp;&nbsp;&nbsp;&nbsp;},<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;replica_node&rdquo;: {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;node_key&rdquo;: &ldquo;<code>produced_by_web_admin_in_primary_node</code>&rdquo;,<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ldquo;sync_addr&rdquo;: &ldquo;<code>http://primary_ip/janusec-admin/api</code>&rdquo;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<p>{<br>
+    &ldquo;node_role&rdquo;: &ldquo;<code>replica</code>&rdquo;,<br>
+    &ldquo;primary_node&rdquo;: {<br>
+        &ldquo;admin_http_listen&rdquo;: &ldquo;&rdquo;,<br>
+        &ldquo;admin_https_listen&rdquo;: &ldquo;&rdquo;,<br>
+        &ldquo;database&rdquo;: {<br>
+            &ldquo;host&rdquo;: &ldquo;&rdquo;,<br>
+            &ldquo;port&rdquo;: &ldquo;&rdquo;,<br>
+            &ldquo;user&rdquo;: &ldquo;&rdquo;,<br>
+            &ldquo;password&rdquo;: &ldquo;&rdquo;,<br>
+            &ldquo;dbname&rdquo;: &quot;&quot;<br>
+        }<br>
+    },<br>
+    &ldquo;replica_node&rdquo;: {<br>
+        &ldquo;node_key&rdquo;: &ldquo;<code>produced_by_web_admin_in_primary_node</code>&rdquo;,<br>
+        &ldquo;sync_addr&rdquo;: &ldquo;<code>http://primary_ip/janusec-admin/api</code>&rdquo;<br>
+    }<br>
 }</p>
 </blockquote>
-
 <ul>
-<li>&ldquo;node_role&rdquo;: &ldquo;<code>replica</code>&rdquo;  (fixed <code>replica</code>)<br /></li>
-<li>&ldquo;node_key&rdquo;: &ldquo;<code>produced_by_web_admin_in_primary_node</code>&rdquo;  (produced by web admin)<br /></li>
+<li>&ldquo;node_role&rdquo;: &ldquo;<code>replica</code>&rdquo;  (fixed <code>replica</code>)</li>
+<li>&ldquo;node_key&rdquo;: &ldquo;<code>produced_by_web_admin_in_primary_node</code>&rdquo;  (produced by web admin)</li>
 <li>&ldquo;sync_addr&rdquo;: &ldquo;<code>http://primary_ip/janusec-admin/api</code>&rdquo;  (replace with the primary IP address)</li>
 </ul>
-
 <h3 id="step-4-start">Step 4: Start</h3>
-
 <blockquote>
 <p>#systemctl start janusec</p>
 </blockquote>
-
 <h3 id="step-5-test-installation">Step 5: Test Installation</h3>
-
 <p>Open web browser such as <code>Chrome</code>, navigate with address:</p>
-
 <blockquote>
 <p>http://<code>your_primary_ip_address</code>/janusec-admin/</p>
 </blockquote>
-
-<p>This is the first administration address for Janusec Application Gateway.<br />
-Login with default username <code>admin</code> and password <code>J@nusec123</code> .<br />
+<p>This is the first administration address for Janusec Application Gateway.<br>
+Login with default username <code>admin</code> and password <code>J@nusec123</code> .<br>
 You should change the password for security reasons.</p>
 
             </article>
@@ -310,7 +271,7 @@ You should change the password for security reasons.</p>
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     

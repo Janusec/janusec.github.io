@@ -136,218 +136,164 @@
       </div>
       <div class="col-sm-9">
             <article>
-            
-
-<h1 id="运维管理">运维管理</h1>
-
-<hr />
-
+            <h1 id="运维管理">运维管理</h1>
+<hr>
 <h4 id="部署架构">部署架构</h4>
-
 <table>
 <thead>
 <tr>
 <th>架构</th>
-<th align="center">主节点</th>
-<th align="center">副本节点</th>
+<th style="text-align:center">主节点</th>
+<th style="text-align:center">副本节点</th>
 <th>描述</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>单节点</td>
-<td align="center">一个</td>
-<td align="center">无</td>
+<td style="text-align:center">一个</td>
+<td style="text-align:center">无</td>
 <td>小规模Web应用，统一Web管理</td>
 </tr>
-
 <tr>
 <td>可扩展</td>
-<td align="center">一个</td>
-<td align="center">任意</td>
+<td style="text-align:center">一个</td>
+<td style="text-align:center">任意</td>
 <td>大规模Web应用，统一Web管理</td>
 </tr>
-
 <tr>
 <td>多个自治系统</td>
-<td align="center">任意</td>
-<td align="center">任意</td>
+<td style="text-align:center">任意</td>
+<td style="text-align:center">任意</td>
 <td>部署多套，每个自治系统内部统一Web管理.</td>
 </tr>
 </tbody>
 </table>
-
 <h4 id="管理账号">管理账号</h4>
-
 <p>统一的Web管理地址，当配置文件config.json中listen=false时，包括如下：</p>
-
 <blockquote>
-<p>http://<code>your_primary_node_ip_address</code>/janusec-admin/    (首次使用)<br />
+<p>http://<code>your_primary_node_ip_address</code>/janusec-admin/    (首次使用) <br>
 https://<code>your_primary_node_domain_name</code>/janusec-admin/  (证书配置后可用)</p>
 </blockquote>
-
 <p>当配置文件config.json中listen=true时，地址：</p>
-
 <blockquote>
-<p>http://<code>your_primary_node_ip_address:9080</code>/janusec-admin/    (首次使用)<br />
+<p>http://<code>your_primary_node_ip_address:9080</code>/janusec-admin/    (首次使用) <br>
 https://<code>your_primary_node_domain_name:9443</code>/janusec-admin/  (证书配置后可用)</p>
 </blockquote>
-
 <p>当使用单节点时，可使用任意应用的域名；当存在副本节点时，应该为主节点申请单独的域名。</p>
-
 <table>
 <thead>
 <tr>
-<th align="center">默认用户</th>
+<th style="text-align:center">默认用户</th>
 <th>默认口令</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center"><code>admin</code></td>
+<td style="text-align:center"><code>admin</code></td>
 <td><code>J@nusec123</code></td>
 </tr>
 </tbody>
 </table>
-
 <blockquote>
 <p>需要修改口令后才能继续管理功能!</p>
 </blockquote>
-
 <h4 id="端口">端口</h4>
-
 <table>
 <thead>
 <tr>
-<th align="center">端口</th>
+<th style="text-align:center">端口</th>
 <th>描述</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
-<td align="center">80</td>
+<td style="text-align:center">80</td>
 <td>固定的网关HTTP入口，主节点和副本节点均开启</td>
 </tr>
-
 <tr>
-<td align="center">443</td>
+<td style="text-align:center">443</td>
 <td>固定的网关HTTPS入口，主节点和副本节点均开启</td>
 </tr>
-
 <tr>
-<td align="center">9080</td>
+<td style="text-align:center">9080</td>
 <td>当config.json中listen=true时，仅主节点开启</td>
 </tr>
-
 <tr>
-<td align="center">9443</td>
+<td style="text-align:center">9443</td>
 <td>当config.json中listen=true时，仅主节点开启</td>
 </tr>
 </tbody>
 </table>
-
 <h4 id="进程">进程</h4>
-
 <blockquote>
 <p><code>/usr/local/janusec/janusec</code></p>
 </blockquote>
-
 <h4 id="配置文件">配置文件</h4>
-
 <blockquote>
 <p><code>/usr/local/janusec/config.json</code></p>
 </blockquote>
-
 <p><code>config.json</code> 中的 PostgreSQL 口令，将自动修改为加密存储，以32字节为界。</p>
-
 <ul>
-<li>当口令长度 &lt;= 32, 视为明文口令，将自动加密替换.<br /></li>
-<li>当口令长度 &gt; 32, 视为已加密，仅在内存解密.<br /></li>
+<li>当口令长度 &lt;= 32, 视为明文口令，将自动加密替换.</li>
+<li>当口令长度 &gt; 32, 视为已加密，仅在内存解密.</li>
 </ul>
-
 <h4 id="服务">服务</h4>
-
 <p>使用 <code>systemd</code> 管理Janusec服务，位置:</p>
-
 <blockquote>
-<p>CentOS/RHEL 7: <code>/usr/lib/systemd/system/janusec</code><br />
+<p>CentOS/RHEL 7: <code>/usr/lib/systemd/system/janusec</code>  <br>
 Debian 9: <code>/lib/systemd/system/janusec</code></p>
 </blockquote>
-
 <p>查看更多信息，可执行：</p>
-
 <blockquote>
 <p>#<code>systemctl cat janusec</code></p>
 </blockquote>
-
 <p>或者</p>
-
 <blockquote>
 <p>#<code>systemctl status janusec</code></p>
 </blockquote>
-
 <h4 id="postgresql">PostgreSQL</h4>
-
-<p>PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令.<br />
+<p>PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令. <br>
 下面以 CentOS7 和 PostgreSQL 为例，简述 PostgreSQL 的安装步骤。</p>
-
 <h5 id="在-centos-7-中部署-postgresql-10">在 CentOS 7 中部署 PostgreSQL 10</h5>
-
 <p>主要参考 <a href="https://wiki.postgresql.org/wiki/YUM_Installation">https://wiki.postgresql.org/wiki/YUM_Installation</a>
 首先添加源，方便通过yum安装。</p>
-
 <blockquote>
 <p><code>yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</code></p>
 </blockquote>
-
-<p>如果该链接失效，可通过  <code>https://yum.postgresql.org/repopackages.php</code> 获取最新地址。<br />
+<p>如果该链接失效，可通过  <code>https://yum.postgresql.org/repopackages.php</code> 获取最新地址。<br>
 添加成功后，可通过YUM安装。</p>
-
 <blockquote>
-<p>#<code>yum install postgresql10-server</code><br />
-#<code>/usr/pgsql-10/bin/postgresql-10-setup initdb</code><br />
-#<code>systemctl restart postgresql-10.service</code><br />
-#<code>su - postgres</code><br />
+<p>#<code>yum install postgresql10-server</code><br>
+#<code>/usr/pgsql-10/bin/postgresql-10-setup initdb</code><br>
+#<code>systemctl restart postgresql-10.service</code><br>
+#<code>su - postgres</code><br>
 -bash-4.2$ <code>psql</code></p>
 </blockquote>
-
 <p>接下来，在PostgreSQL的指令控制台继续操作：</p>
-
 <blockquote>
-<p>postgres=# create user <code>janusec</code> with password &lsquo;<code>your_password</code>&rsquo;;<br />
-postgres=# create database janusec owner janusec;<br />
-postgres=# grant all privileges on database janusec to janusec;<br />
-postgres=# \q<br />
+<p>postgres=# create user <code>janusec</code> with password &lsquo;<code>your_password</code>';<br>
+postgres=# create database janusec owner janusec;<br>
+postgres=# grant all privileges on database janusec to janusec;<br>
+postgres=# \q<br>
 exit</p>
 </blockquote>
-
 <p>修改PostgreSQL认证方式</p>
-
 <blockquote>
 <p>#<code>vi /var/lib/pgsql/10/data/pg_hba.conf</code></p>
 </blockquote>
-
 <p>修改 pg_hba.conf 中这一行:</p>
-
 <blockquote>
 <p><code>host    all    all    127.0.0.1/32   md5</code></p>
 </blockquote>
-
 <p>重启 PostgreSQL 服务</p>
-
 <blockquote>
 <p>systemctl restart postgresql-10.service</p>
 </blockquote>
-
 <h4 id="为web管理启用-https">为Web管理启用 HTTPS</h4>
-
 <p>如果已配置证书，可使用任一Web应用的域名，以及<code>/janusec-admin/</code>进行访问：</p>
-
 <blockquote>
-<p><code>https://your_application_domain/janusec-admin/</code> (config.json中listen=false时)<br />
+<p><code>https://your_application_domain/janusec-admin/</code> (config.json中listen=false时)  <br>
 <code>https://your_application_domain:9443/janusec-admin/</code> (config.json中listen=true时)</p>
 </blockquote>
 
@@ -357,7 +303,7 @@ exit</p>
 </div>
   <div class="container-fluid rowblock">
     
-        &copy;<a href="https://www.janusec.com/">JANUSEC（金汤智库）</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
+        &copy;<a href="https://www.janusec.com/">JANUSEC</a> All Rights Reserved. &nbsp;&nbsp;&nbsp;&nbsp;
         Contact: support<b>#</b>janusec<b>.</b>com  &nbsp;&nbsp;
         QQ Group: 776900157
     
