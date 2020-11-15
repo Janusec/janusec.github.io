@@ -141,8 +141,9 @@
 <blockquote>
 <p>本文仅供旧版本升级参考，新安装请忽略。</p>
 </blockquote>
-<p>最新版本: v0.9.11 (2020.10.24)</p>
+<p>最新版本: v0.9.12 (2020.11.14)</p>
 <p>版本历史:<br>
+v0.9.12 (2020.11.14): 增加TCP/UDP端口转发，管理界面优化
 v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP
 v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod<br>
 v0.9.9 (2020.06.19): 增加静态文件缓存<br>
@@ -171,26 +172,30 @@ v0.9.6 (2020.02.27): 增加域名重定向。</p>
 <blockquote>
 <p>#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
 #<code>tar zxf ./janusec-latest.tar.gz</code><br>
-#<code>cd /data/janusec-0.9.11/</code><br>
+#<code>cd /data/janusec-0.9.12/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
 <h3 id="从v095v098-升级">从V0.9.5~V0.9.8 升级</h3>
-<p>V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在<code>/data/janusec-latest.tar.gz</code>，升级步骤参考：</p>
+<p>第一步：<br>
+V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在<code>/data/janusec-latest.tar.gz</code>，升级步骤参考：</p>
 <blockquote>
 <p>#<code>cd /data/</code><br>
 #<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
 #<code>tar zxf ./janusec-latest.tar.gz</code><br>
 #<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
-#<code>cp ./janusec-0.9.11/config.json.primary_bak /usr/local/janusec/config.json</code></p>
+#<code>cp ./janusec-0.9.12/config.json.primary_bak /usr/local/janusec/config.json</code></p>
 </blockquote>
 <p>需要编辑新的<code>/usr/local/janusec/config.json</code>，参考<a href="/cn/configuration/">配置文件</a>，重新设置数据库账号口令等信息。</p>
 <blockquote>
 <p>#<code>vi /usr/local/janusec/config.json</code></p>
 </blockquote>
-<p>然后正常覆盖安装即可（已存在config.json的情况下不会覆盖config.json）：</p>
+<p>第二步：<br>
+检查nftables是否已正常运行。</p>
+<p>第三步：<br>
+正常覆盖安装即可（已存在config.json的情况下不会覆盖config.json）：</p>
 <blockquote>
-<p>#<code>cd /data/janusec-0.9.11/</code><br>
+<p>#<code>cd /data/janusec-0.9.12/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
@@ -203,6 +208,8 @@ v0.9.6 (2020.02.27): 增加域名重定向。</p>
 </blockquote>
 <p>否则无法重启服务。</p>
 <p>第二步：<br>
+检查nftables是否已正常运行。</p>
+<p>第三步：<br>
 备份配置文件或记录其中的口令备用（原始口令或加密后的口令均可）。<br>
 删除配置文件config.json后，重新安装最新版本（新安装不会覆盖已存在的配置文件，因此需要删除，让安装程序自动复制一份新的配置文件）。<br>
 安装后，检查新配置文件，将原始口令或加密后的口令配置进去。</p>
@@ -210,7 +217,7 @@ v0.9.6 (2020.02.27): 增加域名重定向。</p>
 <blockquote>
 <p><code>systemctl restart janusec</code></p>
 </blockquote>
-<p>无效  ，可以kill其进程。</p>
+<p>无效  ，可以kill其进程然后重新运行一次。</p>
 
             </article>
       </div>

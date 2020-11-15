@@ -210,9 +210,9 @@ X-Auth-User: UserID
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v0.9.11 (2020.10.24)
+ 最新版本: v0.9.12 (2020.11.14)
 版本历史:
-v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod
+v0.9.12 (2020.11.14): 增加TCP/UDP端口转发，管理界面优化 v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod
 v0.9.9 (2020.06.19): 增加静态文件缓存
 v0.9.8 (2020.05.17): 增加LDAP认证，增加静态网站、FastCGI网站支持。
 v0.9.7 (2020.03.29): 为各应用及管理入口增加OAuth2统一登录（可选企业微信、钉钉、飞书）；可限制管理入口开放范围（例如只开放内网）；Web SSH安全运维支持禁用或开启。
@@ -229,8 +229,7 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
 #systemctl start firewalld
  然后覆盖安装即可：
  #wget https://www.janusec.com/download/janusec-latest.tar.gz
-#tar zxf ./janusec-latest.tar.gz
-#cd /data/janusec-0.9.11/</description>
+#tar zxf .</description>
     </item>
     
     <item>
