@@ -266,13 +266,13 @@ Debian 9: <code>/lib/systemd/system/janusec</code></p>
 <blockquote>
 <p>#<code>yum install postgresql10-server</code><br>
 #<code>/usr/pgsql-10/bin/postgresql-10-setup initdb</code><br>
-#<code>systemctl restart postgresql-10.service</code>
+#<code>systemctl restart postgresql-10.service</code><br>
 #<code>su - postgres</code><br>
 -bash-4.2$ <code>psql</code></p>
 </blockquote>
 <p>PostgreSQL Shell</p>
 <blockquote>
-<p>postgres=# create user <code>janusec</code> with password &lsquo;<code>your_password</code>';<br>
+<p>postgres=# create user <code>janusec</code> with password '<code>your_password</code>';<br>
 postgres=# create database janusec owner janusec;<br>
 postgres=# grant all privileges on database janusec to janusec;<br>
 postgres=# \q<br>

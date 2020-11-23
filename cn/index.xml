@@ -210,8 +210,9 @@ X-Auth-User: UserID
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v0.9.12 (2020.11.14)
+ 最新版本: v0.9.13 (2020.11.22)
 版本历史:
+v0.9.13 (2020.11.22): 支持未命中域名（如通过IP访问）时的自定义网站（/usr/local/janusec/static/welcome/index.html），API可读性调整
 v0.9.12 (2020.11.14): 增加TCP/UDP端口转发，管理界面优化 v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod
 v0.9.9 (2020.06.19): 增加静态文件缓存
 v0.9.8 (2020.05.17): 增加LDAP认证，增加静态网站、FastCGI网站支持。
@@ -219,17 +220,17 @@ v0.9.7 (2020.03.29): 为各应用及管理入口增加OAuth2统一登录（可�
 v0.9.6 (2020.02.27): 增加域名重定向。
 查看当前版本 当前版本信息可通过管理入口查看，或者:
  ./janusec --version
+ 从v0.9.10+升级 不用卸载，直接覆盖安装即可。
+ #wget https://www.janusec.com/download/janusec-latest.tar.gz
+#tar zxf ./janusec-latest.tar.gz
+#cd /data/janusec-0.9.xx/
+#./install.sh
+#systemctl restart janusec
  从V0.9.9升级 从V0.9.10开始，启用nftables，用于拦截CC攻击，减轻应用网关压力。
 CentOS 7默认没有安装nftables，需要手工安装并启动：
  #yum -y install nftables
 #systemctl enable nftables
-#systemctl start nftables
- CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：
- #systemctl enable firewalld
-#systemctl start firewalld
- 然后覆盖安装即可：
- #wget https://www.janusec.com/download/janusec-latest.tar.gz
-#tar zxf .</description>
+#systemctl start nftables</description>
     </item>
     
     <item>

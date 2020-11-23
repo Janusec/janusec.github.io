@@ -141,8 +141,9 @@
 <blockquote>
 <p>本文仅供旧版本升级参考，新安装请忽略。</p>
 </blockquote>
-<p>最新版本: v0.9.12 (2020.11.14)</p>
+<p>最新版本: v0.9.13 (2020.11.22)</p>
 <p>版本历史:<br>
+v0.9.13 (2020.11.22): 支持未命中域名（如通过IP访问）时的自定义网站（/usr/local/janusec/static/welcome/index.html），API可读性调整<br>
 v0.9.12 (2020.11.14): 增加TCP/UDP端口转发，管理界面优化
 v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP
 v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod<br>
@@ -154,6 +155,15 @@ v0.9.6 (2020.02.27): 增加域名重定向。</p>
 <p>当前版本信息可通过管理入口查看，或者:</p>
 <blockquote>
 <p><code>./janusec --version</code></p>
+</blockquote>
+<h3 id="从v0910升级">从v0.9.10+升级</h3>
+<p>不用卸载，直接覆盖安装即可。</p>
+<blockquote>
+<p>#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
+#<code>tar zxf ./janusec-latest.tar.gz</code><br>
+#<code>cd /data/janusec-0.9.xx/</code><br>
+#<code>./install.sh</code><br>
+#<code>systemctl restart janusec</code></p>
 </blockquote>
 <h3 id="从v099升级">从V0.9.9升级</h3>
 <p>从V0.9.10开始，启用nftables，用于拦截CC攻击，减轻应用网关压力。</p>
@@ -172,7 +182,7 @@ v0.9.6 (2020.02.27): 增加域名重定向。</p>
 <blockquote>
 <p>#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
 #<code>tar zxf ./janusec-latest.tar.gz</code><br>
-#<code>cd /data/janusec-0.9.12/</code><br>
+#<code>cd /data/janusec-0.9.xx/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
@@ -184,7 +194,7 @@ V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的
 #<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
 #<code>tar zxf ./janusec-latest.tar.gz</code><br>
 #<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
-#<code>cp ./janusec-0.9.12/config.json.primary_bak /usr/local/janusec/config.json</code></p>
+#<code>cp ./janusec-0.9.xx/config.json.primary_bak /usr/local/janusec/config.json</code></p>
 </blockquote>
 <p>需要编辑新的<code>/usr/local/janusec/config.json</code>，参考<a href="/cn/configuration/">配置文件</a>，重新设置数据库账号口令等信息。</p>
 <blockquote>
@@ -195,7 +205,7 @@ V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的
 <p>第三步：<br>
 正常覆盖安装即可（已存在config.json的情况下不会覆盖config.json）：</p>
 <blockquote>
-<p>#<code>cd /data/janusec-0.9.12/</code><br>
+<p>#<code>cd /data/janusec-0.9.xx/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
