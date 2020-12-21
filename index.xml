@@ -122,7 +122,7 @@ Configuration Items  The following is based on Janusec Application Gateway V0.9.
 开发环境配置文件为 ./config.json
 配置项说明  以下为Janusec Application Gateway V0.9.9 配置文件参考。
 由于JSON格式支持的注释格式看起来不方便，下面采用//作为注释说明，实际使用时需要删除注释。
-{&amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // 单节点或主节点配置为&amp;quot;primary&amp;quot;，副本节点配置为&amp;quot;replica&amp;quot;&amp;quot;primary_node&amp;quot;: { // 主节点使用此配置，如果是副本节点，这部分配置留空&amp;quot;admin&amp;quot;: { // 后台管理&amp;quot;listen&amp;quot;: true, // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录&amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问&amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问&amp;quot;portal&amp;quot;: &amp;quot;https://gate.janusec.com:9443/janusec-admin/&amp;quot;, // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号&amp;quot;webssh_enabled&amp;quot;: false // 为true时，允许使用Web SSH运维功能},&amp;quot;database&amp;quot;: { // PostgreSQL 数据库配置，需要至少使用9.3以上版本&amp;quot;host&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, // PostgreSQL IP地址&amp;quot;port&amp;quot;: &amp;quot;5432&amp;quot;, // PostgreSQL 监听端口，默认5432&amp;quot;user&amp;quot;: &amp;quot;postgres&amp;quot;, // 数据库用户名&amp;quot;password&amp;quot;: &amp;quot;123456&amp;quot;, // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密&amp;quot;dbname&amp;quot;: &amp;quot;janusec&amp;quot; // 数据库名},&amp;quot;oauth&amp;quot;: { // OAuth2统一身份认证&amp;quot;enabled&amp;quot;: false, // 设置为true时，启用OAuth2统一身份认证&amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;, // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)、ldap(LDAP)&amp;quot;wxwork&amp;quot;: { // 企业微信配置// 登录界面显示&amp;quot;display_name&amp;quot;: &amp;quot;Login with WeChat Work&amp;quot;, // callback中只修改http/https及域名，后面的路径不变，也不带端口号&amp;quot;callback&amp;quot;: &amp;quot;https://your_domain.</description>
+{&amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // 单节点或主节点配置为&amp;quot;primary&amp;quot;，副本节点配置为&amp;quot;replica&amp;quot;&amp;quot;primary_node&amp;quot;: { // 主节点使用此配置，如果是副本节点，这部分配置留空&amp;quot;admin&amp;quot;: { // 后台管理&amp;quot;listen&amp;quot;: true, // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录&amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问&amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问&amp;quot;portal&amp;quot;: &amp;quot;https://gate.janusec.com:9443/janusec-admin/&amp;quot;, // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号&amp;quot;webssh_enabled&amp;quot;: false // 为true时，允许使用Web SSH运维功能},&amp;quot;database&amp;quot;: { // PostgreSQL 数据库配置，需要至少使用9.3以上版本&amp;quot;host&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, // PostgreSQL IP地址&amp;quot;port&amp;quot;: &amp;quot;5432&amp;quot;, // PostgreSQL 监听端口，默认5432&amp;quot;user&amp;quot;: &amp;quot;postgres&amp;quot;, // 数据库用户名&amp;quot;password&amp;quot;: &amp;quot;123456&amp;quot;, // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密&amp;quot;dbname&amp;quot;: &amp;quot;janusec&amp;quot; // 数据库名},&amp;quot;oauth&amp;quot;: { // OAuth2统一身份认证&amp;quot;enabled&amp;quot;: false, // 设置为true时，启用OAuth2统一身份认证&amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;, // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)、ldap(LDAP)、cas2(CAS Server) &amp;quot;wxwork&amp;quot;: { // 企业微信配置// 登录界面显示&amp;quot;display_name&amp;quot;: &amp;quot;Login with WeChat Work&amp;quot;, // callback中只修改http/https及域名，后面的路径不变，也不带端口号&amp;quot;callback&amp;quot;: &amp;quot;https://your_domain.</description>
     </item>
     
     <item>
@@ -361,9 +361,8 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v0.9.13 (Nov 22, 2020)
-v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured (example: IP address used), and API interface optimizaiton. v0.9.12 (Nov 14, 2020): Add TCP/UDP port forwarding, and admin UI optimizaiton.
-v0.9.11 (Oct 24, 2020): Add health check for backend servers, add CSP v0.9.10 (Sep 26, 2020): Add nftables support for CC defense</description>
+ Latest version: v0.9.14 (Dec 21, 2020)
+v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured (example: IP address used), and API interface optimizaiton. v0.9.12 (Nov 14, 2020): Add TCP/UDP port forwarding, and admin UI optimizaiton.</description>
     </item>
     
     <item>
@@ -373,9 +372,9 @@ v0.9.11 (Oct 24, 2020): Add health check for backend servers, add CSP v0.9.10 (S
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v0.9.13 (2020.11.22)
+ 最新版本: v0.9.14 (2020.12.21)
 版本历史:
-v0.9.13 (2020.11.22): 支持未命中域名（如通过IP访问）时的自定义网站（/usr/local/janusec/static/welcome/index.html），API可读性调整
+v0.9.14 (2020.12.21): 增加CAS2.0身份认证，优化CAPTCHA界面 v0.9.13 (2020.11.22): 支持未命中域名（如通过IP访问）时的自定义网站（/usr/local/janusec/static/welcome/index.html），API可读性调整
 v0.9.12 (2020.11.14): 增加TCP/UDP端口转发，管理界面优化 v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod
 v0.9.9 (2020.06.19): 增加静态文件缓存
 v0.9.8 (2020.05.17): 增加LDAP认证，增加静态网站、FastCGI网站支持。
@@ -392,8 +391,7 @@ v0.9.6 (2020.02.27): 增加域名重定向。
  从V0.9.9升级 从V0.9.10开始，启用nftables，用于拦截CC攻击，减轻应用网关压力。
 CentOS 7默认没有安装nftables，需要手工安装并启动：
  #yum -y install nftables
-#systemctl enable nftables
-#systemctl start nftables</description>
+#systemctl enable nftables</description>
     </item>
     
     <item>

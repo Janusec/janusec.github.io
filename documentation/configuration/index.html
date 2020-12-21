@@ -164,7 +164,7 @@ Development environment: <code>./config.json</code></p>
         },
         &quot;oauth&quot;: {                    // OAuth2
             &quot;enabled&quot;: false,         // true: Enable LDAP or OAuth2 Authentication
-            &quot;provider&quot;: &quot;wxwork&quot;,     // ldap (LDAP), wxwork(WeChat Work), dingtalk(DingTalk), feishu(Feishu)
+            &quot;provider&quot;: &quot;wxwork&quot;,     // ldap (LDAP), wxwork(WeChat Work), dingtalk(DingTalk), feishu(Feishu), cas2(CAS Server)
             &quot;wxwork&quot;: {               // WeChat Work
                 &quot;display_name&quot;: &quot;Login with WeChat Work&quot;,     
                 // Only http/https and domain changable, don't use port number
@@ -202,6 +202,16 @@ Development environment: <code>./config.json</code></p>
                 &quot;using_tls&quot;:false,
                 // Enable Authenticator (Google Authenticator or Microsoft Authenticator)
                 &quot;authenticator_enabled&quot;: false
+            },
+            &quot;cas2&quot;: {
+                // Show on UI
+                &quot;display_name&quot;: &quot;Login with CAS 2.0&quot;,
+
+                // Entrance of the CAS Server, end with /cas   
+                &quot;entrance&quot;: &quot;https://cas_server/cas&quot;,
+
+                // callback address, using the domain name of the gateway, and end with /oauth/cas2, no port number
+                &quot;callback&quot;: &quot;http://gate.janusec.com/oauth/cas2&quot;
             }
         }
     },
