@@ -118,6 +118,11 @@
   </url>
   
   <url>
+    <loc>/documentation/oauth2/</loc>
+    <lastmod>2020-03-28T23:04:25+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/cn/oauth2/</loc>
     <lastmod>2020-03-28T23:04:25+08:00</lastmod>
   </url>
@@ -179,7 +184,7 @@
   
   <url>
     <loc>/documentation/</loc>
-    <lastmod>2020-03-22T10:11:09+08:00</lastmod>
+    <lastmod>2020-03-28T23:04:25+08:00</lastmod>
   </url>
   
   <url>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>OAuth2身份认证</title>
+    <title>OAuth2 Authentication</title>
     <meta name="keywords" content="[Janusec, Application Gateway, WAF, Web Application Firewall, Web应用防火墙, OAuth2]">
-    <meta name="description" content="Janusec应用网关身份认证管理">
+    <meta name="description" content="Janusec Authentication">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -54,116 +54,121 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/quick-start/">快速入门</a>
+              <a href="/documentation/quick-start/">Quick Start</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/introduction/">产品介绍</a>
+              <a href="/documentation/introduction/">Introduction</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/installation/">安装</a>
+              <a href="/documentation/installation/">Installation</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/configuration/">配置文件</a>
+              <a href="/documentation/configuration/">Configuration File</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/admin/">管理</a>
+              <a href="/documentation/admin/">Administration</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/certificate-management/">证书管理</a>
+              <a href="/documentation/certificate-management/">Certificate Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/application-management/">应用管理</a>
+              <a href="/documentation/application-management/">Application Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/node-management/">节点管理</a>
+              <a href="/documentation/node-management/">Node Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/waf-management/">WAF管理</a>
+              <a href="/documentation/waf-management/">WAF Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/operation-management/">运维管理</a>
+              <a href="/documentation/operation-management/">Operation Management</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/oauth2/">OAuth2身份认证</a>
+              <a href="/documentation/oauth2/">OAuth2 Authentication</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+              <a href="/documentation/migrate-to-janusec/">Migrate to Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/update-janusec/">升级Janusec</a>
+              <a href="/documentation/update-janusec/">Update Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/faq/">FAQ</a>
+              <a href="/documentation/pricing/">Pricing</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/diagnose/">问题诊断</a>
+              <a href="/documentation/faq/">FAQ</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/appendix-re2/">附录1:RE2正则规则解读</a>
+              <a href="/documentation/user-agreement/">User Agreement</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/documentation/diagnose/">Diagnose</a>
             </li>
           
         </ul>
       </div>
       <div class="col-sm-9">
             <article>
-            <h1 id="oauth2统一身份认证">OAuth2统一身份认证</h1>
+            <h1 id="oauth2-authentication">OAuth2 Authentication</h1>
 <hr>
-<h3 id="简介">简介</h3>
-<p>Janusec Application Gateway支持如下身份认证：</p>
+<h3 id="introduction">Introduction</h3>
+<p>Janusec Application Gateway supports the following authentication：</p>
 <ul>
 <li>LDAP</li>
 <li>CAS 2.0</li>
-<li>企业微信扫码登录</li>
-<li>钉钉扫码登录</li>
-<li>飞书扫码登录</li>
+<li>WeWork</li>
+<li>DingTalk</li>
+<li>Feishu</li>
 </ul>
-<p>并同时作用于管理后台，以及员工访问内网应用。</p>
-<h3 id="配置">配置</h3>
-<p>如需启用，请在配置文件config.json中开启：</p>
+<p>Used for janusec-admin, and internal applications, for employees.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Enable authentication in config.json :</p>
 <pre><code>&quot;oauth&quot;: {
             &quot;enabled&quot;: true,
             &quot;provider&quot;: &quot;wxwork&quot;,
             ...
 }
-</code></pre><p>上述provider中，<code>ldap</code>表示LDAP认证，<code>cas2</code>表示CAS 2.0认证，<code>wxwork</code>表示企业微信扫码登录，<code>dingtalk</code>表示钉钉扫码登录，<code>feishu</code>表示飞书扫码登录。</p>
-<h3 id="应用如何获取用户身份">应用如何获取用户身份</h3>
-<p>Janusec认证通过后，会在HTTP请求的头部添加两行：</p>
+</code></pre><p>provider, <code>ldap</code> means LDAP authentication，<code>cas2</code> means CAS 2.0,<code>wxwork</code> means WxWork, <code>dingtalk</code> means DingTalk, <code>feishu</code> means Feishu.</p>
+<h3 id="how-to-get-userid-in-applications">How to Get UserID in Applications</h3>
+<p>Janusec will add the following headers if authentication passed.</p>
 <blockquote>
-<p>X-Auth-Token: <code>Access-Token</code>  （备注： 0.9.15使用<code>X-Auth-Token</code>替换之前的<code>Authorization</code>）  <br>
+<p>X-Auth-Token: <code>Access-Token</code>  (Note: 0.9.15 uses <code>X-Auth-Token</code> instead previous <code>Authorization</code>)  <br>
 X-Auth-User: <code>UserID</code></p>
 </blockquote>
-<p>应用不需要修改即可使用，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。</p>
-<h3 id="ldap配置">LDAP配置</h3>
+<p>The application can be used without modification.</p>
+<h3 id="ldap">LDAP</h3>
 <p>在配置文件的<code>&quot;ldap&quot;</code>字段：</p>
 <p>登录界面显示:</p>
 <blockquote>
@@ -173,15 +178,15 @@ X-Auth-User: <code>UserID</code></p>
 <blockquote>
 <p>&ldquo;entrance&rdquo;: &ldquo;<code>https://your_domain.com</code>/ldap/login&rdquo;,</p>
 </blockquote>
-<p>LDAP服务器地址（格式采用 域名:端口 ，如果启用TLS，请注意修改端口号）：</p>
+<p>LDAP服务器地址(格式采用 域名:端口 ，如果启用TLS，请注意修改端口号)：</p>
 <blockquote>
 <p>&ldquo;address&rdquo;: &ldquo;ldap_domain:389&rdquo;</p>
 </blockquote>
-<p>LDAP DN区分名称（需要根据实际DN修改，{uid}请保持不变）：</p>
+<p>LDAP DN区分名称(需要根据实际DN修改，{uid}请保持不变)：</p>
 <blockquote>
 <p>&ldquo;dn&rdquo;: &ldquo;uid={uid},ou=People,dc=janusec,dc=com&rdquo;,</p>
 </blockquote>
-<p>是否启用TLS加密传输（如果启用，请一并检查LDAP服务器端口，默认636）：</p>
+<p>是否启用TLS加密传输(如果启用，请一并检查LDAP服务器端口，默认636)：</p>
 <blockquote>
 <p>&ldquo;using_tls&rdquo;: false</p>
 </blockquote>
@@ -254,10 +259,8 @@ X-Auth-User: <code>UserID</code></p>
 <p>&ldquo;appid&rdquo;: &ldquo;cli_9ef21d00e&rdquo;,<br>
 &ldquo;appsecret&rdquo;: &ldquo;ihUBspRAG1PtNdDLUZ&rdquo;</p>
 </blockquote>
-<h3 id="退出登录">退出登录</h3>
-<p>后端网站只需要添加一个退出链接 /oauth/logout ，用户点击后即可实现退出效果。</p>
-<h3 id="原理介绍与演示">原理介绍与演示</h3>
-<p>原理介绍与演示效果，参见： <a href="https://www.janusec.com/articles/opensource/1585458493.html">使用JANUSEC应用网关给内部网站添加身份认证</a></p>
+<h3 id="logout">Logout</h3>
+<p>Just add one link <code>/oauth/logout</code> on your application.</p>
 <h3 id="多节点注意事项">多节点注意事项</h3>
 <p>OAuth2需要使用回调域名(在config.json中callback配置)，这里请选定并配置一个域名，可以是任意已配置应用中的域名(不包括单独为主节点申请的域名)，假设为www.your_domain.com 。</p>
 <p>但需要注意的是，DNS解析应确保其对所有应用的解析，在同一个办公场地，均指向同一个网关。如果员工访问的应用，跟回调域名指向不同的网关地址，则OAuth2将不可用。</p>

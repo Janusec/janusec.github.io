@@ -166,27 +166,25 @@ abc&#39; oR &amp;quot;abc&amp;quot;=&amp;quot;abc
       <pubDate>Sat, 28 Mar 2020 23:04:25 +0800</pubDate>
       
       <guid>/cn/oauth2/</guid>
-      <description>OAuth2统一身份认证  简介 Janusec Application Gateway支持LDAP身份认证和OAuth2统一身份认证，可使用企业微信、钉钉、飞书扫码登录，包括:
- 管理后台 配置中启用OAuth2身份认证的应用(用于员工访问内网应用)  配置 如需启用，请在配置文件config.json中开启：
-&amp;quot;oauth&amp;quot;: {&amp;quot;enabled&amp;quot;: true,&amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;,...}上述provider中，wxwork表示企业微信扫码登录，dingtalk表示钉钉扫码登录，feishu表示飞书扫码登录，ldap表示LDAP认证。
+      <description>OAuth2统一身份认证  简介 Janusec Application Gateway支持如下身份认证：
+ LDAP CAS 2.0 企业微信扫码登录 钉钉扫码登录 飞书扫码登录  并同时作用于管理后台，以及员工访问内网应用。
+配置 如需启用，请在配置文件config.json中开启：
+&amp;quot;oauth&amp;quot;: {&amp;quot;enabled&amp;quot;: true,&amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;,...}上述provider中，ldap表示LDAP认证，cas2表示CAS 2.0认证，wxwork表示企业微信扫码登录，dingtalk表示钉钉扫码登录，feishu表示飞书扫码登录。
 应用如何获取用户身份 Janusec认证通过后，会在HTTP请求的头部添加两行：
- Authorization: Bearer Access-Token
-X-Auth-User: UserID
+ X-Auth-Token: Access-Token （备注： 0.9.15使用X-Auth-Token替换之前的Authorization） X-Auth-User: UserID
  应用不需要修改即可使用，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。
-企业微信配置 在配置文件的&amp;quot;wxwork&amp;quot;字段：
+LDAP配置 在配置文件的&amp;quot;ldap&amp;quot;字段：
 登录界面显示:
- &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with WeChat Work&amp;rdquo;,
- 回调地址(需要同时在该应用&amp;quot;开发者接口&amp;quot;一栏配置&amp;quot;授权回调域&amp;quot;，配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):
- &amp;ldquo;callback&amp;rdquo;: &amp;ldquo;https://your_domain.com/oauth/wxwork&amp;rdquo;,
- 企业ID (在https://work.weixin.qq.com/wework_admin/frame#profile 下方可看到企业ID信息):
- &amp;ldquo;corpid&amp;rdquo;: &amp;ldquo;wwd03be1f8&amp;rdquo;,
- AgentID (在https://work.weixin.qq.com/wework_admin/frame#apps 创建名为JANUSEC的自建应用即可看到):
- &amp;ldquo;agentid&amp;rdquo;: &amp;ldquo;1000002&amp;rdquo;,
- corpsecret (即上述自建应用的Secret，请据实修改):
- &amp;ldquo;corpsecret&amp;rdquo;: &amp;ldquo;BgZtz_hssdZV5em-AyGhOgLlm18rU_NdZI&amp;rdquo;
- 钉钉配置 在配置文件的&amp;quot;dingtalk&amp;quot;字段：
-登录界面显示:
- &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with DingTalk&amp;rdquo;,</description>
+ &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with LDAP&amp;rdquo;,
+ LDAP登录入口(配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):
+ &amp;ldquo;entrance&amp;rdquo;: &amp;ldquo;https://your_domain.com/ldap/login&amp;rdquo;,
+ LDAP服务器地址（格式采用 域名:端口 ，如果启用TLS，请注意修改端口号）：
+ &amp;ldquo;address&amp;rdquo;: &amp;ldquo;ldap_domain:389&amp;rdquo;
+ LDAP DN区分名称（需要根据实际DN修改，{uid}请保持不变）：
+ &amp;ldquo;dn&amp;rdquo;: &amp;ldquo;uid={uid},ou=People,dc=janusec,dc=com&amp;rdquo;,
+ 是否启用TLS加密传输（如果启用，请一并检查LDAP服务器端口，默认636）：
+ &amp;ldquo;using_tls&amp;rdquo;: false
+ CAS 2.</description>
     </item>
     
     <item>
@@ -210,10 +208,13 @@ X-Auth-User: UserID
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v0.9.14 (2020.12.21)
+ 最新版本: v0.9.15 (2020.12.27)
 版本历史:
-v0.9.14 (2020.12.21): 增加CAS2.0身份认证，优化CAPTCHA界面 v0.9.13 (2020.11.22): 支持未命中域名（如通过IP访问）时的自定义网站（/usr/local/janusec/static/welcome/index.html），API可读性调整
-v0.9.12 (2020.11.14): 增加TCP/UDP端口转发，管理界面优化 v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod
+v0.9.15 (2020.12.27): 大幅提升CC防御能力，日志清理期限可配置 v0.9.14 (2020.12.20): 增加CAS2.0身份认证，优化CAPTCHA界面
+v0.9.13 (2020.11.22): 支持未命中域名（如通过IP访问）时的自定义网站（/usr/local/janusec/static/welcome/index.html），API可读性调整
+v0.9.12 (2020.11.14): 增加TCP/UDP端口转发，管理界面优化
+v0.9.11 (2020.10.24)： 增加增加后端服务器健康检查，增加CSP
+v0.9.10 (2020.09.26): 增加nftables拦截CC高频请求，启用go mod
 v0.9.9 (2020.06.19): 增加静态文件缓存
 v0.9.8 (2020.05.17): 增加LDAP认证，增加静态网站、FastCGI网站支持。
 v0.9.7 (2020.03.29): 为各应用及管理入口增加OAuth2统一登录（可选企业微信、钉钉、飞书）；可限制管理入口开放范围（例如只开放内网）；Web SSH安全运维支持禁用或开启。
@@ -228,8 +229,7 @@ v0.9.6 (2020.02.27): 增加域名重定向。
 #systemctl restart janusec
  从V0.9.9升级 从V0.9.10开始，启用nftables，用于拦截CC攻击，减轻应用网关压力。
 CentOS 7默认没有安装nftables，需要手工安装并启动：
- #yum -y install nftables
-#systemctl enable nftables</description>
+ #yum -y install nftables</description>
     </item>
     
     <item>

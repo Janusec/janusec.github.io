@@ -6,7 +6,7 @@
     <description>Recent content in Documentations on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Mar 2020 10:11:09 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Mar 2020 23:04:25 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quick Start</title>
       <link>/documentation/quick-start/</link>
@@ -125,6 +125,19 @@ If you want to check url values only ( GET Only ), please select URLQuery .
     </item>
     
     <item>
+      <title>OAuth2 Authentication</title>
+      <link>/documentation/oauth2/</link>
+      <pubDate>Sat, 28 Mar 2020 23:04:25 +0800</pubDate>
+      
+      <guid>/documentation/oauth2/</guid>
+      <description>OAuth2 Authentication  Introduction Janusec Application Gateway supports the following authentication：
+ LDAP CAS 2.0 WeWork DingTalk Feishu  Used for janusec-admin, and internal applications, for employees.
+Configuration Enable authentication in config.json :
+&amp;quot;oauth&amp;quot;: {&amp;quot;enabled&amp;quot;: true,&amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;,...}provider, ldap means LDAP authentication，cas2 means CAS 2.0,wxwork means WxWork, dingtalk means DingTalk, feishu means Feishu.
+How to Get UserID in Applications Janusec will add the following headers if authentication passed.</description>
+    </item>
+    
+    <item>
       <title>Migrate to Janusec</title>
       <link>/documentation/migrate-to-janusec/</link>
       <pubDate>Wed, 06 Jun 2018 21:56:05 +0800</pubDate>
@@ -144,8 +157,10 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v0.9.14 (Dec 21, 2020)
-v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured (example: IP address used), and API interface optimizaiton. v0.9.12 (Nov 14, 2020): Add TCP/UDP port forwarding, and admin UI optimizaiton.</description>
+ Latest version: v0.9.15 (Dec 27, 2020)
+v0.9.15 (Dec 27, 2020): Improve CC defense, Log cleaning period can be configured
+v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA
+v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured (example: IP address used), and API interface optimizaiton.</description>
     </item>
     
     <item>

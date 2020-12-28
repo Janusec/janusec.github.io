@@ -286,9 +286,10 @@ exit</p>
 <blockquote>
 <p><code>host    all    all    127.0.0.1/32   md5</code></p>
 </blockquote>
-<p>重启 PostgreSQL 服务</p>
+<p>将PostgreSQL设置为开机启动，并重启 PostgreSQL 服务</p>
 <blockquote>
-<p>systemctl restart postgresql-10.service</p>
+<p>systemctl enable postgresql-10
+systemctl restart postgresql-10</p>
 </blockquote>
 <h4 id="为web管理启用-https">为Web管理启用 HTTPS</h4>
 <p>如果已配置证书，可使用任一Web应用的域名，以及<code>/janusec-admin/</code>进行访问：</p>

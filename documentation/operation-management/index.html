@@ -104,6 +104,11 @@
           
             <li class="list__post list-group-item">
               <span></span>
+              <a href="/documentation/oauth2/">OAuth2 Authentication</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
               <a href="/documentation/migrate-to-janusec/">Migrate to Janusec</a>
             </li>
           
@@ -286,9 +291,10 @@ exit</p>
 <blockquote>
 <p><code>host    all    all    127.0.0.1/32   md5</code></p>
 </blockquote>
-<p>Restart PostgreSQL Service</p>
+<p>Set PostgreSQL stard when boot, and restart PostgreSQL Service</p>
 <blockquote>
-<p>systemctl restart postgresql-10.service</p>
+<p>systemctl enable postgresql-10
+systemctl restart postgresql-10.service</p>
 </blockquote>
 <h4 id="enable-https-for-administration">Enable HTTPS for Administration</h4>
 <p>At least one certificate and one application configured, you can use the application domain and administration port to access it.</p>
