@@ -138,13 +138,13 @@
             <article>
             <h1 id="配置文件">配置文件</h1>
 <hr>
-<h4 id="配置文件路径">配置文件路径</h4>
+<h3 id="配置文件路径">配置文件路径</h3>
 <hr>
 <p>生产环境配置文件为 <code>/usr/local/janusec/config.json</code><br>
 开发环境配置文件为 <code>./config.json</code></p>
-<h4 id="配置项说明">配置项说明</h4>
+<h3 id="配置项说明">配置项说明</h3>
 <hr>
-<p>以下为Janusec Application Gateway V0.9.9 配置文件参考。<br>
+<p>以下为Janusec Application Gateway V1.0.0+ 配置文件参考。<br>
 由于JSON格式支持的注释格式看起来不方便，下面采用<code>//</code>作为注释说明，实际使用时需要删除注释。</p>
 <pre><code>{
     &quot;node_role&quot;: &quot;primary&quot;,            // 单节点或主节点配置为&quot;primary&quot;，副本节点配置为&quot;replica&quot;
@@ -156,14 +156,28 @@
             &quot;portal&quot;: &quot;https://gate.janusec.com:9443/janusec-admin/&quot;,   // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号
             &quot;webssh_enabled&quot;: false   // 为true时，允许使用Web SSH运维功能
         },
-        &quot;database&quot;: {                 // PostgreSQL 数据库配置，需要至少使用9.3以上版本
+        &quot;database&quot;: {                 // PostgreSQL 10/11/12+  
             &quot;host&quot;: &quot;127.0.0.1&quot;,      // PostgreSQL IP地址
             &quot;port&quot;: &quot;5432&quot;,           // PostgreSQL 监听端口，默认5432
             &quot;user&quot;: &quot;postgres&quot;,       // 数据库用户名
             &quot;password&quot;: &quot;123456&quot;,     // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密
             &quot;dbname&quot;: &quot;janusec&quot;       // 数据库名
-        },
-        &quot;oauth&quot;: {                    // OAuth2统一身份认证
+        }
+    },
+    &quot;replica_node&quot;: {      // 副本节点配置
+        // node_key在主节点的后台管理-节点管理中复制
+        &quot;node_key&quot;: &quot;&quot;,  
+        // 如果后台管理界面开启独立的监听端口(上面的listen为true)，则在IP或域名后面带上端口
+        // 如果使用https和域名，需要单独为主节点申请一个域名，并配置一个独立的应用(Application)使用该域名，Destination可填写127.0.0.1:9999(实际不用)
+        &quot;sync_addr&quot;: &quot;http://gateway.primary_node.com:9080/janusec-admin/api&quot;
+    }
+}
+</code></pre><h3 id="升级说明">升级说明</h3>
+<hr>
+<p>从版本1.0.0开始，OAuth身份认证配置迁移到Web管理界面，config.json文件中不再需要oauth字段。<br>
+如果从0.9.X版本升级而来，config.json文件中的该字段不会被自动删除，虽不影响网关运行，但建议手工删除（连同它前面的逗号）。<br>
+以下是0.9.X版本中的oauth配置参考：</p>
+<pre><code>&quot;oauth&quot;: {                    // OAuth2统一身份认证
             &quot;enabled&quot;: false,         // 设置为true时，启用OAuth2统一身份认证
             &quot;provider&quot;: &quot;wxwork&quot;,     // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)、ldap(LDAP)、cas2(CAS Server)  
             &quot;wxwork&quot;: {               // 企业微信配置
@@ -237,15 +251,6 @@
                 &quot;callback&quot;: &quot;http://gate.janusec.com/oauth/cas2&quot;
             }
         }
-    },
-    &quot;replica_node&quot;: {      // 副本节点配置
-        // node_key在主节点的后台管理-节点管理中复制
-        &quot;node_key&quot;: &quot;&quot;,  
-        // 如果后台管理界面开启独立的监听端口(上面的listen为true)，则在IP或域名后面带上端口
-        // 如果使用https和域名，需要单独为主节点申请一个域名，并配置一个独立的应用(Application)使用该域名，Destination可填写127.0.0.1:9999(实际不用)
-        &quot;sync_addr&quot;: &quot;http://gateway.primary_node.com:9080/janusec-admin/api&quot;
-    }
-}
 </code></pre>
             </article>
       </div>

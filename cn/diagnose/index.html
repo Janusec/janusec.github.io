@@ -144,12 +144,12 @@
 <h3 id="操作系统">操作系统</h3>
 <p>操作系统需要为x86_64架构的如下操作系统之一：</p>
 <ul>
-<li>CentOS 7/8+ (首选CentOS 8+)</li>
+<li>Debian 9/10+  (首选Debian 10+)</li>
+<li>CentOS 7/8+</li>
 <li>RHEL 7/8+</li>
-<li>Debian 9/10+</li>
 </ul>
 <h3 id="时间">时间</h3>
-<p>服务器时间请先校准，时区不限，但需要保证时间正确。</p>
+<p>服务器时间请先校准，时区不限，但需要保证时间正确，误差在一分钟之内。</p>
 <h3 id="服务管理工具">服务管理工具</h3>
 <p>服务管理工具为systemd，检查方法，在命令行运行：</p>
 <blockquote>
@@ -169,7 +169,7 @@
 <blockquote>
 <p>select version();</p>
 </blockquote>
-<p>版本要求为<code>9.3</code>以上（首选10+，不支持PostgreSQL 9.2或更早的版本）。</p>
+<p>版本要求为<code>10</code>以上（不支持早于PostgreSQL 9.5的版本）。</p>
 <h3 id="端口">端口</h3>
 <blockquote>
 <p><code>netstat -anp | grep LISTEN | grep ':\(80\|443\)\s'</code></p>
@@ -206,7 +206,12 @@ table inet janusec { # handle 20
 	}
 }
 
-</code></pre><h3 id="更多错误信息">更多错误信息</h3>
+</code></pre><p>如果测试过程中被误封IP，可清除防火墙规则（后续仍会正常触发）:</p>
+<blockquote>
+<p>nft flush ruleset</p>
+</blockquote>
+<p>或者在防火墙的CC防护配置界面，降低锁定时间。</p>
+<h3 id="更多错误信息">更多错误信息</h3>
 <p>如果上述检查都没有问题，可停止Janusec服务，改由控制台运行，以便观察更多的输出信息：</p>
 <blockquote>
 <p>#<code>systemctl stop janusec</code><br>
@@ -224,7 +229,7 @@ table inet janusec { # handle 20
 <h3 id="postgresql-1">PostgreSQL</h3>
 <p>开发所需要的PostgreSQL跟上述部署要求相同，配置文件使用当前目录的<code>./config.json</code> (部署使用的配置文件为<code>/usr/local/janusec/config.json</code>) 。</p>
 <h3 id="golang版本">Golang版本</h3>
-<p>开发者所需要的Golang版本最低要求为Go 1.14+ 。</p>
+<p>开发者所需要的Golang版本最低要求为Go 1.16+ 。</p>
 <h3 id="代码获取">代码获取</h3>
 <blockquote>
 <p>git clone <a href="https://github.com/Janusec/janusec.git">https://github.com/Janusec/janusec.git</a></p>

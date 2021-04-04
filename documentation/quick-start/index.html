@@ -158,12 +158,12 @@
 <tbody>
 <tr>
 <td>Primary Node</td>
-<td>CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables</td>
-<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)</td>
+<td>Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered)</td>
+<td>PostgreSQL 10/11/12+</td>
 </tr>
 <tr>
 <td>Replica Node</td>
-<td>CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables</td>
+<td>Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered)</td>
 <td>Not required</td>
 </tr>
 </tbody>
@@ -171,6 +171,10 @@
 <h2 id="prepare-nftables">Prepare nftables</h2>
 <hr>
 <p>nftables used for CC defense.</p>
+<p>nftables for Debian 10:</p>
+<blockquote>
+<p>apt install nftables</p>
+</blockquote>
 <p>nftables is not installed for CentOS 7 by default, installation is required:</p>
 <blockquote>
 <p>#yum -y install nftables<br>
@@ -192,14 +196,14 @@
 <h5 id="step-1-download">Step 1: Download</h5>
 <blockquote>
 <p>$cd ~<br>
-$wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
-$tar zxf ./janusec-latest.tar.gz</p>
+$wget <code>https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz</code><br>
+$tar zxf ./janusec-1.0.0-amd64.tar.gz</p>
 </blockquote>
 <h5 id="step-2-install">Step 2: Install</h5>
 <p>Switch to root and run install.sh , janusec application gateway will be installed to <code>/usr/local/janusec/ </code></p>
 <blockquote>
 <p>$su<br>
-#cd janusec-0.9.xx<br>
+#cd janusec-1.x.x<br>
 #./install.sh</p>
 </blockquote>
 <p>Select <code>1. Primary Node</code>, then it will:</p>

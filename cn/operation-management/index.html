@@ -253,8 +253,22 @@ Debian 9: <code>/lib/systemd/system/janusec</code></p>
 <p>#<code>systemctl status janusec</code></p>
 </blockquote>
 <h4 id="postgresql">PostgreSQL</h4>
-<p>PostgreSQL ( 9.3, 9.4, 9.5, 9.6, 或 10 ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令. <br>
-下面以 CentOS7 和 PostgreSQL 为例，简述 PostgreSQL 的安装步骤。</p>
+<p>PostgreSQL ( 10/11/12+ ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令. <br>
+下面简述 PostgreSQL 的安装步骤。</p>
+<h5 id="在debian-10中部署postgresql-11">在Debian 10中部署PostgreSQL 11</h5>
+<blockquote>
+<p>apt install postgresql<br>
+su - postgres<br>
+psql</p>
+</blockquote>
+<blockquote>
+<p>create user janusec with password &lsquo;J@nusec123&rsquo;;<br>
+create database janusec owner janusec;<br>
+grant all privileges on database janusec to janusec;<br>
+\q<br>
+exit<br>
+psql -h 127.0.0.1 -U janusec -W janusec</p>
+</blockquote>
 <h5 id="在-centos-7-中部署-postgresql-10">在 CentOS 7 中部署 PostgreSQL 10</h5>
 <p>主要参考 <a href="https://wiki.postgresql.org/wiki/YUM_Installation">https://wiki.postgresql.org/wiki/YUM_Installation</a>
 首先添加源，方便通过yum安装。</p>
@@ -288,7 +302,7 @@ exit</p>
 </blockquote>
 <p>将PostgreSQL设置为开机启动，并重启 PostgreSQL 服务</p>
 <blockquote>
-<p>systemctl enable postgresql-10
+<p>systemctl enable postgresql-10<br>
 systemctl restart postgresql-10</p>
 </blockquote>
 <h4 id="为web管理启用-https">为Web管理启用 HTTPS</h4>

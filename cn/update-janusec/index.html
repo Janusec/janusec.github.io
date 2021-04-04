@@ -141,8 +141,9 @@
 <blockquote>
 <p>本文仅供旧版本升级参考，新安装请忽略。</p>
 </blockquote>
-<p>最新版本: v0.9.16 (2021.01.10)</p>
+<p>最新版本: v1.0.0 (2021.04.04)</p>
 <p>版本历史:<br>
+v1.0.0  (2021.04.04): 增加ACME自动证书、来源网站统计（Referer）、身份认证配置Web化<br>
 v0.9.16 (2021.01.10): 增加IP地址策略（放行Allow，阻断Block）<br>
 v0.9.15 (2020.12.27): 大幅提升CC防御能力，日志清理期限可配置 <br>
 v0.9.14 (2020.12.20): 增加CAS2.0身份认证，优化CAPTCHA界面<br>
@@ -162,9 +163,9 @@ v0.9.6 (2020.02.27): 增加域名重定向。</p>
 <h3 id="从v0910升级">从v0.9.10+升级</h3>
 <p>不用卸载，直接覆盖安装即可。</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
-#<code>tar zxf ./janusec-latest.tar.gz</code><br>
-#<code>cd /data/janusec-0.9.xx/</code><br>
+<p>#<code>wget https://www.janusec.com/download/janusec-1.0.0-arm64.tar.gz</code><br>
+#<code>tar zxf ./janusec-1.0.0-arm64.tar.gz</code><br>
+#<code>cd /data/janusec-1.0.xx/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
@@ -183,21 +184,21 @@ v0.9.6 (2020.02.27): 增加域名重定向。</p>
 </blockquote>
 <p>然后覆盖安装即可：</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
-#<code>tar zxf ./janusec-latest.tar.gz</code><br>
-#<code>cd /data/janusec-0.9.xx/</code><br>
+<p>#<code>wget https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz</code><br>
+#<code>tar zxf ./janusec-1.0.0-amd64.tar.gz</code><br>
+#<code>cd /data/janusec-1.0.xx/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
 <h3 id="从v095v098-升级">从V0.9.5~V0.9.8 升级</h3>
 <p>第一步：<br>
-V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在<code>/data/janusec-latest.tar.gz</code>，升级步骤参考：</p>
+V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在<code>/data/janusec-1.0.0-amd64.tar.gz</code>，升级步骤参考：</p>
 <blockquote>
 <p>#<code>cd /data/</code><br>
-#<code>wget https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
-#<code>tar zxf ./janusec-latest.tar.gz</code><br>
+#<code>wget https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz</code><br>
+#<code>tar zxf ./janusec-1.0.0-amd64.tar.gz</code><br>
 #<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
-#<code>cp ./janusec-0.9.xx/config.json.primary_bak /usr/local/janusec/config.json</code></p>
+#<code>cp ./janusec-1.0.xx/config.json.primary_bak /usr/local/janusec/config.json</code></p>
 </blockquote>
 <p>需要编辑新的<code>/usr/local/janusec/config.json</code>，参考<a href="/cn/configuration/">配置文件</a>，重新设置数据库账号口令等信息。</p>
 <blockquote>
@@ -208,7 +209,7 @@ V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的
 <p>第三步：<br>
 正常覆盖安装即可（已存在config.json的情况下不会覆盖config.json）：</p>
 <blockquote>
-<p>#<code>cd /data/janusec-0.9.xx/</code><br>
+<p>#<code>cd /data/janusec-1.0.xx/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>

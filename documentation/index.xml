@@ -15,7 +15,7 @@
       <guid>/documentation/quick-start/</guid>
       <description>Quick Start  快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
-Requirements     Role Operating System Database     Primary Node CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)   Replica Node CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables Not required    Prepare nftables  nftables used for CC defense.</description>
+Requirements     Role Operating System Database     Primary Node Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) PostgreSQL 10/11/12+   Replica Node Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    Prepare nftables  nftables used for CC defense.</description>
     </item>
     
     <item>
@@ -47,7 +47,7 @@ nftables is not installed for CentOS 7 by default, installation is required:</de
       <guid>/documentation/configuration/</guid>
       <description>Configuration File  Path of Configuration File  Production environment: /usr/local/janusec/config.json
 Development environment: ./config.json
-Configuration Items  The following is based on Janusec Application Gateway V0.9.9, and use // as comment, please delete // comment before using it.
+Configuration Items  The following is based on Janusec Application Gateway V1.0.0+, and use // as comment, please delete // comment before using it.
 {&amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // &amp;quot;primary&amp;quot; for primary node, &amp;quot;replica&amp;quot; for replica nodes&amp;quot;primary_node&amp;quot;: { // keep empty for replica nodes&amp;quot;admin&amp;quot;: { // Administrator portal&amp;quot;listen&amp;quot;: true, // Listen on new ports for admin portal&amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available&amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available&amp;quot;portal&amp;quot;: &amp;quot;https://gate.</description>
     </item>
     
@@ -157,11 +157,11 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v0.9.16 (Jan 10, 2021)
+ Latest version: v1.0.0 (Apr 04, 2021)
+v1.0.0 (Apr 04, 2021): Add ACME automatic certificate, referring sites statistics and authentication web configuration
 v0.9.16 (Jan 10, 2021): Add IP Address Policy, include Allow and Block
 v0.9.15 (Dec 27, 2020): Improve CC defense, Log cleaning period can be configured
-v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA
-v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured (example: IP address used), and API interface optimizaiton.</description>
+v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA</description>
     </item>
     
     <item>
@@ -201,12 +201,12 @@ v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured (
       
       <guid>/documentation/diagnose/</guid>
       <description>Diagnose  Deployment  Operating System Operating System should be x86_64 and one of the following:
- CentOS 7/8+ RHEL 7/8+ Debian 9/10+  Time Please make sure the time is correct, time zone may be any.
+ Debian 9/10+ (Debian 10+ is preferred) CentOS 7/8+ RHEL 7/8+  Time Please make sure the time is correct, time zone may be any.
 Service Management systemd is used for Service Management , check :
  command -v systemctl
  (Expect result: /usr/bin/systemctl)
 PostgreSQL Use psql to check PostgreSQL Connection:
- psql -h 127.0.0.1 -U janusec -W janusec</description>
+ psql -h 127.</description>
     </item>
     
   </channel>

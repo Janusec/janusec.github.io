@@ -262,6 +262,20 @@ Debian 9: <code>/lib/systemd/system/janusec</code></p>
 <h4 id="postgresql">PostgreSQL</h4>
 <p>PostgreSQL ( 9.3, 9.4, 9.5, 9.6, or 10 ) is not included in the release package, you should prepare it before installation, required by the Primary Node.</p>
 <p>Before the installation of the Primary Node, dbname, dbuser and password should be ready.</p>
+<h5 id="example-with-debian-10-and-postgresql-11">Example with Debian 10 and PostgreSQL 11</h5>
+<blockquote>
+<p>apt install postgresql<br>
+su - postgres<br>
+psql</p>
+</blockquote>
+<blockquote>
+<p>create user janusec with password &lsquo;J@nusec123&rsquo;;<br>
+create database janusec owner janusec;<br>
+grant all privileges on database janusec to janusec;<br>
+\q<br>
+exit<br>
+psql -h 127.0.0.1 -U janusec -W janusec</p>
+</blockquote>
 <h5 id="example-with-centos-7-and-postgresql-10">Example with CentOS 7 and PostgreSQL 10</h5>
 <p>Refer to <a href="https://wiki.postgresql.org/wiki/YUM_Installation">https://wiki.postgresql.org/wiki/YUM_Installation</a></p>
 <blockquote>
@@ -293,7 +307,7 @@ exit</p>
 </blockquote>
 <p>Set PostgreSQL stard when boot, and restart PostgreSQL Service</p>
 <blockquote>
-<p>systemctl enable postgresql-10
+<p>systemctl enable postgresql-10<br>
 systemctl restart postgresql-10.service</p>
 </blockquote>
 <h4 id="enable-https-for-administration">Enable HTTPS for Administration</h4>

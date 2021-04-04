@@ -148,9 +148,9 @@
 <h3 id="operating-system">Operating System</h3>
 <p>Operating System should be x86_64 and one of the following:</p>
 <ul>
+<li>Debian 9/10+ (Debian 10+ is preferred)</li>
 <li>CentOS 7/8+</li>
 <li>RHEL 7/8+</li>
-<li>Debian 9/10+</li>
 </ul>
 <h3 id="time">Time</h3>
 <p>Please make sure the time is correct, time zone may be any.</p>
@@ -170,7 +170,7 @@
 <blockquote>
 <p>select version();</p>
 </blockquote>
-<p>The version must be greater than <code>9.3</code>.</p>
+<p>The version must be greater than <code>10</code>.</p>
 <h3 id="ports">Ports</h3>
 <blockquote>
 <p><code>netstat -anp | grep LISTEN | grep ':\(80\|443\)\s'</code></p>
@@ -204,7 +204,12 @@ table inet janusec { # handle 20
 	}
 }
 
-</code></pre><h3 id="more-information">More Information</h3>
+</code></pre><p>If your IP was blocked during the test, the firewall rules can be cleared (the follow-up will still be triggered normally):</p>
+<blockquote>
+<p>nft flush ruleset</p>
+</blockquote>
+<p>Or reduce the block time on the WAF/CC configuration.</p>
+<h3 id="more-information">More Information</h3>
 <p>If all above are OK, you can stop the janusec service, and switch to run it under console, to view more output:</p>
 <blockquote>
 <p>#<code>systemctl stop janusec</code><br>
@@ -222,7 +227,7 @@ The release script (release.sh) support Linux only.</p>
 <h3 id="postgresql-1">PostgreSQL</h3>
 <p>Different configuration files used, <code>./config.json</code> for development , and <code>/usr/local/janusec/config.json</code> for deployment .</p>
 <h3 id="golang">Golang</h3>
-<p>At least Go 1.14+ .</p>
+<p>At least Go 1.16+ .</p>
 <h3 id="code">Code</h3>
 <blockquote>
 <p>git clone <a href="https://github.com/Janusec/janusec.git">https://github.com/Janusec/janusec.git</a></p>

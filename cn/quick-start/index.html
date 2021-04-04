@@ -153,20 +153,28 @@
 <tbody>
 <tr>
 <td>主节点</td>
-<td>CentOS/RHEL 7/8+, 或 Debian 9/10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables</td>
-<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）</td>
+<td>Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables</td>
+<td>PostgreSQL 10/11/12+</td>
 </tr>
 <tr>
 <td>副本节点</td>
-<td>CentOS/RHEL 7/8+, 或 Debian 9/10+, x86_64, 使用 systemd和nftables</td>
+<td>Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables</td>
 <td>不需要</td>
 </tr>
 </tbody>
 </table>
-<p>本入门只安装一个主节点，不安装副本节点，如需扩展，可参考<a href="/cn/installation/">安装</a>一节。</p>
+<p>备注：<br>
+本入门只安装一个主节点，不安装副本节点，如需扩展，可参考<a href="/cn/installation/">安装</a>一节。<br>
+Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接使用<code>PostgreSQL 10/11/12+</code>版本 。<br>
+如果您的PostgreSQL版本为9.3~9.5且无法升级，可安装之前Janusec v0.9.16 。<br>
+如果您的PostgreSQL版本低于9.3，则无法安装Janusec 。</p>
 <h2 id="准备主机防火墙nftables">准备主机防火墙nftables</h2>
 <hr>
 <p>nftables用于拦截CC攻击，减轻应用网关压力。</p>
+<p>Debian 10安装nftables：</p>
+<blockquote>
+<p>apt install nftables</p>
+</blockquote>
 <p>CentOS 7默认没有安装nftables，需要手工安装并启动：</p>
 <blockquote>
 <p>#yum -y install nftables<br>
@@ -188,14 +196,14 @@
 <h5 id="步骤-1-下载">步骤 1: 下载</h5>
 <blockquote>
 <p>$cd ~<br>
-$wget <code>https://www.janusec.com/download/janusec-latest.tar.gz</code><br>
-$tar zxf ./janusec-latest.tar.gz</p>
+$wget <code>https://www.janusec.com/download/janusec-1.0.0-amd64.tar.gz</code><br>
+$tar zxf ./janusec-1.0.0-amd64.tar.gz</p>
 </blockquote>
 <h5 id="步骤-2-安装">步骤 2: 安装</h5>
 <p>请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： <code>/usr/local/janusec/ </code></p>
 <blockquote>
 <p>$su<br>
-#cd janusec-0.9.xx<br>
+#cd janusec-1.x.x  （根据实际版本号修改）<br>
 #./install.sh</p>
 </blockquote>
 <p>选择 <code>1. Primary Node</code></p>
