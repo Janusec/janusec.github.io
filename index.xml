@@ -84,8 +84,9 @@ Janusec Application Gateway Introduction PDF
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/documentation/installation/</guid>
-      <description>Installation  Requirements    Role Operating System Database     Primary Node CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)   Replica Node CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables Not required    Prepare nftables  nftables used for CC defense.
-nftables is not installed for CentOS 7 by default, installation is required:</description>
+      <description>Installation  Requirements    Role Operating System Database     Primary Node Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) PostgreSQL 10/11/12+   Replica Node Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    Prepare nftables  nftables used for CC defense.
+nftables for Debian 10:
+ apt install nftables</description>
     </item>
     
     <item>
@@ -94,8 +95,10 @@ nftables is not installed for CentOS 7 by default, installation is required:</de
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/cn/installation/</guid>
-      <description>安装  需求    节点 操作系统 数据库     主节点 CentOS/RHEL 7/8+, 或 Debian 9/10+ （首选CentOS 8+）, x86_64, 使用 systemd和nftables PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ （首选10+）   副本节点 CentOS/RHEL 7/8+, 或 Debian 9/10+, x86_64, 使用 systemd和nftables 不需要    准备主机防火墙nftables  nftables用于拦截CC攻击，减轻应用网关压力。
-CentOS 7默认没有安装nftables，需要手工安装并启动：
+      <description>安装  需求    节点 操作系统 数据库     主节点 Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables PostgreSQL 10/11/12+   副本节点 Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    准备主机防火墙nftables  nftables用于拦截CC攻击，减轻应用网关压力。
+Debian 10安装nftables：
+ apt install nftables
+ CentOS 7默认没有安装nftables，需要手工安装并启动：
  #yum -y install nftables
 #systemctl enable nftables
 #systemctl start nftables

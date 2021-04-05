@@ -223,7 +223,7 @@ $tar zxf ./janusec-1.0.0-amd64.tar.gz</p>
             &quot;portal&quot;: &quot;https://your_gate_domain.com:9443/janusec-admin/&quot;,   // 不使用OAuth时先忽略，用于管理入口的OAuth回调，如果listen为false，请去掉冒号和端口号
             &quot;webssh_enabled&quot;: false   // 为true时，允许使用Web SSH运维功能
         },
-        &quot;database&quot;: {                 // PostgreSQL 数据库配置，需要至少使用9.3以上版本
+        &quot;database&quot;: {                 // PostgreSQL 10/11/12+
             &quot;host&quot;: &quot;127.0.0.1&quot;,      // PostgreSQL IP地址
             &quot;port&quot;: &quot;5432&quot;,           // PostgreSQL 监听端口，默认5432
             &quot;user&quot;: &quot;postgres&quot;,       // 数据库用户名

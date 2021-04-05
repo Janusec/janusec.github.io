@@ -155,12 +155,12 @@
 <tbody>
 <tr>
 <td>Primary Node</td>
-<td>CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables</td>
-<td>PostgreSQL 9.3 / 9.4 / 9.5 / 9.6 / 10+ (10+ is preferred)</td>
+<td>Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered)</td>
+<td>PostgreSQL 10/11/12+</td>
 </tr>
 <tr>
 <td>Replica Node</td>
-<td>CentOS/RHEL 7/8+, or Debian 9/10+, x86_64, with systemd and nftables</td>
+<td>Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered)</td>
 <td>Not required</td>
 </tr>
 </tbody>
@@ -168,6 +168,10 @@
 <h2 id="prepare-nftables">Prepare nftables</h2>
 <hr>
 <p>nftables used for CC defense.</p>
+<p>nftables for Debian 10:</p>
+<blockquote>
+<p>apt install nftables</p>
+</blockquote>
 <p>nftables is not installed for CentOS 7 by default, installation is required:</p>
 <blockquote>
 <p>#yum -y install nftables<br>
