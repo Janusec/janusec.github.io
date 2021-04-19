@@ -133,9 +133,11 @@ If you want to check url values only ( GET Only ), please select URLQuery .
       <guid>/documentation/oauth2/</guid>
       <description>OAuth2 Authentication  Introduction Janusec Application Gateway supports the following authentication：
  LDAP CAS 2.0 WeWork DingTalk Feishu  Used for janusec-admin, and internal applications, for employees.
-Configuration Enable authentication in config.json :
-&amp;quot;oauth&amp;quot;: {&amp;quot;enabled&amp;quot;: true,&amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;,...}provider, ldap means LDAP authentication，cas2 means CAS 2.0,wxwork means WxWork, dingtalk means DingTalk, feishu means Feishu.
-How to Get UserID in Applications Janusec will add the following headers if authentication passed.</description>
+Configuration Enable authentication in Web admin UI.
+How to Get UserID in Applications Janusec will add the following headers if authentication passed.
+ X-Auth-Token: Access-Token (Note: 0.9.15 uses X-Auth-Token instead previous Authorization) X-Auth-User: UserID
+ The application can be used without modification.
+LDAP 登录界面显示:</description>
     </item>
     
     <item>

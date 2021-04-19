@@ -63,7 +63,7 @@ Debian 10安装nftables：
 开发环境配置文件为 ./config.json
 配置项说明  以下为Janusec Application Gateway V1.0.0+ 配置文件参考。
 由于JSON格式支持的注释格式看起来不方便，下面采用//作为注释说明，实际使用时需要删除注释。
-{&amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // 单节点或主节点配置为&amp;quot;primary&amp;quot;，副本节点配置为&amp;quot;replica&amp;quot;&amp;quot;primary_node&amp;quot;: { // 主节点使用此配置，如果是副本节点，这部分配置留空&amp;quot;admin&amp;quot;: { // 后台管理&amp;quot;listen&amp;quot;: true, // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录&amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问&amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问&amp;quot;portal&amp;quot;: &amp;quot;https://gate.janusec.com:9443/janusec-admin/&amp;quot;, // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号&amp;quot;webssh_enabled&amp;quot;: false // 为true时，允许使用Web SSH运维功能},&amp;quot;database&amp;quot;: { // PostgreSQL 10/11/12+ &amp;quot;host&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, // PostgreSQL IP地址&amp;quot;port&amp;quot;: &amp;quot;5432&amp;quot;, // PostgreSQL 监听端口，默认5432&amp;quot;user&amp;quot;: &amp;quot;postgres&amp;quot;, // 数据库用户名&amp;quot;password&amp;quot;: &amp;quot;123456&amp;quot;, // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密&amp;quot;dbname&amp;quot;: &amp;quot;janusec&amp;quot; // 数据库名}},&amp;quot;replica_node&amp;quot;: { // 副本节点配置// node_key在主节点的后台管理-节点管理中复制&amp;quot;node_key&amp;quot;: &amp;quot;&amp;quot;, // 如果后台管理界面开启独立的监听端口(上面的listen为true)，则在IP或域名后面带上端口// 如果使用https和域名，需要单独为主节点申请一个域名，并配置一个独立的应用(Application)使用该域名，Destination可填写127.</description>
+{&amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // 单节点或主节点配置为&amp;quot;primary&amp;quot;，副本节点配置为&amp;quot;replica&amp;quot;&amp;quot;primary_node&amp;quot;: { // 主节点使用此配置，如果是副本节点，这部分配置留空&amp;quot;admin&amp;quot;: { // 后台管理&amp;quot;listen&amp;quot;: true, // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录&amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问&amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // 格式为:port或IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问&amp;quot;portal&amp;quot;: &amp;quot;https://gate.janusec.com:9443/janusec-admin/&amp;quot;, // 管理入口地址，用于OAuth回调，如果listen为false，请去掉冒号和端口号},&amp;quot;database&amp;quot;: { // PostgreSQL 10/11/12+ &amp;quot;host&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, // PostgreSQL IP地址&amp;quot;port&amp;quot;: &amp;quot;5432&amp;quot;, // PostgreSQL 监听端口，默认5432&amp;quot;user&amp;quot;: &amp;quot;postgres&amp;quot;, // 数据库用户名&amp;quot;password&amp;quot;: &amp;quot;123456&amp;quot;, // 数据库口令，不超过32位，直接配置明文，Janusec会自动加密&amp;quot;dbname&amp;quot;: &amp;quot;janusec&amp;quot; // 数据库名}},&amp;quot;replica_node&amp;quot;: { // 副本节点配置// node_key在主节点的后台管理-节点管理中复制&amp;quot;node_key&amp;quot;: &amp;quot;&amp;quot;, // 如果后台管理界面开启独立的监听端口(上面的listen为true)，则在IP或域名后面带上端口// 如果使用https和域名，需要单独为主节点申请一个域名，并配置一个独立的应用(Application)使用该域名，Destination可填写127.</description>
     </item>
     
     <item>
@@ -174,13 +174,11 @@ abc&#39; oR &amp;quot;abc&amp;quot;=&amp;quot;abc
       <guid>/cn/oauth2/</guid>
       <description>OAuth2统一身份认证  简介 Janusec Application Gateway支持如下身份认证：
  LDAP CAS 2.0 企业微信扫码登录 钉钉扫码登录 飞书扫码登录  并同时作用于管理后台，以及员工访问内网应用。
-配置 如需启用，请在配置文件config.json中开启：
-&amp;quot;oauth&amp;quot;: {&amp;quot;enabled&amp;quot;: true,&amp;quot;provider&amp;quot;: &amp;quot;wxwork&amp;quot;,...}上述provider中，ldap表示LDAP认证，cas2表示CAS 2.0认证，wxwork表示企业微信扫码登录，dingtalk表示钉钉扫码登录，feishu表示飞书扫码登录。
+配置 如需启用，请在Web设置界面开启。
 应用如何获取用户身份 Janusec认证通过后，会在HTTP请求的头部添加两行：
  X-Auth-Token: Access-Token （备注： 0.9.15使用X-Auth-Token替换之前的Authorization） X-Auth-User: UserID
  应用不需要修改即可使用，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。
-LDAP配置 在配置文件的&amp;quot;ldap&amp;quot;字段：
-登录界面显示:
+LDAP配置 登录界面显示:
  &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with LDAP&amp;rdquo;,
  LDAP登录入口(配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):
  &amp;ldquo;entrance&amp;rdquo;: &amp;ldquo;https://your_domain.com/ldap/login&amp;rdquo;,
@@ -188,9 +186,11 @@ LDAP配置 在配置文件的&amp;quot;ldap&amp;quot;字段：
  &amp;ldquo;address&amp;rdquo;: &amp;ldquo;ldap_domain:389&amp;rdquo;
  LDAP DN区分名称（需要根据实际DN修改，{uid}请保持不变）：
  &amp;ldquo;dn&amp;rdquo;: &amp;ldquo;uid={uid},ou=People,dc=janusec,dc=com&amp;rdquo;,
- 是否启用TLS加密传输（如果启用，请一并检查LDAP服务器端口，默认636）：
+ 如果是Active Directory，则请将uid={uid}修改为CN={uid}，其他根据实际修改。
+是否启用TLS加密传输（如果启用，请一并检查LDAP服务器端口，默认636）：
  &amp;ldquo;using_tls&amp;rdquo;: false
- CAS 2.</description>
+ CAS 2.0 // 显示在登录界面
+ &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with CAS 2.</description>
     </item>
     
     <item>

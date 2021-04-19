@@ -158,7 +158,6 @@ Development environment: <code>./config.json</code></p>
             &quot;listen_http&quot;: &quot;:9080&quot;,   // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available
             &quot;listen_https&quot;: &quot;:9443&quot;,  // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available
             &quot;portal&quot;: &quot;https://gate.janusec.com:9443/janusec-admin/&quot;,   // admin portal, used for OAuth callback, if listen is false, remove colon and port number
-            &quot;webssh_enabled&quot;: false   // Web SSH Operation permitted when it is true
         },
         &quot;database&quot;: {                 // PostgreSQL 10/11/12+
             &quot;host&quot;: &quot;127.0.0.1&quot;,      // PostgreSQL IP Address
@@ -208,7 +207,7 @@ If you upgrade janusec from version 0.9.x, the <code>oauth</code> field will not
                 &quot;appid&quot;: &quot;cli_9ef21d00e&quot;,
                 &quot;appsecret&quot;: &quot;ihUBspRAG1PtNdDLUZ&quot;
                 // Create application JANUSEC is required
-                // &quot;Secure Domain&quot;-&quot;Redirect URL&quot; is required, example: &quot;https://your_domain.com/oauth/feishu&quot; 
+                // &quot;Secure Settings&quot;-&quot;Redirect URL&quot; is required, example: &quot;https://your_domain.com/oauth/feishu&quot; 
             },
             &quot;ldap&quot;: {
                 &quot;display_name&quot;: &quot;Login with LDAP&quot;,

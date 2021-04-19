@@ -154,13 +154,7 @@
 </ul>
 <p>Used for janusec-admin, and internal applications, for employees.</p>
 <h3 id="configuration">Configuration</h3>
-<p>Enable authentication in config.json :</p>
-<pre><code>&quot;oauth&quot;: {
-            &quot;enabled&quot;: true,
-            &quot;provider&quot;: &quot;wxwork&quot;,
-            ...
-}
-</code></pre><p>provider, <code>ldap</code> means LDAP authentication，<code>cas2</code> means CAS 2.0,<code>wxwork</code> means WxWork, <code>dingtalk</code> means DingTalk, <code>feishu</code> means Feishu.</p>
+<p>Enable authentication in Web admin UI.</p>
 <h3 id="how-to-get-userid-in-applications">How to Get UserID in Applications</h3>
 <p>Janusec will add the following headers if authentication passed.</p>
 <blockquote>
@@ -169,7 +163,6 @@ X-Auth-User: <code>UserID</code></p>
 </blockquote>
 <p>The application can be used without modification.</p>
 <h3 id="ldap">LDAP</h3>
-<p>在配置文件的<code>&quot;ldap&quot;</code>字段：</p>
 <p>登录界面显示:</p>
 <blockquote>
 <p>&ldquo;display_name&rdquo;: &ldquo;Login with LDAP&rdquo;,</p>
@@ -186,12 +179,12 @@ X-Auth-User: <code>UserID</code></p>
 <blockquote>
 <p>&ldquo;dn&rdquo;: &ldquo;uid={uid},ou=People,dc=janusec,dc=com&rdquo;,</p>
 </blockquote>
+<p>如果是Active Directory，则请将<code>uid={uid}</code>修改为<code>CN={uid}</code>，其他根据实际修改。</p>
 <p>是否启用TLS加密传输(如果启用，请一并检查LDAP服务器端口，默认636)：</p>
 <blockquote>
 <p>&ldquo;using_tls&rdquo;: false</p>
 </blockquote>
 <h3 id="cas-20">CAS 2.0</h3>
-<p>在配置文件的<code>&quot;cas2&quot;</code>字段：</p>
 <p>// 显示在登录界面</p>
 <blockquote>
 <p>&ldquo;display_name&rdquo;: &ldquo;Login with CAS 2.0&rdquo;,</p>
@@ -205,7 +198,6 @@ X-Auth-User: <code>UserID</code></p>
 <p>&ldquo;callback&rdquo;: &ldquo;<a href="http://gate.janusec.com/oauth/cas2%22">http://gate.janusec.com/oauth/cas2&quot;</a></p>
 </blockquote>
 <h3 id="企业微信配置">企业微信配置</h3>
-<p>在配置文件的<code>&quot;wxwork&quot;</code>字段：</p>
 <p>登录界面显示:</p>
 <blockquote>
 <p>&ldquo;display_name&rdquo;: &ldquo;Login with WeChat Work&rdquo;,</p>
@@ -227,7 +219,6 @@ X-Auth-User: <code>UserID</code></p>
 <p>&ldquo;corpsecret&rdquo;: &ldquo;BgZtz_hssdZV5em-AyGhOgLlm18rU_NdZI&rdquo;</p>
 </blockquote>
 <h3 id="钉钉配置">钉钉配置</h3>
-<p>在配置文件的<code>&quot;dingtalk&quot;</code>字段：</p>
 <p>登录界面显示:</p>
 <blockquote>
 <p>&ldquo;display_name&rdquo;: &ldquo;Login with DingTalk&rdquo;,</p>
@@ -245,7 +236,6 @@ X-Auth-User: <code>UserID</code></p>
 <h3 id="飞书配置">飞书配置</h3>
 <p>需要在飞书开放平台注册应用(比如名称JANUSEC)并经企业管理员审核通过。<br>
 需要在飞书开放平台后台配置&quot;安全域名&quot;-&ldquo;重定向URL&rdquo;，配置为&quot;https://your_domain.com/oauth/feishu&quot;</p>
-<p>在配置文件的<code>&quot;feishu&quot;</code>字段：</p>
 <p>登录界面显示:</p>
 <blockquote>
 <p>&ldquo;display_name&rdquo;: &ldquo;Login with Feishu&rdquo;,</p>
@@ -261,9 +251,9 @@ X-Auth-User: <code>UserID</code></p>
 </blockquote>
 <h3 id="logout">Logout</h3>
 <p>Just add one link <code>/oauth/logout</code> on your application.</p>
-<h3 id="多节点注意事项">多节点注意事项</h3>
-<p>OAuth2需要使用回调域名(在config.json中callback配置)，这里请选定并配置一个域名，可以是任意已配置应用中的域名(不包括单独为主节点申请的域名)，假设为www.your_domain.com 。</p>
-<p>但需要注意的是，DNS解析应确保其对所有应用的解析，在同一个办公场地，均指向同一个网关。如果员工访问的应用，跟回调域名指向不同的网关地址，则OAuth2将不可用。</p>
+<h3 id="note-for-multiple-nodes">Note for multiple nodes</h3>
+<p>If the background management entrance uses OAuth2, you need to configure <code>portal</code> in <code>config.json</code>, where the domain name should be configured as one of the domain names of any configured application.</p>
+<p>But it should be noted that DNS resolution should ensure that its resolution for all applications, in the same office site, all point to the same gateway. If the application accessed by the employee points to a different gateway address than the callback domain name, OAuth2 will not be available.</p>
 
             </article>
       </div>
