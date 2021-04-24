@@ -181,11 +181,7 @@ Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接�
 #systemctl enable nftables<br>
 #systemctl start nftables</p>
 </blockquote>
-<p>CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：</p>
-<blockquote>
-<p>#systemctl enable firewalld<br>
-#systemctl start firewalld</p>
-</blockquote>
+<p>CentOS 8已内置nftables，不需要额外的动作。</p>
 <p>现在，可以通过如下指令查看规则：</p>
 <blockquote>
 <p>#nft list ruleset</p>
