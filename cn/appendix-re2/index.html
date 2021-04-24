@@ -138,6 +138,7 @@
             <article>
             <h1 id="附录1re2正则规则解读">附录1:RE2正则规则解读</h1>
 <hr>
+<p>JANUSEC应用网关使用<a href="https://github.com/google/re2/wiki/Syntax">Google RE2正则规则</a> 。</p>
 <h4 id="规则样例1">规则样例1</h4>
 <p>检查点(CheckPoint)：URLPath<br>
 解读：检查点URLPath表示URL地址中域名后面的路径(举例 <a href="http://www.yourdomain.com/blog/show.php?id=1&amp;category=2">www.yourdomain.com/blog/show.php?id=1&amp;category=2</a> ，URLPath 为<code>/blog/show.php</code> )</p>
@@ -161,7 +162,8 @@
 <blockquote>
 <p>(?i)\s+(and|or)\s+[\w\p{L}]+=[\w\p{L}]+$</p>
 </blockquote>
-<p>解读：[\w\p{L}]表示任意字母、数字、下划线或Unicode字符（如汉字），=原样匹配，$表示结尾，用于防止SQL注入。</p>
+<p>解读：[\w\p{L}]表示任意字母、数字、下划线或Unicode字符（如汉字），=原样匹配，$表示结尾，用于防止SQL注入。<br>
+中文或其他UNICODE字符，还可以使用<code>\x{FFFF}</code>格式，比如<code>[\x{007F}-\x{FFFF}]+</code>可匹配中文词语或句子。</p>
 
             </article>
       </div>

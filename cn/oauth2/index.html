@@ -146,6 +146,7 @@
 <li>企业微信扫码登录</li>
 <li>钉钉扫码登录</li>
 <li>飞书扫码登录</li>
+<li>Lark扫码登录</li>
 </ul>
 <p>并同时作用于管理后台，以及员工访问内网应用。</p>
 <h3 id="配置">配置</h3>
@@ -230,16 +231,33 @@ X-Auth-User: <code>UserID</code></p>
 <p>appsecret即上述自建应用的Secret，请据实修改。</p>
 <h3 id="飞书配置">飞书配置</h3>
 <p>需要在飞书开放平台注册Web应用(比如名称JANUSEC)并经企业管理员审核通过。<br>
-需要在飞书开放平台后台配置&quot;安全域名&quot;-&ldquo;重定向URL&rdquo;，配置为&quot;https://your_domain.com/oauth/feishu&quot;</p>
+需要在飞书开放平台后台配置&quot;安全设置&quot;-&ldquo;重定向URL&rdquo;，配置为&quot;https://your_domain.com/oauth/feishu&quot;</p>
 <p>登录界面显示:</p>
 <blockquote>
 <p>&ldquo;display_name&rdquo;: &ldquo;Login with Feishu&rdquo;,</p>
 </blockquote>
 <p>回调地址(配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):</p>
 <blockquote>
-<p>&ldquo;callback&rdquo;: &ldquo;<code>https://your_domain.com</code>/oauth/dingtalk&rdquo;,</p>
+<p>&ldquo;callback&rdquo;: &ldquo;<code>https://your_domain.com</code>/oauth/feishu&rdquo;,</p>
 </blockquote>
 <p>请在飞书开放平台注册一个自建应用，获取下面的信息。</p>
+<blockquote>
+<p>&ldquo;appid&rdquo;: &ldquo;cli_9ef21d00e&rdquo;,<br>
+&ldquo;appsecret&rdquo;: &ldquo;ihUBspRAG1PtNdDLUZ&rdquo;</p>
+</blockquote>
+<h3 id="lark配置">Lark配置</h3>
+<p>首先在<a href="https://open.larksuite.com/">Lark Developer</a>配置应用，其他配置跟飞书配置基本一致。</p>
+<p>First register a Web application at <a href="https://open.larksuite.com/">Lark Developer</a>, and it should be approved by enterprise administrtor. And, configure under menu &ldquo;Security Settings&rdquo;-&ldquo;Redirect URLs&rdquo;, Add &ldquo;<a href="https://your_domain.com/oauth/lark%22">https://your_domain.com/oauth/lark&quot;</a></p>
+<p>Second configure under JANUSEC:</p>
+<p>Display name on UI:</p>
+<blockquote>
+<p>&ldquo;display_name&rdquo;: &ldquo;Login with Lark&rdquo;,</p>
+</blockquote>
+<p>Callback address, change the scheme (http/https) and one of your application domain name, do not change <code>/oauth/feishu</code>, do not use port number.</p>
+<blockquote>
+<p>&ldquo;callback&rdquo;: &ldquo;<code>https://your_domain.com</code>/oauth/lark&rdquo;,</p>
+</blockquote>
+<p>Get the application information under Lark Developer:</p>
 <blockquote>
 <p>&ldquo;appid&rdquo;: &ldquo;cli_9ef21d00e&rdquo;,<br>
 &ldquo;appsecret&rdquo;: &ldquo;ihUBspRAG1PtNdDLUZ&rdquo;</p>

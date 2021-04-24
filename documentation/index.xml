@@ -73,10 +73,9 @@ Digital Certificate Management see Certificate Management</description>
       <pubDate>Sun, 20 May 2018 21:05:08 +0800</pubDate>
       
       <guid>/documentation/certificate-management/</guid>
-      <description>Certificate Management  Certificate List Open web administration portal and navigate to Certificate Management.
-Add or Edit Certificate Single domain subdomain.yourdomain.com or wildcard *.yourdomain.com certificate are all acceptable. A wildcard certificate is preferred.
-For production environment, you should have a legal digital certificate issued by a trusted CA ( such as Let&#39;s Encrypt ) .
-For test purpose, when filled in the first field (Common Name or Subject Alternative Name), click Self-Sign Certificate button, it will produce a self-sign certificate for you, and you need export it with browser and add it to the trusted root CA.</description>
+      <description>Certificate Management  Scenario: You can add and maintain the digital certificate you already have here (for example, the certificate of a corporate website).
+If you don&amp;rsquo;t have a digital certificate and want JANUSEC to automatically apply for and manage a digital certificate, you can skip this section and do not need to configure it here (usually applicable to personal websites).
+Certificate List Open web administration portal and navigate to Certificate Management.</description>
     </item>
     
     <item>
@@ -85,10 +84,8 @@ For test purpose, when filled in the first field (Common Name or Subject Alterna
       <pubDate>Sun, 20 May 2018 21:58:35 +0800</pubDate>
       
       <guid>/documentation/application-management/</guid>
-      <description>Application Management  Requirements At least one digital certificate is required if you need https support. Certificate Management
-Add or Edit Application Open web administration portal and navigate to Application Management.
-Note:
- Backend or Internal Scheme, default http and thus no certificates required in your real servers. Destination, IP:Port format, port is required even if the port is 80. Multiple destinations for backend load balancing. Client IP for WAF, default REMOTE_ADDR, Janusec WAF will get IP address from IP package, but if you are using Janusec Application Gateway behind a trustable CDN of third parties, usually the last IP of X-Forwarded-For should be taken, please refer to the documentation of CDN, and select relevant option, for example: the option X_Forwarded_For used for the last IP of X-Forwarded-For within the request header.</description>
+      <description>Application Management  Requirements If you already have a digital certificate, you can add it under Certificate Management.
+If you want JANUSEC to apply for a free digital certificate by itself, you can choose to use ACME automatic certificate (free certificate) in the Domain Configuration below, and ensure that the DNS of the domain name has been pointed to the JANUSEC application gateway for the certification authority to verify the ownership of the domain name , You don’t need to add it under the certificate management (note: automatic certificates do not support wildcard domain names).</description>
     </item>
     
     <item>
@@ -132,12 +129,11 @@ If you want to check url values only ( GET Only ), please select URLQuery .
       
       <guid>/documentation/oauth2/</guid>
       <description>OAuth2 Authentication  Introduction Janusec Application Gateway supports the following authentication：
- LDAP CAS 2.0 WeWork DingTalk Feishu  Used for janusec-admin, and internal applications, for employees.
+ LDAP CAS 2.0 WeWork DingTalk Feishu Lark  Used for janusec-admin, and internal applications, for employees.
 Configuration Enable authentication in Web admin UI.
 How to Get UserID in Applications Janusec will add the following headers if authentication passed.
  X-Auth-Token: Access-Token (Note: 0.9.15 uses X-Auth-Token instead previous Authorization) X-Auth-User: UserID
- The application can be used without modification.
-LDAP 登录界面显示:</description>
+ The application can be used without modification.</description>
     </item>
     
     <item>
@@ -146,11 +142,11 @@ LDAP 登录界面显示:</description>
       <pubDate>Wed, 06 Jun 2018 21:56:05 +0800</pubDate>
       
       <guid>/documentation/migrate-to-janusec/</guid>
-      <description>Migrate to Janusec Application Gateway  Step 1: Install and Configure Janusec Application Gateway Refer to Installation, install janusec application gateway and configure digital certificate, application.
+      <description>Migrate to Janusec Application Gateway  Scenario: Migrate the published Web application to be published through the JANUSEC application gateway.
+Step 1: Install and Configure Janusec Application Gateway Refer to Installation, install janusec application gateway and configure digital certificate, application.
 Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\System32\drivers\etc\hosts ( not the Gateway) for test.
  the_gateway_ip your_domain_name
- Then, open web browser and navigate to https://your_domain_name.
-Step 3: Modify DNS If test OK, modify your DNS setting for production, let domain name point to the gateway, and restore your local hosts.</description>
+ Then, open web browser and navigate to https://your_domain_name.</description>
     </item>
     
     <item>
@@ -160,11 +156,10 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.0.0 (Apr 04, 2021)
-v1.0.0 (Apr 04, 2021): Add ACME automatic certificate, referring sites statistics and authentication web configuration
+ Latest version: v1.1.0 (Apr 24, 2021)
+v1.1.0 (Apr 24, 2021): Add Lark authentication, operation log, and WAF optimization v1.0.0 (Apr 04, 2021): Add ACME automatic certificate, referring sites statistics and authentication web configuration
 v0.9.16 (Jan 10, 2021): Add IP Address Policy, include Allow and Block
-v0.9.15 (Dec 27, 2020): Improve CC defense, Log cleaning period can be configured
-v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA</description>
+v0.9.15 (Dec 27, 2020): Improve CC defense, Log cleaning period can be configured</description>
     </item>
     
     <item>

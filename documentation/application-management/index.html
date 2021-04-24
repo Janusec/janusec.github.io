@@ -144,8 +144,8 @@
             <h1 id="application-management">Application Management</h1>
 <hr>
 <h4 id="requirements">Requirements</h4>
-<p>At least one digital certificate is required if you need <code>https</code> support. <br>
-<a href="/documentation/certificate-management">Certificate Management</a></p>
+<p>If you already have a digital certificate, you can add it under <a href="/documentation/certificate-management">Certificate Management</a>.<br>
+If you want JANUSEC to apply for a free digital certificate by itself, you can choose to use <code>ACME automatic certificate</code> (free certificate) in the <code>Domain Configuration</code> below, and ensure that the DNS of the domain name has been pointed to the JANUSEC application gateway for the certification authority to verify the ownership of the domain name , You don’t need to add it under the certificate management (note: automatic certificates do not support wildcard domain names).</p>
 <h4 id="add-or-edit-application">Add or Edit Application</h4>
 <p>Open web administration portal and navigate to <code>Application Management</code>.<br>
 <img src="/images/application1.png" alt="Add or Edit an Application" title="Application Management of Janusec Application Gateway"></p>
