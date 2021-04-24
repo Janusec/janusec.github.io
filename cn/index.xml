@@ -14,7 +14,8 @@
       
       <guid>/cn/quick-start/</guid>
       <description>快速入门  Switch to English Edition of Quick Start
-本入门指导将安装一个单节点（主节点）的Janusec应用网关（网关WAF）.
+如果您只是想快速体验一下，可试试JANUSEC应用网关的Docker镜像 ，并跳过下面的安装部分。
+本文将指导您正常安装一个单节点的JANUSEC应用网关（只有一个主节点，没有副本节点）。
 安装需求     节点 操作系统 数据库     主节点 Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables PostgreSQL 10/11/12+   副本节点 Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    备注：
 本入门只安装一个主节点，不安装副本节点，如需扩展，可参考安装一节。
 Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接使用PostgreSQL 10/11/12+版本 。

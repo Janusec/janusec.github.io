@@ -248,11 +248,11 @@ Now we assume you have <code>PostgreSQL</code> installed already, and database n
 </blockquote>
 <p>This is the administration address for Janusec Application Gateway.<br>
 Login with default username <code>admin</code> and password <code>J@nusec123</code> .</p>
-<h2 id="certificate-required-for-https">Certificate (required for <code>HTTPS</code>)</h2>
+<h2 id="certificate-optional">Certificate (optional)</h2>
 <hr>
 <p>If you only use HTTP, skip this step.<br>
 Open http://<code>your_ip_address</code>/janusec-admin/ and add a new certificate.
-If you don&rsquo;t have a certificate, you can get a free certificate from <code>Let's Encrypt</code> or let Janusec produce a self-signed certificate( only for test).</p>
+If you don&rsquo;t have a certificate, you can get a free certificate from <code>Let's Encrypt</code>, or let Janusec produce a self-signed certificate( only for test), or skip certificate configuration and select <code>ACME Automatic Certificate</code> under <code>Application Management</code>.</p>
 <h2 id="application-required">Application (required)</h2>
 <hr>
 <p>Open http://<code>your_ip_address</code>/janusec-admin/ and add a new application.

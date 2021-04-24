@@ -139,7 +139,8 @@
             <h1 id="快速入门">快速入门</h1>
 <hr>
 <p><a href="/documentation/quick-start/">Switch to English Edition of Quick Start</a></p>
-<p>本入门指导将安装一个单节点（主节点）的Janusec<a href="https://www.janusec.com/">应用网关</a>（网关WAF）.</p>
+<p>如果您只是想快速体验一下，可试试<a href="https://www.janusec.com/articles/opensource/1615470598.html">JANUSEC应用网关的Docker镜像</a> ，并跳过下面的安装部分。</p>
+<p>本文将指导您正常安装一个单节点的JANUSEC应用网关（只有一个主节点，没有副本节点）。</p>
 <h2 id="安装需求">安装需求</h2>
 <hr>
 <table>
@@ -247,11 +248,11 @@ $tar zxf ./janusec-1.1.0-amd64.tar.gz</p>
 <p>这是Janusec应用网关的第一个管理地址（后面可启用安全的管理地址）。<br>
 默认用户名：<code>admin</code><br>
 默认口令：<code>J@nusec123</code></p>
-<h2 id="配置数字证书-如使用https必选">配置数字证书 (如使用HTTPS，必选)</h2>
+<h2 id="配置数字证书-可选">配置数字证书 (可选)</h2>
 <hr>
 <p>如果仅使用HTTP，不使用HTTPS，可跳过此步骤；但强烈建议配置证书并启用HTTPS。</p>
 <p>使用浏览器打开 http://<code>您的网关IP地址</code>/janusec-admin/ 并<a href="/cn/certificate-management/">添加一张数字证书</a>。
-如果您还没有数字证书，可以从<code>Let's Encrypt</code>申请免费的数字证书，或者让Janusec生成一张自签名的数字证书（自签名证书仅用于测试用途）。</p>
+如果您还没有数字证书，可以从<code>Let's Encrypt</code>申请免费的数字证书，或者让Janusec生成一张自签名的数字证书（自签名证书仅用于测试用途），或者跳过证书配置，在应用管理中配置使用<code>ACME自动证书</code>。</p>
 <h2 id="配置web应用-必选">配置Web应用 (必选)</h2>
 <hr>
 <p>使用浏览器打开  http://<code>您的网关IP地址</code>/janusec-admin/ 并<a href="/cn/application-management/">添加一个应用</a>.<br>
