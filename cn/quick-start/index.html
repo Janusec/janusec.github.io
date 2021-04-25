@@ -217,8 +217,7 @@ $tar zxf ./janusec-1.1.0-amd64.tar.gz</p>
             &quot;listen&quot;: true,           // 后台管理界面开启独立的监听端口，通常用于只允许内网登录，不允许外网登录
             &quot;listen_http&quot;: &quot;:9080&quot;,   // 格式为 :port 或 内网IP:Port，listen为true时，允许后台管理通过 http://IP:9080/janusec-admin/ 访问
             &quot;listen_https&quot;: &quot;:9443&quot;,  // 格式为 :port 或 内网IP:Port，listen为true时，允许后台管理通过 https://any_application_domain:9443/janusec-admin/ 访问
-            &quot;portal&quot;: &quot;https://your_gate_domain.com:9443/janusec-admin/&quot;,   // 不使用OAuth时先忽略，用于管理入口的OAuth回调，如果listen为false，请去掉冒号和端口号
-            &quot;webssh_enabled&quot;: false   // 为true时，允许使用Web SSH运维功能
+            &quot;portal&quot;: &quot;https://your_gate_domain.com:9443/janusec-admin/&quot;   // 不使用OAuth时先忽略，用于管理入口的OAuth回调，如果listen为false，请去掉冒号和端口号
         },
         &quot;database&quot;: {                 // PostgreSQL 10/11/12+
             &quot;host&quot;: &quot;127.0.0.1&quot;,      // PostgreSQL IP地址

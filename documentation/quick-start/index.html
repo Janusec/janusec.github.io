@@ -218,8 +218,7 @@ Now we assume you have <code>PostgreSQL</code> installed already, and database n
             &quot;listen&quot;: true,           // Listen on new ports for admin portal
             &quot;listen_http&quot;: &quot;:9080&quot;,   // Format :port or Interal_IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available
             &quot;listen_https&quot;: &quot;:9443&quot;,  // Format :port or Interal_IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available
-            &quot;portal&quot;: &quot;https://your_gate_domain.com:9443/janusec-admin/&quot;,   // Please skip this item when OAuth not used. It is for admin portal OAuth callback, if listen is false in config.json, remove colon and port number
-            &quot;webssh_enabled&quot;: false   // Web SSH Operation permitted when it is true
+            &quot;portal&quot;: &quot;https://your_gate_domain.com:9443/janusec-admin/&quot;   // Please skip this item when OAuth not used. It is for admin portal OAuth callback, if listen is false in config.json, remove colon and port number
         },
         &quot;database&quot;: {                 // PostgreSQL 10/11/12+
             &quot;host&quot;: &quot;127.0.0.1&quot;,      // PostgreSQL IP Address
