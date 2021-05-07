@@ -220,8 +220,9 @@ LDAP配置 登录界面显示:
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v1.1.0 (2021.04.24)
+ 最新版本: v1.2.0 (2021.05.05)
 版本历史:
+v1.2.0 (2021.05.05): 增加5秒盾和SMTP提醒
 v1.1.0 (2021.04.24): 增加Lark扫码认证、操作日志，并对WAF模块进行优化
 v1.0.0 (2021.04.04): 增加ACME自动证书、来源网站统计（Referer）、身份认证配置Web化
 v0.9.16 (2021.01.10): 增加IP地址策略（放行Allow，阻断Block）
@@ -237,11 +238,10 @@ v0.9.6 (2020.02.27): 增加域名重定向。
 查看当前版本 当前版本信息可通过管理入口查看，或者:
  ./janusec --version
  从v0.9.10+升级 不用卸载，直接覆盖安装即可。
- #wget https://www.janusec.com/download/janusec-1.1.0-amd64.tar.gz
-#tar zxf ./janusec-1.1.0-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.2.0-amd64.tar.gz
+#tar zxf ./janusec-1.2.0-amd64.tar.gz
 #cd /data/janusec-1.0.xx/
-#./install.sh
-#systemctl restart janusec</description>
+#./install.sh</description>
     </item>
     
     <item>
