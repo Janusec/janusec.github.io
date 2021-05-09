@@ -382,10 +382,10 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.2.0 (May 05, 2021)
+ Latest version: v1.2.1 (May 09, 2021)
+v1.2.1 (May 09, 2021): Add SMTP test button, and CAPTCHA language init
 v1.2.0 (May 05, 2021): Add 5-second shield and SMTP notifications
-v1.1.0 (Apr 24, 2021): Add Lark authentication, operation log, and WAF optimization v1.0.0 (Apr 04, 2021): Add ACME automatic certificate, referring sites statistics and authentication web configuration
-v0.9.16 (Jan 10, 2021): Add IP Address Policy, include Allow and Block</description>
+v1.1.0 (Apr 24, 2021): Add Lark authentication, operation log, and WAF optimization v1.0.0 (Apr 04, 2021): Add ACME automatic certificate, referring sites statistics and authentication web configuration</description>
     </item>
     
     <item>
@@ -395,8 +395,9 @@ v0.9.16 (Jan 10, 2021): Add IP Address Policy, include Allow and Block</descript
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v1.2.0 (2021.05.05)
+ 最新版本: v1.2.1 (2021.05.09)
 版本历史:
+v1.2.1 (2021.05.09): 增加SMTP测试按钮，验证码/LDAP认证界面自动选择中英文
 v1.2.0 (2021.05.05): 增加5秒盾和SMTP提醒
 v1.1.0 (2021.04.24): 增加Lark扫码认证、操作日志，并对WAF模块进行优化
 v1.0.0 (2021.04.04): 增加ACME自动证书、来源网站统计（Referer）、身份认证配置Web化
@@ -414,9 +415,7 @@ v0.9.6 (2020.02.27): 增加域名重定向。
  ./janusec --version
  从v0.9.10+升级 不用卸载，直接覆盖安装即可。
  #wget https://www.janusec.com/download/janusec-1.2.1-amd64.tar.gz
-#tar zxf ./janusec-1.2.1-amd64.tar.gz
-#cd /data/janusec-1.0.xx/
-#./install.sh</description>
+#tar zxf ./janusec-1.2.1-amd64.tar.gz</description>
     </item>
     
     <item>
