@@ -146,23 +146,7 @@
 <blockquote>
 <p>This article is only for upgrade, not for new installation.</p>
 </blockquote>
-<p>Latest version: v1.2.2 (May 15, 2021)</p>
-<p>v1.2.2  (May 15, 2021): Add 2-Factor Authentication for janusec-admin. Mobile App (Google Authenticator or Microsoft Authenticator) is required. <br>
-v1.2.1  (May 09, 2021): Add SMTP test button, and CAPTCHA language init<br>
-v1.2.0  (May 05, 2021): Add 5-second shield and SMTP notifications<br>
-v1.1.0  (Apr 24, 2021): Add Lark authentication, operation log, and WAF optimization <br>
-v1.0.0  (Apr 04, 2021): Add ACME automatic certificate, referring sites statistics and authentication web configuration<br>
-v0.9.16 (Jan 10, 2021): Add IP Address Policy, include Allow and Block<br>
-v0.9.15 (Dec 27, 2020): Improve CC defense, Log cleaning period can be configured<br>
-v0.9.14 (Dec 21, 2020): Add CAS 2.0 authentication, and optimize the UI of CAPTCHA<br>
-v0.9.13 (Nov 22, 2020): Custom static web site when domain name not configured  (example: IP address used), and API interface optimizaiton. <br>
-v0.9.12 (Nov 14, 2020): Add TCP/UDP port forwarding, and admin UI optimizaiton.<br>
-v0.9.11 (Oct 24, 2020): Add health check for backend servers, add CSP<br>
-v0.9.10 (Sep 26, 2020): Add nftables support for CC defense<br>
-v0.9.9 (Jun 19, 2020): Add static files cache<br>
-v0.9.8 (May 17, 2020): Add LDAP Authentication, static website, fastcgi support.<br>
-v0.9.7 (Mar 29, 2020): Add OAuth2 (WeChat Work, DingTalk, Feishu) for applications and admin portal. Admin listen configurable. Web SSH configurable.<br>
-v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</p>
+<p>Latest version: v1.2.3 (May 17, 2021)</p>
 <h4 id="view-current-version">View current version</h4>
 <p>The version information is available at admin portal, or:</p>
 <blockquote>
@@ -171,8 +155,8 @@ v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</p>
 <h4 id="from-v0910">From v0.9.10+</h4>
 <p>Update JANUSEC like this:</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.2.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.2.2-amd64.tar.gz</code><br>
+<p>#<code>wget https://www.janusec.com/download/janusec-1.2.3-amd64.tar.gz</code><br>
+#<code>tar zxf ./janusec-1.2.3-amd64.tar.gz</code><br>
 #<code>cd janusec-1.2.x-amd64</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
@@ -192,9 +176,9 @@ v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</p>
 </blockquote>
 <p>Then, update JANUSEC like this:</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.2.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.2.2-amd64.tar.gz</code><br>
-#<code>cd /data/janusec-1.0.xx/</code><br>
+<p>#<code>wget https://www.janusec.com/download/janusec-1.2.3-amd64.tar.gz</code><br>
+#<code>tar zxf ./janusec-1.2.3-amd64.tar.gz</code><br>
+#<code>cd /data/janusec-1.2.xx/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
@@ -203,10 +187,10 @@ v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</p>
 <p>config.json changed in V0.9.9, so backup and new config.json is required:</p>
 <blockquote>
 <p>#<code>cd /data/</code><br>
-#<code>wget https://www.janusec.com/download/janusec-1.2.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.2.2-amd64.tar.gz</code><br>
+#<code>wget https://www.janusec.com/download/janusec-1.2.3-amd64.tar.gz</code><br>
+#<code>tar zxf ./janusec-1.2.3-amd64.tar.gz</code><br>
 #<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
-#<code>cp ./janusec-1.0.xx/config.json.primary_bak /usr/local/janusec/config.json</code></p>
+#<code>cp ./janusec-1.2.xx/config.json.primary_bak /usr/local/janusec/config.json</code></p>
 </blockquote>
 <p>Edit <code>/usr/local/janusec/config.json</code>, refer to <a href="/documentation/configuration/">Configuration File</a>, set database information.</p>
 <blockquote>
@@ -217,7 +201,7 @@ v0.9.6 (Feb 27, 2020): Add domain 301 redirect.</p>
 <p>Step 3:</p>
 <p>Install the latest version（config.json will not be overwrote if it exists.）：</p>
 <blockquote>
-<p>#<code>cd /data/janusec-1.0.xx/</code><br>
+<p>#<code>cd /data/janusec-1.2.xx/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>

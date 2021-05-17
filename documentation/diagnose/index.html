@@ -180,6 +180,11 @@
 <blockquote>
 <p><code>netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'</code></p>
 </blockquote>
+<h3 id="dns">DNS</h3>
+<p>Domain should point to the IP address of the application gateway.<br>
+When the application is to be migrated, you can first use the hosts method to point the domain name to the gateway, and then modify the DNS point after the debugging is passed.</p>
+<h3 id="certificate">Certificate</h3>
+<p>If the ACME automatic certificate is used, the corresponding domain name is required to be accessible by Internet users (test domain name in the hosts will not work), which is used for the callback verification of the certificate authority.</p>
 <h3 id="nodes-sync">Nodes Sync</h3>
 <p>In order to sync correctly, requires:</p>
 <ul>

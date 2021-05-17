@@ -156,10 +156,17 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.2.2 (May 15, 2021)
-v1.2.2 (May 15, 2021): Add 2-Factor Authentication for janusec-admin. Mobile App (Google Authenticator or Microsoft Authenticator) is required. v1.2.1 (May 09, 2021): Add SMTP test button, and CAPTCHA language init
-v1.2.0 (May 05, 2021): Add 5-second shield and SMTP notifications
-v1.1.0 (Apr 24, 2021): Add Lark authentication, operation log, and WAF optimization v1.</description>
+ Latest version: v1.2.3 (May 17, 2021)
+View current version The version information is available at admin portal, or:
+ ./janusec --version
+ From v0.9.10+ Update JANUSEC like this:
+ #wget https://www.janusec.com/download/janusec-1.2.3-amd64.tar.gz
+#tar zxf ./janusec-1.2.3-amd64.tar.gz
+#cd janusec-1.2.x-amd64
+#./install.sh
+#systemctl restart janusec
+ From V0.9.9 First, nftables is required for CC defense from v0.9.10.
+nftables is not installed for CentOS 7 by default, installation is required:</description>
     </item>
     
     <item>

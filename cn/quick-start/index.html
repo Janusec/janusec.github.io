@@ -167,8 +167,7 @@
 <p>备注：<br>
 本入门只安装一个主节点，不安装副本节点，如需扩展，可参考<a href="/cn/installation/">安装</a>一节。<br>
 Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接使用<code>PostgreSQL 10/11/12+</code>版本 。<br>
-如果您的PostgreSQL版本为9.3~9.5且无法升级，可安装之前Janusec v0.9.16 。<br>
-如果您的PostgreSQL版本低于9.3，则无法安装Janusec 。</p>
+如果您的PostgreSQL版本低于9.6，则不支持 。</p>
 <h2 id="准备主机防火墙nftables">准备主机防火墙nftables</h2>
 <hr>
 <p>nftables用于拦截CC攻击，减轻应用网关压力。</p>
@@ -193,8 +192,8 @@ Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接�
 <h5 id="步骤-1-下载">步骤 1: 下载</h5>
 <blockquote>
 <p>$cd ~<br>
-$wget <code>https://www.janusec.com/download/janusec-1.2.2-amd64.tar.gz</code><br>
-$tar zxf ./janusec-1.2.2-amd64.tar.gz</p>
+$wget <code>https://www.janusec.com/download/janusec-1.2.3-amd64.tar.gz</code><br>
+$tar zxf ./janusec-1.2.3-amd64.tar.gz</p>
 </blockquote>
 <h5 id="步骤-2-安装">步骤 2: 安装</h5>
 <p>请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： <code>/usr/local/janusec/ </code></p>
