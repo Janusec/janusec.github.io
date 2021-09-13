@@ -156,12 +156,12 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.2.4 (Sep 09, 2021)
+ Latest version: v1.2.5 (Sep 13, 2021)
 View current version The version information is available at admin portal, or:
  ./janusec --version
  From v0.9.10+ Update JANUSEC like this:
- #wget https://www.janusec.com/download/janusec-1.2.4-amd64.tar.gz
-#tar zxf ./janusec-1.2.4-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.2.5-amd64.tar.gz
+#tar zxf ./janusec-1.2.5-amd64.tar.gz
 #cd janusec-1.2.x-amd64
 #./install.sh
 #systemctl restart janusec
