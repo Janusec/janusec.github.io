@@ -6,7 +6,7 @@
     <description>Recent content in Documentations on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Mar 2020 23:04:25 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jan 2022 14:01:34 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quick Start</title>
       <link>/documentation/quick-start/</link>
@@ -156,12 +156,12 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.2.6 (Sep 30, 2021)
+ Latest version: v1.2.7 (Jan 01, 2022)
 View current version The version information is available at admin portal, or:
  ./janusec --version
  From v0.9.10+ Update JANUSEC like this:
- #wget https://www.janusec.com/download/janusec-1.2.6-amd64.tar.gz
-#tar zxf ./janusec-1.2.6-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz
+#tar zxf ./janusec-1.2.7-amd64.tar.gz
 #cd janusec-1.2.x-amd64
 #./install.sh
 #systemctl restart janusec
@@ -212,6 +212,35 @@ Service Management systemd is used for Service Management , check :
  (Expect result: /usr/bin/systemctl)
 PostgreSQL Use psql to check PostgreSQL Connection:
  psql -h 127.</description>
+    </item>
+    
+    <item>
+      <title>Appendix 1: RE2 Regex</title>
+      <link>/documentation/appendix-re2/</link>
+      <pubDate>Thu, 09 Apr 2020 14:16:34 +0800</pubDate>
+      
+      <guid>/documentation/appendix-re2/</guid>
+      <description>Appendix 1: RE2 Regex  JANUSEC Application Gateway uses Google RE2 Regular Expression 。
+Regex Rule Example 1 Checkpoint: URLPath
+Description: checkpoint URLPath represents the path after the domain name in the URL address, for example www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2 ，URLPath is /blog/show.php
+RE2 Rule:
+ (?i)/\.(git|svn)/
+ Description: (?i) represents case insensitive，/ represents itself, \\. matches the decimal point，(git|svn) matches git or svn, used to block access to the wrongly released source code.</description>
+    </item>
+    
+    <item>
+      <title>Appendix 2: PostgreSQL Operations</title>
+      <link>/documentation/appendix-psql/</link>
+      <pubDate>Sat, 01 Jan 2022 14:01:34 +0800</pubDate>
+      
+      <guid>/documentation/appendix-psql/</guid>
+      <description>Appendix 2: PostgreSQL Operations  1 PostgreSQL Installation PostgreSQL is not included in the release package, you should prepare it before installation, required by the Primary Node.
+Before the installation of the Primary Node, dbname, dbuser and password should be ready.
+1.1 Example with Debian 10 and PostgreSQL 11  apt install postgresql
+su - postgres
+psql
+  create user janusec with password &amp;lsquo;J@nusec123&amp;rsquo;;
+create database janusec owner janusec;</description>
     </item>
     
   </channel>

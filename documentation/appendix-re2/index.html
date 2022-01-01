@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>Administration</title>
-    <meta name="keywords" content="[Administration, Janusec Application Gateway, WAF, Web Application Firewall]">
-    <meta name="description" content="Administration of Janusec Application Gateway">
+    <title>Appendix 1: RE2 Regex</title>
+    <meta name="keywords" content="[RE2 regex, Janusec, Application Gateway, WAF, Web Application Firewall]">
+    <meta name="description" content="Janusec Application Gateway RE2 regular expression">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -151,30 +151,34 @@
       </div>
       <div class="col-sm-9">
             <article>
-            <h1 id="web-administration">Web Administration</h1>
+            <h1 id="appendix-1-re2-regex">Appendix 1: RE2 Regex</h1>
 <hr>
-<h4 id="administration-portal">Administration Portal</h4>
-<hr>
-<p>When listen=false in config.json :</p>
+<p>JANUSEC Application Gateway uses <a href="https://github.com/google/re2/wiki/Syntax">Google RE2 Regular Expression</a> 。</p>
+<h4 id="regex-rule-example-1">Regex Rule Example 1</h4>
+<p>Checkpoint: URLPath<br>
+Description: checkpoint <code>URLPath</code> represents the path after the domain name in the URL address, for example <a href="http://www.yourdomain.com">www.yourdomain.com</a><code>/blog/show.php</code>?id=1&amp;category=2 ，URLPath is <code>/blog/show.php</code></p>
+<p>RE2 Rule:</p>
 <blockquote>
-<p>http://<code>your_primary_node_ip_address</code>/janusec-admin/    (first use)
-https://<code>your_application_domain_name</code>/janusec-admin/  (after certificate configured)<br>
-When listen=true  in config.json :</p>
+<p>(?i)/\.(git|svn)/</p>
 </blockquote>
+<p>Description: <code>(?i)</code> represents case insensitive，<code>/</code> represents itself, <code>\\.</code> matches the decimal point，(git|svn) matches git or svn, used to block access to the wrongly released source code.</p>
+<h4 id="regex-rule-example-2">Regex Rule Example 2</h4>
+<p>Checkpoint: URLQuery<br>
+Description: checkpoint <code>URLQuery</code> represents the parameters in URL (example: <a href="http://www.yourdomain.com/blog/show.php?%60id=1&amp;category=2%60">www.yourdomain.com/blog/show.php?`id=1&amp;category=2`</a> , URLQuery is <code>id=1&amp;category=2</code> )</p>
+<p>RE2 Rule:</p>
 <blockquote>
-<p>http://<code>your_primary_node_ip_address:9080</code>/janusec-admin/    (first use)  <br>
-https://<code>your_primary_node_domain_name:9443</code>/janusec-admin/  (after certificate configured)</p>
+<p>(?i)%\s+(and|or)\s+</p>
 </blockquote>
-<p>When using primary node only, any application domain name can be used for admin.<br>
-But if you have one or more replica nodes, you should apply for a seperate domain name for primary node.</p>
-<h4 id="digital-certificate-management">Digital Certificate Management</h4>
-<p>see <a href="/documentation/certificate-management">Certificate Management</a></p>
-<h4 id="application-management">Application Management</h4>
-<p>see <a href="/documentation/application-management/">Application Management</a></p>
-<h4 id="node-management">Node Management</h4>
-<p>see <a href="/documentation/node-management/">Node Management</a></p>
-<h4 id="waf-management">WAF Management</h4>
-<p>see <a href="/documentation/waf-management/">WAF Management</a></p>
+<p>Description: <code>%</code> matches itself, <code>\s+</code> matches one or more spaces, <code>(and|or)</code> matches various case combinations such as <code>aNd</code>, <code>AnD</code>, <code>oR</code> etc., used to prevent SQL Injection.</p>
+<h3 id="regex-rule-example-3">Regex Rule Example 3</h3>
+<p>Checkpoint: GetPostValue<br>
+Description:  <code>GetPostValue</code> represents parameter values in GET and POST methods (example: <a href="http://www.yourdomain.com/blog/show.php?id=1&amp;category=2">www.yourdomain.com/blog/show.php?id=1&amp;category=2</a> ,GetPostValue is <code>[1, 2]</code> ).</p>
+<p>RE2 Rule:</p>
+<blockquote>
+<p>(?i)\s+(and|or)\s+[\w\p{L}]+=[\w\p{L}]+$</p>
+</blockquote>
+<p>Description: [\w\p{L}] matches any letter, number, underscore or Unicode character (such as Chinese characters), <code>=</code> matches itself, <code>$</code> matches the end, used to prevent SQL Injection.   <br>
+<code>\x{FFFF}</code> matches UNICODE, example <code>[\x{007F}-\x{FFFF}]+</code> matches unicode words.</p>
 
             </article>
       </div>

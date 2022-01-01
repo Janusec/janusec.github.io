@@ -219,12 +219,12 @@ LDAP配置 登录界面显示:
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v1.2.6 (2021.09.30)
+ 最新版本: v1.2.7 (2022.01.01)
 查看当前版本 当前版本信息可通过管理入口查看，或者:
  ./janusec --version
  从v0.9.10+升级 不用卸载，直接覆盖安装即可。
- #wget https://www.janusec.com/download/janusec-1.2.6-amd64.tar.gz
-#tar zxf ./janusec-1.2.6-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz
+#tar zxf ./janusec-1.2.7-amd64.tar.gz
 #cd /data/janusec-1.2.xx/
 #./install.sh
 #systemctl restart janusec
@@ -237,8 +237,8 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
  #systemctl enable firewalld
 #systemctl start firewalld
  然后覆盖安装即可：
- #wget https://www.janusec.com/download/janusec-1.2.6-amd64.tar.gz
-#tar zxf ./janusec-1.2.6-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz
+#tar zxf ./janusec-1.2.7-amd64.tar.gz
 #cd /data/janusec-1.2.xx/
 #./install.sh
 #systemctl restart janusec
@@ -287,7 +287,7 @@ PostgreSQL 使用psql命令来检查配置是否正常：
     </item>
     
     <item>
-      <title>附录1:RE2正则规则解读</title>
+      <title>附录1: RE2正则规则解读</title>
       <link>/cn/appendix-re2/</link>
       <pubDate>Thu, 09 Apr 2020 14:16:34 +0800</pubDate>
       
@@ -309,6 +309,26 @@ RE2规则：
  (?i)\s+(and|or)\s+[\w\p{L}]+=[\w\p{L}]+$
  解读：[\w\p{L}]表示任意字母、数字、下划线或Unicode字符（如汉字），=原样匹配，$表示结尾，用于防止SQL注入。
 中文或其他UNICODE字符，还可以使用\x{FFFF}格式，比如[\x{007F}-\x{FFFF}]+可匹配中文词语或句子。</description>
+    </item>
+    
+    <item>
+      <title>附录2: PostgreSQL操作</title>
+      <link>/cn/appendix-psql/</link>
+      <pubDate>Sat, 01 Jan 2022 14:01:34 +0800</pubDate>
+      
+      <guid>/cn/appendix-psql/</guid>
+      <description>附录2: PostgreSQL操作  1 PostgreSQL安装 PostgreSQL ( 10/11/12+ ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令. 下面简述 PostgreSQL 的安装步骤。
+1.1 在Debian 10中部署PostgreSQL 11  apt install postgresql
+su - postgres
+psql
+  create user janusec with password &#39;J@nusec123&#39;;
+create database janusec owner janusec;
+grant all privileges on database janusec to janusec;
+\q
+exit
+psql -h 127.0.0.1 -U janusec -W janusec
+ 1.2 在 CentOS 7 中部署 PostgreSQL 10 主要参考 https://wiki.postgresql.org/wiki/YUM_Installation 首先添加源，方便通过yum安装。
+ yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</description>
     </item>
     
   </channel>
