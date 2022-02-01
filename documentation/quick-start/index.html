@@ -147,6 +147,11 @@
               <a href="/documentation/appendix-psql/">Appendix 2: PostgreSQL Operations</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/documentation/appendix-ha/">Appendix 3: High Availability Configuration</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -202,8 +207,8 @@
 <h5 id="step-1-download">Step 1: Download</h5>
 <blockquote>
 <p>$cd ~<br>
-$wget <code>https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz</code><br>
-$tar zxf ./janusec-1.2.7-amd64.tar.gz</p>
+$wget <code>https://www.janusec.com/download/janusec-1.2.8-amd64.tar.gz</code><br>
+$tar zxf ./janusec-1.2.8-amd64.tar.gz</p>
 </blockquote>
 <h5 id="step-2-install">Step 2: Install</h5>
 <p>Switch to root and run install.sh , janusec application gateway will be installed to <code>/usr/local/janusec/ </code></p>
@@ -221,7 +226,7 @@ $tar zxf ./janusec-1.2.7-amd64.tar.gz</p>
 <h5 id="step-3-config">Step 3: Config</h5>
 <p>PostgreSQL is not included in release package, you should prepare database name and account.<br>
 Now we assume you have <code>PostgreSQL</code> installed already, and database name and account is ready, then edit <code>/usr/local/janusec/config.json</code> (use <code>//</code> as comment, please delete them before using it):</p>
-<pre><code>{
+<pre tabindex="0"><code>{
     &quot;node_role&quot;: &quot;primary&quot;,            // &quot;primary&quot; for primary node, &quot;replica&quot; for replica nodes
     &quot;primary_node&quot;: {                  // keep empty for replica nodes
         &quot;admin&quot;: {                    // Administrator portal
@@ -291,7 +296,7 @@ Fill in application name, actual IP:Port etc.</p>
 <p>#nft list table inet janusec -a</p>
 </blockquote>
 <p>The result is like this:</p>
-<pre><code>[root@CentOS8]# nft list table inet janusec -a
+<pre tabindex="0"><code>[root@CentOS8]# nft list table inet janusec -a
 table inet janusec { # handle 20
 	set blocklist { # handle 2
 		type ipv4_addr

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>附录1: RE2正则规则解读</title>
-    <meta name="keywords" content="[RE2正则规则解读, Janusec, Application Gateway, WAF, Web Application Firewall]">
-    <meta name="description" content="Janusec Application Gateway RE2正则规则解读">
+    <title>附录3: 高可用配置</title>
+    <meta name="keywords" content="[高可用, 高可用配置, Janusec, Application Gateway, WAF, Web Application Firewall]">
+    <meta name="description" content="Janusec Application Gateway 高可用配置">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -146,34 +146,67 @@
       </div>
       <div class="col-sm-9">
             <article>
-            <h1 id="附录1re2正则规则解读">附录1:RE2正则规则解读</h1>
+            <h1 id="附录3-高可用配置">附录3: 高可用配置</h1>
 <hr>
-<p>JANUSEC应用网关使用<a href="https://github.com/google/re2/wiki/Syntax">Google RE2正则规则</a> 。</p>
-<h4 id="规则样例1">规则样例1</h4>
-<p>检查点(CheckPoint)：URLPath<br>
-解读：检查点URLPath表示URL地址中域名后面的路径(举例 <a href="http://www.yourdomain.com/blog/show.php?id=1&amp;category=2">www.yourdomain.com/blog/show.php?id=1&amp;category=2</a> ，URLPath 为<code>/blog/show.php</code> )</p>
-<p>RE2规则：</p>
+<h2 id="1-架构说明">1 架构说明</h2>
+<p>JANUSEC应用网关本身支持安装一个主节点和多个副本节点，用于负载均衡。<br>
+如果需要保障单个节点的高可用性，可配合keepalived来构建高可用节点。<br>
+建议的高可用部署架构为：</p>
+<ol>
+<li>部署一个主节点，专门用于后台管理，不对用户开放</li>
+<li>部署两个或多个副本节点（Replica），在每个副本节点上安装keepalived</li>
+</ol>
+<p>以下采用两个副本节点，假设IP地址分别为<code>192.168.56.101</code>和<code>192.168.56.102</code>，使用keepalived来构建一个虚拟节点，让域名指向虚拟节点的IP地址<code>192.168.56.103</code> 。</p>
+<p>需要注意的是，在同一时刻，一组keepalived节点中只有一台网关服务器在工作，如果这一台出现故障，则自动迁移到另一台服务器。<br>
+如果您需要多个虚拟节点同时工作，请创建一组新的keepalived网关节点。</p>
+<h2 id="2-安装keepalived">2 安装keepalived</h2>
+<p>以Debian为例，安装keepalived可使用如下指令：</p>
 <blockquote>
-<p>(?i)/\.(git|svn)/</p>
+<p>apt install keepalived</p>
 </blockquote>
-<p>解读：(?i)表示不区分大小写，/原样匹配，\.匹配小数点，(git|svn)表示匹配git或svn ，用于阻断访问错误发布的源代码。</p>
-<h4 id="规则样例2">规则样例2</h4>
-<p>检查点(CheckPoint)：URLQuery<br>
-解读：检查点URLQuery表示URL中的参数(举例 <a href="http://www.yourdomain.com/blog/show.php?id=1&amp;category=2">www.yourdomain.com/blog/show.php?id=1&amp;category=2</a> ，URLQuery 为 <code>id=1&amp;category=2</code> )</p>
-<p>RE2规则：</p>
+<h2 id="3-配置keepalived">3 配置keepalived</h2>
+<p>从v1.2.8版本开始，在JANUSEC安装目录<code>/usr/local/janusec/</code>下面提供了keepalived的配置文件<code>keepalived.conf</code>，可修改这个文件。</p>
+<ul>
+<li>
+<p><code>vrrp_instance VI_01</code>部分的<code>interface eth0</code>，将<code>eth0</code>修改为实际使用的内部网卡名称，通常为<code>eth0</code>、<code>eth1</code>、<code>enp0s8</code>等，IP地址对应上面的<code>192.168.56.101</code>或<code>192.168.56.102</code></p>
+</li>
+<li>
+<p><code>virtual_ipaddress</code>部分的虚拟IP地址为<code>192.168.56.103</code> （根据实际需要修改）</p>
+</li>
+</ul>
+<p>修改完毕后，将<code>keepalived.conf</code>复制到<code>/etc/keepalived/</code>目录下，然后启动keepalived服务:</p>
 <blockquote>
-<p>(?i)%\s+(and|or)\s+</p>
+<p>systemctl restart keepalived</p>
 </blockquote>
-<p>解读：%原样匹配，\s+表示一个或多个空格，(and|or)匹配and或or的各种大小写组合（如aNd、AnD、oR等），用于防止SQL注入。</p>
-<h3 id="规则样例3">规则样例3</h3>
-<p>检查点(CheckPoint)：GetPostValue<br>
-解读：GetPostValue同时作用于GET和POST方法中的参数值(举例 <a href="http://www.yourdomain.com/blog/show.php?id=1&amp;category=2">www.yourdomain.com/blog/show.php?id=1&amp;category=2</a> ，GetPostValue 为参数值 <code>[1, 2]</code> )。</p>
-<p>RE2规则：</p>
+<p>备注： 两台服务器均需要安装keepalived。</p>
+<h2 id="4-验证">4 验证</h2>
+<p>查看keepalived服务是否正常运行：</p>
 <blockquote>
-<p>(?i)\s+(and|or)\s+[\w\p{L}]+=[\w\p{L}]+$</p>
+<p>systemctl status keepalived</p>
 </blockquote>
-<p>解读：[\w\p{L}]表示任意字母、数字、下划线或Unicode字符（如汉字），=原样匹配，$表示结尾，用于防止SQL注入。<br>
-中文或其他UNICODE字符，还可以使用<code>\x{FFFF}</code>格式，比如<code>[\x{007F}-\x{FFFF}]+</code>可匹配中文词语或句子。</p>
+<p>分别检查两台服务器的IP地址：</p>
+<blockquote>
+<p>ip addr show <code>eth0</code></p>
+</blockquote>
+<p>eth0跟上述配置文件中的interface一致。<br>
+如果配置成功，在其中一台服务器上可以看到虚拟IP已成功添加。</p>
+<p>1: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000<br>
+link/ether 08:00:27:6d:69:45 brd ff:ff:ff:ff:ff:ff<br>
+inet 192.168.56.101/24 brd 192.168.56.255 scope global eth0<br>
+valid_lft forever preferred_lft forever<br>
+<code>inet 192.168.56.103/32 scope global eth0</code><br>
+valid_lft forever preferred_lft forever<br>
+inet6 fe80::a00:27ff:fe6d:6945/64 scope link<br>
+valid_lft forever preferred_lft forever</p>
+<p>然后可以停掉这一台服务器上面的网关服务来模拟网关故障：</p>
+<blockquote>
+<p>systemctl stop janusec</p>
+</blockquote>
+<p>然后重新查看两台服务器的IP地址，如果工作正常，则<code>192.168.56.103</code>会迁移到另一台服务器。</p>
+<p>测试完毕后，启动手工停掉的网关服务：</p>
+<blockquote>
+<p>systemctl start janusec</p>
+</blockquote>
 
             </article>
       </div>

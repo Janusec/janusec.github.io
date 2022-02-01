@@ -137,6 +137,11 @@
               <a href="/cn/appendix-psql/">附录2: PostgreSQL操作</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-ha/">附录3: 高可用配置</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -199,7 +204,7 @@
 <h3 id="nftables防火墙">nftables防火墙</h3>
 <p>请确保nftables防火墙正常工作，且没有多余的规则影响JANUSEC，参考<a href="/cn/installation/">安装</a>一节。<br>
 JANUSEC启动后，正常情况下规则类似如下：</p>
-<pre><code>[root@CentOS8]# nft list table inet janusec -a
+<pre tabindex="0"><code>[root@CentOS8]# nft list table inet janusec -a
 table inet janusec { # handle 20
 	set blocklist { # handle 2
 		type ipv4_addr

@@ -137,6 +137,11 @@
               <a href="/cn/appendix-psql/">附录2: PostgreSQL操作</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-ha/">附录3: 高可用配置</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -168,7 +173,7 @@
 </blockquote>
 <p><img src="/images/node1.png" alt="副本节点" title="Janusec应用网关的副本节点"></p>
 <p>副本节点配置文件<code>/usr/local/janusec/config.json</code>中的<code>node_key</code>，需要据此配置，类似：</p>
-<pre><code>{
+<pre tabindex="0"><code>{
 	&quot;node_role&quot;: &quot;replica&quot;,
 	...
 	&quot;replica_node&quot;: {		

@@ -137,6 +137,11 @@
               <a href="/cn/appendix-psql/">附录2: PostgreSQL操作</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-ha/">附录3: 高可用配置</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -191,8 +196,8 @@
 <h3 id="步骤1-下载">步骤1: 下载</h3>
 <blockquote>
 <p>$cd ~<br>
-$wget <code>https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz</code><br>
-$tar zxf ./janusec-1.2.7-amd64.tar.gz</p>
+$wget <code>https://www.janusec.com/download/janusec-1.2.8-amd64.tar.gz</code><br>
+$tar zxf ./janusec-1.2.8-amd64.tar.gz</p>
 </blockquote>
 <h3 id="步骤2-安装">步骤2: 安装</h3>
 <p>请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： <code>/usr/local/janusec/ </code></p>
@@ -226,12 +231,12 @@ $tar zxf ./janusec-1.2.7-amd64.tar.gz</p>
 <p>并配置&quot;replica_node&quot;中的内容:</p>
 <blockquote>
 <p>&ldquo;node_key&rdquo;: &ldquo;从管理后台节点管理中复制过来&rdquo;,<br>
-&ldquo;sync_addr&rdquo;: &ldquo;<a href="https://gateway.primary_node.com">https://gateway.primary_node.com</a>:9443/janusec-admin/api&rdquo;</p>
+&ldquo;sync_addr&rdquo;: &ldquo;<a href="https://gateway.primary_node.com:9443/janusec-admin/api%22">https://gateway.primary_node.com:9443/janusec-admin/api&quot;</a></p>
 </blockquote>
 <p>说明：</p>
 <ul>
 <li>如果使用了副本节点，请为主节点单独申请一个域名(例如gateway.primary_node.com，用于副本节点获取配置更新，该域名只指向主节点)，并且配置一个应用(Application)，Destination可配置为127.0.0.1:9999 （实际不使用）。</li>
-<li>如果&quot;primary_node&quot; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，&ldquo;sync_addr&quot;中请勿包含冒号和端口号，如&quot;https://gateway.primary_node.com/janusec-admin/api&rdquo;</li>
+<li>如果&quot;primary_node&rdquo; - &ldquo;admin&rdquo; - &ldquo;listen&rdquo; 为false，&ldquo;sync_addr&quot;中请勿包含冒号和端口号，如&quot;https://gateway.primary_node.com/janusec-admin/api&rdquo;</li>
 </ul>
 <h3 id="步骤4-启动">步骤4: 启动</h3>
 <blockquote>

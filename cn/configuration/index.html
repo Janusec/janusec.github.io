@@ -137,6 +137,11 @@
               <a href="/cn/appendix-psql/">附录2: PostgreSQL操作</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-ha/">附录3: 高可用配置</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -151,7 +156,7 @@
 <hr>
 <p>以下为Janusec Application Gateway V1.0.0+ 配置文件参考。<br>
 由于JSON格式支持的注释格式看起来不方便，下面采用<code>//</code>作为注释说明，实际使用时需要删除注释。</p>
-<pre><code>{
+<pre tabindex="0"><code>{
     &quot;node_role&quot;: &quot;primary&quot;,            // 单节点或主节点配置为&quot;primary&quot;，副本节点配置为&quot;replica&quot;
     &quot;primary_node&quot;: {                  // 主节点使用此配置，如果是副本节点，这部分配置留空
         &quot;admin&quot;: {                    // 后台管理
@@ -181,7 +186,7 @@
 <p>从版本1.0.0开始，OAuth身份认证配置迁移到Web管理界面，config.json文件中不再需要oauth字段。<br>
 如果从0.9.X版本升级而来，config.json文件中的该字段不会被自动删除，虽不影响网关运行，但建议手工删除（连同它前面的逗号）。<br>
 以下是0.9.X版本中的oauth配置参考：</p>
-<pre><code>&quot;oauth&quot;: {                    // OAuth2统一身份认证
+<pre tabindex="0"><code>&quot;oauth&quot;: {                    // OAuth2统一身份认证
             &quot;enabled&quot;: false,         // 设置为true时，启用OAuth2统一身份认证
             &quot;provider&quot;: &quot;wxwork&quot;,     // 目前支持wxwork(企业微信)、dingtalk(钉钉)、feishu(飞书)、ldap(LDAP)、cas2(CAS Server)  
             &quot;wxwork&quot;: {               // 企业微信配置

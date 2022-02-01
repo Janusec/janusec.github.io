@@ -137,6 +137,11 @@
               <a href="/cn/appendix-psql/">附录2: PostgreSQL操作</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-ha/">附录3: 高可用配置</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -197,8 +202,8 @@ Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接�
 <h5 id="步骤-1-下载">步骤 1: 下载</h5>
 <blockquote>
 <p>$cd ~<br>
-$wget <code>https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz</code><br>
-$tar zxf ./janusec-1.2.7-amd64.tar.gz</p>
+$wget <code>https://www.janusec.com/download/janusec-1.2.8-amd64.tar.gz</code><br>
+$tar zxf ./janusec-1.2.8-amd64.tar.gz</p>
 </blockquote>
 <h5 id="步骤-2-安装">步骤 2: 安装</h5>
 <p>请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： <code>/usr/local/janusec/ </code></p>
@@ -214,7 +219,7 @@ $tar zxf ./janusec-1.2.7-amd64.tar.gz</p>
 现在我们假设您已经安装好了PostgreSQL，且数据库已创建，用户名和口令已准备好。<br>
 然后编辑 <code>/usr/local/janusec/config.json</code> ，快速入门只修改数据库配置即可。<br>
 (由于JSON格式支持的注释格式看起来不方便，下面采用<code>//</code>作为注释说明，实际使用时需要删除注释):</p>
-<pre><code>{
+<pre tabindex="0"><code>{
     &quot;node_role&quot;: &quot;primary&quot;,            // 单节点或主节点配置为&quot;primary&quot;
     &quot;primary_node&quot;: {                  
         &quot;admin&quot;: {                    // 后台管理
@@ -294,7 +299,7 @@ https://<code>your_domain_name</code>/ .<br>
 <p>#nft list table inet janusec -a</p>
 </blockquote>
 <p>查看应用网关相关的规则，大概是这样的：</p>
-<pre><code>[root@CentOS8]# nft list table inet janusec -a
+<pre tabindex="0"><code>[root@CentOS8]# nft list table inet janusec -a
 table inet janusec { # handle 20
 	set blocklist { # handle 2
 		type ipv4_addr

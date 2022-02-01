@@ -137,6 +137,11 @@
               <a href="/cn/appendix-psql/">附录2: PostgreSQL操作</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-ha/">附录3: 高可用配置</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -146,7 +151,7 @@
 <blockquote>
 <p>本文仅供旧版本升级参考，新安装请忽略。</p>
 </blockquote>
-<p>最新版本: v1.2.7 (2022.01.01)</p>
+<p>最新版本: v1.2.8 (2022.02.01)</p>
 <h3 id="查看当前版本">查看当前版本</h3>
 <p>当前版本信息可通过管理入口查看，或者:</p>
 <blockquote>
@@ -155,8 +160,8 @@
 <h3 id="从v0910升级">从v0.9.10+升级</h3>
 <p>不用卸载，直接覆盖安装即可。</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.2.7-amd64.tar.gz</code><br>
+<p>#<code>wget https://www.janusec.com/download/janusec-1.2.8-amd64.tar.gz</code><br>
+#<code>tar zxf ./janusec-1.2.8-amd64.tar.gz</code><br>
 #<code>cd /data/janusec-1.2.xx/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
@@ -176,19 +181,19 @@
 </blockquote>
 <p>然后覆盖安装即可：</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.2.7-amd64.tar.gz</code><br>
+<p>#<code>wget https://www.janusec.com/download/janusec-1.2.8-amd64.tar.gz</code><br>
+#<code>tar zxf ./janusec-1.2.8-amd64.tar.gz</code><br>
 #<code>cd /data/janusec-1.2.xx/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
 <h3 id="从v095v098-升级">从V0.9.5~V0.9.8 升级</h3>
 <p>第一步：<br>
-V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在<code>/data/janusec-1.2.7-amd64.tar.gz</code>，升级步骤参考：</p>
+V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在<code>/data/janusec-1.2.8-amd64.tar.gz</code>，升级步骤参考：</p>
 <blockquote>
 <p>#<code>cd /data/</code><br>
-#<code>wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.2.7-amd64.tar.gz</code><br>
+#<code>wget https://www.janusec.com/download/janusec-1.2.8-amd64.tar.gz</code><br>
+#<code>tar zxf ./janusec-1.2.8-amd64.tar.gz</code><br>
 #<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
 #<code>cp ./janusec-1.2.xx/config.json.primary_bak /usr/local/janusec/config.json</code></p>
 </blockquote>

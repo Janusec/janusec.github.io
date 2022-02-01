@@ -147,6 +147,11 @@
               <a href="/documentation/appendix-psql/">Appendix 2: PostgreSQL Operations</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/documentation/appendix-ha/">Appendix 3: High Availability Configuration</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -206,7 +211,7 @@ When the application is to be migrated, you can first use the hosts method to po
 <h3 id="nftables">nftables</h3>
 <p>Please make sure nftables works well and there are no redundant rules that affect JANUSEC. Refer to <a href="/documentation/installation/">Installation</a>.</p>
 <p>After JANUSEC started, the rules is like this:</p>
-<pre><code>[root@CentOS8]# nft list table inet janusec -a
+<pre tabindex="0"><code>[root@CentOS8]# nft list table inet janusec -a
 table inet janusec { # handle 20
 	set blocklist { # handle 2
 		type ipv4_addr

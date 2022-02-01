@@ -147,6 +147,11 @@
               <a href="/documentation/appendix-psql/">Appendix 2: PostgreSQL Operations</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/documentation/appendix-ha/">Appendix 3: High Availability Configuration</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -160,7 +165,7 @@ Development environment: <code>./config.json</code></p>
 <h4 id="configuration-items">Configuration Items</h4>
 <hr>
 <p>The following is based on Janusec Application Gateway V1.0.0+, and use <code>//</code> as comment, please delete <code>// comment</code> before using it.</p>
-<pre><code>{
+<pre tabindex="0"><code>{
     &quot;node_role&quot;: &quot;primary&quot;,            // &quot;primary&quot; for primary node, &quot;replica&quot; for replica nodes
     &quot;primary_node&quot;: {                  // keep empty for replica nodes
         &quot;admin&quot;: {                    // Administrator portal
@@ -190,7 +195,7 @@ Development environment: <code>./config.json</code></p>
 <p>From version 1.0.0, <code>oauth</code> configuration removed from config.json to Web Administration UI, and not required in <code>config.json</code>.<br>
 If you upgrade janusec from version 0.9.x, the <code>oauth</code> field will not be deleted automatically, it will not affect the gateway working, but manually delete it is preferred (and delete the comma before it).</p>
 <p>Here is the <code>oauth</code> field in version 0.9.x for your information:</p>
-<pre><code>        &quot;oauth&quot;: {                    // OAuth2
+<pre tabindex="0"><code>        &quot;oauth&quot;: {                    // OAuth2
             &quot;enabled&quot;: false,         // true: Enable LDAP or OAuth2 Authentication
             &quot;provider&quot;: &quot;wxwork&quot;,     // ldap (LDAP), wxwork(WeChat Work), dingtalk(DingTalk), feishu(Feishu), cas2(CAS Server)
             &quot;wxwork&quot;: {               // WeChat Work
