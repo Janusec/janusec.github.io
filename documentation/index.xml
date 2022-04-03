@@ -15,7 +15,7 @@
       <guid>/documentation/quick-start/</guid>
       <description>Quick Start  快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
-Requirements     Role Operating System Database     Primary Node Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) PostgreSQL 10/11/12+   Replica Node Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    Prepare nftables  nftables used for CC defense.</description>
+Requirements     Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) PostgreSQL 10/11/12+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    Prepare nftables  nftables used for CC defense.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ Janusec Application Gateway Introduction PDF
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/documentation/installation/</guid>
-      <description>Installation  Requirements    Role Operating System Database     Primary Node Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) PostgreSQL 10/11/12+   Replica Node Debian 9/10+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    Prepare nftables  nftables used for CC defense.
+      <description>Installation  Requirements    Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) PostgreSQL 10/11/12+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    Prepare nftables  nftables used for CC defense.
 nftables for Debian 10:
  apt install nftables</description>
     </item>
@@ -132,8 +132,8 @@ If you want to check url values only ( GET Only ), please select URLQuery .
  LDAP CAS 2.0 WeWork DingTalk Feishu Lark  Used for janusec-admin, and internal applications, for employees.
 Configuration Enable authentication in Web admin UI.
 How to Get UserID in Applications Janusec will add the following headers if authentication passed.
- X-Auth-Token: Access-Token (Note: 0.9.15 uses X-Auth-Token instead previous Authorization) X-Auth-User: UserID
- The application can be used without modification.</description>
+ X-Auth-Token: Access-Token X-Auth-User: UserID
+ The application can use the identity authentication function without modification, and can also obtain user identity (WeWork/Dingtalk/Feishu/Lark) through X-Auth-User, or obtain further information with Access-Token (WeWork/Feishu/Lark).</description>
     </item>
     
     <item>
@@ -156,12 +156,12 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.2.7 (Jan 01, 2022)
+ Latest version: v1.2.9 (Apr 03, 2022)
 View current version The version information is available at admin portal, or:
  ./janusec --version
  From v0.9.10+ Update JANUSEC like this:
- #wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz
-#tar zxf ./janusec-1.2.7-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz
+#tar zxf ./janusec-1.2.9-amd64.tar.gz
 #cd janusec-1.2.x-amd64
 #./install.sh
 #systemctl restart janusec
@@ -206,7 +206,7 @@ nftables is not installed for CentOS 7 by default, installation is required:</de
       
       <guid>/documentation/diagnose/</guid>
       <description>Diagnose  Deployment  Operating System Operating System should be x86_64 and one of the following:
- Debian 9/10+ (Debian 10+ is preferred) CentOS 7/8+ RHEL 7/8+  Time Please make sure the time is correct, time zone may be any.
+ Debian 9/10/11+ (Debian 10+ is preferred) CentOS 7/8+ RHEL 7/8+  Time Please make sure the time is correct, time zone may be any.
 Service Management systemd is used for Service Management , check :
  command -v systemctl
  (Expect result: /usr/bin/systemctl)
@@ -241,6 +241,18 @@ su - postgres
 psql
   create user janusec with password &amp;lsquo;J@nusec123&amp;rsquo;;
 create database janusec owner janusec;</description>
+    </item>
+    
+    <item>
+      <title>Appendix 3: High Availability Configuration</title>
+      <link>/documentation/appendix-ha/</link>
+      <pubDate>Thu, 09 Apr 2020 14:16:34 +0800</pubDate>
+      
+      <guid>/documentation/appendix-ha/</guid>
+      <description>Appendix 3: High Availability Configuration  1 Architecture Description JANUSEC Application Gateway itself supports the installation of one primary node and multiple replica nodes for load balancing.
+If you need to guarantee the high availability of a single node, you can build a high availability node with keepalived.
+The recommended architecture for high availability deployment is:
+ deploy a master node dedicated to backend management, not open to users deploy two or more replica nodes (Replica) and install keepalived on each replica node  The following two replica nodes, assuming IP addresses 192.</description>
     </item>
     
   </channel>

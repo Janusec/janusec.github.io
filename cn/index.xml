@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Janusec应用网关 - 应用安全解决方案 on Janusec</title>
+    <title>Janusec应用网关 - 快速&amp;安全的应用部署 on Janusec</title>
     <link>/cn/</link>
-    <description>Recent content in Janusec应用网关 - 应用安全解决方案 on Janusec</description>
+    <description>Recent content in Janusec应用网关 - 快速&amp;安全的应用部署 on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 11 May 2018 21:03:34 +0800</lastBuildDate><atom:link href="/cn/index.xml" rel="self" type="application/rss+xml" />
@@ -16,7 +16,7 @@
       <description>快速入门  Switch to English Edition of Quick Start
 如果您只是想快速体验一下，可试试JANUSEC应用网关的Docker镜像 ，并跳过下面的安装部分。
 本文将指导您正常安装一个单节点的JANUSEC应用网关（只有一个主节点，没有副本节点）。
-安装需求     节点 操作系统 数据库     主节点 Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables PostgreSQL 10/11/12+   副本节点 Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    备注：
+安装需求     节点 操作系统 数据库     主节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables PostgreSQL 10/11/12+   副本节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    备注：
 本入门只安装一个主节点，不安装副本节点，如需扩展，可参考安装一节。
 Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接使用PostgreSQL 10/11/12+版本 。
 如果您的PostgreSQL版本低于9.6，则不支持 。
@@ -42,7 +42,7 @@ Janusec Application Gateway Introduction PDF
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/cn/installation/</guid>
-      <description>安装  需求    节点 操作系统 数据库     主节点 Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables PostgreSQL 10/11/12+   副本节点 Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    准备主机防火墙nftables  nftables用于拦截CC攻击，减轻应用网关压力。
+      <description>安装  需求    节点 操作系统 数据库     主节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables PostgreSQL 10/11/12+   副本节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    准备主机防火墙nftables  nftables用于拦截CC攻击，减轻应用网关压力。
 Debian 10安装nftables：
  apt install nftables
  CentOS 7默认没有安装nftables，需要手工安装并启动：
@@ -180,8 +180,8 @@ abc&#39; oR &amp;quot;abc&amp;quot;=&amp;quot;abc
  LDAP CAS 2.0 企业微信扫码登录 钉钉扫码登录 飞书扫码登录 Lark扫码登录  并同时作用于管理后台，以及员工访问内网应用。
 配置 如需启用，请在Web设置界面开启。
 应用如何获取用户身份 Janusec认证通过后，会在HTTP请求的头部添加两行：
- X-Auth-Token: Access-Token （备注： 0.9.15使用X-Auth-Token替换之前的Authorization） X-Auth-User: UserID
- 应用不需要修改即可使用，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。
+ X-Auth-Token: Access-Token X-Auth-User: UserID
+ 应用不需要修改即可使用身份认证功能，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。
 LDAP配置 登录界面显示:
  &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with LDAP&amp;rdquo;,
  LDAP登录入口(配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):
@@ -194,7 +194,7 @@ LDAP配置 登录界面显示:
 是否启用TLS加密传输（如果启用，请一并检查LDAP服务器端口，默认636）：
  &amp;ldquo;using_tls&amp;rdquo;: false
  CAS 2.0 // 显示在登录界面
- &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with CAS 2.</description>
+ &amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with CAS 2.0&amp;rdquo;,</description>
     </item>
     
     <item>
@@ -219,12 +219,12 @@ LDAP配置 登录界面显示:
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本Janusec应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v1.2.7 (2022.01.01)
+ 最新版本: v1.2.9 (2022.04.03)
 查看当前版本 当前版本信息可通过管理入口查看，或者:
  ./janusec --version
  从v0.9.10+升级 不用卸载，直接覆盖安装即可。
- #wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz
-#tar zxf ./janusec-1.2.7-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz
+#tar zxf ./janusec-1.2.9-amd64.tar.gz
 #cd /data/janusec-1.2.xx/
 #./install.sh
 #systemctl restart janusec
@@ -237,8 +237,8 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
  #systemctl enable firewalld
 #systemctl start firewalld
  然后覆盖安装即可：
- #wget https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz
-#tar zxf ./janusec-1.2.7-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz
+#tar zxf ./janusec-1.2.9-amd64.tar.gz
 #cd /data/janusec-1.2.xx/
 #./install.sh
 #systemctl restart janusec
@@ -268,7 +268,7 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
       <guid>/cn/diagnose/</guid>
       <description>问题诊断  部署  当安装Jausec时遇到问题，可先对照此检查表进行检查。
 操作系统 操作系统需要为x86_64架构的如下操作系统之一：
- Debian 9/10+ (首选Debian 10+) CentOS 7/8+ RHEL 7/8+  时间 服务器时间请先校准，时区不限，但需要保证时间正确，误差在一分钟之内。
+ Debian 9/10/11+ (首选Debian 10+) CentOS 7/8+ RHEL 7/8+  时间 服务器时间请先校准，时区不限，但需要保证时间正确，误差在一分钟之内。
 服务管理工具 服务管理工具为systemd，检查方法，在命令行运行：
  command -v systemctl
  （预期结果为：/usr/bin/systemctl）
@@ -329,6 +329,35 @@ exit
 psql -h 127.0.0.1 -U janusec -W janusec
  1.2 在 CentOS 7 中部署 PostgreSQL 10 主要参考 https://wiki.postgresql.org/wiki/YUM_Installation 首先添加源，方便通过yum安装。
  yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</description>
+    </item>
+    
+    <item>
+      <title>附录3: 高可用配置</title>
+      <link>/cn/appendix-ha/</link>
+      <pubDate>Thu, 09 Apr 2020 14:16:34 +0800</pubDate>
+      
+      <guid>/cn/appendix-ha/</guid>
+      <description>附录3: 高可用配置  1 架构说明 JANUSEC应用网关本身支持安装一个主节点和多个副本节点，用于负载均衡。
+如果需要保障单个节点的高可用性，可配合keepalived来构建高可用节点。
+建议的高可用部署架构为：
+ 部署一个主节点，专门用于后台管理，不对用户开放 部署两个或多个副本节点（Replica），在每个副本节点上安装keepalived  以下采用两个副本节点，假设IP地址分别为192.168.56.101和192.168.56.102，使用keepalived来构建一个虚拟节点，让域名指向虚拟节点的IP地址192.168.56.103 。
+需要注意的是，在同一时刻，一组keepalived节点中只有一台网关服务器在工作，如果这一台出现故障，则自动迁移到另一台服务器。
+如果您需要多个虚拟节点同时工作，请创建一组新的keepalived网关节点。
+2 安装keepalived 以Debian为例，安装keepalived可使用如下指令：
+ apt install keepalived
+ 3 配置keepalived 从v1.2.8版本开始，在JANUSEC安装目录/usr/local/janusec/下面提供了keepalived的配置文件keepalived.conf，可修改这个文件。
+  vrrp_instance VI_01部分的interface eth0，将eth0修改为实际使用的内部网卡名称，通常为eth0、eth1、enp0s8等，IP地址对应上面的192.168.56.101或192.168.56.102
+  virtual_ipaddress部分的虚拟IP地址为192.168.56.103 （根据实际需要修改）
+  修改完毕后，将keepalived.conf复制到/etc/keepalived/目录下，然后启动keepalived服务:
+ systemctl restart keepalived
+ 备注： 两台服务器均需要安装keepalived。
+4 验证 查看keepalived服务是否正常运行：
+ systemctl status keepalived
+ 分别检查两台服务器的IP地址：
+ ip addr show eth0
+ eth0跟上述配置文件中的interface一致。
+如果配置成功，在其中一台服务器上可以看到虚拟IP已成功添加。
+1: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</description>
     </item>
     
   </channel>

@@ -137,6 +137,11 @@
               <a href="/cn/appendix-psql/">附录2: PostgreSQL操作</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-ha/">附录3: 高可用配置</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -149,7 +154,7 @@
 <h3 id="操作系统">操作系统</h3>
 <p>操作系统需要为x86_64架构的如下操作系统之一：</p>
 <ul>
-<li>Debian 9/10+  (首选Debian 10+)</li>
+<li>Debian 9/10/11+  (首选Debian 10+)</li>
 <li>CentOS 7/8+</li>
 <li>RHEL 7/8+</li>
 </ul>
@@ -187,7 +192,11 @@
 <h3 id="dns">DNS</h3>
 <p>DNS需要指向网关的IP地址。应用迁移时，可以先使用hosts方式将域名指向网关，调试通过后再修改DNS指向。</p>
 <h3 id="证书">证书</h3>
-<p>如果使用ACME自动证书，则要求对应的域名是互联网用户可访问的（不能是hosts中的临时测试域名），用于证书颁发机构回调验证。</p>
+<p>如果使用ACME自动证书，则要求：</p>
+<ul>
+<li>对应的域名是互联网用户可访问的（不能是hosts中的临时测试域名），用于证书颁发机构回调验证</li>
+<li>只能使用单节点</li>
+</ul>
 <h3 id="主副本节点同步">主副本节点同步</h3>
 <p>为了保证主副本节点正确同步，需要满足：</p>
 <ul>

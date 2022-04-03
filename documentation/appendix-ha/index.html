@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>Update Janusec</title>
-    <meta name="keywords" content="[Janusec, Application Gateway, WAF, Web Application Firewall]">
-    <meta name="description" content="Update to new version of Janusec Application Gateway">
+    <title>Appendix 3: High Availability Configuration</title>
+    <meta name="keywords" content="[High Availability, High Availability Configuration, Janusec, Application Gateway, WAF, Web Application Firewall]">
+    <meta name="description" content="Janusec Application Gateway High Availability Configuration">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -156,88 +156,67 @@
       </div>
       <div class="col-sm-9">
             <article>
-            <h1 id="update-to-latest-version">Update to Latest Version</h1>
+            <h1 id="appendix-3-high-availability-configuration">Appendix 3: High Availability Configuration</h1>
 <hr>
+<h2 id="1-architecture-description">1 Architecture Description</h2>
+<p>JANUSEC Application Gateway itself supports the installation of one primary node and multiple replica nodes for load balancing.<br>
+If you need to guarantee the high availability of a single node, you can build a high availability node with keepalived.<br>
+The recommended architecture for high availability deployment is:</p>
+<ol>
+<li>deploy a master node dedicated to backend management, not open to users</li>
+<li>deploy two or more replica nodes (Replica) and install keepalived on each replica node</li>
+</ol>
+<p>The following two replica nodes, assuming IP addresses <code>192.168.56.101</code> and <code>192.168.56.102</code>, use keepalived to build a virtual node, and let the domain name points to the IP address of the virtual node <code>192.168.56.103</code> .</p>
+<p>Note that only one gateway server in a group of keepalived nodes is working at the same moment, and if this one fails, it is automatically migrated to another server.<br>
+If you need more than one virtual node to work at the same time, create a new set of keepalived gateway nodes.</p>
+<h2 id="2-install-keepalived">2 Install keepalived</h2>
+<p>Using Debian as an example, keepalived can be installed using the following command:</p>
 <blockquote>
-<p>This article is only for upgrade, not for new installation.</p>
+<p>apt install keepalived</p>
 </blockquote>
-<p>Latest version: v1.2.9 (Apr 03, 2022)</p>
-<h4 id="view-current-version">View current version</h4>
-<p>The version information is available at admin portal, or:</p>
+<h2 id="3-configure-keepalived">3 Configure keepalived</h2>
+<p>Starting from v1.2.8, the configuration file <code>keepalived.conf</code> for keepalived is provided under the JANUSEC installation directory <code>/usr/local/janusec/</code> and this file can be modified.</p>
+<ul>
+<li>
+<p><code>interface eth0</code> in the <code>vrrp_instance VI_01</code> section, change <code>eth0</code> to the actual internal NIC name used, usually <code>eth0</code>, <code>eth1</code>, <code>enp0s8</code>, etc. The IP address corresponds to <code>192.168.56.101</code> or <code>192.168.56.102</code> above `</p>
+</li>
+<li>
+<p>The virtual IP address in the <code>virtual_ipaddress</code> section is <code>192.168.56.103</code> (modified according to actual needs)</p>
+</li>
+</ul>
+<p>After the modification, copy <code>keepalived.conf</code> to <code>/etc/keepalived/</code> directory, and then start the keepalived service:</p>
 <blockquote>
-<p><code>./janusec --version</code></p>
+<p>systemctl restart keepalived</p>
 </blockquote>
-<h4 id="from-v0910">From v0.9.10+</h4>
-<p>Update JANUSEC like this:</p>
+<p>Note: Both servers need to have keepalived installed.</p>
+<h2 id="4-validation">4 Validation</h2>
+<p>To see if the keepalived service is running properly.</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.2.9-amd64.tar.gz</code><br>
-#<code>cd janusec-1.2.x-amd64</code><br>
-#<code>./install.sh</code><br>
-#<code>systemctl restart janusec</code></p>
+<p>systemctl status keepalived</p>
 </blockquote>
-<h4 id="from-v099">From V0.9.9</h4>
-<p>First, nftables is required for CC defense from v0.9.10.</p>
-<p>nftables is not installed for CentOS 7 by default, installation is required:</p>
+<p>Check the IP addresses of the two servers separately.</p>
 <blockquote>
-<p>#yum -y install nftables<br>
-#systemctl enable nftables<br>
-#systemctl start nftables</p>
+<p>ip addr show <code>eth0</code></p>
 </blockquote>
-<p>nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld ：</p>
+<p>eth0 is the same as the interface in the configuration file above.<br>
+If the configuration is successful, you can see on one of the servers that the virtual IP has been successfully added.</p>
+<p>1: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000<br>
+link/ether 08:00:27:6d:69:45 brd ff:ff:ff:ff:ff:ff<br>
+inet 192.168.56.101/24 brd 192.168.56.255 scope global eth0<br>
+valid_lft forever preferred_lft forever<br>
+<code>inet 192.168.56.103/32 scope global eth0</code><br>
+valid_lft forever preferred_lft forever<br>
+inet6 fe80::a00:27ff:fe6d:6945/64 scope link<br>
+valid_lft forever preferred_lft forever</p>
+<p>You can then simulate a gateway failure by stopping the gateway service on this server:</p>
 <blockquote>
-<p>#systemctl enable firewalld<br>
-#systemctl start firewalld</p>
+<p>systemctl stop janusec</p>
 </blockquote>
-<p>Then, update JANUSEC like this:</p>
+<p>Then re-check the IP addresses of the two servers, if it works properly, then <code>192.168.56.103</code> will be migrated to the other server.</p>
+<p>After testing, start the gateway service that was manually stopped:</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.2.9-amd64.tar.gz</code><br>
-#<code>cd /data/janusec-1.2.xx/</code><br>
-#<code>./install.sh</code><br>
-#<code>systemctl restart janusec</code></p>
+<p>systemctl start janusec</p>
 </blockquote>
-<h4 id="from-v095v098">From V0.9.5~V0.9.8</h4>
-<p>Step 1:</p>
-<p>config.json changed in V0.9.9, so backup and new config.json is required:</p>
-<blockquote>
-<p>#<code>cd /data/</code><br>
-#<code>wget https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.2.9-amd64.tar.gz</code><br>
-#<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
-#<code>cp ./janusec-1.2.xx/config.json.primary_bak /usr/local/janusec/config.json</code></p>
-</blockquote>
-<p>Edit <code>/usr/local/janusec/config.json</code>, refer to <a href="/documentation/configuration/">Configuration File</a>, set database information.</p>
-<blockquote>
-<p>#<code>vi /usr/local/janusec/config.json</code></p>
-</blockquote>
-<p>Step 2:</p>
-<p>Check nftables started.</p>
-<p>Step 3:</p>
-<p>Install the latest version（config.json will not be overwrote if it exists.）：</p>
-<blockquote>
-<p>#<code>cd /data/janusec-1.2.xx/</code><br>
-#<code>./install.sh</code><br>
-#<code>systemctl restart janusec</code></p>
-</blockquote>
-<h4 id="from-version-094-or-earlier">From Version 0.9.4 or earlier</h4>
-<p>0.9.5 changed the service type, so before installation:</p>
-<p>Step 1:</p>
-<blockquote>
-<p>#<code>systemctl stop janusec</code></p>
-</blockquote>
-<p>stop the service.</p>
-<p>Step 2:<br>
-Check nftables started.</p>
-<p>Step 3:</p>
-<p>Backup /usr/local/janusec/config.json or record the password in it.<br>
-Delete /usr/local/janusec/config.json , then install script will copy a new config.json .<br>
-Install latest Janusec, and check config.json to fill in the password.</p>
-<p>If:</p>
-<blockquote>
-<p>#<code>systemctl restart janusec</code></p>
-</blockquote>
-<p>not work, just kill it.</p>
 
             </article>
       </div>

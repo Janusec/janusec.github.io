@@ -137,6 +137,11 @@
               <a href="/cn/appendix-psql/">附录2: PostgreSQL操作</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-ha/">附录3: 高可用配置</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -159,12 +164,12 @@
 <tbody>
 <tr>
 <td>主节点</td>
-<td>Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables</td>
+<td>Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables</td>
 <td>PostgreSQL 10/11/12+</td>
 </tr>
 <tr>
 <td>副本节点</td>
-<td>Debian 9/10+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables</td>
+<td>Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables</td>
 <td>不需要</td>
 </tr>
 </tbody>
@@ -197,8 +202,8 @@ Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接�
 <h5 id="步骤-1-下载">步骤 1: 下载</h5>
 <blockquote>
 <p>$cd ~<br>
-$wget <code>https://www.janusec.com/download/janusec-1.2.7-amd64.tar.gz</code><br>
-$tar zxf ./janusec-1.2.7-amd64.tar.gz</p>
+$wget <code>https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz</code><br>
+$tar zxf ./janusec-1.2.9-amd64.tar.gz</p>
 </blockquote>
 <h5 id="步骤-2-安装">步骤 2: 安装</h5>
 <p>请切换到root用户并运行 install.sh , janusec应用网关将安装在目录： <code>/usr/local/janusec/ </code></p>

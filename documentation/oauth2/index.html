@@ -147,6 +147,11 @@
               <a href="/documentation/appendix-psql/">Appendix 2: PostgreSQL Operations</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/documentation/appendix-ha/">Appendix 3: High Availability Configuration</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -169,10 +174,10 @@
 <h3 id="how-to-get-userid-in-applications">How to Get UserID in Applications</h3>
 <p>Janusec will add the following headers if authentication passed.</p>
 <blockquote>
-<p>X-Auth-Token: <code>Access-Token</code>  (Note: 0.9.15 uses <code>X-Auth-Token</code> instead previous <code>Authorization</code>)  <br>
+<p>X-Auth-Token: <code>Access-Token</code> <br>
 X-Auth-User: <code>UserID</code></p>
 </blockquote>
-<p>The application can be used without modification.</p>
+<p>The application can use the identity authentication function without modification, and can also obtain user identity (WeWork/Dingtalk/Feishu/Lark) through X-Auth-User, or obtain further information with Access-Token (WeWork/Feishu/Lark).</p>
 <h3 id="ldap">LDAP</h3>
 <p>登录界面显示:</p>
 <blockquote>
@@ -238,9 +243,9 @@ X-Auth-User: <code>UserID</code></p>
 <blockquote>
 <p>&ldquo;callback&rdquo;: &ldquo;<code>https://your_domain.com</code>/oauth/dingtalk&rdquo;,</p>
 </blockquote>
-<p>请在钉钉开放平台注册一个自建应用，获取下面的信息。</p>
+<p>请在钉钉开放平台注册一个自建应用（H5微应用），获取下面的信息。</p>
 <blockquote>
-<p>&ldquo;appid&rdquo;: &ldquo;dingoa8xvc&rdquo;,<br>
+<p>&ldquo;appid&rdquo;: &ldquo;dingoa8xvc&rdquo;,  （请复制使用H5微应用的<code>AppKey</code>，<code>这里容易出错!!!</code>）<br>
 &ldquo;appsecret&rdquo;: &ldquo;crrALdXUIj4T0zBekYh4u9sU_T1GZT&rdquo;</p>
 </blockquote>
 <p>appsecret即上述自建应用的Secret，请据实修改。</p>
