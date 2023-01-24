@@ -6,7 +6,7 @@
     <description>Recent content in Documentations on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jan 2022 14:01:34 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Jan 2023 11:58:32 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quick Start</title>
       <link>/documentation/quick-start/</link>
@@ -255,6 +255,16 @@ create database janusec owner janusec;</description>
 If you need to guarantee the high availability of a single node, you can build a high availability node with keepalived.
 The recommended architecture for high availability deployment is:
  deploy a master node dedicated to backend management, not open to users deploy two or more replica nodes (Replica) and install keepalived on each replica node  The following two replica nodes, assuming IP addresses 192.</description>
+    </item>
+    
+    <item>
+      <title>Appendix 4: Docker Deployment</title>
+      <link>/documentation/appendix-docker/</link>
+      <pubDate>Tue, 24 Jan 2023 11:58:32 +0800</pubDate>
+      
+      <guid>/documentation/appendix-docker/</guid>
+      <description>Deploy JANUSEC Application Gateway in Docker Container  The JANUSEC application gateway is preferred to be deployed directly on the Linux server and listens on port 80/443. It can be used as the K8S Ingress Controller to forward external user requests to K8S Pods (each Pod listens on the same port). If you adopt the direct deployment mode, you can ignore the following content and see Quick Start.
+If you want to deploy JANUSEC application gateway inside docker container, please continue to read the following content.</description>
     </item>
     
   </channel>

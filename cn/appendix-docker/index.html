@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>User Agreement</title>
-    <meta name="keywords" content="[User Agreement, Janusec Application Gateway]">
-    <meta name="description" content="User Agreement of Janusec Application Gateway">
+    <title>附录4: Docker部署</title>
+    <meta name="keywords" content="[JANUSEC应用网关, Docker]">
+    <meta name="description" content="在容器中部署JANUSEC应用网关">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -54,135 +54,156 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/quick-start/">Quick Start</a>
+              <a href="/cn/quick-start/">快速入门</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/introduction/">Introduction</a>
+              <a href="/cn/introduction/">产品介绍</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/installation/">Installation</a>
+              <a href="/cn/installation/">安装</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/configuration/">Configuration File</a>
+              <a href="/cn/configuration/">配置文件</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/admin/">Administration</a>
+              <a href="/cn/admin/">管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/certificate-management/">Certificate Management</a>
+              <a href="/cn/certificate-management/">证书管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/application-management/">Application Management</a>
+              <a href="/cn/application-management/">应用管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/node-management/">Node Management</a>
+              <a href="/cn/node-management/">节点管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/waf-management/">WAF Management</a>
+              <a href="/cn/waf-management/">WAF管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/operation-management/">Operation Management</a>
+              <a href="/cn/operation-management/">运维管理</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/oauth2/">OAuth2 Authentication</a>
+              <a href="/cn/oauth2/">OAuth2身份认证</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/migrate-to-janusec/">Migrate to Janusec</a>
+              <a href="/cn/migrate-to-janusec/">迁移到JANUSEC应用网关</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/update-janusec/">Update Janusec</a>
+              <a href="/cn/update-janusec/">升级Janusec</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/pricing/">Pricing</a>
+              <a href="/cn/faq/">FAQ</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/faq/">FAQ</a>
+              <a href="/cn/diagnose/">问题诊断</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/user-agreement/">User Agreement</a>
+              <a href="/cn/appendix-re2/">附录1: RE2正则规则解读</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/diagnose/">Diagnose</a>
+              <a href="/cn/appendix-psql/">附录2: PostgreSQL操作</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/appendix-re2/">Appendix 1: RE2 Regex</a>
+              <a href="/cn/appendix-ha/">附录3: 高可用配置</a>
             </li>
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/documentation/appendix-psql/">Appendix 2: PostgreSQL Operations</a>
-            </li>
-          
-            <li class="list__post list-group-item">
-              <span></span>
-              <a href="/documentation/appendix-ha/">Appendix 3: High Availability Configuration</a>
-            </li>
-          
-            <li class="list__post list-group-item">
-              <span></span>
-              <a href="/documentation/appendix-docker/">Appendix 4: Docker Deployment</a>
+              <a href="/cn/appendix-docker/">附录4: Docker部署</a>
             </li>
           
         </ul>
       </div>
       <div class="col-sm-9">
             <article>
-            <h3 id="user-agreement-and-privacy-policy">User Agreement and Privacy Policy</h3>
+            <h1 id="在容器中部署janusec应用网关">在容器中部署JANUSEC应用网关</h1>
 <hr>
-<ul>
-<li>
-<p>THE PRODUCT IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE PRODUCT OR THE USE OR OTHER DEALINGS IN THE PRODUCT.</p>
-</li>
-<li>
-<p>WAF Module And Presetting Policies Of THE PRODUCT Used ONLY For Proof of Concept And Block Key Attack Attempts, Will Not Block Each Attacks, And May Produce False Positives or False Negatives.</p>
-</li>
-<li>
-<p>The Product Works As Infrastructure Without Full Policies. In Order To Achieve Good Results, Security Professionals And Routine Policy Construction Are Required.</p>
-</li>
-<li>
-<p>The Product Cannot Be Used In Place Of HIDS (Host-based Intrusion Detection System) and Anti-DDOS.</p>
-</li>
-<li>
-<p>Using The Product Means You Agree To The Agreement.</p>
-</li>
-<li>
-<p>JANUSEC Reserves The Rights of Interpretation.</p>
-</li>
-</ul>
+<p>JANUSEC应用网关<strong>首选直接部署在Linux服务器上</strong>，监听80/443端口，可以作为K8S Ingress Controller将外部用户请求转发到K8S Pods（各Pod监听同一个端口）。如您采用直接部署的模式，可忽略以下内容，查看<a href="/cn/quick-start/">快速入门</a> 。</p>
+<p>如您希望在容器内部署JANUSEC应用网关，请继续阅读下面的内容。</p>
+<h2 id="前提条件">前提条件</h2>
+<p>请先检查docker服务是否已启用（预期结果为 enabled）：</p>
+<blockquote>
+<p>systemctl status docker</p>
+</blockquote>
+<p>如果返回结果为 disabled ，请先启用：</p>
+<blockquote>
+<p>systemctl enable docker</p>
+</blockquote>
+<h2 id="第一步下载镜像">第一步：下载镜像</h2>
+<blockquote>
+<p>docker pull registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.0</p>
+</blockquote>
+<h2 id="第二步运行">第二步：运行</h2>
+<blockquote>
+<p>docker run -d &ndash;privileged=true &ndash;restart=always -p 80:80 -p 443:443 -p 9080:9080 -p 9443:9443 registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.0 /sbin/init</p>
+</blockquote>
+<h2 id="第三步使用浏览器访问登录并修改口令">第三步：使用浏览器访问登录并修改口令</h2>
+<p>http://IP_Address:9080/janusec-admin/</p>
+<p>登录用户名： <code>admin</code><br>
+口令： <code>J@nusec123</code> （登录后会提示修改）</p>
+<p>请确保此容器到后端服务的网络可达。</p>
+<h2 id="早期版本容器升级可选">早期版本容器升级（可选）</h2>
+<p>如果您已经安装了之前的版本，可参考如下步骤升级，以下假设容器ID为 XXXXXX（请根据实际ID修改） ：</p>
+<p>复制更新包到容器：</p>
+<blockquote>
+<p>docker cp ./janusec-1.x.x-amd64.tar.gz XXXXXX:/tmp/</p>
+</blockquote>
+<p>调出容器控制台：</p>
+<blockquote>
+<p>docker exec -it XXXXXX /bin/bash</p>
+</blockquote>
+<p>接下来在容器内升级：</p>
+<blockquote>
+<p>cd /tmp/<br>
+tar -zxf janusec-1.x.x-amd64.tar.gz<br>
+cd janusec-1.x.x<br>
+./install.sh   （输入1继续）<br>
+systemctl restart janusec</p>
+</blockquote>
+<p>检查服务状态：</p>
+<blockquote>
+<p>systemctl status janusec</p>
+</blockquote>
+<p>无误后，退出镜像。</p>
+<p>可将容器提交为新镜像（该步骤可选）：</p>
+<blockquote>
+<p>docker commit -m &ldquo;1.3.0&rdquo; XXXXXX janusec/janusec:1.3.0</p>
+</blockquote>
 
             </article>
       </div>

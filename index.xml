@@ -34,7 +34,7 @@ Requirements     Role Operating System Database     Primary Node Debian 9/10/11+
       
       <guid>/cn/quick-start/</guid>
       <description>快速入门  Switch to English Edition of Quick Start
-如果您只是想快速体验一下，可试试JANUSEC应用网关的Docker镜像 ，并跳过下面的安装部分。
+如果您只是想快速体验一下，可参考附录：在容器中部署JANUSEC应用网关 ，并跳过下面的安装部分。
 本文将指导您正常安装一个单节点的JANUSEC应用网关（只有一个主节点，没有副本节点）。
 安装需求     节点 操作系统 数据库     主节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables PostgreSQL 10/11/12+   副本节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    备注：
 本入门只安装一个主节点，不安装副本节点，如需扩展，可参考安装一节。
@@ -631,6 +631,41 @@ The recommended architecture for high availability deployment is:
  eth0跟上述配置文件中的interface一致。
 如果配置成功，在其中一台服务器上可以看到虚拟IP已成功添加。
 1: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000</description>
+    </item>
+    
+    <item>
+      <title>Appendix 4: Docker Deployment</title>
+      <link>/documentation/appendix-docker/</link>
+      <pubDate>Tue, 24 Jan 2023 11:58:32 +0800</pubDate>
+      
+      <guid>/documentation/appendix-docker/</guid>
+      <description>Deploy JANUSEC Application Gateway in Docker Container  The JANUSEC application gateway is preferred to be deployed directly on the Linux server and listens on port 80/443. It can be used as the K8S Ingress Controller to forward external user requests to K8S Pods (each Pod listens on the same port). If you adopt the direct deployment mode, you can ignore the following content and see Quick Start.
+If you want to deploy JANUSEC application gateway inside docker container, please continue to read the following content.</description>
+    </item>
+    
+    <item>
+      <title>附录4: Docker部署</title>
+      <link>/cn/appendix-docker/</link>
+      <pubDate>Tue, 24 Jan 2023 11:58:32 +0800</pubDate>
+      
+      <guid>/cn/appendix-docker/</guid>
+      <description>在容器中部署JANUSEC应用网关  JANUSEC应用网关首选直接部署在Linux服务器上，监听80/443端口，可以作为K8S Ingress Controller将外部用户请求转发到K8S Pods（各Pod监听同一个端口）。如您采用直接部署的模式，可忽略以下内容，查看快速入门 。
+如您希望在容器内部署JANUSEC应用网关，请继续阅读下面的内容。
+前提条件 请先检查docker服务是否已启用（预期结果为 enabled）：
+ systemctl status docker
+ 如果返回结果为 disabled ，请先启用：
+ systemctl enable docker
+ 第一步：下载镜像  docker pull registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.0
+ 第二步：运行  docker run -d &amp;ndash;privileged=true &amp;ndash;restart=always -p 80:80 -p 443:443 -p 9080:9080 -p 9443:9443 registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.0 /sbin/init
+ 第三步：使用浏览器访问登录并修改口令 http://IP_Address:9080/janusec-admin/
+登录用户名： admin
+口令： J@nusec123 （登录后会提示修改）
+请确保此容器到后端服务的网络可达。
+早期版本容器升级（可选） 如果您已经安装了之前的版本，可参考如下步骤升级，以下假设容器ID为 XXXXXX（请根据实际ID修改） ：
+复制更新包到容器：
+ docker cp ./janusec-1.x.x-amd64.tar.gz XXXXXX:/tmp/
+ 调出容器控制台：
+ docker exec -it XXXXXX /bin/bash</description>
     </item>
     
   </channel>
