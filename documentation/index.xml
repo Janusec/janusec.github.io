@@ -84,8 +84,10 @@ Certificate List Open web administration portal and navigate to Certificate Mana
       <pubDate>Sun, 20 May 2018 21:58:35 +0800</pubDate>
       
       <guid>/documentation/application-management/</guid>
-      <description>Application Management  Requirements If you already have a digital certificate, you can add it under Certificate Management.
-If you want JANUSEC to apply for a free digital certificate by itself, you can choose to use ACME automatic certificate (free certificate) in the Domain Configuration below, and ensure that the DNS of the domain name has been pointed to the JANUSEC application gateway for the certification authority to verify the ownership of the domain name , You don’t need to add it under the certificate management (note: automatic certificates do not support wildcard domain names).</description>
+      <description>Application Management  1 Add or Edit Application Open web administration portal and navigate to Application Management.
+2 Scheme (HTTP/HTTPS) Backend scheme (From Application Gateway to Backend Server) is usually in intranet, select http by default, digital certiface is not required.
+Note：
+ Scheme From User&amp;rsquo;s Web Browser to Application Gateway is usually HTTPS (digital certificate is required), by ticking the following &amp;ldquo;Redirect HTTP to HTTPS&amp;rdquo;. If you have a certificate already, you can import it at Certificate Management .</description>
     </item>
     
     <item>
@@ -156,13 +158,13 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.2.9 (Apr 03, 2022)
+ Latest version: v1.3.0 (Jan 23, 2023)
 View current version The version information is available at admin portal, or:
  ./janusec --version
  From v0.9.10+ Update JANUSEC like this:
- #wget https://www.janusec.com/download/janusec-1.2.9-amd64.tar.gz
-#tar zxf ./janusec-1.2.9-amd64.tar.gz
-#cd janusec-1.2.x-amd64
+ #wget https://www.janusec.com/download/janusec-1.3.0-amd64.tar.gz
+#tar zxf ./janusec-1.3.0-amd64.tar.gz
+#cd janusec-1.3.x-amd64
 #./install.sh
 #systemctl restart janusec
  From V0.9.9 First, nftables is required for CC defense from v0.9.10.

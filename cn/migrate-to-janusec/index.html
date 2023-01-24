@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>迁移到Janusec应用网关</title>
-    <meta name="keywords" content="[Janusec, Application Gateway, WAF, Web Application Firewall, Janusec应用网关]">
-    <meta name="description" content="迁移到Janusec应用网关">
+    <title>迁移到JANUSEC应用网关</title>
+    <meta name="keywords" content="[Janusec, Application Gateway, WAF, Web Application Firewall, JANUSEC应用网关]">
+    <meta name="description" content="迁移到JANUSEC应用网关">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -109,7 +109,7 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+              <a href="/cn/migrate-to-janusec/">迁移到JANUSEC应用网关</a>
             </li>
           
             <li class="list__post list-group-item">
@@ -146,11 +146,11 @@
       </div>
       <div class="col-sm-9">
             <article>
-            <h1 id="迁移到janusec应用网关">迁移到Janusec应用网关</h1>
+            <h1 id="迁移到janusec应用网关">迁移到JANUSEC应用网关</h1>
 <hr>
 <p>本文适用场景：将已经发布的Web应用迁移到通过JANUSEC应用网关发布。</p>
-<h4 id="步骤-1-安装并配置janusec应用网关">步骤 1: 安装并配置Janusec应用网关</h4>
-<p>参考 <a href="/cn/installation/">安装</a>, 安装Janusec应用网关并配置好证书、Web应用.</p>
+<h4 id="步骤-1-安装并配置janusec应用网关">步骤 1: 安装并配置JANUSEC应用网关</h4>
+<p>参考 <a href="/cn/installation/">安装</a>, 安装JANUSEC应用网关并配置好证书、Web应用.</p>
 <h4 id="步骤-2-修改hosts文件测试">步骤 2: 修改Hosts文件测试</h4>
 <p>修改本地电脑的 <code>C:\Windows\System32\drivers\etc\hosts</code> (不是网关) ，将域名临时指向网关IP，用于测试.</p>
 <blockquote>
@@ -158,9 +158,9 @@
 </blockquote>
 <p>然后可打开浏览器测试访问  <code>https://your_domain_name</code> .</p>
 <h4 id="步骤-3-修改dns">步骤 3: 修改DNS</h4>
-<p>如果测试通过，可修改DNS指向，将正式生产环境的域名指向Janusec应用网关，并删除您本地添加的hosts记录。</p>
+<p>如果测试通过，可修改DNS指向，将正式生产环境的域名指向JANUSEC应用网关，并删除您本地添加的hosts记录。</p>
 <h4 id="步骤-4-提升安全--可选-">步骤 4: 提升安全 ( 可选 )</h4>
-<p>后端真实服务器在接入Janusec应用网关之后，没有必要再监听外网地址了，可修改为只监听内网地址（如<code>10.10.10.10:80</code>），不再直接暴露在互联网，降低安全风险。</p>
+<p>后端真实服务器在接入JANUSEC应用网关之后，没有必要再监听外网地址了，可修改为只监听内网地址（如<code>10.10.10.10:80</code>），不再直接暴露在互联网，降低安全风险。</p>
 
             </article>
       </div>

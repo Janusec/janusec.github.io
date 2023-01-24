@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
     <title>WAF管理</title>
     <meta name="keywords" content="[WAF, Web Application Firewall, Web应用防火墙]">
-    <meta name="description" content="WAF管理 of Janusec应用网关">
+    <meta name="description" content="WAF管理 of JANUSEC应用网关">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -109,7 +109,7 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+              <a href="/cn/migrate-to-janusec/">迁移到JANUSEC应用网关</a>
             </li>
           
             <li class="list__post list-group-item">
@@ -149,7 +149,7 @@
             <h1 id="waf管理">WAF管理</h1>
 <hr>
 <h4 id="添加或编辑waf策略">添加或编辑WAF策略</h4>
-<p><img src="/images/waf1.png" alt="添加或编辑WAF策略" title="Janusec应用网关，添加或编辑WAF策略"></p>
+<p><img src="/images/waf1.png" alt="添加或编辑WAF策略" title="JANUSEC应用网关，添加或编辑WAF策略"></p>
 <h4 id="典型的检查点">典型的检查点</h4>
 <blockquote>
 <p>举例: <code>http://www.yourdomain.com/blog/show.php?id=1&amp;category=2</code></p>
@@ -163,8 +163,8 @@ GetPostValue: [<code>1</code>, <code>2</code>]</p>
 如果仅检查GET方法，请使用 URLQuery  .</p>
 </blockquote>
 <h4 id="正则表达式">正则表达式</h4>
-<p>Janusec应用网关采用 <a href="https://github.com/google/re2/wiki/Syntax">Google RE2 正则表达式</a> .<br>
-为简化正则表达式配置，Janusec应用网关对待检测的字符串值进行了预处理：</p>
+<p>JANUSEC应用网关采用 <a href="https://github.com/google/re2/wiki/Syntax">Google RE2 正则表达式</a> .<br>
+为简化正则表达式配置，JANUSEC应用网关对待检测的字符串值进行了预处理：</p>
 <ul>
 <li>删除  <code>'</code> 及  <code>&quot;</code></li>
 <li>替换 <code>/**/</code> 为空格</li>
@@ -186,10 +186,10 @@ GetPostValue: [<code>1</code>, <code>2</code>]</p>
 <h4 id="动作">动作</h4>
 <hr>
 <h5 id="block阻断">Block（阻断）</h5>
-<p><img src="/images/waf2.png" alt="Janusec应用网关阻断恶意请求"></p>
+<p><img src="/images/waf2.png" alt="JANUSEC应用网关阻断恶意请求"></p>
 <h5 id="captcha验证码">CAPTCHA（验证码）</h5>
 <p>用于CC攻击或高频访问<br>
-<img src="/images/captcha.png" alt="Janusec应用网关验证码"></p>
+<img src="/images/captcha.png" alt="JANUSEC应用网关验证码"></p>
 
             </article>
       </div>

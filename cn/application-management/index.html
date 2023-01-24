@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
     <title>应用管理</title>
-    <meta name="keywords" content="[Janusec应用网关, WAF, Web Application Firewall]">
-    <meta name="description" content="Janusec应用网关的应用管理">
+    <meta name="keywords" content="[JANUSEC应用网关, WAF, Web Application Firewall]">
+    <meta name="description" content="JANUSEC应用网关的应用管理">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -109,7 +109,7 @@
           
             <li class="list__post list-group-item">
               <span></span>
-              <a href="/cn/migrate-to-janusec/">迁移到Janusec应用网关</a>
+              <a href="/cn/migrate-to-janusec/">迁移到JANUSEC应用网关</a>
             </li>
           
             <li class="list__post list-group-item">
@@ -148,20 +148,33 @@
             <article>
             <h1 id="应用管理">应用管理</h1>
 <hr>
-<h4 id="https需求">HTTPS需求</h4>
-<p>如果已经拥有数字证书，可在<a href="/cn/certificate-management">证书管理</a> 录入。<br>
-如果您希望JANUSEC自行申请免费的数字证书，可在下方<code>域名配置</code>中选择使用<code>ACME自动证书</code>（免费证书），并确保域名的DNS已经指向JANUSEC应用网关，用于证书颁发机构验证域名所有权，不用在证书管理中录入（注意：自动证书暂不支持使用通配型域名）。</p>
-<h4 id="添加或编辑应用">添加或编辑应用</h4>
-<p>打开Web管理门户并导航至<code>Application Management</code>。<br>
-<img src="/images/application1.png" alt="添加或编辑应用" title="Janusec应用网关的应用管理"></p>
-<p><strong>注意</strong>:</p>
+<h4 id="1-添加或编辑应用">1 添加或编辑应用</h4>
+<p>打开Web管理门户并导航至<code>应用管理</code>。</p>
+<p><img src="/images/application2.png" alt="添加或编辑应用" title="JANUSEC应用网关的应用管理"></p>
+<h4 id="2-schemehttphttps说明">2 Scheme（HTTP/HTTPS）说明</h4>
+<p>后端scheme（从<strong>应用网关</strong>到<strong>后端真实服务器</strong>）通常在内网，默认选择 <code>http</code>即可 ，不需要证书。</p>
+<p>备注：</p>
 <ul>
-<li>后端（从网关到真实服务器）通常在内网，默认使用 <code>http</code> ，不需要证书；</li>
-<li><code>Destination</code>（后端目的地）,使用 <code>IP:Port</code> 格式，其中端口不可省略（即使是80端口）；</li>
-<li>多个<code>Destination</code>用于后端负载均衡；</li>
-<li>网关获取用户IP，默认使用<code>REMOTE_ADDR</code>（从IP报文获取）；</li>
-<li>当网关的前面还存在可信任的CDN时，<code>REMOTE_ADDR</code>获取的是CDN的地址，可参考CDN厂商的说明文档，通常CDN厂商会将用户IP附加在<code>X-Forwarded-For</code>后面，这时网关可配置成  <code>X_Forwarded_For</code> （网关将使用该字段的最后一个IP地址）；</li>
-<li>Janusec应用网关将会把<code>REMOTE_ADDR</code>获取的IP附加在<code>X-Forwarded-For</code>后面, 因此业务中如需使用用户IP地址，可提取<code>X-Forwarded-For</code>中的最后一个IP地址（网关直接向用户提供服务时），或倒数第二个IP地址（网关前面还存在可信任的CDN时）.</li>
+<li>从<strong>用户浏览器</strong>到<strong>应用网关</strong>这一段使用的scheme，通常使用HTTPS（需要数字证书），通过勾选下方的“将HTTP请求重定向到HTTPS”来实现。如果已经拥有数字证书，可在<a href="/cn/certificate-management">证书管理</a> 录入。如果您希望JANUSEC自行申请免费的数字证书，可在下方<code>域名配置</code>中选择使用<code>ACME自动证书</code>（免费证书），并确保域名的真实DNS已经指向JANUSEC应用网关，用于证书颁发机构验证域名所有权，不用在证书管理中录入（注意：自动证书暂不支持使用通配型域名；自动证书不支持多节点部署；自动证书不支持本地hosts域名）。</li>
+</ul>
+<h4 id="3-路由说明">3 路由说明</h4>
+<p>JANUSEC应用网关支持4种路由模式：</p>
+<ul>
+<li>Reverse_Proxy: 反向代理模式（默认使用该模式），需要有后端服务器（格式IP:Port，端口号不可省略），网关会将请求转发到后端的服务，支持多个后端服务器；</li>
+<li>Local_FastCGI: 本机FastCGI模式，用于运行PHP或Python，不需要后端服务器；</li>
+<li>Static_WebSite: 静态网站模式，应用网关直接作为Web服务器，用于静态内容的发布，不需要后端服务器，需要指定默认文件名（如index.html）及静态内容所在目录；</li>
+<li>K8S_Ingress: K8S Ingress Controller模式，需要配置K8S Pods API（如 http://127.0.0.1:8080/api/v1/namespaces/default/pods ）和Pod监听的端口（如80），网关通过该API获取Pod地址列表，并将HTTP请求转发给Pod 。</li>
+</ul>
+<p>备注:  如果后端服务器或K8S Pod运行的不是HTTP服务，可使用 <strong>端口转发</strong> 功能，通过TCP/UDP四层转发（四层转发没有WAF/CC等安全功能） 。</p>
+<h4 id="4-用户ip地址">4 用户IP地址</h4>
+<p>应用网关默认使用<code>REMOTE_ADDR</code>获取用户IP地址。</p>
+<p>备注：</p>
+<ul>
+<li><code>REMOTE_ADDR</code>表示直接从IP报文获取IP地址，实际获取的是上一跳的IP地址；</li>
+<li><code>X-Forwarded-For</code>表示从HTTP请求头部的<code>X-Forwarded-For</code>字段获取IP地址，实际获取的是上一跳传递过来的用户IP地址（可能伪造）；</li>
+<li>JANUSEC应用网关会将<code>REMOTE_ADDR</code>获取的IP附加在HTTP头部的<code>X-Forwarded-For</code>后面；</li>
+<li>用户直接访问应用网关时，应用网关应使用<code>REMOTE_ADDR</code>获取用户IP地址，后端业务如需处理用户IP地址，可提取HTTP头部<code>X-Forwarded-For</code>中的最后一个IP地址；</li>
+<li>当用户先经过CDN再访问应用网关时，应用网关应根据CDN厂商的说明选择适当的方式获取用户真实IP（通常选择<code>X-Forwarded-For</code>），后端业务如需处理用户IP地址，可提取HTTP头部<code>X-Forwarded-For</code>倒数第二个IP地址.</li>
 </ul>
 
             </article>
