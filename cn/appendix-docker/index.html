@@ -166,11 +166,11 @@
 </blockquote>
 <h2 id="第一步下载镜像">第一步：下载镜像</h2>
 <blockquote>
-<p>docker pull registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.0</p>
+<p>docker pull registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.1</p>
 </blockquote>
 <h2 id="第二步运行">第二步：运行</h2>
 <blockquote>
-<p>docker run -d &ndash;privileged=true &ndash;restart=always -p 80:80 -p 443:443 -p 9080:9080 -p 9443:9443 registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.0 /sbin/init</p>
+<p>docker run -d &ndash;privileged=true &ndash;restart=always -p 80:80 -p 443:443 -p 9080:9080 -p 9443:9443 registry.cn-shenzhen.aliyuncs.com/janusec/janusec:1.3.1 /sbin/init</p>
 </blockquote>
 <h2 id="第三步使用浏览器访问登录并修改口令">第三步：使用浏览器访问登录并修改口令</h2>
 <p>http://IP_Address:9080/janusec-admin/</p>
@@ -202,7 +202,7 @@ systemctl restart janusec</p>
 <p>无误后，退出镜像。</p>
 <p>可将容器提交为新镜像（该步骤可选）：</p>
 <blockquote>
-<p>docker commit -m &ldquo;1.3.0&rdquo; XXXXXX janusec/janusec:1.3.0</p>
+<p>docker commit -m &ldquo;1.3.1&rdquo; XXXXXX janusec/janusec:1.3.1</p>
 </blockquote>
 
             </article>

@@ -280,8 +280,6 @@ X-Auth-User: <code>UserID</code></p>
 </blockquote>
 <h3 id="退出登录">退出登录</h3>
 <p>后端网站只需要添加一个退出链接 /oauth/logout ，用户点击后即可实现退出效果。</p>
-<h3 id="原理介绍与演示">原理介绍与演示</h3>
-<p>原理介绍与演示效果，参见： <a href="https://www.janusec.com/articles/opensource/1585458493.html">使用JANUSEC应用网关给内部网站添加身份认证</a></p>
 <h3 id="多节点注意事项">多节点注意事项</h3>
 <p>后台管理入口如果使用OAuth2，需要在<code>config.json</code>中配置<code>portal</code>，这里的域名应配置为任意已配置的应用的域名之一。</p>
 <p>但需要注意的是，DNS解析应确保其对所有应用的解析，在同一个办公场地，均指向同一个网关。如果员工访问的应用，跟回调域名指向不同的网关地址，则OAuth2将不可用。</p>
