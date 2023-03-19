@@ -6,7 +6,7 @@
     <description>Recent content in Documentations on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jan 2023 11:58:32 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Mar 2023 20:11:32 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quick Start</title>
       <link>/documentation/quick-start/</link>
@@ -158,12 +158,12 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.3.1 (Feb 11, 2023)
+ Latest version: v1.3.2 (Mar 19, 2023)
 View current version The version information is available at admin portal, or:
  ./janusec --version
  From v0.9.10+ and 1.x.x You do not need to uninstall the old version, and update JANUSEC like this:
- #wget https://www.janusec.com/download/janusec-1.3.1-amd64.tar.gz
-#tar zxf ./janusec-1.3.1-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.3.2-amd64.tar.gz
+#tar zxf ./janusec-1.3.2-amd64.tar.gz
 #cd janusec-1.3.x-amd64
 #./install.sh
 #systemctl restart janusec
@@ -264,6 +264,18 @@ The recommended architecture for high availability deployment is:
       <guid>/documentation/appendix-docker/</guid>
       <description>Deploy JANUSEC Application Gateway in Docker Container  The JANUSEC application gateway is preferred to be deployed directly on the Linux server and listens on port 80/443. It can be used as the K8S Ingress Controller to forward external user requests to K8S Pods (each Pod listens on the same port). If you adopt the direct deployment mode, you can ignore the following content and see Quick Start.
 If you want to deploy JANUSEC application gateway inside docker container, please continue to read the following content.</description>
+    </item>
+    
+    <item>
+      <title>Appendix 5: Data Discovery</title>
+      <link>/documentation/appendix-data-discovery/</link>
+      <pubDate>Sun, 19 Mar 2023 20:11:32 +0800</pubDate>
+      
+      <guid>/documentation/appendix-data-discovery/</guid>
+      <description>Data Discovery  Data Discovery Introduction In global settings, when the Data Discovery function is enabled, the application gateway will check the field values in the request and response.
+When a Data Discovery rule is hit, it will report it to JANUCAT (Compliance, Accountability and Transparency) for data privacy governance.
+Data Discovery Report When a Data Discovery rule is hit, it will be reported to JANUCAT through the API.
+In order to verify the identity of the sender, an API Key is required.</description>
     </item>
     
   </channel>

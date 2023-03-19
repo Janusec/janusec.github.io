@@ -222,12 +222,12 @@ LDAP配置 登录界面显示:
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本JANUSEC应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v1.3.1 (2023.02.11)
+ 最新版本: v1.3.2 (2023.03.19)
 查看当前版本 当前版本信息可通过管理入口查看，或者:
  ./janusec --version
  从v0.9.10+或1.x.x升级 不用卸载，直接覆盖安装即可。
- #wget https://www.janusec.com/download/janusec-1.3.1-amd64.tar.gz
-#tar zxf ./janusec-1.3.1-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.3.2-amd64.tar.gz
+#tar zxf ./janusec-1.3.2-amd64.tar.gz
 #cd /data/janusec-1.3.x/
 #./install.sh
 #systemctl restart janusec
@@ -240,8 +240,8 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
  #systemctl enable firewalld
 #systemctl start firewalld
  然后覆盖安装即可：
- #wget https://www.janusec.com/download/janusec-1.3.1-amd64.tar.gz
-#tar zxf ./janusec-1.3.1-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.3.2-amd64.tar.gz
+#tar zxf ./janusec-1.3.2-amd64.tar.gz
 #cd /data/janusec-1.3.x/
 #./install.sh
 #systemctl restart janusec
@@ -386,6 +386,27 @@ psql -h 127.0.0.1 -U janusec -W janusec
  docker cp ./janusec-1.x.x-amd64.tar.gz XXXXXX:/tmp/
  调出容器控制台：
  docker exec -it XXXXXX /bin/bash</description>
+    </item>
+    
+    <item>
+      <title>附录5: 数据发现</title>
+      <link>/cn/appendix-data-discovery/</link>
+      <pubDate>Sun, 19 Mar 2023 20:11:32 +0800</pubDate>
+      
+      <guid>/cn/appendix-data-discovery/</guid>
+      <description>通过JANUSEC应用网关实现数据发现  数据发现功能简介 在全局设置中，启用数据发现功能时，应用网关将检查请求和响应中的字段值，当命中数据发现规则时，就将其报告给JANUCAT（Compliance, Accountability and Transparency），用于数据隐私治理。
+数据发现报告配置 命中数据发现规则时，通过API报告给JANUCAT，为了验证发送方的身份，需要API Key。
+API格式通常类似这样：
+ http://127.0.0.1:8088/api/v1/data-discoveries
+ 需根据JANUCAT实际部署发布的情况进行修改。
+数据发现报告使用POST请求（当使用GET方式打开该链接时，会展示API接口用法）。
+API Key (API密钥)用于验证发送方的身份，可请JANUCAT管理员提供（需要登录到JANUCAT后台才能看到并复制）。
+数据发现规则 点击“管理数据发现规则”按钮，可对数据发现的规则进行编辑处理。
+数据发现规则使用Google RE2正则表达式，对如下内容类型的请求及响应中的JSON值进行检测：
+ Content-Type: application/json
+ 检测手机号（假设是以1开头的11位数字）的正则表达式可写为：
+ ^1\d{10}$
+ 数据发现结果 数据发现上报的结果，需要登录JANUCAT查看。</description>
     </item>
     
   </channel>

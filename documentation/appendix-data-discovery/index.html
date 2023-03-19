@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>FAQ</title>
-    <meta name="keywords" content="[FAQ, Janusec Application Gateway]">
-    <meta name="description" content="FAQ of Janusec Application Gateway">
+    <title>Appendix 5: Data Discovery</title>
+    <meta name="keywords" content="[Data Discovery]">
+    <meta name="description" content="Implementing data discovery on the janusec application gateway">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -166,28 +166,33 @@
       </div>
       <div class="col-sm-9">
             <article>
-            <h1 id="faq">FAQ</h1>
+            <h1 id="data-discovery">Data Discovery</h1>
 <hr>
-<h5 id="q-what-is-the-difference-between-janusec-application-gateway-and-waf-">Q: What is the difference between Janusec Application Gateway and WAF ?</h5>
+<h2 id="data-discovery-introduction">Data Discovery Introduction</h2>
+<p>In global settings, when the Data Discovery function is enabled, the application gateway will check the field values in the request and response.<br>
+When a Data Discovery rule is hit, it will report it to JANUCAT (Compliance, Accountability and Transparency) for data privacy governance.</p>
+<h2 id="data-discovery-report">Data Discovery Report</h2>
+<p>When a Data Discovery rule is hit, it will be reported to JANUCAT through the API.<br>
+In order to verify the identity of the sender, an API Key is required.</p>
+<p>The format of API is like this:</p>
 <blockquote>
-<p>A: <strong>Janusec Application Gateway</strong> includes a WAF (Web Application Firewall), and Janusec eliminates the defects of traditional WAF.</p>
+<p><code>http://127.0.0.1:8088</code>/api/v1/data-discoveries</p>
 </blockquote>
-<h5 id="q-does-it-requires-agent-installation-on-business-servers-">Q: Does it requires agent installation on business servers ?</h5>
+<p>Modifications need to be made based on the actual deployment and release of JANUCAT.<br>
+Data Discovery reports use POST requests (API interface usage is shown when the link is opened using GET mode).
+The API Key is used to verify the identity of the sender and can be provided by the JANUCAT administrator (log in to the JANUCAT background to see and copy it).</p>
+<h2 id="data-discovery-rules">Data Discovery Rules</h2>
+<p>Click the button of &ldquo;Manage Data Discovery Rules&rdquo;, and then edit them.</p>
+<p>Google RE2 Regular Expression is used, for JSON value in the request and response of this content type:</p>
 <blockquote>
-<p>A: No agent required.</p>
+<p>Content-Type: application/json</p>
 </blockquote>
-<h5 id="q-does-it-support-https-">Q: Does it support <strong>https</strong> ?</h5>
+<p>For example, detect a 11-bit phone number begin with number 1, it may be:</p>
 <blockquote>
-<p>A: Yes, <strong>https</strong> is naturally supported.</p>
+<p>^1\d{10}$</p>
 </blockquote>
-<h5 id="q-is-my-private-key-secure-">Q: Is my private key secure ?</h5>
-<blockquote>
-<p>A: The private key of certificate is encrypted and stored in the database, and only occurs in the memory of your gateway nodes.</p>
-</blockquote>
-<h4 id="q-how-to-get-users-ip-address-from-my-business-">Q: How to get user&rsquo;s IP address from my business ?</h4>
-<blockquote>
-<p>A: Janusec Application Gateway will add or append user&rsquo;s IP address to request header <code>X-Forwarded-For</code> .</p>
-</blockquote>
+<h2 id="data-discovery-results">Data Discovery Results</h2>
+<p>The results reported by Data Discovery need to be viewed by logging in to JANUCAT.</p>
 
             </article>
       </div>

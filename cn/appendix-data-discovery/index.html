@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>附录2: PostgreSQL操作</title>
-    <meta name="keywords" content="[PostgreSQL, Janusec, Application Gateway, WAF, Web Application Firewall]">
-    <meta name="description" content="PostgreSQL常见操作">
+    <title>附录5: 数据发现</title>
+    <meta name="keywords" content="[JANUSEC应用网关, 数据发现]">
+    <meta name="description" content="通过JANUSEC应用网关实现数据发现">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -156,79 +156,31 @@
       </div>
       <div class="col-sm-9">
             <article>
-            <h1 id="附录2-postgresql操作">附录2: PostgreSQL操作</h1>
+            <h1 id="通过janusec应用网关实现数据发现">通过JANUSEC应用网关实现数据发现</h1>
 <hr>
-<h2 id="1-postgresql安装">1 PostgreSQL安装</h2>
-<p>PostgreSQL ( 10/11/12+ ) 没有包含在发布包中，在安装主节点之前，您需要自行安装并准备数据库、用户名、口令. <br>
-下面简述 PostgreSQL 的安装步骤。</p>
-<h3 id="11-在debian-10中部署postgresql-11">1.1 在Debian 10中部署PostgreSQL 11</h3>
+<h2 id="数据发现功能简介">数据发现功能简介</h2>
+<p>在全局设置中，启用数据发现功能时，应用网关将检查请求和响应中的字段值，当命中数据发现规则时，就将其报告给JANUCAT（Compliance, Accountability and Transparency），用于数据隐私治理。</p>
+<h2 id="数据发现报告配置">数据发现报告配置</h2>
+<p>命中数据发现规则时，通过API报告给JANUCAT，为了验证发送方的身份，需要API Key。</p>
+<p>API格式通常类似这样：</p>
 <blockquote>
-<p>apt install postgresql<br>
-su - postgres<br>
-psql</p>
+<p><code>http://127.0.0.1:8088</code>/api/v1/data-discoveries</p>
 </blockquote>
+<p>需根据JANUCAT实际部署发布的情况进行修改。<br>
+数据发现报告使用POST请求（当使用GET方式打开该链接时，会展示API接口用法）。</p>
+<p>API Key (API密钥)用于验证发送方的身份，可请JANUCAT管理员提供（需要登录到JANUCAT后台才能看到并复制）。</p>
+<h2 id="数据发现规则">数据发现规则</h2>
+<p>点击“管理数据发现规则”按钮，可对数据发现的规则进行编辑处理。</p>
+<p>数据发现规则使用Google RE2正则表达式，对如下内容类型的请求及响应中的JSON值进行检测：</p>
 <blockquote>
-<p>create user janusec with password '<code>J@nusec123</code>';<br>
-create database janusec owner janusec;<br>
-grant all privileges on database janusec to janusec;<br>
-\q<br>
-exit<br>
-psql -h 127.0.0.1 -U janusec -W janusec</p>
+<p>Content-Type: application/json</p>
 </blockquote>
-<h3 id="12-在-centos-7-中部署-postgresql-10">1.2 在 CentOS 7 中部署 PostgreSQL 10</h3>
-<p>主要参考 <a href="https://wiki.postgresql.org/wiki/YUM_Installation">https://wiki.postgresql.org/wiki/YUM_Installation</a>
-首先添加源，方便通过yum安装。</p>
+<p>检测手机号（假设是以1开头的11位数字）的正则表达式可写为：</p>
 <blockquote>
-<p><code>yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</code></p>
+<p>^1\d{10}$</p>
 </blockquote>
-<p>如果该链接失效，可通过  <code>https://yum.postgresql.org/repopackages.php</code> 获取最新地址。<br>
-添加成功后，可通过YUM安装。</p>
-<blockquote>
-<p>#<code>yum install postgresql10-server</code><br>
-#<code>/usr/pgsql-10/bin/postgresql-10-setup initdb</code><br>
-#<code>systemctl restart postgresql-10.service</code><br>
-#<code>su - postgres</code><br>
--bash-4.2$ <code>psql</code></p>
-</blockquote>
-<p>接下来，在PostgreSQL的指令控制台继续操作：</p>
-<blockquote>
-<p>postgres=# create user <code>janusec</code> with password '<code>J@nusec123</code>';<br>
-postgres=# create database janusec owner janusec;<br>
-postgres=# grant all privileges on database janusec to janusec;<br>
-postgres=# \q<br>
-exit</p>
-</blockquote>
-<p>修改PostgreSQL认证方式</p>
-<blockquote>
-<p>#<code>vi /var/lib/pgsql/10/data/pg_hba.conf</code></p>
-</blockquote>
-<p>修改 pg_hba.conf 中这一行:</p>
-<blockquote>
-<p><code>host    all    all    127.0.0.1/32   md5</code></p>
-</blockquote>
-<p>将PostgreSQL设置为开机启动，并重启 PostgreSQL 服务</p>
-<blockquote>
-<p>systemctl enable postgresql-10<br>
-systemctl restart postgresql-10</p>
-</blockquote>
-<h2 id="2-常用操作">2 常用操作</h2>
-<h3 id="21-进入psql命令控制台">2.1 进入PSQL命令控制台</h3>
-<blockquote>
-<p>psql -h <code>127.0.0.1</code> -U <code>janusec</code> -W <code>janusec</code></p>
-</blockquote>
-<p>其中， <code>-h</code> 后面跟PostgreSQL数据库的地址，<code>-U</code> 后面跟数据库用户名，<code>-W</code> 表示提示输入数据库口令，最后面的 <code>janusec</code> 表示数据库名。</p>
-<h3 id="22-常用命令">2.2 常用命令</h3>
-<ul>
-<li><code>\l</code> : 列出所有数据库名</li>
-<li><code>\c db_name</code> : 切换到数据库db_name</li>
-<li><code>\d</code> 或 <code>\dt</code> : 列出当前数据库的所有表</li>
-<li><code>\du</code> : 查看所有用户角色</li>
-<li><code>\d table_name</code> : 查看表table_name的信息</li>
-<li><code>select * from table_name</code> : 查看表格所有内容</li>
-<li><code>\q</code> : 退出</li>
-<li><code>\h</code> : 查看所有关键字</li>
-<li><code>\?</code> : 获取帮助</li>
-</ul>
+<h2 id="数据发现结果">数据发现结果</h2>
+<p>数据发现上报的结果，需要登录JANUCAT查看。</p>
 
             </article>
       </div>
