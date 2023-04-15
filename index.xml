@@ -24,7 +24,7 @@
       <guid>/documentation/quick-start/</guid>
       <description>Quick Start  快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
-Requirements     Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) SQLite3 or PostgreSQL 10/11/12+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    Prepare nftables  nftables used for CC defense.</description>
+0 Requirements     Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) SQLite3 or PostgreSQL 10/11/12+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    1 Prepare nftables  nftables used for CC defense.</description>
     </item>
     
     <item>
@@ -36,14 +36,13 @@ Requirements     Role Operating System Database     Primary Node Debian 9/10/11+
       <description>快速入门  Switch to English Edition of Quick Start
 如果您只是想快速体验一下，可参考附录：在容器中部署JANUSEC应用网关 ，并跳过下面的安装部分。
 本文将指导您正常安装一个单节点的JANUSEC应用网关（只有一个主节点，没有副本节点）。
-安装需求     节点 操作系统 数据库     主节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables SQLite3 或 PostgreSQL 10/11/12+   副本节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    备注：
+0 安装需求     节点 操作系统 数据库     主节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables SQLite3 或 PostgreSQL 10/11/12+   副本节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    备注：
 本入门只安装一个主节点，不安装副本节点，如需扩展，可参考安装一节。
 Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接使用PostgreSQL 10/11/12+版本 。
 如果您的PostgreSQL版本低于9.6，则不支持 。
-从v1.4.0版本开始，支持SQLite3数据库。
-准备主机防火墙nftables  nftables用于拦截CC攻击，减轻应用网关压力。
-Debian 10安装nftables：
- apt install nftables</description>
+从v1.4.0版本开始，增加支持SQLite3数据库。
+1 准备主机防火墙nftables  nftables用于拦截CC攻击，减轻应用网关压力。参考下面的指令配置完成nftables之后，可以通过如下指令查看规则：
+ #nft list ruleset</description>
     </item>
     
     <item>

@@ -15,7 +15,7 @@
       <guid>/documentation/quick-start/</guid>
       <description>Quick Start  快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
-Requirements     Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) SQLite3 or PostgreSQL 10/11/12+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    Prepare nftables  nftables used for CC defense.</description>
+0 Requirements     Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) SQLite3 or PostgreSQL 10/11/12+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    1 Prepare nftables  nftables used for CC defense.</description>
     </item>
     
     <item>

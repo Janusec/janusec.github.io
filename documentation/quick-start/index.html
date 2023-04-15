@@ -170,7 +170,7 @@
 <hr>
 <p><a href="/cn/quick-start/">快速入门中文版</a></p>
 <p>This document will guide you to install a Single-Node <strong>Janusec Application Gateway</strong>.</p>
-<h2 id="requirements">Requirements</h2>
+<h2 id="0-requirements">0 Requirements</h2>
 <hr>
 <table>
 <thead>
@@ -193,26 +193,44 @@
 </tr>
 </tbody>
 </table>
-<h2 id="prepare-nftables">Prepare nftables</h2>
+<h2 id="1-prepare-nftables">1 Prepare nftables</h2>
 <hr>
-<p>nftables used for CC defense.</p>
+<p>nftables used for CC defense. <br>
+You can view the ruleset through:</p>
+<blockquote>
+<p>#nft list ruleset</p>
+</blockquote>
+<p>If the rule is not empty, it may affect the effectiveness of the firewall policy. <br>
+Assuming that the nftables rule is empty now, then continue.</p>
+<h5 id="11-debian-11">1.1 Debian 11</h5>
+<p>In Debian 11, nftables have been installed and enabled by default and managed through the UFW service. The status can be viewed through the following command:</p>
+<blockquote>
+<p>#<code>ufw status numbered</code></p>
+</blockquote>
+<p>If port 80 or 443 is not allowed or cannot be accessed, you may need to modify it:</p>
+<p>When primary_node - admin - <code>listen</code> is <code>false</code> in config file <code>/usr/local/janusec/config.json</code>：</p>
+<blockquote>
+<p>#<code>ufw allow 80,443/tcp</code></p>
+</blockquote>
+<p>When primary_node - admin - <code>listen</code> is <code>true</code> in config file <code>/usr/local/janusec/config.json</code>：</p>
+<blockquote>
+<p>#<code>ufw allow 80,443,9080,9443/tcp</code></p>
+</blockquote>
+<h5 id="12-debian-10">1.2 Debian 10</h5>
 <p>nftables for Debian 10:</p>
 <blockquote>
 <p>apt install nftables</p>
 </blockquote>
+<h5 id="13-cenos-8">1.3 CenOS 8</h5>
+<p>nftables has been installed for CentOS 8.</p>
+<h5 id="14-cenos-7">1.4 CenOS 7</h5>
 <p>nftables is not installed for CentOS 7 by default, installation is required:</p>
 <blockquote>
 <p>#yum -y install nftables<br>
 #systemctl enable nftables<br>
 #systemctl start nftables</p>
 </blockquote>
-<p>nftables has been installed for CentOS 8.</p>
-<p>Now, you can view the ruleset through:</p>
-<blockquote>
-<p>#nft list ruleset</p>
-</blockquote>
-<p>If the rule is not empty, it may affect the effectiveness of the firewall policy. Assuming that the nftables rule is empty now, then continue.</p>
-<h2 id="installation">Installation</h2>
+<h2 id="2-installation">2 Installation</h2>
 <hr>
 <h5 id="step-1-download">Step 1: Download</h5>
 <p>The latest version is available at <a href="https://github.com/Janusec/Application-Gateway/releases">https://github.com/Janusec/Application-Gateway/releases</a> .</p>
@@ -276,22 +294,23 @@ If you choose PostgreSQL, as it is not included in the release package, you need
 </blockquote>
 <p>This is the administration address for Janusec Application Gateway.<br>
 Login with default username <code>admin</code> and password <code>J@nusec123</code> .</p>
-<h2 id="certificate-optional">Certificate (optional)</h2>
+<h2 id="3-certificate-optional">3 Certificate (optional)</h2>
 <hr>
 <p>If you only use HTTP, skip this step.<br>
 Open http://<code>your_ip_address</code>/janusec-admin/ and add a new certificate.
 If you don&rsquo;t have a certificate, you can get a free certificate from <code>Let's Encrypt</code>, or let Janusec produce a self-signed certificate( only for test), or skip certificate configuration and select <code>ACME Automatic Certificate</code> under <code>Application Management</code>.</p>
-<h2 id="application-required">Application (required)</h2>
+<h2 id="4-application-required">4 Application (required)</h2>
 <hr>
 <p>Open http://<code>your_ip_address</code>/janusec-admin/ and add a new application.
 Fill in application name, actual IP:Port etc.</p>
-<h2 id="dns-or-hosts-required">DNS or Hosts (required)</h2>
+<h2 id="5-dns-or-hosts-required">5 DNS or Hosts (required)</h2>
 <hr>
-<p>Modify your DNS settings, let <code>your_domain_name</code> point to the Gateway for production, or modify you local hosts <code>C:\Windows\System32\drivers\etc\hosts</code> ( not the Gateway) for test.</p>
-<h2 id="validation">Validation</h2>
+<p>Modify your DNS settings, let <code>your_domain_name</code> point to the Gateway for production, or modify you local hosts <code>C:\Windows\System32\drivers\etc\hosts</code> ( not the Gateway) for test.<br>
+To use ACME automated certificates, the domain name must be a real internet accessible domain name, otherwise the certification authority will not pass the callback verification.</p>
+<h2 id="6-validation">6 Validation</h2>
 <hr>
 <p>Open http://<code>your_domain_name</code>/ or https://<code>your_domain_name</code>/ .</p>
-<h2 id="waf-validation">WAF Validation</h2>
+<h2 id="7-waf-validation">7 WAF Validation</h2>
 <hr>
 <p>Test cases:</p>
 <blockquote>
@@ -300,7 +319,7 @@ Fill in application name, actual IP:Port etc.</p>
 </blockquote>
 <p>Block information:<br>
 <img src="/images/waf2.png" alt="WAF" title="WAF of Janusec Application Gateway"></p>
-<h2 id="firewall-nftables-validation">Firewall nftables Validation</h2>
+<h2 id="8-firewall-nftables-validation">8 Firewall nftables Validation</h2>
 <hr>
 <blockquote>
 <p>#nft list table inet janusec</p>
