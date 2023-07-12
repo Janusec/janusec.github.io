@@ -158,8 +158,9 @@
             <article>
             <h1 id="在容器中部署janusec应用网关">在容器中部署JANUSEC应用网关</h1>
 <hr>
-<p>JANUSEC应用网关<strong>首选直接部署在Linux服务器上</strong>，监听80/443端口，可以作为K8S Ingress Controller将外部用户请求转发到K8S Pods（各Pod监听同一个端口）。如您采用直接部署的模式，可忽略以下内容，查看<a href="/cn/quick-start/">快速入门</a> 。</p>
-<p>如您希望在容器内部署JANUSEC应用网关，请继续阅读下面的内容。</p>
+<p>JANUSEC应用网关<strong>首选直接部署在Linux服务器上</strong>，监听80/443端口，可以作为K8S Ingress Controller将外部用户请求转发到K8S Pods（各Pod监听同一个端口）。</p>
+<p>如您采用直接部署的模式，可忽略以下内容，查看<a href="/cn/quick-start/">快速入门</a> 。</p>
+<p>如您希望在容器内部署JANUSEC应用网关，请继续阅读下面的内容（仅供体验用途，不建议用于生产环境）。</p>
 <h2 id="前提条件">前提条件</h2>
 <p>请先检查docker服务是否已启用（预期结果为 enabled）：</p>
 <blockquote>

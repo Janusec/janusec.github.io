@@ -158,12 +158,12 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.4.0 (Apr 08, 2023)
+ Latest version: v1.4.1 (Jul 12, 2023)
 View current version The version information is available at admin portal, or:
  ./janusec --version
  From v0.9.10+ and 1.x.x You do not need to uninstall the old version, and update JANUSEC like this:
- #wget https://www.janusec.com/download/janusec-1.4.0-amd64.tar.gz
-#tar zxf ./janusec-1.4.0-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.4.1-amd64.tar.gz
+#tar zxf ./janusec-1.4.1-amd64.tar.gz
 #cd janusec-1.4.x-amd64
 #./install.sh
 #systemctl restart janusec
@@ -263,7 +263,7 @@ The recommended architecture for high availability deployment is:
       
       <guid>/documentation/appendix-docker/</guid>
       <description>Deploy JANUSEC Application Gateway in Docker Container  The JANUSEC application gateway is preferred to be deployed directly on the Linux server and listens on port 80/443. It can be used as the K8S Ingress Controller to forward external user requests to K8S Pods (each Pod listens on the same port). If you adopt the direct deployment mode, you can ignore the following content and see Quick Start.
-If you want to deploy JANUSEC application gateway inside docker container, please continue to read the following content.</description>
+If you want to deploy JANUSEC application gateway inside docker container, please continue to read the following content, for experiential purposes only, not recommended for production environments.</description>
     </item>
     
     <item>

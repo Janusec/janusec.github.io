@@ -222,12 +222,12 @@ LDAP配置 登录界面显示:
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本JANUSEC应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v1.4.0 (2023.04.08)
+ 最新版本: v1.4.1 (2023.07.12)
 查看当前版本 当前版本信息可通过管理入口查看，或者:
  ./janusec --version
  从v0.9.10+或1.x.x升级 不用卸载，直接覆盖安装即可。
- #wget https://www.janusec.com/download/janusec-1.4.0-amd64.tar.gz
-#tar zxf ./janusec-1.4.0-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.4.1-amd64.tar.gz
+#tar zxf ./janusec-1.4.1-amd64.tar.gz
 #cd /data/janusec-1.4.x/
 #./install.sh
 #systemctl restart janusec
@@ -240,8 +240,8 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
  #systemctl enable firewalld
 #systemctl start firewalld
  然后覆盖安装即可：
- #wget https://www.janusec.com/download/janusec-1.4.0-amd64.tar.gz
-#tar zxf ./janusec-1.4.0-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.4.1-amd64.tar.gz
+#tar zxf ./janusec-1.4.1-amd64.tar.gz
 #cd /data/janusec-1.4.x/
 #./install.sh
 #systemctl restart janusec
@@ -369,8 +369,9 @@ psql -h 127.0.0.1 -U janusec -W janusec
       <pubDate>Tue, 24 Jan 2023 11:58:32 +0800</pubDate>
       
       <guid>/cn/appendix-docker/</guid>
-      <description>在容器中部署JANUSEC应用网关  JANUSEC应用网关首选直接部署在Linux服务器上，监听80/443端口，可以作为K8S Ingress Controller将外部用户请求转发到K8S Pods（各Pod监听同一个端口）。如您采用直接部署的模式，可忽略以下内容，查看快速入门 。
-如您希望在容器内部署JANUSEC应用网关，请继续阅读下面的内容。
+      <description>在容器中部署JANUSEC应用网关  JANUSEC应用网关首选直接部署在Linux服务器上，监听80/443端口，可以作为K8S Ingress Controller将外部用户请求转发到K8S Pods（各Pod监听同一个端口）。
+如您采用直接部署的模式，可忽略以下内容，查看快速入门 。
+如您希望在容器内部署JANUSEC应用网关，请继续阅读下面的内容（仅供体验用途，不建议用于生产环境）。
 前提条件 请先检查docker服务是否已启用（预期结果为 enabled）：
  systemctl status docker
  如果返回结果为 disabled ，请先启用：
