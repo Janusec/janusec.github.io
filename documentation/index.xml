@@ -158,12 +158,12 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.4.1 (Jul 12, 2023)
+ Latest version: v1.4.2 (Jul 15, 2023)
 View current version The version information is available at admin portal, or:
  ./janusec --version
  From v0.9.10+ and 1.x.x You do not need to uninstall the old version, and update JANUSEC like this:
- #wget https://www.janusec.com/download/janusec-1.4.1-amd64.tar.gz
-#tar zxf ./janusec-1.4.1-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz
+#tar zxf ./janusec-1.4.2-amd64.tar.gz
 #cd janusec-1.4.x-amd64
 #./install.sh
 #systemctl restart janusec
@@ -240,8 +240,8 @@ Before the installation of the Primary Node, dbname, dbuser and password should 
 1.1 Example with Debian 10 and PostgreSQL 11  apt install postgresql
 su - postgres
 psql
-  create user janusec with password &amp;lsquo;J@nusec123&amp;rsquo;;
-create database janusec owner janusec;</description>
+  CREATE USER janusec WITH PASSWORD &amp;lsquo;J@nusec123&amp;rsquo;;
+CREATE DATABASE janusec OWNER janusec WITH ENCODING &amp;lsquo;UTF8&amp;rsquo;; GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;</description>
     </item>
     
     <item>

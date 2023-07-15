@@ -13,7 +13,7 @@
       <pubDate>Thu, 24 May 2018 20:37:42 +0800</pubDate>
       
       <guid>/dl/</guid>
-      <description>Download  Janusec Application Gateway    Type Mirror Download     Latest Release JANUSEC (USA/美国) janusec-1.4.1-amd64.tar.gz   All Release Github (USA/美国) Github Release   All Release Gitee (China/中国) Gitee Release    All Release    Version Mirror Download     All Release Github (USA/美国) Github Release   All Release Gitee (China/中国) Gitee Release    Source Code    Type Mirror Download     Source Code USA Github    </description>
+      <description>Download  Janusec Application Gateway    Type Mirror Download     Latest Release JANUSEC (USA/美国) janusec-1.4.2-amd64.tar.gz   All Release Github (USA/美国) Github Release   All Release Gitee (China/中国) Gitee Release    All Release    Version Mirror Download     All Release Github (USA/美国) Github Release   All Release Gitee (China/中国) Gitee Release    Source Code    Type Mirror Download     Source Code USA Github    </description>
     </item>
     
     <item>
@@ -386,12 +386,12 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.4.1 (Jul 12, 2023)
+ Latest version: v1.4.2 (Jul 15, 2023)
 View current version The version information is available at admin portal, or:
  ./janusec --version
  From v0.9.10+ and 1.x.x You do not need to uninstall the old version, and update JANUSEC like this:
- #wget https://www.janusec.com/download/janusec-1.4.1-amd64.tar.gz
-#tar zxf ./janusec-1.4.1-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz
+#tar zxf ./janusec-1.4.2-amd64.tar.gz
 #cd janusec-1.4.x-amd64
 #./install.sh
 #systemctl restart janusec
@@ -405,12 +405,12 @@ View current version The version information is available at admin portal, or:
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本JANUSEC应用网关   本文仅供旧版本升级参考，新安装请忽略。
- 最新版本: v1.4.1 (2023.07.12)
+ 最新版本: v1.4.2 (2023.07.15)
 查看当前版本 当前版本信息可通过管理入口查看，或者:
  ./janusec --version
  从v0.9.10+或1.x.x升级 不用卸载，直接覆盖安装即可。
- #wget https://www.janusec.com/download/janusec-1.4.1-amd64.tar.gz
-#tar zxf ./janusec-1.4.1-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz
+#tar zxf ./janusec-1.4.2-amd64.tar.gz
 #cd /data/janusec-1.4.x/
 #./install.sh
 #systemctl restart janusec
@@ -423,8 +423,8 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
  #systemctl enable firewalld
 #systemctl start firewalld
  然后覆盖安装即可：
- #wget https://www.janusec.com/download/janusec-1.4.1-amd64.tar.gz
-#tar zxf ./janusec-1.4.1-amd64.tar.gz
+ #wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz
+#tar zxf ./janusec-1.4.2-amd64.tar.gz
 #cd /data/janusec-1.4.x/
 #./install.sh
 #systemctl restart janusec
@@ -511,10 +511,10 @@ PostgreSQL 使用psql命令来检查配置是否正常：
 在PSQL Shell中执行版本检查：
  select version();
  版本要求为10以上（不支持早于PostgreSQL 9.5的版本）。
+ show SERVER_ENCODING;
+ 要求数据库编码为UTF8 。
 端口  netstat -anp | grep LISTEN | grep &#39;:\(80\|443\)\s&#39;
- Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。
-当config.json中listen=true时，Janusec网关还需要使用9080/9443端口，一般用于从内网发起管理。
- netstat -anp | grep LISTEN | grep &#39;:\(9080\|9443\)\s&#39;</description>
+ Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。</description>
     </item>
     
     <item>
@@ -567,8 +567,8 @@ Before the installation of the Primary Node, dbname, dbuser and password should 
 1.1 Example with Debian 10 and PostgreSQL 11  apt install postgresql
 su - postgres
 psql
-  create user janusec with password &amp;lsquo;J@nusec123&amp;rsquo;;
-create database janusec owner janusec;</description>
+  CREATE USER janusec WITH PASSWORD &amp;lsquo;J@nusec123&amp;rsquo;;
+CREATE DATABASE janusec OWNER janusec WITH ENCODING &amp;lsquo;UTF8&amp;rsquo;; GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;</description>
     </item>
     
     <item>
@@ -581,14 +581,14 @@ create database janusec owner janusec;</description>
 1.1 在Debian 10中部署PostgreSQL 11  apt install postgresql
 su - postgres
 psql
-  create user janusec with password &#39;J@nusec123&#39;;
-create database janusec owner janusec;
-grant all privileges on database janusec to janusec;
+  CREATE USER janusec WITH PASSWORD &#39;J@nusec123&#39;;
+CREATE DATABASE janusec OWNER janusec WITH ENCODING &amp;lsquo;UTF8&amp;rsquo;;
+GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;
 \q
 exit
 psql -h 127.0.0.1 -U janusec -W janusec
  1.2 在 CentOS 7 中部署 PostgreSQL 10 主要参考 https://wiki.postgresql.org/wiki/YUM_Installation 首先添加源，方便通过yum安装。
- yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm</description>
+ yum install https://download.</description>
     </item>
     
     <item>
