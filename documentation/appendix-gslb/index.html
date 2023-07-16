@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>Update Janusec</title>
-    <meta name="keywords" content="[Janusec, Application Gateway, WAF, Web Application Firewall]">
-    <meta name="description" content="Update to new version of Janusec Application Gateway">
+    <title>Appendix 7: GSLB</title>
+    <meta name="keywords" content="[Janusec Application Gateway, GSLB]">
+    <meta name="description" content="Implementing Global Server Load Balance through Janusec Application Gateway">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -176,88 +176,24 @@
       </div>
       <div class="col-sm-9">
             <article>
-            <h1 id="update-to-latest-version">Update to Latest Version</h1>
+            <h1 id="gslb-global-server-load-balance">GSLB (Global Server Load Balance)</h1>
 <hr>
-<blockquote>
-<p>This article is only for upgrade, not for new installation.</p>
-</blockquote>
-<p>Latest version: v1.4.2 (Jul 15, 2023)</p>
-<h4 id="view-current-version">View current version</h4>
-<p>The version information is available at admin portal, or:</p>
-<blockquote>
-<p><code>./janusec --version</code></p>
-</blockquote>
-<h4 id="from-v0910-and-1xx">From v0.9.10+ and 1.x.x</h4>
-<p>You do not need to uninstall the old version, and update JANUSEC like this:</p>
-<blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>cd janusec-1.4.x-amd64</code><br>
-#<code>./install.sh</code><br>
-#<code>systemctl restart janusec</code></p>
-</blockquote>
-<h4 id="from-v099">From V0.9.9</h4>
-<p>First, nftables is required for CC defense from v0.9.10.</p>
-<p>nftables is not installed for CentOS 7 by default, installation is required:</p>
-<blockquote>
-<p>#yum -y install nftables<br>
-#systemctl enable nftables<br>
-#systemctl start nftables</p>
-</blockquote>
-<p>nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld ：</p>
-<blockquote>
-<p>#systemctl enable firewalld<br>
-#systemctl start firewalld</p>
-</blockquote>
-<p>Then, update JANUSEC like this:</p>
-<blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>cd /data/janusec-1.4.x/</code><br>
-#<code>./install.sh</code><br>
-#<code>systemctl restart janusec</code></p>
-</blockquote>
-<h4 id="from-v095v098">From V0.9.5~V0.9.8</h4>
-<p>Step 1:</p>
-<p>config.json changed in V0.9.9, so backup and new config.json is required:</p>
-<blockquote>
-<p>#<code>cd /data/</code><br>
-#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
-#<code>cp ./janusec-1.4.x/config.json.primary_bak /usr/local/janusec/config.json</code></p>
-</blockquote>
-<p>Edit <code>/usr/local/janusec/config.json</code>, refer to <a href="/documentation/configuration/">Configuration File</a>, set database information.</p>
-<blockquote>
-<p>#<code>vi /usr/local/janusec/config.json</code></p>
-</blockquote>
-<p>Step 2:</p>
-<p>Check nftables started.</p>
-<p>Step 3:</p>
-<p>Install the latest version（config.json will not be overwrote if it exists.）：</p>
-<blockquote>
-<p>#<code>cd /data/janusec-1.4.x/</code><br>
-#<code>./install.sh</code><br>
-#<code>systemctl restart janusec</code></p>
-</blockquote>
-<h4 id="from-version-094-or-earlier">From Version 0.9.4 or earlier</h4>
-<p>0.9.5 changed the service type, so before installation:</p>
-<p>Step 1:</p>
-<blockquote>
-<p>#<code>systemctl stop janusec</code></p>
-</blockquote>
-<p>stop the service.</p>
-<p>Step 2:<br>
-Check nftables started.</p>
-<p>Step 3:</p>
-<p>Backup /usr/local/janusec/config.json or record the password in it.<br>
-Delete /usr/local/janusec/config.json , then install script will copy a new config.json .<br>
-Install latest Janusec, and check config.json to fill in the password.</p>
-<p>If:</p>
-<blockquote>
-<p>#<code>systemctl restart janusec</code></p>
-</blockquote>
-<p>not work, just kill it.</p>
+<h2 id="1-gslb-introduction">1 GSLB Introduction</h2>
+<p>GSLB (Global Server Load Balance) can automatically schedule traffic through custom DNS servers based on the user&rsquo;s IP address.</p>
+<p>The professional plus edition of Janussec Application Gateway has built-in DNS server and GSLB scheduling function on the primary node, while the open source edition does not include this feature.</p>
+<h2 id="2-enable-gslb">2 Enable GSLB</h2>
+<p>Refer to the following steps to enable GSLB (Global Server Load Balance) if you have multiple gateway nodes deployed.</p>
+<p>Assuming you have an application that provides services to internet users through: <code>https://demo.example.com</code>, and the customized domain name server is <code>ns01.example.com</code> (use the DNS server provided by the primary node of Janusec Application Gateway):</p>
+<ol>
+<li>Step 1: Enable firewall policy, example for Debian 11: #<code>ufw allow 53</code></li>
+<li>Step 2: Make sure port 53 is not occupied by other applications, typically in Debian 11 it was occupied, stop it: #<code>systemctl stop systemd-resolved</code> and #<code>systemctl disable systemd-resolved</code>, then check with: #<code>netstat -antulp | grep :53</code></li>
+<li>Step 3: Enable DNS Server in Settings - Advanced, and then restart service: #<code>systemctl restart janusec</code></li>
+<li>Step 4: Add an <code>A</code> or CNAME record <code>ns01</code> with value ip address points to this gateway, and a <code>NS</code> record <code>demo</code> with value <code>ns01.example.com.</code> at the authoritative name server, not on this gateway. Individual domain name holders should modify it at the domain name registrar.</li>
+<li>Step 5: Add an <code>A</code> record <code>demo</code> on the gateway, and enable <code>Resolve to an available gateway node for load balance automatically</code></li>
+<li>Step 6 (Important): Add <code>DNS Hostnames</code> (aka. <code>Glue Records</code>) for your DNS server at the domain name registrar, if not, your own dns server will not accepted by other DNS servers. This record takes approximately 24 to 48 hours to take effect.</li>
+<li>Step 7: Configure application in Application and make sure the backend source servers are available to all nodes of Janusec Application Gateway.</li>
+<li>Step 8: Open with web browser, or under command shell: <code>nslookup demo.example.com</code>, or <code>dig demo.example.com A</code></li>
+</ol>
 
             </article>
       </div>

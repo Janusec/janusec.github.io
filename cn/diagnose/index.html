@@ -152,6 +152,16 @@
               <a href="/cn/appendix-data-discovery/">附录5: 数据发现</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-cookie/">附录6: Cookie合规</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-gslb/">附录7: GSLB</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -164,7 +174,7 @@
 <h3 id="操作系统">操作系统</h3>
 <p>操作系统需要为x86_64架构的如下操作系统之一：</p>
 <ul>
-<li>Debian 9/10/11+  (首选Debian 10+)</li>
+<li>Debian 9/10/11+  (首选Debian 10/11+)</li>
 <li>CentOS 7/8+</li>
 <li>RHEL 7/8+</li>
 </ul>
@@ -189,7 +199,7 @@
 <blockquote>
 <p>select version();</p>
 </blockquote>
-<p>版本要求为<code>10</code>以上（不支持早于PostgreSQL 9.5的版本）。</p>
+<p>版本要求为<code>10</code>以上（不支持早于PostgreSQL 9.6的版本）。</p>
 <blockquote>
 <p>show SERVER_ENCODING;</p>
 </blockquote>
@@ -199,12 +209,17 @@
 <p><code>netstat -anp | grep LISTEN | grep ':\(80\|443\)\s'</code></p>
 </blockquote>
 <p>Janusec网关需要使用80/443端口，如果在与Web服务器同一台主机上安装Janusec且有其它程序占用了这些端口，需要其它程序修改端口。</p>
-<p>当config.json中listen=true时，Janusec网关还需要使用9080/9443端口，一般用于从内网发起管理。</p>
+<p>当config.json中listen=true时，网关还需要使用TCP 9080/9443端口，一般用于从内网发起管理。</p>
 <blockquote>
 <p><code>netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'</code></p>
 </blockquote>
+<p>当启用GSLB和DNS服务器时，网关还需要使用TCP/UDP 53端口，请确认端口是否被占用，防火墙策略是否开通：</p>
+<blockquote>
+<p><code>netstat -anp | grep ':53\s'</code></p>
+</blockquote>
 <h3 id="dns">DNS</h3>
 <p>DNS需要指向网关的IP地址。应用迁移时，可以先使用hosts方式将域名指向网关，调试通过后再修改DNS指向。</p>
+<p>如需使用GSLB，可考虑切换到增强体验版本。</p>
 <h3 id="证书">证书</h3>
 <p>如果使用ACME自动证书，则要求：</p>
 <ul>
@@ -215,10 +230,10 @@
 <p>为了保证主副本节点正确同步，需要满足：</p>
 <ul>
 <li>各节点时间正确（误差不超过一分钟）</li>
-<li>副本节点<code>node_key</code>跟Web管理控制台中<a href="/cn/node-management">节点管理</a>中显示的<code>node_key</code>一致。</li>
+<li>副本节点<code>node_key</code>跟Web管理控制台中<a href="/cn/node-management">节点管理</a>中显示的<code>node_key</code>一致（不同时间看到的结果不同，不影响同步）。</li>
 </ul>
 <h3 id="日志">日志</h3>
-<p>日志文件路径为 <code>/usr/local/janusec/log/</code> ，可查看日志中是否存在错误输出。</p>
+<p>日志文件路径为 <code>/usr/local/janusec/log/</code> ，可查看日志中是否存在错误输出，特别是<code>error.log</code>。</p>
 <h3 id="nftables防火墙">nftables防火墙</h3>
 <p>请确保nftables防火墙正常工作，且没有多余的规则影响JANUSEC，参考<a href="/cn/installation/">安装</a>一节。<br>
 JANUSEC启动后，正常情况下规则类似如下：</p>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <title>Update Janusec</title>
-    <meta name="keywords" content="[Janusec, Application Gateway, WAF, Web Application Firewall]">
-    <meta name="description" content="Update to new version of Janusec Application Gateway">
+    <title>Appendix 6: Cookie Compliance</title>
+    <meta name="keywords" content="[Cookie Compliance, Cookie Banner]">
+    <meta name="description" content="Cookie Compliance Management through Janusec Application Gateway">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap-4.1.1/css/bootstrap.min.css">   
 </head>
@@ -176,88 +176,37 @@
       </div>
       <div class="col-sm-9">
             <article>
-            <h1 id="update-to-latest-version">Update to Latest Version</h1>
+            <h1 id="cookie-compliance">Cookie Compliance</h1>
 <hr>
-<blockquote>
-<p>This article is only for upgrade, not for new installation.</p>
-</blockquote>
-<p>Latest version: v1.4.2 (Jul 15, 2023)</p>
-<h4 id="view-current-version">View current version</h4>
-<p>The version information is available at admin portal, or:</p>
-<blockquote>
-<p><code>./janusec --version</code></p>
-</blockquote>
-<h4 id="from-v0910-and-1xx">From v0.9.10+ and 1.x.x</h4>
-<p>You do not need to uninstall the old version, and update JANUSEC like this:</p>
-<blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>cd janusec-1.4.x-amd64</code><br>
-#<code>./install.sh</code><br>
-#<code>systemctl restart janusec</code></p>
-</blockquote>
-<h4 id="from-v099">From V0.9.9</h4>
-<p>First, nftables is required for CC defense from v0.9.10.</p>
-<p>nftables is not installed for CentOS 7 by default, installation is required:</p>
-<blockquote>
-<p>#yum -y install nftables<br>
-#systemctl enable nftables<br>
-#systemctl start nftables</p>
-</blockquote>
-<p>nftables has been installed for CentOS 8, and as backend of firewalld, just enable firewalld ：</p>
-<blockquote>
-<p>#systemctl enable firewalld<br>
-#systemctl start firewalld</p>
-</blockquote>
-<p>Then, update JANUSEC like this:</p>
-<blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>cd /data/janusec-1.4.x/</code><br>
-#<code>./install.sh</code><br>
-#<code>systemctl restart janusec</code></p>
-</blockquote>
-<h4 id="from-v095v098">From V0.9.5~V0.9.8</h4>
-<p>Step 1:</p>
-<p>config.json changed in V0.9.9, so backup and new config.json is required:</p>
-<blockquote>
-<p>#<code>cd /data/</code><br>
-#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
-#<code>cp ./janusec-1.4.x/config.json.primary_bak /usr/local/janusec/config.json</code></p>
-</blockquote>
-<p>Edit <code>/usr/local/janusec/config.json</code>, refer to <a href="/documentation/configuration/">Configuration File</a>, set database information.</p>
-<blockquote>
-<p>#<code>vi /usr/local/janusec/config.json</code></p>
-</blockquote>
-<p>Step 2:</p>
-<p>Check nftables started.</p>
-<p>Step 3:</p>
-<p>Install the latest version（config.json will not be overwrote if it exists.）：</p>
-<blockquote>
-<p>#<code>cd /data/janusec-1.4.x/</code><br>
-#<code>./install.sh</code><br>
-#<code>systemctl restart janusec</code></p>
-</blockquote>
-<h4 id="from-version-094-or-earlier">From Version 0.9.4 or earlier</h4>
-<p>0.9.5 changed the service type, so before installation:</p>
-<p>Step 1:</p>
-<blockquote>
-<p>#<code>systemctl stop janusec</code></p>
-</blockquote>
-<p>stop the service.</p>
-<p>Step 2:<br>
-Check nftables started.</p>
-<p>Step 3:</p>
-<p>Backup /usr/local/janusec/config.json or record the password in it.<br>
-Delete /usr/local/janusec/config.json , then install script will copy a new config.json .<br>
-Install latest Janusec, and check config.json to fill in the password.</p>
-<p>If:</p>
-<blockquote>
-<p>#<code>systemctl restart janusec</code></p>
-</blockquote>
-<p>not work, just kill it.</p>
+<h2 id="1-introduction-to-cookie-compliance">1 Introduction to Cookie Compliance</h2>
+<!-- raw HTML omitted -->
+<p>Cookies are a typical technology for achieving statistical analysis, personalized recommendations, and personalized marketing/advertising.</p>
+<p>They are also subject to personal data protection (such as GDPR) and privacy protection laws (such as ePrivacy Directive/Regulation), and supervisions are becoming increasingly strict.</p>
+<p>In areas where relevant laws apply, directly implanting unnecessary cookies into a user&rsquo;s terminal device without obtaining their explicit consent is suspected of infringing on user privacy.</p>
+<p>The professional plus edition of Janussec Application Gateway provides cookie compliance management functionality, which is not included in the open source version.</p>
+<h2 id="2-enable-cookie-banner">2 Enable Cookie Banner</h2>
+<!-- raw HTML omitted -->
+<p>In <code>Application Management</code>, open the application that needs to enable cookie management, check <code>Enable Cookie Compliance Management</code> and save it.</p>
+<p>At this time, two new tab configuration pages will be added to the configuration interface, namely <code>Application Cookie Settings</code> and <code>Application Cookie Management</code> .</p>
+<p>Among them, <code>Application Cookie Settings</code> can customize the display content of Cookie Banner, <code>Application Cookie Management</code> categorizes specific cookie fields to determine whether they are allowed to be set to the user&rsquo;s terminal devices.</p>
+<h2 id="3-cookie-scanning">3 Cookie Scanning</h2>
+<p>The administrator uses their own user side computer to access the target website and enable <code>Unclassified Cookies</code> in the Cookie Banner pop-up window for scanning. The steps are as follows:</p>
+<ol>
+<li>User Side: Please ensure that the domain name points to the primary node of the gateway.</li>
+<li>User Side: Open the target website using a browser. If the Cookie Preferences window does not appear, please click on the Cookie icon in the bottom left corner of the window.</li>
+<li>User Side: Enable Unclassified Cookies and Confirm the Choice in the Cookie Preference window, and navigate pages which may set cookies.</li>
+<li>Gateway Side: Click the refresh button above to view the list of recognized cookies.</li>
+<li>Gateway Side: Check or modify each cookie type until the number of unclassified cookies is reset to zero</li>
+<li>User Side: Disable Unclassified Cookies if the number of unclassified cookies becomes zero.</li>
+<li>User Side: Navigate the target website and check if the cookie settings are in effect.</li>
+</ol>
+<h2 id="4-cookie-cleaning">4 Cookie Cleaning</h2>
+<p>In the <code>Application Cookie Management</code> interface, over time, due to business changes and hackers' scanning behavior, the number of cookies to be classified will increase.<br>
+Most of them may come from hacker scanning behavior, which can be directly deleted.<br>
+If it is a real cookie from the business, classify it correctly.</p>
+<h2 id="5-manage-cookie-references">5 Manage Cookie References</h2>
+<p><code>Cookie References</code> used for classification automatically.</p>
+<p>You can include common cookies, such as various statistical analysis plugins.</p>
 
             </article>
       </div>

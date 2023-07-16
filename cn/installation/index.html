@@ -152,6 +152,16 @@
               <a href="/cn/appendix-data-discovery/">附录5: 数据发现</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-cookie/">附录6: Cookie合规</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-gslb/">附录7: GSLB</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -170,12 +180,12 @@
 <tbody>
 <tr>
 <td>主节点</td>
-<td>Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables</td>
-<td>PostgreSQL 10/11/12+</td>
+<td>Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10/11, x86_64, 使用 systemd和nftables</td>
+<td>PostgreSQL 10/11/12/13+</td>
 </tr>
 <tr>
 <td>副本节点</td>
-<td>Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables</td>
+<td>Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10/11, x86_64, 使用 systemd和nftables</td>
 <td>不需要</td>
 </tr>
 </tbody>
@@ -204,10 +214,24 @@
 </blockquote>
 <p>如果规则不是空的，可能会影响防火墙策略的生效。假定现在nftables的规则是空的，然后继续。</p>
 <h3 id="步骤1-下载">步骤1: 下载</h3>
+<p>开源版本的下载链接包括:</p>
+<ul>
+<li>Mirror 1 Github (USA):   <a href="https://github.com/Janusec/janusec/releases">Github Releases</a></li>
+<li>Mirror 2 Gitee (China):  <a href="https://gitee.com/Janusec/janusec/releases">Gitee Releases</a></li>
+</ul>
+<p>增强特性体验版：</p>
+<ul>
+<li>Mirror 3 JANUSEC: <a href="https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz">Janusec Application Gateway Professional Plus</a></li>
+</ul>
+<p>增强特性说明：增强体验版是在开源版本基础上进一步增强，增强特性部分不开源，仅用于测试或体验（JANUSEC保留在未来版本中对增强特性进行变更的权利，包括继续增强、删减等）。</p>
+<p>增强特性包括：</p>
+<ul>
+<li>Cookie合规管理(提供Cookie Banner与用户同意管理) ， v1.4.2版本开始提供</li>
+<li>GSLB (全局负载均衡，自带DNS服务器) ， v1.4.2版本开始提供</li>
+</ul>
+<p>请下载到当前用户目录<code>/home/xxx/</code>或其他非安装目录，然后解压：</p>
 <blockquote>
-<p>$cd ~<br>
-$wget <code>https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-$tar zxf ./janusec-1.4.2-amd64.tar.gz</p>
+<p>$tar zxf ./janusec-1.4.2-amd64.tar.gz</p>
 </blockquote>
 <h3 id="步骤2-安装">步骤2: 安装</h3>
 <p>请切换到root用户并运行 install.sh , JANUSEC应用网关将安装在目录： <code>/usr/local/janusec/ </code></p>

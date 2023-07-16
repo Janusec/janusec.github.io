@@ -6,7 +6,7 @@
     <description>Recent content in Documentations on Janusec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Mar 2023 20:11:32 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jul 2023 15:18:32 +0800</lastBuildDate><atom:link href="/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quick Start</title>
       <link>/documentation/quick-start/</link>
@@ -15,7 +15,7 @@
       <guid>/documentation/quick-start/</guid>
       <description>Quick Start  快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
-0 Requirements     Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) SQLite3 or PostgreSQL 10/11/12+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    1 Prepare nftables  nftables used for CC defense.</description>
+0 Requirements     Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered) SQLite3 or PostgreSQL 10/11/12/13+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered) Not required    1 Prepare nftables  nftables used for CC defense.</description>
     </item>
     
     <item>
@@ -276,6 +276,28 @@ If you want to deploy JANUSEC application gateway inside docker container, pleas
 When a Data Discovery rule is hit, it will report it to JANUCAT (Compliance, Accountability and Transparency) for data privacy governance.
 Data Discovery Report When a Data Discovery rule is hit, it will be reported to JANUCAT through the API.
 In order to verify the identity of the sender, an API Key is required.</description>
+    </item>
+    
+    <item>
+      <title>Appendix 6: Cookie Compliance</title>
+      <link>/documentation/appendix-cookie/</link>
+      <pubDate>Sun, 16 Jul 2023 14:18:32 +0800</pubDate>
+      
+      <guid>/documentation/appendix-cookie/</guid>
+      <description>Cookie Compliance  1 Introduction to Cookie Compliance Cookies are a typical technology for achieving statistical analysis, personalized recommendations, and personalized marketing/advertising.
+They are also subject to personal data protection (such as GDPR) and privacy protection laws (such as ePrivacy Directive/Regulation), and supervisions are becoming increasingly strict.
+In areas where relevant laws apply, directly implanting unnecessary cookies into a user&amp;rsquo;s terminal device without obtaining their explicit consent is suspected of infringing on user privacy.</description>
+    </item>
+    
+    <item>
+      <title>Appendix 7: GSLB</title>
+      <link>/documentation/appendix-gslb/</link>
+      <pubDate>Sun, 16 Jul 2023 15:18:32 +0800</pubDate>
+      
+      <guid>/documentation/appendix-gslb/</guid>
+      <description>GSLB (Global Server Load Balance)  1 GSLB Introduction GSLB (Global Server Load Balance) can automatically schedule traffic through custom DNS servers based on the user&amp;rsquo;s IP address.
+The professional plus edition of Janussec Application Gateway has built-in DNS server and GSLB scheduling function on the primary node, while the open source edition does not include this feature.
+2 Enable GSLB Refer to the following steps to enable GSLB (Global Server Load Balance) if you have multiple gateway nodes deployed.</description>
     </item>
     
   </channel>

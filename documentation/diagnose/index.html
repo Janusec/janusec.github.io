@@ -162,6 +162,16 @@
               <a href="/documentation/appendix-data-discovery/">Appendix 5: Data Discovery</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/documentation/appendix-cookie/">Appendix 6: Cookie Compliance</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/documentation/appendix-gslb/">Appendix 7: GSLB</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -208,6 +218,10 @@
 <p>If listen=true in config.json, Janusec will use 9080/9443 also, used for internal management.</p>
 <blockquote>
 <p><code>netstat -anp | grep LISTEN | grep ':\(9080\|9443\)\s'</code></p>
+</blockquote>
+<p>When enabling GSLB and DNS servers, the gateway also needs to use TCP/UDP 53 port. Please confirm whether the port is occupied and whether the firewall policy is permitted:</p>
+<blockquote>
+<p><code>netstat -anp | grep ':53\s'</code></p>
 </blockquote>
 <h3 id="dns">DNS</h3>
 <p>Domain should point to the IP address of the application gateway.<br>

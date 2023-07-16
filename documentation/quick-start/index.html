@@ -162,6 +162,16 @@
               <a href="/documentation/appendix-data-discovery/">Appendix 5: Data Discovery</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/documentation/appendix-cookie/">Appendix 6: Cookie Compliance</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/documentation/appendix-gslb/">Appendix 7: GSLB</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -183,12 +193,12 @@
 <tbody>
 <tr>
 <td>Primary Node</td>
-<td>Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered)</td>
-<td>SQLite3 or PostgreSQL 10/11/12+</td>
+<td>Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered)</td>
+<td>SQLite3 or PostgreSQL 10/11/12/13+</td>
 </tr>
 <tr>
 <td>Replica Node</td>
-<td>Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered)</td>
+<td>Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered)</td>
 <td>Not required</td>
 </tr>
 </tbody>
@@ -233,14 +243,27 @@ Assuming that the nftables rule is empty now, then continue.</p>
 <h2 id="2-installation">2 Installation</h2>
 <hr>
 <h5 id="step-1-download">Step 1: Download</h5>
-<p>The latest version is available at <a href="https://github.com/Janusec/janusec/releases">https://github.com/Janusec/janusec/releases</a> .</p>
+<p>Download links of Open Source Editions:</p>
+<ul>
+<li>Mirror 1 Github (USA):   <a href="https://github.com/Janusec/janusec/releases">Github Releases</a></li>
+<li>Mirror 2 Gitee (China):  <a href="https://gitee.com/Janusec/janusec/releases">Gitee Releases</a></li>
+</ul>
+<p>Download links of the Professional Plus Edition:</p>
+<ul>
+<li>Mirror 3 JANUSEC: <a href="https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz">Janusec Application Gateway Professional Plus</a></li>
+</ul>
+<p>The Professional Plus Edition is a further enhancement based on the open source version. The enhanced features are not open source and are only used for testing or experience (JANUSEC reserves the right to make changes to the enhanced features in future versions, including continued enhancements, deletions, etc.).</p>
+<p>Professional features：</p>
+<ul>
+<li>Cookie Compliance Management, include Cookie Banner, Consent Management and Cookie Discovery etc., provided from v1.4.2</li>
+<li>GSLB (Global Server Load Balance, with DNS Server) , provided from v1.4.2</li>
+</ul>
+<p>Please download to the home directory of current user <code>/home/xxx/</code> or other directories except the installation directory, and then extract it：</p>
 <blockquote>
-<p>$cd ~<br>
-$wget <code>https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-$tar zxf ./janusec-1.4.2-amd64.tar.gz</p>
+<p>$tar zxf ./janusec-1.4.2-amd64.tar.gz</p>
 </blockquote>
 <h5 id="step-2-install">Step 2: Install</h5>
-<p>Switch to root and run install.sh , janusec application gateway will be installed to <code>/usr/local/janusec/ </code></p>
+<p>Switch to <code>root</code> and run install.sh , janusec application gateway will be installed to <code>/usr/local/janusec/ </code></p>
 <blockquote>
 <p>$su<br>
 #cd janusec-1.4.x-amd64  <br>

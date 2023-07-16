@@ -13,7 +13,11 @@
       <pubDate>Thu, 24 May 2018 20:37:42 +0800</pubDate>
       
       <guid>/dl/</guid>
-      <description>Download  Janusec Application Gateway    Type Mirror Download     Latest Release JANUSEC (USA/美国) janusec-1.4.2-amd64.tar.gz   All Release Github (USA/美国) Github Release   All Release Gitee (China/中国) Gitee Release    All Release    Version Mirror Download     All Release Github (USA/美国) Github Release   All Release Gitee (China/中国) Gitee Release    Source Code    Type Mirror Download     Source Code USA Github    </description>
+      <description>Download  1 Open Source Releases of Janusec Application Gateway Download Links:
+ Mirror 1 Github (USA): Github Releases Mirror 2 Gitee (China): Gitee Releases  2 Other Releases The Professional Plus Edition of Janusec Application Gateway is available at Janusec Application Gateway Professional Plus
+Professional Features:
+ Cookie Compliance Management GSLB with DNS Server  These features are not open source and only for testing and experience only.
+3 Source Code  Github Gitee  </description>
     </item>
     
     <item>
@@ -24,7 +28,7 @@
       <guid>/documentation/quick-start/</guid>
       <description>Quick Start  快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
-0 Requirements     Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) SQLite3 or PostgreSQL 10/11/12+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    1 Prepare nftables  nftables used for CC defense.</description>
+0 Requirements     Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered) SQLite3 or PostgreSQL 10/11/12/13+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered) Not required    1 Prepare nftables  nftables used for CC defense.</description>
     </item>
     
     <item>
@@ -36,7 +40,7 @@ This document will guide you to install a Single-Node Janusec Application Gatewa
       <description>快速入门  Switch to English Edition of Quick Start
 如果您只是想快速体验一下，可参考附录：在容器中部署JANUSEC应用网关 ，并跳过下面的安装部分。
 本文将指导您正常安装一个单节点的JANUSEC应用网关（只有一个主节点，没有副本节点）。
-0 安装需求     节点 操作系统 数据库     主节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables SQLite3 或 PostgreSQL 10/11/12+   副本节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    备注：
+0 安装需求     节点 操作系统 数据库     主节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10/11, x86_64, 使用 systemd和nftables SQLite3 或 PostgreSQL 10/11/12/13+   副本节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10/11, x86_64, 使用 systemd和nftables 不需要    备注：
 本入门只安装一个主节点，不安装副本节点，如需扩展，可参考安装一节。
 Janusec v1.0.0所支持的最低数据库版本为PostgreSQL 9.6，建议直接使用PostgreSQL 10/11/12+版本 。
 如果您的PostgreSQL版本低于9.6，则不支持 。
@@ -95,7 +99,7 @@ nftables for Debian 10:
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/cn/installation/</guid>
-      <description>安装  需求    节点 操作系统 数据库     主节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables PostgreSQL 10/11/12+   副本节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10, x86_64, 使用 systemd和nftables 不需要    准备主机防火墙nftables  nftables用于拦截CC攻击，减轻应用网关压力。
+      <description>安装  需求    节点 操作系统 数据库     主节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10/11, x86_64, 使用 systemd和nftables PostgreSQL 10/11/12/13+   副本节点 Debian 9/10/11+, CentOS/RHEL 7/8+, 首选Debian 10/11, x86_64, 使用 systemd和nftables 不需要    准备主机防火墙nftables  nftables用于拦截CC攻击，减轻应用网关压力。
 Debian 10安装nftables：
  apt install nftables
  CentOS 7默认没有安装nftables，需要手工安装并启动：
@@ -499,7 +503,7 @@ PostgreSQL Use psql to check PostgreSQL Connection:
       <guid>/cn/diagnose/</guid>
       <description>问题诊断  部署  当安装Jausec时遇到问题，可先对照此检查表进行检查。
 操作系统 操作系统需要为x86_64架构的如下操作系统之一：
- Debian 9/10/11+ (首选Debian 10+) CentOS 7/8+ RHEL 7/8+  时间 服务器时间请先校准，时区不限，但需要保证时间正确，误差在一分钟之内。
+ Debian 9/10/11+ (首选Debian 10/11+) CentOS 7/8+ RHEL 7/8+  时间 服务器时间请先校准，时区不限，但需要保证时间正确，误差在一分钟之内。
 服务管理工具 服务管理工具为systemd，检查方法，在命令行运行：
  command -v systemctl
  （预期结果为：/usr/bin/systemctl）
@@ -510,7 +514,7 @@ PostgreSQL 使用psql命令来检查配置是否正常：
 如果登录验证不成功，可参考 运维管理 中的PostgreSQL安装部分。
 在PSQL Shell中执行版本检查：
  select version();
- 版本要求为10以上（不支持早于PostgreSQL 9.5的版本）。
+ 版本要求为10以上（不支持早于PostgreSQL 9.6的版本）。
  show SERVER_ENCODING;
  要求数据库编码为UTF8 。
 端口  netstat -anp | grep LISTEN | grep &#39;:\(80\|443\)\s&#39;
@@ -699,6 +703,59 @@ API Key (API密钥)用于验证发送方的身份，可请JANUCAT管理员提供
  检测手机号（假设是以1开头的11位数字）的正则表达式可写为：
  ^1\d{10}$
  数据发现结果 数据发现上报的结果，需要登录JANUCAT查看。</description>
+    </item>
+    
+    <item>
+      <title>Appendix 6: Cookie Compliance</title>
+      <link>/documentation/appendix-cookie/</link>
+      <pubDate>Sun, 16 Jul 2023 14:18:32 +0800</pubDate>
+      
+      <guid>/documentation/appendix-cookie/</guid>
+      <description>Cookie Compliance  1 Introduction to Cookie Compliance Cookies are a typical technology for achieving statistical analysis, personalized recommendations, and personalized marketing/advertising.
+They are also subject to personal data protection (such as GDPR) and privacy protection laws (such as ePrivacy Directive/Regulation), and supervisions are becoming increasingly strict.
+In areas where relevant laws apply, directly implanting unnecessary cookies into a user&amp;rsquo;s terminal device without obtaining their explicit consent is suspected of infringing on user privacy.</description>
+    </item>
+    
+    <item>
+      <title>附录6: Cookie合规</title>
+      <link>/cn/appendix-cookie/</link>
+      <pubDate>Sun, 16 Jul 2023 14:18:32 +0800</pubDate>
+      
+      <guid>/cn/appendix-cookie/</guid>
+      <description>Cookie合规  1 Cookie合规简介 Cookie是实现统计分析、个性化推荐、个性化营销/广告的典型技术，同时适用个人数据保护（如GDPR）和隐私保护相关法律（如ePrivacy Directive/Regulation），监管日趋严格。
+在相关法律适用地区，在没有获得用户的明示同意之前，直接将非必要Cookie植入用户的终端设备涉嫌侵犯用户隐私。
+Janusec Application Gateway 的增强体验版提供了Cookie合规管理功能，而开源版本不含此功能。
+2 Cookie Banner 启用 在应用管理中，打开需启用Cookie管理的应用，勾选启用Cookie合规管理并保存，此时配置界面会新增两个Tab配置页面，分别为应用Cookie设置和应用Cookie管理 。
+其中，应用Cookie设置 可以定制Cookie Banner的展示内容； 应用Cookie管理 对具体Cookie字段进行分类，用于决定是否允许设置到用户的终端设备。
+3 Cookie扫描 管理员使用自己的用户侧计算机，访问目标网站，在Cookie Banner弹窗中启用未分类Cookie进行扫描，步骤如下：
+ 用户侧：请确保域名指向网关的主节点 用户侧：用浏览器打开目标网站，如果没有出现Cookie偏好设置窗口，请点击窗口左下角的Cookie图标 用户侧：在Cookie偏好设置窗口，启用未分类Cookie并确认，然后浏览可能设置Cookie的页面 网关侧：点击上方刷新按钮，查看识别出的Cookie清单 网关侧：检查或修改每一Cookie类型，直至未分类Cookie数量清零 用户侧：如果未分类Cookie已清零，在Cookie偏好设置窗口禁用未分类Cookie 用户侧：浏览目标网站，检查Cookie设置是否生效  4 Cookie清理 在 应用Cookie管理 界面，随着时间的增加，由于业务的变更、黑客的扫描行为，待分类Cookie会增加，其中大部分可能来自于黑客的扫描行为，这部分可以直接删除。
+如果是来自业务的真实Cookie，则将其正确分类。
+5 管理Cookie引用 Cookie引用的作用是对Cookie进行自动分类。
+您可以将常见的Cookie纳入管理，比如各种统计分析插件。</description>
+    </item>
+    
+    <item>
+      <title>Appendix 7: GSLB</title>
+      <link>/documentation/appendix-gslb/</link>
+      <pubDate>Sun, 16 Jul 2023 15:18:32 +0800</pubDate>
+      
+      <guid>/documentation/appendix-gslb/</guid>
+      <description>GSLB (Global Server Load Balance)  1 GSLB Introduction GSLB (Global Server Load Balance) can automatically schedule traffic through custom DNS servers based on the user&amp;rsquo;s IP address.
+The professional plus edition of Janussec Application Gateway has built-in DNS server and GSLB scheduling function on the primary node, while the open source edition does not include this feature.
+2 Enable GSLB Refer to the following steps to enable GSLB (Global Server Load Balance) if you have multiple gateway nodes deployed.</description>
+    </item>
+    
+    <item>
+      <title>附录7: GSLB</title>
+      <link>/cn/appendix-gslb/</link>
+      <pubDate>Sun, 16 Jul 2023 15:18:32 +0800</pubDate>
+      
+      <guid>/cn/appendix-gslb/</guid>
+      <description>GSLB (全局负载均衡)  1 GSLB简介 GSLB (全局负载均衡) 可以根据用户的IP地址，通过自定义DNS服务器实现对流量的自动调度。
+Janusec Application Gateway 的增强体验版在主节点内置了DNS服务器和GSLB调度功能，而开源版本不含此功能。
+2 启用GSLB 如果部署了多个网关节点，参阅以下步骤启用GSLB（全局负载均衡）。
+假设您为互联网用户提供服务的Web应用网站为 https://demo.example.com ，自定义域名服务器为 ns01.example.com （使用Janusec Application Gateway主节点自带的DNS服务器） ：
+ 步骤1：检查开通服务器的防火墙策略（TCP/UDP 53），以Debian 11为例： #ufw allow 53 步骤2：确保端口53没有被其他应用程序占用，通常在Debian 11中53端口已经被占用，先停用： #systemctl stop systemd-resolved and #systemctl disable systemd-resolved, then check with: #netstat -antulp | grep :53 步骤3：在 全局设置-高级，启用DNS服务器并重启服务： #systemctl restart janusec 步骤4：在权威DNS服务器处（小型企业或个人域名通常为域名注册商），为网关域名服务器添加A记录（或CNAME记录），名称为ns01，值为本网关的IP地址；添加NS记录，名称为demo，值为ns01.example.com. 步骤5：在应用网关，创建A记录，名称为 demo ，勾选自动解析到可用的网关节点 步骤6（重要）：在域名注册商处，创建DNS Hostnames（也就是Glue Records），名称为ns01，值为本网关的IP地址；此记录大约需要24到48小时生效；如果此记录缺失，此DNS服务器将不被其他DNS服务器认可 步骤7：检查应用配置，确保后端源服务器对所有网关节点网络可达 步骤8：使用浏览器或命令行测试验证： nslookup demo.example.com, or dig demo.example.com A  </description>
     </item>
     
   </channel>

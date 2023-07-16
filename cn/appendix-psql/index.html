@@ -152,6 +152,16 @@
               <a href="/cn/appendix-data-discovery/">附录5: 数据发现</a>
             </li>
           
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-cookie/">附录6: Cookie合规</a>
+            </li>
+          
+            <li class="list__post list-group-item">
+              <span></span>
+              <a href="/cn/appendix-gslb/">附录7: GSLB</a>
+            </li>
+          
         </ul>
       </div>
       <div class="col-sm-9">
@@ -229,6 +239,19 @@ systemctl restart postgresql-10</p>
 <li><code>\h</code> : 查看所有关键字</li>
 <li><code>\?</code> : 获取帮助</li>
 </ul>
+<h3 id="23-忘记密码">2.3 忘记密码</h3>
+<p>如果忘记数据库密码，可使用<code>root</code>权限切换到<code>postgres</code>用户:</p>
+<blockquote>
+<p>sudo su - postgres</p>
+</blockquote>
+<p>然后运行psql进入数据库控制台：</p>
+<blockquote>
+<p>psql</p>
+</blockquote>
+<p>切换数据库:</p>
+<blockquote>
+<p>\c janusec;</p>
+</blockquote>
 
             </article>
       </div>
