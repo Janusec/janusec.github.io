@@ -1,279 +1,169 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/product/</loc>
     <lastmod>2018-06-13T22:02:26+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/dl/</loc>
     <lastmod>2018-05-24T20:37:42+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/quick-start/</loc>
     <lastmod>2018-05-17T22:28:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/quick-start/</loc>
     <lastmod>2018-05-17T22:28:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/product/janusec-application-gateway/</loc>
     <lastmod>2018-05-11T20:58:57+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/introduction/</loc>
     <lastmod>2018-05-12T08:10:40+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/introduction/</loc>
     <lastmod>2018-05-12T08:10:40+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/installation/</loc>
     <lastmod>2018-05-19T10:11:09+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/installation/</loc>
     <lastmod>2018-05-19T10:11:09+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/configuration/</loc>
     <lastmod>2020-03-22T10:11:09+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/configuration/</loc>
     <lastmod>2020-03-22T10:11:09+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/admin/</loc>
     <lastmod>2018-05-19T10:11:09+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/admin/</loc>
     <lastmod>2018-05-19T10:11:09+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/certificate-management/</loc>
     <lastmod>2018-05-20T21:05:08+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/certificate-management/</loc>
     <lastmod>2018-05-20T21:05:08+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/application-management/</loc>
     <lastmod>2018-05-20T21:58:35+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/application-management/</loc>
     <lastmod>2018-05-20T21:58:35+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/node-management/</loc>
     <lastmod>2018-05-20T22:38:35+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/node-management/</loc>
     <lastmod>2018-05-20T22:38:35+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/waf-management/</loc>
     <lastmod>2018-05-21T21:27:20+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/waf-management/</loc>
     <lastmod>2018-05-21T21:27:20+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/operation-management/</loc>
     <lastmod>2018-05-25T21:04:25+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/operation-management/</loc>
     <lastmod>2018-05-25T21:04:25+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/oauth2/</loc>
     <lastmod>2020-03-28T23:04:25+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/oauth2/</loc>
     <lastmod>2020-03-28T23:04:25+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/migrate-to-janusec/</loc>
     <lastmod>2018-06-06T21:56:05+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/migrate-to-janusec/</loc>
     <lastmod>2018-06-06T21:56:05+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/update-janusec/</loc>
     <lastmod>2018-06-10T20:11:45+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/update-janusec/</loc>
     <lastmod>2018-06-10T20:11:45+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/pricing/</loc>
     <lastmod>2018-06-03T12:00:30+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/faq/</loc>
     <lastmod>2018-05-12T07:45:49+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/faq/</loc>
     <lastmod>2018-05-12T07:45:49+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/user-agreement/</loc>
     <lastmod>2018-05-20T20:38:58+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/diagnose/</loc>
     <lastmod>2018-08-05T11:52:52+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/diagnose/</loc>
     <lastmod>2018-08-05T10:16:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/appendix-re2/</loc>
     <lastmod>2020-04-09T14:16:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/appendix-re2/</loc>
     <lastmod>2020-04-09T14:16:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/appendix-psql/</loc>
     <lastmod>2022-01-01T14:01:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/appendix-psql/</loc>
     <lastmod>2022-01-01T14:01:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/appendix-ha/</loc>
     <lastmod>2020-04-09T14:16:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/appendix-ha/</loc>
     <lastmod>2020-04-09T14:16:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/appendix-docker/</loc>
     <lastmod>2023-01-24T11:58:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/appendix-docker/</loc>
     <lastmod>2023-01-24T11:58:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/appendix-data-discovery/</loc>
     <lastmod>2023-03-19T20:11:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/appendix-data-discovery/</loc>
     <lastmod>2023-03-19T20:11:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/appendix-cookie/</loc>
     <lastmod>2023-07-16T14:18:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/appendix-cookie/</loc>
     <lastmod>2023-07-16T14:18:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/appendix-gslb/</loc>
     <lastmod>2023-07-16T15:18:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/appendix-gslb/</loc>
     <lastmod>2023-07-16T15:18:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/documentation/</loc>
     <lastmod>2023-07-16T15:18:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/</loc>
     <lastmod>2018-05-11T21:03:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/cn/</loc>
     <lastmod>2018-05-11T21:03:34+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/</loc>
     <lastmod>2018-05-11T20:58:57+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/gateway/</loc>
     <lastmod>2018-05-11T20:58:57+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
   </url>
-  
 </urlset>

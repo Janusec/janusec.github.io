@@ -15,7 +15,7 @@
       <guid>/product/janusec-application-gateway/</guid>
       <description>Janusec Application Gateway, an application security solutions for public cloud, private cloud, and traditional IDC, which provides web routing, load balancing, and web application firewall. With Janusec, you can build secure and scalable applications.
 Janusec Application Gateway Introduction PDF
-Key Features:  Web Application Firewall ( HTTPS support, No Agent Required ) Unified Web Administration Certificate Protection (Encryption) Scalable Architecture with Load Balance  Make Defense Simple  SQL Injection Cross-site Scripting Sensitive Data Leakage CC Attacks Block, Captcha, ByPass policy Group Policy with Multiple Check Points  Scalable Architecture  Single node for small scale web applications Multiple nodes for large scale web applications  Quick Start</description>
+Key Features: Web Application Firewall ( HTTPS support, No Agent Required ) Unified Web Administration Certificate Protection (Encryption) Scalable Architecture with Load Balance Make Defense Simple SQL Injection Cross-site Scripting Sensitive Data Leakage CC Attacks Block, Captcha, ByPass policy Group Policy with Multiple Check Points Scalable Architecture Single node for small scale web applications Multiple nodes for large scale web applications Quick Start</description>
     </item>
     
   </channel>

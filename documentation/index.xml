@@ -13,9 +13,9 @@
       <pubDate>Thu, 17 May 2018 22:28:32 +0800</pubDate>
       
       <guid>/documentation/quick-start/</guid>
-      <description>Quick Start  快速入门中文版
+      <description>Quick Start 快速入门中文版
 This document will guide you to install a Single-Node Janusec Application Gateway.
-0 Requirements     Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered) SQLite3 or PostgreSQL 10/11/12/13+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered) Not required    1 Prepare nftables  nftables used for CC defense.</description>
+0 Requirements Role Operating System Database Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered) SQLite3 or PostgreSQL 10/11/12/13+ Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10/11 is prefered) Not required 1 Prepare nftables nftables used for CC defense. You can view the ruleset through:</description>
     </item>
     
     <item>
@@ -24,9 +24,9 @@ This document will guide you to install a Single-Node Janusec Application Gatewa
       <pubDate>Sat, 12 May 2018 08:10:40 +0800</pubDate>
       
       <guid>/documentation/introduction/</guid>
-      <description>Introduction  Janusec Application Gateway, an application security solutions for public cloud, private cloud, and traditional IDC, which provides web routing, load balancing, and web application firewall. With Janusec, you can build secure and scalable applications.
+      <description>Introduction Janusec Application Gateway, an application security solutions for public cloud, private cloud, and traditional IDC, which provides web routing, load balancing, and web application firewall. With Janusec, you can build secure and scalable applications.
 Janusec Application Gateway Introduction PDF
- Features:  Web Application Firewall ( HTTPS support, No Agent Required ) Load Balance Encrypted Certificates Manager Mater and Replica Nodes Supported   Make Defense Simple  SQL Injection Cross-site Scripting Sensitive Data Leakage CC Attacks Block, Captcha, ByPass Policy Group Policy with Multiple Check Points   Make Administration Simple  Administration by Web Browser Integrated Administration Center   Make Architecture Scalable  Multiple Gateway Nodes   Data Protection  Private Keys Encrypted  </description>
+Features: Web Application Firewall ( HTTPS support, No Agent Required ) Load Balance Encrypted Certificates Manager Mater and Replica Nodes Supported Make Defense Simple SQL Injection Cross-site Scripting Sensitive Data Leakage CC Attacks Block, Captcha, ByPass Policy Group Policy with Multiple Check Points Make Administration Simple Administration by Web Browser Integrated Administration Center Make Architecture Scalable Multiple Gateway Nodes Data Protection Private Keys Encrypted </description>
     </item>
     
     <item>
@@ -35,9 +35,11 @@ Janusec Application Gateway Introduction PDF
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/documentation/installation/</guid>
-      <description>Installation  Requirements    Role Operating System Database     Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) PostgreSQL 10/11/12+   Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required    Prepare nftables  nftables used for CC defense.
+      <description>Installation Requirements Role Operating System Database Primary Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) PostgreSQL 10/11/12+ Replica Node Debian 9/10/11+, or CentOS/RHEL 7/8+, x86_64, with systemd and nftables (Debian 10 is prefered) Not required Prepare nftables nftables used for CC defense.
 nftables for Debian 10:
- apt install nftables</description>
+apt install nftables
+nftables is not installed for CentOS 7 by default, installation is required:
+#yum -y install nftables</description>
     </item>
     
     <item>
@@ -46,10 +48,10 @@ nftables for Debian 10:
       <pubDate>Sun, 22 Mar 2020 10:11:09 +0800</pubDate>
       
       <guid>/documentation/configuration/</guid>
-      <description>Configuration File  Path of Configuration File  Production environment: /usr/local/janusec/config.json
+      <description>Configuration File Path of Configuration File Production environment: /usr/local/janusec/config.json
 Development environment: ./config.json
-Configuration Items  The following is based on Janusec Application Gateway V1.0.0+, and use // as comment, please delete // comment before using it.
-{&amp;quot;node_role&amp;quot;: &amp;quot;primary&amp;quot;, // &amp;quot;primary&amp;quot; for primary node, &amp;quot;replica&amp;quot; for replica nodes&amp;quot;primary_node&amp;quot;: { // keep empty for replica nodes&amp;quot;admin&amp;quot;: { // Administrator portal&amp;quot;listen&amp;quot;: true, // Listen on new ports for admin portal&amp;quot;listen_http&amp;quot;: &amp;quot;:9080&amp;quot;, // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available&amp;quot;listen_https&amp;quot;: &amp;quot;:9443&amp;quot;, // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available&amp;quot;portal&amp;quot;: &amp;quot;https://gate.</description>
+Configuration Items The following is based on Janusec Application Gateway V1.0.0+, and use // as comment, please delete // comment before using it.
+{&amp;#34;node_role&amp;#34;: &amp;#34;primary&amp;#34;, // &amp;#34;primary&amp;#34; for primary node, &amp;#34;replica&amp;#34; for replica nodes&amp;#34;primary_node&amp;#34;: { // keep empty for replica nodes&amp;#34;admin&amp;#34;: { // Administrator portal&amp;#34;listen&amp;#34;: true, // Listen on new ports for admin portal&amp;#34;listen_http&amp;#34;: &amp;#34;:9080&amp;#34;, // Format :port or IP:Port，when listen is true, http://IP:9080/janusec-admin/ is available&amp;#34;listen_https&amp;#34;: &amp;#34;:9443&amp;#34;, // Format :port or IP:Port，when listen is true, https://any_application_domain:9443/janusec-admin/ is available&amp;#34;portal&amp;#34;: &amp;#34;https://gate.</description>
     </item>
     
     <item>
@@ -58,13 +60,14 @@ Configuration Items  The following is based on Janusec Application Gateway V1.0.
       <pubDate>Sat, 19 May 2018 10:11:09 +0800</pubDate>
       
       <guid>/documentation/admin/</guid>
-      <description>Web Administration  Administration Portal  When listen=false in config.json :
- http://your_primary_node_ip_address/janusec-admin/ (first use) https://your_application_domain_name/janusec-admin/ (after certificate configured)
+      <description>Web Administration Administration Portal When listen=false in config.json :
+http://your_primary_node_ip_address/janusec-admin/ (first use) https://your_application_domain_name/janusec-admin/ (after certificate configured)
 When listen=true in config.json :
-  http://your_primary_node_ip_address:9080/janusec-admin/ (first use) https://your_primary_node_domain_name:9443/janusec-admin/ (after certificate configured)
- When using primary node only, any application domain name can be used for admin.
+http://your_primary_node_ip_address:9080/janusec-admin/ (first use) https://your_primary_node_domain_name:9443/janusec-admin/ (after certificate configured)
+When using primary node only, any application domain name can be used for admin.
 But if you have one or more replica nodes, you should apply for a seperate domain name for primary node.
-Digital Certificate Management see Certificate Management</description>
+Digital Certificate Management see Certificate Management
+Application Management see Application Management</description>
     </item>
     
     <item>
@@ -73,7 +76,7 @@ Digital Certificate Management see Certificate Management</description>
       <pubDate>Sun, 20 May 2018 21:05:08 +0800</pubDate>
       
       <guid>/documentation/certificate-management/</guid>
-      <description>Certificate Management  Scenario: You can add and maintain the digital certificate you already have here (for example, the certificate of a corporate website).
+      <description>Certificate Management Scenario: You can add and maintain the digital certificate you already have here (for example, the certificate of a corporate website).
 If you don&amp;rsquo;t have a digital certificate and want JANUSEC to automatically apply for and manage a digital certificate, you can skip this section and do not need to configure it here (usually applicable to personal websites).
 Certificate List Open web administration portal and navigate to Certificate Management.</description>
     </item>
@@ -84,10 +87,10 @@ Certificate List Open web administration portal and navigate to Certificate Mana
       <pubDate>Sun, 20 May 2018 21:58:35 +0800</pubDate>
       
       <guid>/documentation/application-management/</guid>
-      <description>Application Management  1 Add or Edit Application Open web administration portal and navigate to Application Management.
+      <description>Application Management 1 Add or Edit Application Open web administration portal and navigate to Application Management.
 2 Scheme (HTTP/HTTPS) Backend scheme (From Application Gateway to Backend Server) is usually in intranet, select http by default, digital certiface is not required.
 Note：
- Scheme From User&amp;rsquo;s Web Browser to Application Gateway is usually HTTPS (digital certificate is required), by ticking the following &amp;ldquo;Redirect HTTP to HTTPS&amp;rdquo;. If you have a certificate already, you can import it at Certificate Management .</description>
+Scheme From User&amp;rsquo;s Web Browser to Application Gateway is usually HTTPS (digital certificate is required), by ticking the following &amp;ldquo;Redirect HTTP to HTTPS&amp;rdquo;. If you have a certificate already, you can import it at Certificate Management .</description>
     </item>
     
     <item>
@@ -96,7 +99,7 @@ Note：
       <pubDate>Sun, 20 May 2018 22:38:35 +0800</pubDate>
       
       <guid>/documentation/node-management/</guid>
-      <description>Node Management  Node Type  Primary Node, there must have one and only one Primary Node, and a PostgreSQL is required. Replica Node, optional, no database required.  Single Node Architecture  One Primary Node. No DNS Load Balance required. For small scale web applications.  Multiple Nodes Architecture  One Primary Node and multiple Replica Nodes Architecture. Only the Primary Node requires a PostgreSQL database. GSLB or DNS Load Balance required.</description>
+      <description>Node Management Node Type Primary Node, there must have one and only one Primary Node, and a PostgreSQL is required. Replica Node, optional, no database required. Single Node Architecture One Primary Node. No DNS Load Balance required. For small scale web applications. Multiple Nodes Architecture One Primary Node and multiple Replica Nodes Architecture. Only the Primary Node requires a PostgreSQL database. GSLB or DNS Load Balance required. For large scale web applications.</description>
     </item>
     
     <item>
@@ -105,14 +108,14 @@ Note：
       <pubDate>Mon, 21 May 2018 21:27:20 +0800</pubDate>
       
       <guid>/documentation/waf-management/</guid>
-      <description>WAF Management  Add or Edit WAF Policy Typical Check Points  Example: http://www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2
- URLPath: /blog/show.php
+      <description>WAF Management Add or Edit WAF Policy Typical Check Points Example: http://www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2
+URLPath: /blog/show.php
 URLQuery: id=1&amp;amp;category=2
 GetPostKey: [id, category]
 GetPostValue: [1, 2]
- GetPostKey, GetPostValue used for both GET and POST method
+GetPostKey, GetPostValue used for both GET and POST method
 If you want to check url values only ( GET Only ), please select URLQuery .
- Regular Expression Janusec Application Gateway adopts Google RE2 Regular Expression . In order to simplify configuration, Janusec Application Gateway will preprocess the values to be detected.</description>
+Regular Expression Janusec Application Gateway adopts Google RE2 Regular Expression . In order to simplify configuration, Janusec Application Gateway will preprocess the values to be detected.</description>
     </item>
     
     <item>
@@ -121,7 +124,9 @@ If you want to check url values only ( GET Only ), please select URLQuery .
       <pubDate>Fri, 25 May 2018 21:04:25 +0800</pubDate>
       
       <guid>/documentation/operation-management/</guid>
-      <description>Operation Management  Deployment Architecture    Architecture Primary Node Replica Node Description     Single-Node One None small scale applications with unified web management   Scalable One Any large scale applications with unified web management   Multiple Autonomous System Any Any Any Single or Scalable Architectures, maintained by different teams, each autonomous system has an unified web management portal.    Admin Account Web Administration address is one of the following:</description>
+      <description>Operation Management Deployment Architecture Architecture Primary Node Replica Node Description Single-Node One None small scale applications with unified web management Scalable One Any large scale applications with unified web management Multiple Autonomous System Any Any Any Single or Scalable Architectures, maintained by different teams, each autonomous system has an unified web management portal. Admin Account Web Administration address is one of the following:
+When listen=false in config.json :
+http://your_primary_node_ip_address/janusec-admin/ (first use) https://your_application_domain_name/janusec-admin/ (after certificate configured)</description>
     </item>
     
     <item>
@@ -130,12 +135,12 @@ If you want to check url values only ( GET Only ), please select URLQuery .
       <pubDate>Sat, 28 Mar 2020 23:04:25 +0800</pubDate>
       
       <guid>/documentation/oauth2/</guid>
-      <description>OAuth2 Authentication  Introduction Janusec Application Gateway supports the following authentication：
- LDAP CAS 2.0 WeWork DingTalk Feishu Lark  Used for janusec-admin, and internal applications, for employees.
+      <description>OAuth2 Authentication Introduction Janusec Application Gateway supports the following authentication：
+LDAP CAS 2.0 WeWork DingTalk Feishu Lark Used for janusec-admin, and internal applications, for employees.
 Configuration Enable authentication in Web admin UI.
 How to Get UserID in Applications Janusec will add the following headers if authentication passed.
- X-Auth-Token: Access-Token X-Auth-User: UserID
- The application can use the identity authentication function without modification, and can also obtain user identity (WeWork/Dingtalk/Feishu/Lark) through X-Auth-User, or obtain further information with Access-Token (WeWork/Feishu/Lark).</description>
+X-Auth-Token: Access-Token X-Auth-User: UserID
+The application can use the identity authentication function without modification, and can also obtain user identity (WeWork/Dingtalk/Feishu/Lark) through X-Auth-User, or obtain further information with Access-Token (WeWork/Feishu/Lark).</description>
     </item>
     
     <item>
@@ -144,11 +149,12 @@ How to Get UserID in Applications Janusec will add the following headers if auth
       <pubDate>Wed, 06 Jun 2018 21:56:05 +0800</pubDate>
       
       <guid>/documentation/migrate-to-janusec/</guid>
-      <description>Migrate to Janusec Application Gateway  Scenario: Migrate the published Web application to be published through the JANUSEC application gateway.
+      <description>Migrate to Janusec Application Gateway Scenario: Migrate the published Web application to be published through the JANUSEC application gateway.
 Step 1: Install and Configure Janusec Application Gateway Refer to Installation, install janusec application gateway and configure digital certificate, application.
 Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\System32\drivers\etc\hosts ( not the Gateway) for test.
- the_gateway_ip your_domain_name
- Then, open web browser and navigate to https://your_domain_name.</description>
+the_gateway_ip your_domain_name
+Then, open web browser and navigate to https://your_domain_name.
+Step 3: Modify DNS If test OK, modify your DNS setting for production, let domain name point to the gateway, and restore your local hosts.</description>
     </item>
     
     <item>
@@ -157,17 +163,17 @@ Step 2: Hosts Test After configuration, modify you local hosts file C:\Windows\S
       <pubDate>Sun, 10 Jun 2018 20:11:45 +0800</pubDate>
       
       <guid>/documentation/update-janusec/</guid>
-      <description>Update to Latest Version   This article is only for upgrade, not for new installation.
- Latest version: v1.4.2 (Jul 15, 2023)
+      <description>Update to Latest Version This article is only for upgrade, not for new installation.
+Latest version: v1.4.2 (Jul 15, 2023)
 View current version The version information is available at admin portal, or:
- ./janusec --version
- From v0.9.10+ and 1.x.x You do not need to uninstall the old version, and update JANUSEC like this:
- #wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz
+./janusec --version
+From v0.9.10+ and 1.x.x You do not need to uninstall the old version, and update JANUSEC like this:
+#wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz
 #tar zxf ./janusec-1.4.2-amd64.tar.gz
 #cd janusec-1.4.x-amd64
 #./install.sh
 #systemctl restart janusec
- From V0.</description>
+From V0.9.9 First, nftables is required for CC defense from v0.</description>
     </item>
     
     <item>
@@ -176,7 +182,7 @@ View current version The version information is available at admin portal, or:
       <pubDate>Sun, 03 Jun 2018 12:00:30 +0800</pubDate>
       
       <guid>/documentation/pricing/</guid>
-      <description>Pricing for Janusec Application Gateway     Plans Pricing License     Community Free GNU AGPLv3    </description>
+      <description>Pricing for Janusec Application Gateway Plans Pricing License Community Free GNU AGPLv3 </description>
     </item>
     
     <item>
@@ -185,10 +191,10 @@ View current version The version information is available at admin portal, or:
       <pubDate>Sat, 12 May 2018 07:45:49 +0800</pubDate>
       
       <guid>/documentation/faq/</guid>
-      <description>FAQ  Q: What is the difference between Janusec Application Gateway and WAF ?  A: Janusec Application Gateway includes a WAF (Web Application Firewall), and Janusec eliminates the defects of traditional WAF.
- Q: Does it requires agent installation on business servers ?  A: No agent required.
- Q: Does it support https ?  A: Yes, https is naturally supported.
- Q: Is my private key secure ?</description>
+      <description>FAQ Q: What is the difference between Janusec Application Gateway and WAF ? A: Janusec Application Gateway includes a WAF (Web Application Firewall), and Janusec eliminates the defects of traditional WAF.
+Q: Does it requires agent installation on business servers ? A: No agent required.
+Q: Does it support https ? A: Yes, https is naturally supported.
+Q: Is my private key secure ? A: The private key of certificate is encrypted and stored in the database, and only occurs in the memory of your gateway nodes.</description>
     </item>
     
     <item>
@@ -197,7 +203,7 @@ View current version The version information is available at admin portal, or:
       <pubDate>Sun, 20 May 2018 20:38:58 +0800</pubDate>
       
       <guid>/documentation/user-agreement/</guid>
-      <description>User Agreement and Privacy Policy    THE PRODUCT IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE PRODUCT OR THE USE OR OTHER DEALINGS IN THE PRODUCT.</description>
+      <description>User Agreement and Privacy Policy THE PRODUCT IS PROVIDED &amp;ldquo;AS IS&amp;rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE PRODUCT OR THE USE OR OTHER DEALINGS IN THE PRODUCT.</description>
     </item>
     
     <item>
@@ -206,13 +212,14 @@ View current version The version information is available at admin portal, or:
       <pubDate>Sun, 05 Aug 2018 11:52:52 +0800</pubDate>
       
       <guid>/documentation/diagnose/</guid>
-      <description>Diagnose  Deployment  Operating System Operating System should be x86_64 and one of the following:
- Debian 9/10/11+ (Debian 10+ is preferred) CentOS 7/8+ RHEL 7/8+  Time Please make sure the time is correct, time zone may be any.
+      <description>Diagnose Deployment Operating System Operating System should be x86_64 and one of the following:
+Debian 9/10/11+ (Debian 10+ is preferred) CentOS 7/8+ RHEL 7/8+ Time Please make sure the time is correct, time zone may be any.
 Service Management systemd is used for Service Management , check :
- command -v systemctl
- (Expect result: /usr/bin/systemctl)
+command -v systemctl
+(Expect result: /usr/bin/systemctl)
 PostgreSQL Use psql to check PostgreSQL Connection:
- psql -h 127.</description>
+psql -h 127.0.0.1 -U janusec -W janusec
+If not OK, refer to Operation Management , PostgreSQL part.</description>
     </item>
     
     <item>
@@ -221,12 +228,13 @@ PostgreSQL Use psql to check PostgreSQL Connection:
       <pubDate>Thu, 09 Apr 2020 14:16:34 +0800</pubDate>
       
       <guid>/documentation/appendix-re2/</guid>
-      <description>Appendix 1: RE2 Regex  JANUSEC Application Gateway uses Google RE2 Regular Expression 。
+      <description>Appendix 1: RE2 Regex JANUSEC Application Gateway uses Google RE2 Regular Expression 。
 Regex Rule Example 1 Checkpoint: URLPath
 Description: checkpoint URLPath represents the path after the domain name in the URL address, for example www.yourdomain.com/blog/show.php?id=1&amp;amp;category=2 ，URLPath is /blog/show.php
 RE2 Rule:
- (?i)/\.(git|svn)/
- Description: (?i) represents case insensitive，/ represents itself, \\. matches the decimal point，(git|svn) matches git or svn, used to block access to the wrongly released source code.</description>
+(?i)/\.(git|svn)/
+Description: (?i) represents case insensitive，/ represents itself, \\. matches the decimal point，(git|svn) matches git or svn, used to block access to the wrongly released source code.
+Regex Rule Example 2 Checkpoint: URLQuery</description>
     </item>
     
     <item>
@@ -235,12 +243,12 @@ RE2 Rule:
       <pubDate>Sat, 01 Jan 2022 14:01:34 +0800</pubDate>
       
       <guid>/documentation/appendix-psql/</guid>
-      <description>Appendix 2: PostgreSQL Operations  1 PostgreSQL Installation PostgreSQL is not included in the release package, you should prepare it before installation, required by the Primary Node.
+      <description>Appendix 2: PostgreSQL Operations 1 PostgreSQL Installation PostgreSQL is not included in the release package, you should prepare it before installation, required by the Primary Node.
 Before the installation of the Primary Node, dbname, dbuser and password should be ready.
-1.1 Example with Debian 10 and PostgreSQL 11  apt install postgresql
+1.1 Example with Debian 10 and PostgreSQL 11 apt install postgresql
 su - postgres
 psql
-  CREATE USER janusec WITH PASSWORD &amp;lsquo;J@nusec123&amp;rsquo;;
+CREATE USER janusec WITH PASSWORD &amp;lsquo;J@nusec123&amp;rsquo;;
 CREATE DATABASE janusec OWNER janusec WITH ENCODING &amp;lsquo;UTF8&amp;rsquo;; GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;</description>
     </item>
     
@@ -250,10 +258,10 @@ CREATE DATABASE janusec OWNER janusec WITH ENCODING &amp;lsquo;UTF8&amp;rsquo;; 
       <pubDate>Thu, 09 Apr 2020 14:16:34 +0800</pubDate>
       
       <guid>/documentation/appendix-ha/</guid>
-      <description>Appendix 3: High Availability Configuration  1 Architecture Description JANUSEC Application Gateway itself supports the installation of one primary node and multiple replica nodes for load balancing.
+      <description>Appendix 3: High Availability Configuration 1 Architecture Description JANUSEC Application Gateway itself supports the installation of one primary node and multiple replica nodes for load balancing.
 If you need to guarantee the high availability of a single node, you can build a high availability node with keepalived.
 The recommended architecture for high availability deployment is:
- deploy a master node dedicated to backend management, not open to users deploy two or more replica nodes (Replica) and install keepalived on each replica node  The following two replica nodes, assuming IP addresses 192.</description>
+deploy a master node dedicated to backend management, not open to users deploy two or more replica nodes (Replica) and install keepalived on each replica node The following two replica nodes, assuming IP addresses 192.</description>
     </item>
     
     <item>
@@ -262,7 +270,7 @@ The recommended architecture for high availability deployment is:
       <pubDate>Tue, 24 Jan 2023 11:58:32 +0800</pubDate>
       
       <guid>/documentation/appendix-docker/</guid>
-      <description>Deploy JANUSEC Application Gateway in Docker Container  The JANUSEC application gateway is preferred to be deployed directly on the Linux server and listens on port 80/443. It can be used as the K8S Ingress Controller to forward external user requests to K8S Pods (each Pod listens on the same port). If you adopt the direct deployment mode, you can ignore the following content and see Quick Start.
+      <description>Deploy JANUSEC Application Gateway in Docker Container The JANUSEC application gateway is preferred to be deployed directly on the Linux server and listens on port 80/443. It can be used as the K8S Ingress Controller to forward external user requests to K8S Pods (each Pod listens on the same port). If you adopt the direct deployment mode, you can ignore the following content and see Quick Start.
 If you want to deploy JANUSEC application gateway inside docker container, please continue to read the following content, for experiential purposes only, not recommended for production environments.</description>
     </item>
     
@@ -272,7 +280,7 @@ If you want to deploy JANUSEC application gateway inside docker container, pleas
       <pubDate>Sun, 19 Mar 2023 20:11:32 +0800</pubDate>
       
       <guid>/documentation/appendix-data-discovery/</guid>
-      <description>Data Discovery  Data Discovery Introduction In global settings, when the Data Discovery function is enabled, the application gateway will check the field values in the request and response.
+      <description>Data Discovery Data Discovery Introduction In global settings, when the Data Discovery function is enabled, the application gateway will check the field values in the request and response.
 When a Data Discovery rule is hit, it will report it to JANUCAT (Compliance, Accountability and Transparency) for data privacy governance.
 Data Discovery Report When a Data Discovery rule is hit, it will be reported to JANUCAT through the API.
 In order to verify the identity of the sender, an API Key is required.</description>
@@ -284,7 +292,7 @@ In order to verify the identity of the sender, an API Key is required.</descript
       <pubDate>Sun, 16 Jul 2023 14:18:32 +0800</pubDate>
       
       <guid>/documentation/appendix-cookie/</guid>
-      <description>Cookie Compliance  1 Introduction to Cookie Compliance Cookies are a typical technology for achieving statistical analysis, personalized recommendations, and personalized marketing/advertising.
+      <description>Cookie Compliance 1 Introduction to Cookie Compliance Cookies are a typical technology for achieving statistical analysis, personalized recommendations, and personalized marketing/advertising.
 They are also subject to personal data protection (such as GDPR) and privacy protection laws (such as ePrivacy Directive/Regulation), and supervisions are becoming increasingly strict.
 In areas where relevant laws apply, directly implanting unnecessary cookies into a user&amp;rsquo;s terminal device without obtaining their explicit consent is suspected of infringing on user privacy.</description>
     </item>
@@ -295,7 +303,7 @@ In areas where relevant laws apply, directly implanting unnecessary cookies into
       <pubDate>Sun, 16 Jul 2023 15:18:32 +0800</pubDate>
       
       <guid>/documentation/appendix-gslb/</guid>
-      <description>GSLB (Global Server Load Balance)  1 GSLB Introduction GSLB (Global Server Load Balance) can automatically schedule traffic through custom DNS servers based on the user&amp;rsquo;s IP address.
+      <description>GSLB (Global Server Load Balance) 1 GSLB Introduction GSLB (Global Server Load Balance) can automatically schedule traffic through custom DNS servers based on the user&amp;rsquo;s IP address.
 The professional plus edition of Janussec Application Gateway has built-in DNS server and GSLB scheduling function on the primary node, while the open source edition does not include this feature.
 2 Enable GSLB Refer to the following steps to enable GSLB (Global Server Load Balance) if you have multiple gateway nodes deployed.</description>
     </item>
