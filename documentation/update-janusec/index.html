@@ -188,10 +188,9 @@
 <p><code>./janusec --version</code></p>
 </blockquote>
 <h4 id="from-v0910-and-1xx">From v0.9.10+ and 1.x.x</h4>
-<p>You do not need to uninstall the old version, and update JANUSEC like this:</p>
+<p>You do not need to uninstall the old version, just download the latest package and update JANUSEC like this:</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
+<p>#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
 #<code>cd janusec-1.4.x-amd64</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
@@ -209,20 +208,19 @@
 <p>#systemctl enable firewalld<br>
 #systemctl start firewalld</p>
 </blockquote>
-<p>Then, update JANUSEC like this:</p>
+<p>Then, download the latest package and update JANUSEC like this:</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
+<p>#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
 #<code>cd /data/janusec-1.4.x/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
 <h4 id="from-v095v098">From V0.9.5~V0.9.8</h4>
 <p>Step 1:</p>
-<p>config.json changed in V0.9.9, so backup and new config.json is required:</p>
+<p>config.json changed in V0.9.9, so backup and new config.json is required.<br>
+And then, download the latest package and update JANUSEC like this:</p>
 <blockquote>
 <p>#<code>cd /data/</code><br>
-#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
 #<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
 #<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
 #<code>cp ./janusec-1.4.x/config.json.primary_bak /usr/local/janusec/config.json</code></p>

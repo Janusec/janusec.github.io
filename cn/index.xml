@@ -247,8 +247,7 @@ the_gateway_ip your_domain_name
 最新版本: v1.4.2 (2023.07.15)
 查看当前版本 当前版本信息可通过管理入口查看，或者:
 ./janusec --version
-从v0.9.10+或1.x.x升级 不用卸载，直接覆盖安装即可。
-#wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz
+从v0.9.10+或1.x.x升级 不用卸载，直接下载最新安装文件，覆盖安装即可。
 #tar zxf ./janusec-1.4.2-amd64.tar.gz
 #cd /data/janusec-1.4.x/
 #./install.sh
@@ -261,8 +260,7 @@ CentOS 7默认没有安装nftables，需要手工安装并启动：
 CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动firewalld：
 #systemctl enable firewalld
 #systemctl start firewalld
-然后覆盖安装即可：
-#wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz
+下载最新安装文件，然后覆盖安装即可：
 #tar zxf ./janusec-1.4.2-amd64.tar.gz
 #cd /data/janusec-1.4.x/
 #./install.sh
@@ -270,9 +268,11 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 从V0.9.5~V0.9.8 升级 第一步：
 V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在/data/janusec-1.4.2-amd64.tar.gz，升级步骤参考：
 #cd /data/
-#wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz
 #tar zxf ./janusec-1.4.2-amd64.tar.gz
-#mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</description>
+#mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old
+#cp ./janusec-1.4.x/config.json.primary_bak /usr/local/janusec/config.json
+需要编辑新的/usr/local/janusec/config.json，参考配置文件，重新设置数据库账号口令等信息。
+#vi /usr/local/janusec/config.json</description>
     </item>
     
     <item>
@@ -355,7 +355,7 @@ RE2规则：
 su - postgres
 psql
 CREATE USER janusec WITH PASSWORD &#39;J@nusec123&#39;;
-CREATE DATABASE janusec OWNER janusec WITH ENCODING &amp;lsquo;UTF8&amp;rsquo;;
+CREATE DATABASE janusec WITH OWNER janusec ENCODING &#39;UTF8&#39;;
 GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;
 \q
 exit

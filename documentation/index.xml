@@ -167,8 +167,7 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
 Latest version: v1.4.2 (Jul 15, 2023)
 View current version The version information is available at admin portal, or:
 ./janusec --version
-From v0.9.10+ and 1.x.x You do not need to uninstall the old version, and update JANUSEC like this:
-#wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz
+From v0.9.10+ and 1.x.x You do not need to uninstall the old version, just download the latest package and update JANUSEC like this:
 #tar zxf ./janusec-1.4.2-amd64.tar.gz
 #cd janusec-1.4.x-amd64
 #./install.sh
@@ -249,7 +248,7 @@ Before the installation of the Primary Node, dbname, dbuser and password should 
 su - postgres
 psql
 CREATE USER janusec WITH PASSWORD &amp;lsquo;J@nusec123&amp;rsquo;;
-CREATE DATABASE janusec OWNER janusec WITH ENCODING &amp;lsquo;UTF8&amp;rsquo;; GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;</description>
+CREATE DATABASE janusec WITH OWNER janusec ENCODING &#39;UTF8&#39;; GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;</description>
     </item>
     
     <item>

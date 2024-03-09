@@ -179,7 +179,7 @@ psql</p>
 </blockquote>
 <blockquote>
 <p>CREATE USER janusec WITH PASSWORD '<code>J@nusec123</code>';<br>
-CREATE DATABASE janusec OWNER janusec WITH ENCODING &lsquo;UTF8&rsquo;;<br>
+CREATE DATABASE janusec WITH OWNER janusec ENCODING 'UTF8';<br>
 GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;<br>
 \q<br>
 exit<br>
@@ -203,7 +203,7 @@ psql -h 127.0.0.1 -U janusec -W janusec</p>
 <p>接下来，在PostgreSQL的指令控制台继续操作：</p>
 <blockquote>
 <p>postgres=# CREATE USER <code>janusec</code> WITH PASSWORD '<code>J@nusec123</code>';<br>
-postgres=# CREATE DATABASE janusec OWNER janusec WITH ENCODING &lsquo;UTF8&rsquo;;   <br>
+postgres=# CREATE DATABASE janusec WITH OWNER janusec ENCODING 'UTF8';   <br>
 postgres=# GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;<br>
 postgres=# \q<br>
 exit</p>

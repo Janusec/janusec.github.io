@@ -178,10 +178,9 @@
 <p><code>./janusec --version</code></p>
 </blockquote>
 <h3 id="从v0910或1xx升级">从v0.9.10+或1.x.x升级</h3>
-<p>不用卸载，直接覆盖安装即可。</p>
+<p>不用卸载，直接下载最新安装文件，覆盖安装即可。</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
+<p>#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
 #<code>cd /data/janusec-1.4.x/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
@@ -199,10 +198,9 @@
 <p>#systemctl enable firewalld<br>
 #systemctl start firewalld</p>
 </blockquote>
-<p>然后覆盖安装即可：</p>
+<p>下载最新安装文件，然后覆盖安装即可：</p>
 <blockquote>
-<p>#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
+<p>#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
 #<code>cd /data/janusec-1.4.x/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
@@ -212,7 +210,6 @@
 V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在<code>/data/janusec-1.4.2-amd64.tar.gz</code>，升级步骤参考：</p>
 <blockquote>
 <p>#<code>cd /data/</code><br>
-#<code>wget https://www.janusec.com/download/janusec-1.4.2-amd64.tar.gz</code><br>
 #<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
 #<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
 #<code>cp ./janusec-1.4.x/config.json.primary_bak /usr/local/janusec/config.json</code></p>

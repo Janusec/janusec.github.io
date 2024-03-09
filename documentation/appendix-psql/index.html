@@ -189,7 +189,7 @@ psql</p>
 </blockquote>
 <blockquote>
 <p>CREATE USER janusec WITH PASSWORD &lsquo;J@nusec123&rsquo;;<br>
-CREATE DATABASE janusec OWNER janusec WITH ENCODING &lsquo;UTF8&rsquo;; <br>
+CREATE DATABASE janusec WITH OWNER janusec ENCODING 'UTF8'; <br>
 GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;<br>
 \q<br>
 exit<br>
@@ -211,7 +211,7 @@ psql -h 127.0.0.1 -U janusec -W janusec</p>
 <p>PostgreSQL Shell</p>
 <blockquote>
 <p>postgres=# CREATE USER <code>janusec</code> WITH PASSWORD '<code>your_password</code>';<br>
-postgres=# CREATE DATABASE janusec OWNER janusec WITH ENCODING &lsquo;UTF8&rsquo;;   <br>
+postgres=# CREATE DATABASE janusec WITH OWNER janusec ENCODING 'UTF8';   <br>
 postgres=# GRANT ALL PRIVILEGES ON DATABASE janusec TO janusec;<br>
 postgres=# \q<br>
 exit</p>
