@@ -181,20 +181,26 @@
 <blockquote>
 <p>This article is only for upgrade, not for new installation.</p>
 </blockquote>
-<p>Latest version: v1.4.2 (Jul 15, 2023)</p>
+<p>Latest version: v1.5.0 (Mar 24, 2024)</p>
 <h4 id="view-current-version">View current version</h4>
 <p>The version information is available at admin portal, or:</p>
 <blockquote>
 <p><code>./janusec --version</code></p>
 </blockquote>
-<h4 id="from-v0910-and-1xx">From v0.9.10+ and 1.x.x</h4>
+<h4 id="from-v0910--14x">From v0.9.10+ ~ 1.4.x</h4>
 <p>You do not need to uninstall the old version, just download the latest package and update JANUSEC like this:</p>
 <blockquote>
-<p>#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>cd janusec-1.4.x-amd64</code><br>
+<p>#<code>tar zxf ./janusec-1.5.x-amd64.tar.gz</code><br>
+#<code>cd janusec-1.5.x-amd64</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
+<p>Notice: If you have previously enabled Dingtalk OAuth2 authentication, the following changes need to be made when upgrading to this version：</p>
+<ul>
+<li>In the global settings interface of the gateway, configure the CorpId parameter, which can be obtained from the Dingtalk development platform.</li>
+<li>In Dingtalk development platform, upgrade the application and release a version of it.</li>
+<li>Under privilege management of Dingtalk development platform, grant all users the privilege of reading the personal information address book (通讯录个人信息读权限).</li>
+</ul>
 <h4 id="from-v099">From V0.9.9</h4>
 <p>First, nftables is required for CC defense from v0.9.10.</p>
 <p>nftables is not installed for CentOS 7 by default, installation is required:</p>
@@ -210,8 +216,8 @@
 </blockquote>
 <p>Then, download the latest package and update JANUSEC like this:</p>
 <blockquote>
-<p>#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
-#<code>cd /data/janusec-1.4.x/</code><br>
+<p>#<code>tar zxf ./janusec-1.5.x-amd64.tar.gz</code><br>
+#<code>cd /data/janusec-1.5.x-amd64/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>
@@ -221,9 +227,9 @@
 And then, download the latest package and update JANUSEC like this:</p>
 <blockquote>
 <p>#<code>cd /data/</code><br>
-#<code>tar zxf ./janusec-1.4.2-amd64.tar.gz</code><br>
+#<code>tar zxf ./janusec-1.5.x-amd64.tar.gz</code><br>
 #<code>mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old</code><br>
-#<code>cp ./janusec-1.4.x/config.json.primary_bak /usr/local/janusec/config.json</code></p>
+#<code>cp ./janusec-1.5.x-amd64/config.json.primary_bak /usr/local/janusec/config.json</code></p>
 </blockquote>
 <p>Edit <code>/usr/local/janusec/config.json</code>, refer to <a href="/documentation/configuration/">Configuration File</a>, set database information.</p>
 <blockquote>
@@ -234,7 +240,7 @@ And then, download the latest package and update JANUSEC like this:</p>
 <p>Step 3:</p>
 <p>Install the latest version（config.json will not be overwrote if it exists.）：</p>
 <blockquote>
-<p>#<code>cd /data/janusec-1.4.x/</code><br>
+<p>#<code>cd /data/janusec-1.5.x-amd64/</code><br>
 #<code>./install.sh</code><br>
 #<code>systemctl restart janusec</code></p>
 </blockquote>

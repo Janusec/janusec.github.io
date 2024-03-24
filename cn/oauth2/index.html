@@ -180,7 +180,11 @@
 </ul>
 <p>并同时作用于管理后台，以及员工访问内网应用。</p>
 <h3 id="配置">配置</h3>
-<p>如需启用，请在Web设置界面开启。</p>
+<p>如需启用:</p>
+<ul>
+<li>在Web管理界面 - <code>全局设置</code> 中开启</li>
+<li>如果希望登录本网关时也启用OAuth2，还在配置文件<code>config.json</code>中，配置<code>portal</code>字段，即后台管理入口，配合回调使用，格式：<code>https://gate.example.com/janusec-admin/</code>  或 <code>https://gate.example.com:9443/janusec-admin/</code></li>
+</ul>
 <h3 id="应用如何获取用户身份">应用如何获取用户身份</h3>
 <p>Janusec认证通过后，会在HTTP请求的头部添加两行：</p>
 <blockquote>
@@ -255,11 +259,17 @@ X-Auth-User: <code>UserID</code></p>
 </blockquote>
 <p>请在钉钉开放平台注册一个自建应用（H5微应用），获取下面的信息。</p>
 <blockquote>
-<p>&ldquo;appid&rdquo;: &ldquo;dingoa8xvc&rdquo;,  （请复制使用H5微应用的<code>AppKey</code>，<code>这里容易出错!!!</code>）<br>
-&ldquo;appsecret&rdquo;: &ldquo;crrALdXUIj4T0zBekYh4u9sU_T1GZT&rdquo;</p>
+<p>&ldquo;CorpId&rdquo;: &ldquo;xxxxxxxx&rdquo;  ， 从钉钉开放平台登录后的首页获取<br>
+&ldquo;Client ID&rdquo;: &ldquo;dingoa8xvc&rdquo;  ， 钉钉开放平台 - 应用开发 - 应用 - 凭证与基础信息，请复制使用 <code>Client ID</code>， 即之前版本中的<code>AppKey</code>，<code>这里容易出错!!!</code><br>
+&ldquo;Client Secret&rdquo;: &ldquo;crrALdXUIj4T0zBekYh4u9sU_T1GZT&rdquo; ，请复制使用 <code>Client Secret</code>， 即之前版本中的<code>AppSecret</code></p>
 </blockquote>
-<p>appsecret即上述自建应用的Secret，请据实修改。</p>
-<p>然后在&quot;登录与分享&quot;菜单下面添加上述callback回调地址。</p>
+<p>据实填写到网关设置中，在钉钉开放平台中还需要执行一些配置：</p>
+<ul>
+<li>在钉钉开放平台 - 应用 - <code>网页应用</code> 菜单下面，添加<code>应用首页地址</code>，格式：<code>https://gateway.example.com/</code> （不带端口号和路径）</li>
+<li>在钉钉开放平台 - 应用 - <code>分享设置</code> 菜单下面，添加上述callback回调地址</li>
+<li>在钉钉开放平台 - 应用 - <code>权限管理</code> 菜单下面，授权所有用户 <code>通讯录个人信息读权限</code></li>
+<li>在钉钉开放平台 - 应用 - <code>版本管理与发布</code> 菜单下面， 创建一个版本进行发布</li>
+</ul>
 <h3 id="飞书配置">飞书配置</h3>
 <p>需要在飞书开放平台注册Web应用(比如名称JANUSEC)并经企业管理员审核通过。<br>
 需要在飞书开放平台后台配置&quot;安全设置&quot;-&ldquo;重定向URL&rdquo;，配置为&quot;https://your_domain.com/oauth/feishu&quot;</p>

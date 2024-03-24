@@ -137,10 +137,8 @@ http://your_primary_node_ip_address/janusec-admin/ (first use) https://your_appl
       <guid>/documentation/oauth2/</guid>
       <description>OAuth2 Authentication Introduction Janusec Application Gateway supports the following authentication：
 LDAP CAS 2.0 WeWork DingTalk Feishu Lark Used for janusec-admin, and internal applications, for employees.
-Configuration Enable authentication in Web admin UI.
-How to Get UserID in Applications Janusec will add the following headers if authentication passed.
-X-Auth-Token: Access-Token X-Auth-User: UserID
-The application can use the identity authentication function without modification, and can also obtain user identity (WeWork/Dingtalk/Feishu/Lark) through X-Auth-User, or obtain further information with Access-Token (WeWork/Feishu/Lark).</description>
+Configuration 如需启用:
+Enable authentication in Web admin - Global Settings. If you want to enable OAuth2 for administration this gateway, please configure the field portal in the configuration file config.json，format: https://gate.example.com/janusec-admin/ or https://gate.example.com:9443/janusec-admin/ How to Get UserID in Applications Janusec will add the following headers if authentication passed.</description>
     </item>
     
     <item>
@@ -164,15 +162,15 @@ Step 3: Modify DNS If test OK, modify your DNS setting for production, let domai
       
       <guid>/documentation/update-janusec/</guid>
       <description>Update to Latest Version This article is only for upgrade, not for new installation.
-Latest version: v1.4.2 (Jul 15, 2023)
+Latest version: v1.5.0 (Mar 24, 2024)
 View current version The version information is available at admin portal, or:
 ./janusec --version
-From v0.9.10+ and 1.x.x You do not need to uninstall the old version, just download the latest package and update JANUSEC like this:
-#tar zxf ./janusec-1.4.2-amd64.tar.gz
-#cd janusec-1.4.x-amd64
+From v0.9.10+ ~ 1.4.x You do not need to uninstall the old version, just download the latest package and update JANUSEC like this:
+#tar zxf ./janusec-1.5.x-amd64.tar.gz
+#cd janusec-1.5.x-amd64
 #./install.sh
 #systemctl restart janusec
-From V0.9.9 First, nftables is required for CC defense from v0.</description>
+Notice: If you have previously enabled Dingtalk OAuth2 authentication, the following changes need to be made when upgrading to this version：</description>
     </item>
     
     <item>
@@ -303,8 +301,8 @@ In areas where relevant laws apply, directly implanting unnecessary cookies into
       
       <guid>/documentation/appendix-gslb/</guid>
       <description>GSLB (Global Server Load Balance) 1 GSLB Introduction GSLB (Global Server Load Balance) can automatically schedule traffic through custom DNS servers based on the user&amp;rsquo;s IP address.
-The professional plus edition of Janussec Application Gateway has built-in DNS server and GSLB scheduling function on the primary node, while the open source edition does not include this feature.
-2 Enable GSLB Refer to the following steps to enable GSLB (Global Server Load Balance) if you have multiple gateway nodes deployed.</description>
+After GSLB is enabled, the primary node will be mainly used for management and DNS resolution, and will not participate in load balancing of business traffic. The load traffic will all use replica nodes.
+The professional plus edition of Janussec Application Gateway has built-in DNS server and GSLB scheduling function on the primary node, while the open source edition does not include this feature.</description>
     </item>
     
   </channel>

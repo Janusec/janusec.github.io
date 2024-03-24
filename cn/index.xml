@@ -196,8 +196,8 @@ CentOS/RHEL 7: /usr/lib/systemd/system/janusec Debian 9: /lib/systemd/system/jan
       <guid>/cn/oauth2/</guid>
       <description>OAuth2统一身份认证 简介 Janusec Application Gateway支持如下身份认证：
 LDAP CAS 2.0 企业微信扫码登录 钉钉扫码登录 飞书扫码登录 Lark扫码登录 并同时作用于管理后台，以及员工访问内网应用。
-配置 如需启用，请在Web设置界面开启。
-应用如何获取用户身份 Janusec认证通过后，会在HTTP请求的头部添加两行：
+配置 如需启用:
+在Web管理界面 - 全局设置 中开启 如果希望登录本网关时也启用OAuth2，还在配置文件config.json中，配置portal字段，即后台管理入口，配合回调使用，格式：https://gate.example.com/janusec-admin/ 或 https://gate.example.com:9443/janusec-admin/ 应用如何获取用户身份 Janusec认证通过后，会在HTTP请求的头部添加两行：
 X-Auth-Token: Access-Token X-Auth-User: UserID
 应用不需要修改即可使用身份认证功能，也可以通过X-Auth-User获取用户身份（企业微信/钉钉/飞书），或者借助Access-Token（企业微信/飞书）获取进一步的信息。
 LDAP配置 登录界面显示:
@@ -217,9 +217,7 @@ CAS 2.0 // 显示在登录界面
 &amp;ldquo;entrance&amp;rdquo;: &amp;ldquo;https://cas_server/cas&amp;rdquo;,
 // 回调地址，使用网关域名，以/oauth/cas2结尾，不带端口号
 &amp;ldquo;callback&amp;rdquo;: &amp;ldquo;http://gate.janusec.com/oauth/cas2&amp;quot;
-企业微信配置 登录界面显示:
-&amp;ldquo;display_name&amp;rdquo;: &amp;ldquo;Login with WeChat Work&amp;rdquo;,
-回调地址(需要同时在该应用&amp;quot;开发者接口&amp;quot;一栏配置&amp;quot;授权回调域&amp;rdquo;，配置一个常用的应用域名作为网关的访问域名，并需要修改下面的http/https及域名，后面的路径不变，也不带端口号):</description>
+企业微信配置 登录界面显示:</description>
     </item>
     
     <item>
@@ -244,15 +242,16 @@ the_gateway_ip your_domain_name
       
       <guid>/cn/update-janusec/</guid>
       <description>升级到新版本JANUSEC应用网关 本文仅供旧版本升级参考，新安装请忽略。
-最新版本: v1.4.2 (2023.07.15)
+最新版本: v1.5.0 (2024.03.24)
 查看当前版本 当前版本信息可通过管理入口查看，或者:
 ./janusec --version
-从v0.9.10+或1.x.x升级 不用卸载，直接下载最新安装文件，覆盖安装即可。
-#tar zxf ./janusec-1.4.2-amd64.tar.gz
-#cd /data/janusec-1.4.x/
+从v0.9.10+ ~ 1.4.x升级 不用卸载，直接下载最新安装文件，覆盖安装即可。
+#tar zxf ./janusec-1.5.x-amd64.tar.gz
+#cd /data/janusec-1.5.x-amd64/
 #./install.sh
 #systemctl restart janusec
-从V0.9.9升级 从V0.9.10开始，启用nftables，用于拦截CC攻击，减轻应用网关压力。
+注意：如果您以前启用过Dingtalk OAuth2身份验证，则升级到此版本时需要进行以下更改：
+在网关的全局设置界面中，配置CorpId参数，该参数可从钉钉开发平台获取 在钉钉开发平台中，升级应用程序并发布版本 在钉钉发展平台的权限管理下，授予所有用户 通讯录个人信息读权限 从V0.9.9升级 从V0.9.10开始，启用nftables，用于拦截CC攻击，减轻应用网关压力。
 CentOS 7默认没有安装nftables，需要手工安装并启动：
 #yum -y install nftables
 #systemctl enable nftables
@@ -261,18 +260,15 @@ CentOS 8已内置nftables，并作为firewalld的后端，只需要手工启动f
 #systemctl enable firewalld
 #systemctl start firewalld
 下载最新安装文件，然后覆盖安装即可：
-#tar zxf ./janusec-1.4.2-amd64.tar.gz
-#cd /data/janusec-1.4.x/
+#tar zxf ./janusec-1.5.x-amd64.tar.gz
+#cd /data/janusec-1.5.x-amd64/
 #./install.sh
 #systemctl restart janusec
 从V0.9.5~V0.9.8 升级 第一步：
-V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在/data/janusec-1.4.2-amd64.tar.gz，升级步骤参考：
+V0.9.9修改了配置文件格式，请备份config.json，并复制一份新的config.json，假设您下载的安装包在/data/janusec-1.5.x-amd64.tar.gz，升级步骤参考：
 #cd /data/
-#tar zxf ./janusec-1.4.2-amd64.tar.gz
-#mv /usr/local/janusec/config.json /usr/local/janusec/config.json.old
-#cp ./janusec-1.4.x/config.json.primary_bak /usr/local/janusec/config.json
-需要编辑新的/usr/local/janusec/config.json，参考配置文件，重新设置数据库账号口令等信息。
-#vi /usr/local/janusec/config.json</description>
+#tar zxf ./janusec-1.5.x-amd64.tar.gz
+#mv /usr/local/janusec/config.</description>
     </item>
     
     <item>
@@ -459,8 +455,8 @@ Janusec Application Gateway 的增强体验版提供了Cookie合规管理功能�
 2 Cookie Banner 启用 在应用管理中，打开需启用Cookie管理的应用，勾选启用Cookie合规管理并保存，此时配置界面会新增两个Tab配置页面，分别为应用Cookie设置和应用Cookie管理 。
 其中，应用Cookie设置 可以定制Cookie Banner的展示内容； 应用Cookie管理 对具体Cookie字段进行分类，用于决定是否允许设置到用户的终端设备。
 3 Cookie扫描 管理员使用自己的用户侧计算机，访问目标网站，在Cookie Banner弹窗中启用未分类Cookie进行扫描，步骤如下：
-用户侧：请确保域名指向网关的主节点 用户侧：用浏览器打开目标网站，如果没有出现Cookie偏好设置窗口，请点击窗口左下角的Cookie图标 用户侧：在Cookie偏好设置窗口，启用未分类Cookie并确认，然后浏览可能设置Cookie的页面 网关侧：点击上方刷新按钮，查看识别出的Cookie清单 网关侧：检查或修改每一Cookie类型，直至未分类Cookie数量清零 用户侧：如果未分类Cookie已清零，在Cookie偏好设置窗口禁用未分类Cookie 用户侧：浏览目标网站，检查Cookie设置是否生效 4 Cookie清理 在 应用Cookie管理 界面，随着时间的增加，由于业务的变更、黑客的扫描行为，待分类Cookie会增加，其中大部分可能来自于黑客的扫描行为，这部分可以直接删除。
-如果是来自业务的真实Cookie，则将其正确分类。
+用户侧：请确保域名指向网关的主节点 用户侧：用浏览器打开目标网站，如果没有出现Cookie偏好设置窗口，请点击窗口左下角的Cookie图标 用户侧：在Cookie偏好设置窗口，启用未分类Cookie并确认，然后浏览可能设置Cookie的页面 网关侧：点击上方刷新按钮，查看识别出的Cookie清单 网关侧：检查或修改每一Cookie类型，直至未分类Cookie数量清零 用户侧：如果未分类Cookie已清零，在Cookie偏好设置窗口禁用未分类Cookie 用户侧：浏览目标网站，检查Cookie设置是否生效 4 Cookie清理 在 应用Cookie管理 界面，随着时间的增加，由于业务的变更或黑客的扫描行为，未分类Cookie可能会增加（启用同意未分类Cookie的情况下）.
+因此在业务发生变更时，需需要扫描并审视未分类Cookie，如果是来自业务的真实Cookie，则将其正确分类。
 5 管理Cookie引用 Cookie引用的作用是对Cookie进行自动分类。
 您可以将常见的Cookie纳入管理，比如各种统计分析插件。</description>
     </item>
@@ -472,6 +468,7 @@ Janusec Application Gateway 的增强体验版提供了Cookie合规管理功能�
       
       <guid>/cn/appendix-gslb/</guid>
       <description>GSLB (全局负载均衡) 1 GSLB简介 GSLB (全局负载均衡) 可以根据用户的IP地址，通过自定义DNS服务器实现对流量的自动调度。
+GSLB启用后，主节点将主要用于管理和DNS解析，不参与实际业务流量的负载均衡；负载流量将全部使用副本节点。
 Janusec Application Gateway 的增强体验版在主节点内置了DNS服务器和GSLB调度功能，而开源版本不含此功能。
 2 启用GSLB 如果部署了多个网关节点，参阅以下步骤启用GSLB（全局负载均衡）。
 假设您为互联网用户提供服务的Web应用网站为 https://demo.example.com ，自定义域名服务器为 ns01.example.com （使用Janusec Application Gateway主节点自带的DNS服务器） ：
