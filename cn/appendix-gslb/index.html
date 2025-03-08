@@ -171,7 +171,7 @@
 <h2 id="1-gslb简介">1 GSLB简介</h2>
 <p>GSLB (全局负载均衡) 可以根据用户的IP地址，通过自定义DNS服务器实现对流量的自动调度。</p>
 <p>GSLB启用后，主节点将主要用于管理和DNS解析，不参与实际业务流量的负载均衡；负载流量将全部使用副本节点。</p>
-<p>Janusec Application Gateway 的增强体验版在主节点内置了DNS服务器和GSLB调度功能，而开源版本不含此功能。</p>
+<p>自1.5.2版本开始，Janusec Application Gateway 在主节点内置了DNS服务器和GSLB调度功能（开源）。</p>
 <h2 id="2-启用gslb">2 启用GSLB</h2>
 <p>如果部署了多个网关节点，参阅以下步骤启用GSLB（全局负载均衡）。<br>
 假设您为互联网用户提供服务的Web应用网站为 <code>https://demo.example.com</code> ，自定义域名服务器为 <code>ns01.example.com</code> （使用Janusec Application Gateway主节点自带的DNS服务器） ：</p>

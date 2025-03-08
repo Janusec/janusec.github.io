@@ -181,7 +181,7 @@
 <h2 id="1-gslb-introduction">1 GSLB Introduction</h2>
 <p>GSLB (Global Server Load Balance) can automatically schedule traffic through custom DNS servers based on the user&rsquo;s IP address.</p>
 <p>After GSLB is enabled, the primary node will be mainly used for management and DNS resolution, and will not participate in load balancing of business traffic. The load traffic will all use replica nodes.</p>
-<p>The professional plus edition of Janussec Application Gateway has built-in DNS server and GSLB scheduling function on the primary node, while the open source edition does not include this feature.</p>
+<p>Since v1.5.2, Janussec Application Gateway has built-in DNS server and GSLB scheduling function on the primary node.</p>
 <h2 id="2-enable-gslb">2 Enable GSLB</h2>
 <p>Refer to the following steps to enable GSLB (Global Server Load Balance) if you have multiple gateway nodes deployed.</p>
 <p>Assuming you have an application that provides services to internet users through: <code>https://demo.example.com</code>, and the customized domain name server is <code>ns01.example.com</code> (use the DNS server provided by the primary node of Janusec Application Gateway):</p>
